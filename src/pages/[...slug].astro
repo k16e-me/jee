@@ -8,16 +8,31 @@ export async function getStaticPaths() {
 	const storyblokApi = useStoryblokApi(),
 		{ data } = await storyblokApi.get('cdn/links/', {
 			version: import.meta.env.DEV ? 'draft' : 'published',
+			per_page: 50,
 		})
 
-	let links = data.links
-	links = Object.values(links).filter(link => !(link.slug === 'settings'))
+	let links = data.links,
+		exceptions = [
+			'settings',
+			'global',
+			'awards',
+			'designations',
+			'profiles',
+			'category',
+			'offices',
+            'regions',
+		]
+	links = Object.values(links).filter(
+		(link) => !exceptions.includes(link.slug.split('/')[0]),
+	)
 
-	return links.map(link => {
+    console.log(links)
+
+	return links.map((link) => {
 		return {
 			params: {
-				slug: link.slug === 'home' ? undefined : link.slug
-			}
+				slug: link.slug === 'home' ? undefined : link.slug,
+			},
 		}
 	})
 }
@@ -30,7 +45,7 @@ const { slug } = Astro.params,
 		{
 			version: import.meta.env.DEV ? 'draft' : 'published',
 			resolve_links: 'url',
-		}
+		},
 	),
 	page = data.story,
 	content = page.content,

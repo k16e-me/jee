@@ -21,7 +21,7 @@ export default defineConfig({
             livePreview: false,
             bridge: import.meta.env.DEV,
             components: {
-                page: 'templates/Page'
+                page: 'types/Page'
             }
         })
     ],
