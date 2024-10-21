@@ -30,17 +30,16 @@ const { slug } = Astro.params,
 		{
 			version: import.meta.env.DEV ? 'draft' : 'published',
 			resolve_links: 'url',
-			resolve_relations: 'feature.entry'
 		}
 	),
 	page = data.story,
 	content = page.content,
-	meta = content.meta[0]
+	seo = content.seo[0]
 ---
 
 <Base
-	pageTitle={meta.title}
-	pageDescription={meta.description}
-	pageThumbnail={meta.image.filename}>
+	pageTitle={seo.title}
+	pageDescription={seo.description}
+	pageThumbnail={seo.thumbnail.filename}>
 	<StoryblokComponent blok={content} />
 </Base>
