@@ -4,7 +4,8 @@
 
 @layer base {
     :root {
-        
+        --color-text-caption: #454545;
+        --color-text-emphasis: #E80000;
 
         @media (prefers-color-scheme: dark) {
 
@@ -32,6 +33,9 @@
     }
     br[key] {
         display: none;
+    }
+    span {
+        transition: inherit;
     }
     /* For Webkit-based browsers (Chrome, Safari and Opera) */
     .scrollbar-hide::-webkit-scrollbar {

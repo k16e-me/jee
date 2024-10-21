@@ -1,0 +1,23 @@
+---
+import Icon from '@atoms/Icon.astro'
+import NavItem from '@atoms/NavItem.astro'
+import _slug from '@scripts/slug'
+import _empty from '@scripts/empty'
+
+const { links, class: classes, ...props } = Astro.props
+---
+
+<ul class:list={[classes, 'items-center h-full']} {...props}>
+	{
+		links.map((link) => (
+			<li class='group/li relative'>
+				<a
+					href={_slug(link.link)}
+					class='block p-4 transition duration-500'>
+					<NavItem link={link} />
+				</a>
+				{_empty()}
+			</li>
+		))
+	}
+</ul>
