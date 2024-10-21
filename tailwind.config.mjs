@@ -18,7 +18,8 @@ export default {
                 md: ['1.055rem', '1.675rem'],
             },
             fontFamily: {
-                sans: ['Kumbh Sans Variable, sans-serif', ...defaultTheme.fontFamily.sans]
+                sans: ['Instrument Sans Variable, sans-serif', ...defaultTheme.fontFamily.sans],
+                display: 'Urbanist Variable, sans-serif'
             },
             colors: {
                 accent: {

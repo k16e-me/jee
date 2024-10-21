@@ -1,5 +1,5 @@
 {
-    "name": "komponents",
+    "name": "jee",
     "type": "module",
     "version": "2.0",
     "scripts": {
@@ -12,7 +12,8 @@
     "dependencies": {
         "@astrojs/tailwind": "^5.1.2",
         "@botpoison/browser": "^0.1.30",
-        "@fontsource-variable/kumbh-sans": "^5.1.0",
+        "@fontsource-variable/instrument-sans": "^5.1.0",
+        "@fontsource-variable/urbanist": "^5.1.0",
         "@glidejs/glide": "^3.6.2",
         "@nanostores/persistent": "^0.10.2",
         "@storyblok/astro": "^5.0.2",
