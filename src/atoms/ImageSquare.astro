@@ -1,0 +1,44 @@
+---
+import { Image } from 'astro:assets'
+
+const {
+	filename,
+	square = true,
+	loading = 'eager',
+	lelo,
+	slat,
+	cover,
+	clip,
+	asArray,
+	class: classes,
+	...attrs
+} = Astro.props
+---
+
+<Image
+	src={filename}
+	alt={''}
+	widths={[576, 768, 960, 1280, 1600]}
+	sizes={`(max-width: 475px) 576px,
+        (max-width: 640px) 768px,
+        (max-width: 768px) 960px,
+        (max-width: 1024px) 1280px,
+        (max-width: 1280px) 1600px`}
+	quality={'high'}
+	inferSize
+	draggable='false'
+	loading={loading}
+	class:list={[
+		'object-cover',
+		square && 'aspect-square',
+		(lelo || slat) && 'aspect-[3/4] h-[520px] sm:h-[640px]',
+		lelo && 'md:h-[720px]',
+		slat && 'clip-path-xs',
+		cover &&
+			'aspect-video min-h-[376px] max-h-[376px] sm:min-h-[480px] sm:max-h-[520px] lg:min-h-[640px] lg:max-h-[640px]',
+		clip === 'y' && 'clip-path-y',
+		asArray && 'h-[520px] sm:h-[640px] md:h-[720px] max-h-[720px]',
+		classes,
+	]}
+	{...attrs}
+/>
