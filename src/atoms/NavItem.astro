@@ -6,12 +6,12 @@ const { link, children = false, class: classes, ...props } = Astro.props
 
 <span
 	class:list={[
-		'block text-[var(--color-text-caption)] group-hover/li:text-[var(--color-text-emphasis)] group-[&.active]/anchor:text-[var(--color-text-emphasis)]',
+		'text-[var(--color-text-caption)] group-hover/li:text-[var(--color-text-emphasis)] group-[&.active]/anchor:text-[var(--color-text-emphasis)] flex items-center gap-1',
 		classes,
 	]}
 	{...props}>
 	{link.label}
     { children &&  (
-        <Icon name="caret-down" class="w-3"/>
+        <Icon name="caret-down" class="w-3 text-inherit opacity-70"/>
     )}
 </span>
