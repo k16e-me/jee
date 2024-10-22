@@ -3,6 +3,7 @@ import Icon from '@atoms/Icon.astro'
 
 const {
 	link,
+    label,
 	icon,
 	style = 'default',
 	flipIcon,
@@ -18,9 +19,10 @@ const {
 		style === 'default' &&
 			'bg-[var(--color-bg-default-elevated)] text-[var(--color-text-emphasis)]',
 		style === 'blank' && 'bg-transparent text-[var(--color-text-body)]',
+		style === 'blank-brand' && 'bg-transparent text-[var(--color-text-emphasis)]',
 	]}
 	{...props}
-	aria-label={link.label}>
+	aria-label={label}>
 	<Icon
 		name={icon}
 		class:list={[

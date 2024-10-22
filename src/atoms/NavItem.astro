@@ -1,0 +1,13 @@
+---
+const { tag = 'a', class: classes, ...props } = Astro.props,
+	Tag = tag
+---
+
+<Tag
+	class:list={[
+		'block p-4 font-medium transition duration-300 group/ancho',
+		classes,
+	]}
+	{...props}>
+	<slot />
+</Tag>
