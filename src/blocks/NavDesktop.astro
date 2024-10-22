@@ -16,7 +16,7 @@ const { links, class: classes, ...props } = Astro.props
 					<button
 						class='block p-4 transition duration-200 group/anchor'
 						aria-label={`${link.label} Pages Dropdown`}>
-						<NavItem link={link} />
+						<NavItem link={link} children={!_empty(link.children)}/>
 					</button>
 				) : (
 					<a

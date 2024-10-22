@@ -1,7 +1,7 @@
 ---
 import Icon from '@atoms/Icon.astro'
 
-const { link, class: classes, ...props } = Astro.props
+const { link, children = false, class: classes, ...props } = Astro.props
 ---
 
 <span
@@ -11,4 +11,7 @@ const { link, class: classes, ...props } = Astro.props
 	]}
 	{...props}>
 	{link.label}
+    { children &&  (
+        <Icon name="caret-down" class="w-3"/>
+    )}
 </span>
