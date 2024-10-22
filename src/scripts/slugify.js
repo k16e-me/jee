@@ -1,5 +1,5 @@
-export default function _slugify(str) {
-    return str
+export default function _slugify(s) {
+    return s
         .replace(/^\s+|\s+$/g, '')
         .toLowerCase()
         .replace(/\/+/g, '-')
