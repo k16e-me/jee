@@ -1,18 +1,31 @@
 ---
 import Icon from '@atoms/Icon.astro'
 
-const { link, icon, class: classes, ...props } = Astro.props
+const {
+	link,
+	icon,
+	style = 'default',
+	flipIcon,
+	class: classes,
+	...props
+} = Astro.props
 ---
 
 <button
 	class:list={[
-		'bg-[var(--color-bg-default-elevated)] w-10 h-10 flex items-center justify-center group rounded-full',
+		'w-10 h-10 flex items-center justify-center group rounded-full',
 		classes,
+		style === 'default' &&
+			'bg-[var(--color-bg-default-elevated)] text-[var(--color-text-emphasis)]',
+		style === 'blank' && 'bg-transparent text-[var(--color-text-body)]',
 	]}
 	{...props}
-    aria-label={link.label}>
+	aria-label={link.label}>
 	<Icon
 		name={icon}
-		class='w-6 text-[var(--color-text-emphasis)] group-hover:scale-110 block transition duration-300'
+		class:list={[
+			'w-[22px] text-inherit group-hover:scale-110 block transition duration-300',
+            flipIcon && 'rotate-90'
+		]}
 	/>
 </button>
