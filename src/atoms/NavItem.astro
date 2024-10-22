@@ -4,9 +4,9 @@ import Icon from '@atoms/Icon.astro'
 const { link, children = false, class: classes, ...props } = Astro.props
 ---
 
-<span
+<div
 	class:list={[
-		'text-[var(--color-text-caption)] group-hover/li:text-[var(--color-text-emphasis)] group-[&.active]/anchor:text-[var(--color-text-emphasis)] flex items-center gap-1',
+		'text-[var(--color-text-caption)] group-hover/li:text-[var(--color-text-emphasis)] group-[&.active]/anchor:text-[var(--color-text-emphasis)] flex items-center gap-[3px] text-base 2xl:text-lg 3xl:text-xl',
 		classes,
 	]}
 	{...props}>
@@ -14,4 +14,4 @@ const { link, children = false, class: classes, ...props } = Astro.props
     { children &&  (
         <Icon name="caret-down" class="w-3 text-inherit opacity-70"/>
     )}
-</span>
+</div>
