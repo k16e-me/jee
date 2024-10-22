@@ -1,6 +1,7 @@
 import Swup from 'swup'
 import SwupProgressPlugin from '@swup/progress-plugin'
 import SwupHeadPlugin from '@swup/head-plugin'
+import _active from './active'
 
 const swup = new Swup({
     animationSelector: '[class*="swup-"]',
@@ -23,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
 swup.hooks.on('page:view', () => init())
 
 function init() {
-
+    _active()
 }
 
 function once() {

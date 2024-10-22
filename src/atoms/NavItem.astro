@@ -6,7 +6,7 @@ const { link, class: classes, ...props } = Astro.props
 
 <span
 	class:list={[
-		'block text-[var(--color-text-caption)] group-hover/li:text-[var(--color-text-emphasis)]',
+		'block text-[var(--color-text-caption)] group-hover/li:text-[var(--color-text-emphasis)] group-[&.active]/anchor:text-[var(--color-text-emphasis)]',
 		classes,
 	]}
 	{...props}>

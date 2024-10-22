@@ -2,6 +2,7 @@
 import Icon from '@atoms/Icon.astro'
 import NavItem from '@atoms/NavItem.astro'
 import _slug from '@scripts/slug'
+import _slugify from '@scripts/slugify'
 import _empty from '@scripts/empty'
 
 const { links, class: classes, ...props } = Astro.props
@@ -12,13 +13,17 @@ const { links, class: classes, ...props } = Astro.props
 		links.map((link) => (
 			<li class='group/li relative'>
 				{_empty(link.link.cached_url) ? (
-					<button class='block p-4 transition duration-500'>
+					<button
+						class='block p-4 transition duration-200 group/anchor'
+						aria-label={`${link.label} Pages Dropdown`}>
 						<NavItem link={link} />
 					</button>
 				) : (
 					<a
 						href={_slug(link.link)}
-						class='block p-4 transition duration-500'>
+						class='block p-4 transition duration-200 group/anchor'
+						data-anchor={_slugify(link.link.story.full_slug)}
+						aria-label={`${link.label} Page`}>
 						<NavItem link={link} />
 					</a>
 				)}
