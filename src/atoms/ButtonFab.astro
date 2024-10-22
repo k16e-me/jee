@@ -1,0 +1,18 @@
+---
+import Icon from '@atoms/Icon.astro'
+
+const { link, icon, class: classes, ...props } = Astro.props
+---
+
+<button
+	class:list={[
+		'bg-[var(--color-bg-default-elevated)] w-10 h-10 flex items-center justify-center group rounded-full',
+		classes,
+	]}
+	{...props}
+    aria-label={link.label}>
+	<Icon
+		name={icon}
+		class='w-6 text-[var(--color-text-emphasis)] group-hover:scale-110 block transition duration-300'
+	/>
+</button>

@@ -12,29 +12,21 @@ const { pageTitle, pageDescription, pageThumbnail, showNav, isError } =
 		resolve_links: 'url',
 	}),
 	site = settings.story.content
-
 ---
 
 <!doctype html>
-<html lang='en' class='scroll-smooth bg-white'>
+<html lang='en' class='scroll-smooth bg-[var(--color-bg-default)]'>
 	<Head
 		title={`${pageTitle} | ${site.title}`}
 		description={pageDescription || site.description}
 		image={pageThumbnail || '/thumbnail.png'}
 	/>
-	<body
-		class='max-w-screen-2xl mx-auto'>
-		<Header
-            nav={site.nav}
-		/>
-		<main
-			class:list={[]}
-			id='swup'>
+	<body class='max-w-screen-2xl mx-auto'>
+		<Header nav={site.nav} tools={site.tools}/>
+		<main class:list={[]} id='swup'>
 			<slot />
 		</main>
-		<Footer
-
-		/>
+		<Footer />
 		<script src='@scripts/global.js'></script>
 	</body>
 </html>

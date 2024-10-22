@@ -4,8 +4,14 @@
 
 @layer base {
     :root {
+        --color-main: #E80000;
+
+        --color-bg-default: #FFFDF3;
+        --color-bg-default-elevated: #F2ECD3;
+
         --color-text-caption: #454545;
-        --color-text-emphasis: #E80000;
+        --color-text-body: #333333;
+        --color-text-emphasis: var(--color-main);
 
         @media (prefers-color-scheme: dark) {
 
