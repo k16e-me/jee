@@ -14,14 +14,14 @@ const { links, class: classes, ...props } = Astro.props
 			<li class='group/li relative'>
 				{_empty(link.link.cached_url) ? (
 					<button
-						class='block p-4 transition duration-200 group/anchor'
+						class='block px-4 py-5 font-medium transition duration-200 group/anchor'
 						aria-label={`${link.label} Pages Dropdown`}>
 						<NavItem link={link} children={!_empty(link.children)}/>
 					</button>
 				) : (
 					<a
 						href={_slug(link.link)}
-						class='block p-4 transition duration-200 group/anchor'
+						class='block px-4 py-5 font-medium transition duration-200 group/anchor'
 						data-anchor={_slugify(link.link.story.full_slug)}
 						aria-label={`${link.label} Page`}>
 						<NavItem link={link} />

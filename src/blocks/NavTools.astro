@@ -1,0 +1,13 @@
+---
+import Icon from '@atoms/Icon.astro'
+import NavItem from '@atoms/NavItem.astro'
+import _slug from '@scripts/slug'
+import _slugify from '@scripts/slugify'
+import _empty from '@scripts/empty'
+
+const { links, class: classes, ...props } = Astro.props
+---
+
+<div class:list={[classes, '']} {...props}>
+	Tools here...
+</div>
