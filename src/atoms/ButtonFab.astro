@@ -3,7 +3,7 @@ import Icon from '@atoms/Icon.astro'
 
 const {
 	link,
-    label,
+	label,
 	icon,
 	style = 'default',
 	flipIcon,
@@ -14,20 +14,21 @@ const {
 
 <button
 	class:list={[
-		'w-10 h-10 flex items-center justify-center group rounded-full',
+		'w-10 h-10 flex items-center justify-center group rounded-full transition duration-200',
 		classes,
 		style === 'default' &&
 			'bg-[var(--color-bg-default-elevated)] text-[var(--color-text-emphasis)]',
 		style === 'blank' && 'bg-transparent text-[var(--color-text-body)]',
-		style === 'blank-brand' && 'bg-transparent text-[var(--color-text-emphasis)]',
+		style === 'blank-brand' &&
+			'bg-transparent text-[var(--color-text-emphasis)]',
 	]}
 	{...props}
 	aria-label={label}>
 	<Icon
 		name={icon}
 		class:list={[
-			'w-[22px] text-inherit group-hover:scale-110 block transition duration-300',
-            flipIcon && 'rotate-90'
+			'w-[22px] text-inherit group-hover:scale-110 block',
+			flipIcon && 'rotate-90',
 		]}
 	/>
 </button>

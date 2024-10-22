@@ -34,13 +34,13 @@
         text-align: inherit;
     }
 
-    svg {
+    svg, button span {
         @apply flex-shrink-0 pointer-events-none fill-current;
     }
     br[key] {
         display: none;
     }
-    span {
+    span, svg {
         transition: inherit;
     }
     /* For Webkit-based browsers (Chrome, Safari and Opera) */

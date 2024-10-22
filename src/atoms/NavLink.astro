@@ -1,0 +1,15 @@
+---
+import Icon from '@atoms/Icon.astro'
+
+const { link, children = false, class: classes, ...props } = Astro.props
+---
+
+<div
+	class:list={[
+		'text-[var(--color-text-caption)] group-hover/li:text-[var(--color-text-emphasis)] group-[&.active]/anchor:text-[var(--color-text-emphasis)] flex items-center gap-[2px] text-base 2xl:text-lg 3xl:text-xl transition duration-200 ease-out',
+		classes,
+	]}
+	{...props}>
+	<span set:text={link.label} class='block'/>
+	{children && <Icon name='caret-down' class='w-3 text-inherit opacity-70' />}
+</div>
