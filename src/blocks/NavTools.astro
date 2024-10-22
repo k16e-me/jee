@@ -10,7 +10,10 @@ const { links, class: classes, ...props } = Astro.props
 ---
 
 <div
-	class:list={[classes, 'flex items-start justify-end pt-4 gap-2 sm:gap-3 translate-x-1 sm:translate-x-2 lg:translate-x-0']}
+	class:list={[
+		classes,
+		'flex items-center lg:items-start justify-end lg:pt-4 gap-2 sm:gap-3 translate-x-1 sm:translate-x-2 lg:translate-x-0',
+	]}
 	{...props}>
 	<ButtonFlat link={links[2]} class='hidden lg:flex' />
 	<div
@@ -25,10 +28,11 @@ const { links, class: classes, ...props } = Astro.props
 			class='order-1 lg:order-2'
 		/>
 	</div>
-	<ButtonFab
-		style='blank-brand'
-		label='Trigger Mobile Menu'
-		icon='menu'
-		class='flex lg:hidden'
-	/>
+	<div class='h-full flex lg:hidden items-center'>
+		<ButtonFab
+			style='blank-brand'
+			label='Trigger Mobile Menu'
+			icon='menu'
+		/>
+	</div>
 </div>
