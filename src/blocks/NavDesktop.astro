@@ -11,12 +11,17 @@ const { links, class: classes, ...props } = Astro.props
 	{
 		links.map((link) => (
 			<li class='group/li relative'>
-				<a
-					href={_slug(link.link)}
-					class='block p-4 transition duration-500'>
-					<NavItem link={link} />
-				</a>
-				{_empty()}
+				{_empty(link.link.cached_url) ? (
+					<button class='block p-4 transition duration-500'>
+						<NavItem link={link} />
+					</button>
+				) : (
+					<a
+						href={_slug(link.link)}
+						class='block p-4 transition duration-500'>
+						<NavItem link={link} />
+					</a>
+				)}
 			</li>
 		))
 	}
