@@ -44,7 +44,7 @@
     button {
         text-align: inherit;
     }
-    a, button, .r-transition { @apply transition duration-200 ease-out; }
+    a, button, .r-transition { @apply transition duration-[250ms] ease-out; }
 
     svg, button span {
         @apply flex-shrink-0 pointer-events-none fill-current;
@@ -71,7 +71,9 @@
 }
 
 @layer components {
-
+    .fix-svg-stroke path {
+        stroke: currentColor;
+    }
 }
 
 @layer utilities {
