@@ -10,6 +10,11 @@ const { pageTitle, pageDescription, pageThumbnail, showNav, isError } =
 	{ data: settings } = await api.get('cdn/stories/settings', {
 		version: import.meta.env.DEV ? 'draft' : 'published',
 		resolve_links: 'url',
+		resolve_relations: [
+			'settings.awards',
+			'settings.links',
+			'settings.socials',
+		],
 	}),
 	site = settings.story.content
 ---
@@ -22,11 +27,11 @@ const { pageTitle, pageDescription, pageThumbnail, showNav, isError } =
 		image={pageThumbnail || '/thumbnail.png'}
 	/>
 	<body class='max-w-screen-2xl mx-auto flex flex-col min-h-screen'>
-		<Header nav={site.nav} tools={site.tools}/>
-		<main class="mb-auto" id='swup'>
+		<Header nav={site.nav} tools={site.tools} />
+		<main class='mb-auto' id='swup'>
 			<slot />
 		</main>
-		<Footer site={site}/>
+		<Footer site={site} />
 		<script src='@scripts/global.js'></script>
 	</body>
 </html>

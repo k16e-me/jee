@@ -24,6 +24,7 @@ const {
 			'text-[1.0625rem] lg:text-[1.125rem] leading-[1.3125rem]',
         size === 'emphasis' && 'text-[0.9375rem] lg:text-[1rem] leading-5 lg:leading-[1.3125rem]',
         size === 'footnote' && 'text-[0.875rem] leading-[1.0625rem]',
+        size === 'body' && 'text-[1rem] leading-[1.4375rem]',
 
 		family === 'sans' && 'font-sans',
 		family === 'display' && 'font-display',
@@ -38,6 +39,7 @@ const {
 		// Colors
 		color === 'title' && 'text-[var(--color-text-title)]',
 		color === 'body' && 'text-[var(--color-text-body)]',
+		color === 'body-light' && 'text-[var(--color-muted)]',
 		color === 'caption' && 'text-[var(--color-text-caption)]',
 		color === 'white' && 'text-white',
 

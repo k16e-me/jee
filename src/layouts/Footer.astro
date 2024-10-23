@@ -2,6 +2,7 @@
 import Text from '@atoms/Text.astro'
 import Wrapper from '@layouts/Wrapper.astro'
 import Grid from '@layouts/Grid.astro'
+import Icon from '@atoms/Icon.astro'
 
 const year = new Date().getFullYear(),
 	{ site, class: classes, ...props } = Astro.props
@@ -10,9 +11,43 @@ const year = new Date().getFullYear(),
 <footer id='footer' class:list={[classes]} {...props}>
 	<div
 		class='bg-[var(--color-dark)] md:mx-6 lg:mx-4 md:mb-6 lg:mb-4 md:rounded-[32px]'>
-		<Wrapper negateMargin>
+		<Wrapper negateMargin class='pt-8 md:pt-14 lg:pt-20'>
 			<Grid>
-				<div class='col-span-full md:col-span-4'></div>
+				<div
+					class='col-span-full md:col-span-4 flex flex-col gap-6 md:gap-8'>
+					<a href='/'>
+						<Icon name='icon-white' class='h-10 md:h-12 lg:h-14' />
+						<span class='sr-only' set:text={site.title} />
+					</a>
+					<Text
+						tag='p'
+						text={site.description}
+						weight='medium'
+						color='body-light'
+						class='opacity-70'
+					/>
+					<ul>
+						{
+							site.socials[0].content.global.map((item) => (
+								<li>
+									<a
+										href={item.url.url}
+										target='_blank'
+										rel='noopener noreferrer'>
+										<Icon
+											name={item.name}
+											class='h-6'
+										/>
+										<span
+											class='sr-only'
+											set:text={item.name}
+										/>
+									</a>
+								</li>
+							))
+						}
+					</ul>
+				</div>
 				<div class='col-span-full md:col-span-4'>B</div>
 				<div class='col-span-full md:col-span-4'>C</div>
 				<div
