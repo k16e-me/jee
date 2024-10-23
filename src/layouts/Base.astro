@@ -21,12 +21,12 @@ const { pageTitle, pageDescription, pageThumbnail, showNav, isError } =
 		description={pageDescription || site.description}
 		image={pageThumbnail || '/thumbnail.png'}
 	/>
-	<body class='max-w-screen-2xl mx-auto'>
+	<body class='max-w-screen-2xl mx-auto flex flex-col min-h-screen'>
 		<Header nav={site.nav} tools={site.tools}/>
-		<main class:list={[]} id='swup'>
+		<main class="mb-auto" id='swup'>
 			<slot />
 		</main>
-		<Footer />
+		<Footer site={site}/>
 		<script src='@scripts/global.js'></script>
 	</body>
 </html>

@@ -1,0 +1,13 @@
+---
+const { tag = 'div', class: classes, ...attrs } = Astro.props,
+	Tag = tag
+---
+
+<Tag
+	class:list={[
+		'grid grid-cols-4 md:grid-cols-8 lg:grid-cols-12 gap-3 md:gap-6 lg:gap-8 h-full',
+		classes,
+	]}
+	{...attrs}>
+	<slot/>
+</Tag>

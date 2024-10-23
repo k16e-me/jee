@@ -5,6 +5,8 @@
 @layer base {
     :root {
         --color-main: #E80000;
+        --color-dark: #211B1B;
+        --color-muted: #D1D1D1;
 
         --color-bg-default: #FFFDF3;
         --color-bg-default-elevated: #F2ECD3;
@@ -20,7 +22,7 @@
         --color-border-muted: #D1D1D1;
 
         @media (prefers-color-scheme: dark) {
-
+            
         }
     }
 

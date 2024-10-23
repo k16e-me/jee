@@ -1,18 +1,30 @@
 ---
+import Text from '@atoms/Text.astro'
+import Wrapper from '@layouts/Wrapper.astro'
+import Grid from '@layouts/Grid.astro'
 
 const year = new Date().getFullYear(),
-	{
-		class: classes,
-		...props
-	} = Astro.props
+	{ site, class: classes, ...props } = Astro.props
 ---
 
-<footer
-	id='footer'
-	class:list={[classes]}
-	{...props}>
+<footer id='footer' class:list={[classes]} {...props}>
 	<div
-		class=''>
-        Footer...
+		class='bg-[var(--color-dark)] md:mx-6 lg:mx-4 md:mb-6 lg:mb-4 md:rounded-[32px]'>
+		<Wrapper negateMargin>
+			<Grid>
+				<div class='col-span-full md:col-span-4'></div>
+				<div class='col-span-full md:col-span-4'>B</div>
+				<div class='col-span-full md:col-span-4'>C</div>
+				<div
+					class='col-span-full md:col-span-4 text-[var(--color-muted)] opacity-70'>
+					<Text
+						text={`&copy; ${year}
+				    ${site.legalName}. All rights reserved.`}
+						size='footnote'
+						weight='medium'
+					/>
+				</div>
+			</Grid>
+		</Wrapper>
 	</div>
 </footer>
