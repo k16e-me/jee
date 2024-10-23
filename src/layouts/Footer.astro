@@ -12,10 +12,10 @@ const year = new Date().getFullYear(),
 <footer id='footer' class:list={[classes]} {...props}>
 	<div
 		class='bg-[var(--color-dark)] md:mx-6 lg:mx-4 md:mb-6 lg:mb-4 md:rounded-[32px]'>
-		<Wrapper class='pt-8 md:pt-14 lg:pt-16 pb-6 md:pb-8 lg:pb-10'>
+		<Wrapper class='pt-8 md:pt-14 lg:pt-16 pb-6 md:pb-8 lg:pb-10 lg:-mx-4'>
 			<Grid>
 				<div
-					class='col-span-full md:col-span-4 flex flex-col gap-6 md:gap-8'>
+					class='col-span-full md:col-span-4 flex flex-col gap-6 md:gap-8 md:pr-6'>
 					<a href='/'>
 						<Icon name='icon-white' class='h-10 md:h-12 lg:h-14' />
 						<span class='sr-only' set:text={site.title} />
@@ -27,12 +27,14 @@ const year = new Date().getFullYear(),
 						color='body-light'
 						class='opacity-70 max-w-screen-sm'
 					/>
-                    <ListSocials links={site.socials[0].content.global}/>
+					<ListSocials links={site.socials[0].content.global} />
 				</div>
-				<div class='col-span-full md:col-span-4'>B</div>
-				<div class='col-span-full md:col-span-4'>C</div>
+				<div class='col-span-full md:col-span-4 lg:col-span-8 flex flex-col gap-6'>
+					<div class='col-span-full md:col-span-4'>B</div>
+					<div class='col-span-full md:col-span-4'>C</div>
+				</div>
 				<div
-					class='col-span-full md:col-span-4 text-[var(--color-muted)] opacity-70'>
+					class='col-span-full md:col-span-4 lg:col-span-full text-[var(--color-muted)] opacity-70'>
 					<Text
 						text={`&copy; ${year} ${site.legalName}. All rights reserved.`}
 						size='footnote'
