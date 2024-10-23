@@ -1,0 +1,20 @@
+---
+import Icon from '@atoms/Icon.astro'
+import _slug from '@scripts/slug'
+import _slugify from '@scripts/slugify'
+import _empty from '@scripts/empty'
+
+const { links, class: classes, ...props } = Astro.props
+---
+
+<div
+	class:list={[
+		classes,
+		'absolute left-1/2 z-10 min-w-[224px] w-auto max-w-max -translate-x-1/2 px-4',
+	]}
+	{...props}>
+	<div
+		class='w-full flex-auto overflow-hidden rounded-3xl bg-white text-sm leading-6 shadow-lg ring-1 ring-gray-900/5'>
+		<slot />
+	</div>
+</div>

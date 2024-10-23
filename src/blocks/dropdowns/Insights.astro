@@ -1,0 +1,10 @@
+---
+import Icon from '@atoms/Icon.astro'
+import _slug from '@scripts/slug'
+import _slugify from '@scripts/slugify'
+import _empty from '@scripts/empty'
+
+const { links, class: classes, ...props } = Astro.props
+---
+
+<div class:list={[classes, 'items-center h-full']} {...props}>Insights...</div>

@@ -1,0 +1,15 @@
+---
+import Text from './Text.astro'
+
+const { link, class: classes, ...props } = Astro.props
+---
+
+<button class:list={['h-16 w-[248px] px-6', classes]} {...props}>
+	<Text
+		text={link.label}
+		size='6'
+		weight='bold'
+		family='display'
+		color='title'
+	/>
+</button>

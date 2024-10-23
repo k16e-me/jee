@@ -1,0 +1,50 @@
+---
+const {
+		tag = 'span',
+		text,
+		size,
+		family = 'sans',
+		uppercase,
+		weight,
+		tighten,
+		loosen,
+		color,
+		class: classes,
+		...props
+	} = Astro.props,
+	Tag = tag
+---
+
+<Tag
+	set:text={text}
+	{...props}
+	class:list={[
+		// Font Sizes
+		size === '6' &&
+			'text-[1.0625rem] lg:text-[1.125rem] leading-[1.3125rem]',
+
+		family === 'sans' && 'font-sans',
+		family === 'display' && 'font-display',
+
+		// Font Weights
+		weight === 'regular' && 'font-normal',
+		weight === 'medium' && 'font-medium',
+		weight === 'semi' && 'font-semibold',
+		weight === 'bold' && 'font-bold',
+		weight === 'extra' && 'font-extrabold',
+
+		// Colors
+		color === 'title' && 'text-[var(--color-text-title)]',
+		color === 'body' && 'text-[var(--color-text-body)]',
+		color === 'caption' && 'text-[var(--color-text-caption)]',
+		color === 'white' && 'text-white',
+
+		// Booleans
+		uppercase && 'uppercase',
+		tighten && 'tracking-[-0.02em]',
+		loosen && 'tracking-[0.15em]',
+
+		// Classes Passed In
+		classes,
+	]}
+/>
