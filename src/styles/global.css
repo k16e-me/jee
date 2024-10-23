@@ -4,10 +4,13 @@
 
 @layer base {
     :root {
+        /* Fixed Colors */
         --color-main: #E80000;
         --color-dark: #211B1B;
         --color-muted: #D1D1D1;
+        --color-lightest: #FFFDF3;
 
+        /* Variable Colors Light/Dark */
         --color-bg-default: #FFFDF3;
         --color-bg-default-elevated: #F2ECD3;
         --color-bg-neutral-gray: #F4F3F2;
@@ -22,7 +25,7 @@
         --color-border-muted: #D1D1D1;
 
         @media (prefers-color-scheme: dark) {
-            
+
         }
     }
 
@@ -41,7 +44,7 @@
     button {
         text-align: inherit;
     }
-    a, button { @apply transition duration-200 ease-out; }
+    a, button, .r-transition { @apply transition duration-200 ease-out; }
 
     svg, button span {
         @apply flex-shrink-0 pointer-events-none fill-current;

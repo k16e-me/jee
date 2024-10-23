@@ -11,5 +11,5 @@ const { link, children = false, class: classes, ...props } = Astro.props
 	]}
 	{...props}>
 	<span set:text={link.label} class='block'/>
-	{children && <Icon name='caret-down' class='w-3 text-inherit opacity-70' />}
+	{children && <Icon name='chevron-down' class='w-3 text-inherit opacity-70' />}
 </div>

@@ -4,6 +4,7 @@ import Wrapper from '@layouts/Wrapper.astro'
 import Grid from '@layouts/Grid.astro'
 import Icon from '@atoms/Icon.astro'
 import ListSocials from '@blocks/ListSocials.astro'
+import ListSitemap from '@blocks/ListSitemap.astro'
 
 const year = new Date().getFullYear(),
 	{ site, class: classes, ...props } = Astro.props
@@ -30,7 +31,9 @@ const year = new Date().getFullYear(),
 					<ListSocials links={site.socials[0].content.global} />
 				</div>
 				<div class='col-span-full md:col-span-4 lg:col-span-8 flex flex-col gap-6'>
-					<div class='col-span-full md:col-span-4'>B</div>
+					<div class='col-span-full md:col-span-4 py-6 md:py-0'>
+                        <ListSitemap links={site.links}/>
+                    </div>
 					<div class='col-span-full md:col-span-4'>C</div>
 				</div>
 				<div

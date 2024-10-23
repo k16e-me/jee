@@ -1,0 +1,46 @@
+---
+import Icon from '@atoms/Icon.astro'
+import Text from '@atoms/Text.astro'
+import _unslash from '@scripts/unslash'
+
+const { links, class: classes, ...props } = Astro.props
+---
+
+<ul class:list={[classes, 'flex flex-col']} {...props}>
+	{
+		links.map((item) => (
+			<li class='group'>
+				<div
+					class='group/button r-transition flex items-center justify-between h-12'
+					r-accordion>
+					<Text
+						size='emphasis'
+						text={item.label}
+						weight='semi'
+						color='body-light'
+						class='opacity-85 group-hover/button:opacity-100'
+					/>
+					<Icon
+						name='caret-down'
+						class='block w-5 text-[var(--color-lightest)] opacity-50 group-hover/button:opacity-100'
+					/>
+				</div>
+				<ul class="flex flex-col">
+					{item.children.map((link) => (
+						<li class="group/link">
+							<a href={`/${_unslash(link.link.cached_url)}`} class="flex ">
+								<Text
+									size='footnote'
+									text={link.label}
+									weight='medium'
+									color='body-light'
+									class='opacity-85 group-hover/link:opacity-100'
+								/>
+							</a>
+						</li>
+					))}
+				</ul>
+			</li>
+		))
+	}
+</ul>
