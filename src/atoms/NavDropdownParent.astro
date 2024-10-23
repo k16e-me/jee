@@ -4,7 +4,12 @@ import Text from './Text.astro'
 const { link, class: classes, ...props } = Astro.props
 ---
 
-<button class:list={['h-16 w-[248px] px-6', classes]} {...props}>
+<button
+	class:list={[
+		'h-16 w-[248px] px-6 hover:bg-[var(--color-bg-neutral-gray)] hover:border-r-[3px] hover:border-[var(--color-emphasis)]',
+		classes,
+	]}
+	{...props}>
 	<Text
 		text={link.label}
 		size='6'

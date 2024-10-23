@@ -4,6 +4,7 @@ import _slug from '@scripts/slug'
 import _slugify from '@scripts/slugify'
 import _empty from '@scripts/empty'
 import NavDropdownParent from '@atoms/NavDropdownParent.astro'
+import NavDropdownChild from '@atoms/NavDropdownChild.astro'
 
 const { links, class: classes, ...props } = Astro.props
 ---
@@ -12,12 +13,14 @@ const { links, class: classes, ...props } = Astro.props
 	{
 		links.map((link, index) => (
 			<li class='group/li relative flex'>
-				<div class="py-6">
-					<NavDropdownParent link={link} />
-				</div>
-				<div class="py-6">
-                    {index + 1}
-                </div>
+				<NavDropdownParent link={link} />
+				<ul class='absolute top-0 max-h-[576px]'>
+					{link.children.map((link) => (
+						<li class='flex'>
+                            <NavDropdownChild link={link}/>
+						</li>
+					))}
+				</ul>
 			</li>
 		))
 	}

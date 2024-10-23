@@ -1,0 +1,21 @@
+---
+import Text from './Text.astro'
+
+const { link, class: classes, ...props } = Astro.props
+---
+
+<a
+	href={`/${link.link.cached_url}`}
+	class:list={[
+		'h-16 w-[248px] px-6 hover:bg-[var(--color-bg-neutral-gray)]',
+		classes,
+	]}
+	{...props}>
+	<Text
+		text={link.label}
+		size='emphasis'
+		weight='medium'
+		family='sans'
+		color='body'
+	/>
+</a>

@@ -25,10 +25,10 @@ const { links, class: classes, ...props } = Astro.props
                             children={!_empty(link.children)}
                         />
                     </NavItem>
-                    <NavDropdown>
-                        <Expertise links={link.children} />
-                        <Insights class='hidden' />
-                    </NavDropdown>
+                    // <NavDropdown>
+                    //     <Expertise links={link.children} />
+                    //     <Insights class='hidden' />
+                    // </NavDropdown>
 				) : (
 					<NavItem
 						href={_slug(link.link)}
