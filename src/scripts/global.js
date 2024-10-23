@@ -2,6 +2,7 @@ import Swup from 'swup'
 import SwupProgressPlugin from '@swup/progress-plugin'
 import SwupHeadPlugin from '@swup/head-plugin'
 import _active from './active'
+import _accordion from './accordion'
 
 const swup = new Swup({
     animationSelector: '[class*="swup-"]',
@@ -25,6 +26,7 @@ swup.hooks.on('page:view', () => init())
 
 function init() {
     _active()
+    _accordion()
 }
 
 function once() {

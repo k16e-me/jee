@@ -10,10 +10,11 @@ const { links, class: classes, ...props } = Astro.props
 <ul class:list={[classes, 'flex flex-col']} {...props}>
 	{
 		links.map((item) => (
-			<li class=''>
+			<li class='accordion'>
 				<div
-					class='group/button r-transition flex items-center justify-between h-12'
-					r-accordion>
+					class='group/button accordion__button r-transition flex items-center justify-between h-12 cursor-pointer'
+					aria-expanded='false'
+					aria-controls={`${item.label} Links`}>
 					<Text
 						size='emphasis'
 						text={item.label}
@@ -23,14 +24,17 @@ const { links, class: classes, ...props } = Astro.props
 					/>
 					<Icon
 						name='caret-down'
-						class='block w-5 text-[var(--color-lightest)] opacity-50 group-hover/button:opacity-100'
+						aria-hidden='true'
+						class='accordion__icon block w-5 text-[var(--color-lightest)] opacity-50 group-hover/button:opacity-100 shrink-0 transition-all'
 					/>
 				</div>
-				<ul class="flex flex-col pt-2">
-					{item.children.map((link) => (
-						<ListLink link={link}/>
-					))}
-				</ul>
+				<div class='accordion__content max-h-0 overflow-hidden transition-all ease-in-out'>
+					<ul class='pt-2 flex flex-col max-w-full transition-[height] duration-[250ms]'>
+						{item.children.map((link) => (
+							<ListLink link={link} />
+						))}
+					</ul>
+				</div>
 			</li>
 		))
 	}
