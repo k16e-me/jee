@@ -1,0 +1,15 @@
+---
+const { blok, class: classes, ...props } = Astro.props
+---
+
+<section
+	{...props}
+	class:list={[
+		// Default Classes
+		'',
+
+		// Classes can be passed in when called
+		classes,
+	]}>
+	Graphic...
+</section>

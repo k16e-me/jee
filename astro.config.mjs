@@ -21,7 +21,22 @@ export default defineConfig({
             livePreview: false,
             bridge: import.meta.env.DEV,
             components: {
-                page: 'types/Page'
+                page: 'types/Page',
+
+                // Posters
+                feature: 'composites/posters/Feature',
+                graphic: 'composites/posters/Graphic',
+                illustration: 'composites/posters/Illustration',
+                intro: 'composites/posters/Intro',
+                keynote: 'composites/posters/Keynote',
+                product: 'composites/posters/Product',
+                speakers: 'composites/posters/Speakers',
+
+                // Headers
+                headerBasic: 'composites/headers/HeaderBasic',
+                headerImage: 'composites/headers/HeaderImage',
+                headerImageExpressive: 'composites/headers/HeaderImageExpressive',
+                headerPersonnel: 'composites/headers/HeaderPersonnel',
             }
         })
     ],
