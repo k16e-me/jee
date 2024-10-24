@@ -13,24 +13,26 @@ export default function _active() {
             icon = _q('.accordion__icon', menu),
             content = _q('.accordion__content', menu)
 
-        trigger.addEventListener('click', e => {
-            e.preventDefault()
-            let actives = _siblings(menu).filter(el => el.classList.contains('is-active'))
-            if (!menu.classList.contains('is-active')) {
-                expand(menu, trigger, content, icon)
-                actives.forEach(el => {
-                    const
-                        trigger = _q('.accordion__button', el),
-                        icon = _q('.accordion__icon', el),
-                        content = _q('.accordion__content', el)
-                    collapse(el, trigger, content, icon)
-                })
-            } else {
-                collapse(menu, trigger, content, icon)
-            }
+        if (trigger && icon && content) {
+            trigger.addEventListener('click', e => {
+                e.preventDefault()
+                let actives = _siblings(menu).filter(el => el.classList.contains('is-active'))
+                if (!menu.classList.contains('is-active')) {
+                    expand(menu, trigger, content, icon)
+                    actives.forEach(el => {
+                        const
+                            trigger = _q('.accordion__button', el),
+                            icon = _q('.accordion__icon', el),
+                            content = _q('.accordion__content', el)
+                        collapse(el, trigger, content, icon)
+                    })
+                } else {
+                    collapse(menu, trigger, content, icon)
+                }
 
-            return false
-        })
+                return false
+            })
+        }
     })
 
     function expand(menu, trigger, content, icon) {
