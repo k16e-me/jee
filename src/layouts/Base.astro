@@ -3,6 +3,7 @@ import Head from '@layouts/Head.astro'
 import Header from '@layouts/Header.astro'
 import Footer from '@layouts/Footer.astro'
 import { useStoryblokApi } from '@storyblok/astro'
+import TitleHidden from '@blocks/TitleHidden.astro'
 
 const { pageTitle, pageDescription, pageThumbnail, showNav, isError } =
 		Astro.props,
@@ -27,6 +28,7 @@ const { pageTitle, pageDescription, pageThumbnail, showNav, isError } =
 		image={pageThumbnail || '/thumbnail.png'}
 	/>
 	<body class='max-w-screen-2xl mx-auto flex flex-col min-h-screen'>
+		<TitleHidden tag='h2' title={pageTitle} />
 		<Header nav={site.nav} tools={site.tools} />
 		<main class='mb-auto' id='swup'>
 			<slot />

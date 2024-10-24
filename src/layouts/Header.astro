@@ -4,24 +4,29 @@ import NavDesktop from '@blocks/NavDesktop.astro'
 import NavTools from '@blocks/NavTools.astro'
 import Grid from '@layouts/Grid.astro'
 import Wrapper from '@layouts/Wrapper.astro'
+import TitleHidden from '@blocks/TitleHidden.astro'
 
 const { nav, tools, class: classes, ...attrs } = Astro.props
 ---
 
-<Wrapper tag="header" class:list={['h-16 md:h-20 lg:h-[104px]', classes]} {...attrs}>
-	<Grid tag="nav">
-        <a
-            href='/'
-            class='col-span-2 justify-self-start w-full h-full flex items-center'>
-            <Icon name='logo' class='h-10 xl:h-12' />
-        </a>
+<Wrapper
+	tag='header'
+	class:list={['h-16 md:h-20 lg:h-[104px]', classes]}
+	{...attrs}>
+	<Grid tag='nav'>
+		<TitleHidden tag='h2' title={'Navigation (Desktop View)'} />
+		<a
+			href='/'
+			class='col-span-2 justify-self-start w-full h-full flex items-center'>
+			<Icon name='logo' class='h-10 xl:h-12' />
+		</a>
 		<NavDesktop
 			links={nav}
 			class='hidden lg:flex lg:col-span-8 lg:col-start-3 w-full justify-end -translate-x-4 xl:-translate-x-3'
 		/>
 		<NavTools
 			class='col-span-2 md:col-span-6 lg:col-span-2 lg:col-start-11 w-full justify-self-end'
-            links={tools}
+			links={tools}
 		/>
 	</Grid>
 </Wrapper>
