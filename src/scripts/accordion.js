@@ -15,8 +15,8 @@ export default function _active() {
 
         trigger.addEventListener('click', e => {
             e.preventDefault()
-            let actives = _siblings(menu).filter(el => el.classList.contains('active'))
-            if (!menu.classList.contains('active')) {
+            let actives = _siblings(menu).filter(el => el.classList.contains('is-active'))
+            if (!menu.classList.contains('is-active')) {
                 expand(menu, trigger, content, icon)
                 actives.forEach(el => {
                     const
@@ -34,7 +34,7 @@ export default function _active() {
     })
 
     function expand(menu, trigger, content, icon) {
-        menu.classList.add('active')
+        menu.classList.add('is-active')
         trigger.setAttribute('aria-expanded', 'true')
         content.classList.remove('hidden')
         content.style.maxHeight =
@@ -43,7 +43,7 @@ export default function _active() {
     }
 
     function collapse(menu, trigger, content, icon) {
-        menu.classList.remove('active')
+        menu.classList.remove('is-active')
         trigger.setAttribute('aria-expanded', 'false')
         content.style.maxHeight = '0px'
         icon.classList.remove('rotate-180')
