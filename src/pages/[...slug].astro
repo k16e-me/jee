@@ -20,6 +20,18 @@ export async function getStaticPaths() {
 			'category',
 			'offices',
             'regions',
+            'previews',
+            'legal',
+            'contact',
+            'careers',
+            'about',
+            'africa-expertise',
+            'sectors',
+            'practices',
+            'people',
+            'insights',
+            'events',
+            'successes',
 		]
 	links = Object.values(links).filter(
 		(link) => !exceptions.includes(link.slug.split('/')[0]),
