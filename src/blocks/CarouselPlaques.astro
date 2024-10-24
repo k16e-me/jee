@@ -1,0 +1,24 @@
+---
+import Icon from '@atoms/Icon.astro'
+import _empty from '@scripts/empty'
+
+const { images, limit = 8, class: classes, ...props } = Astro.props
+---
+
+<ul
+	class:list={[classes, 'scrollbar-hide glide__track relative']}
+	{...props}
+	data-glide-el='track'>
+	{
+		images
+			.filter((item) => !_empty(item.content.plaque.filename))
+			.map((item) => (
+				<li class='glide__slides'>
+					<img
+						src={item.content.plaque.filename}
+						alt={item.content.name}
+					/>
+				</li>
+			))
+	}
+</ul>

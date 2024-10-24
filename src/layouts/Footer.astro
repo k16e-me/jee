@@ -6,6 +6,7 @@ import Icon from '@atoms/Icon.astro'
 import ListSocials from '@blocks/ListSocials.astro'
 import ListSitemap from '@blocks/ListSitemap.astro'
 import TitleHidden from '@blocks/TitleHidden.astro'
+import CarouselPlaques from '@blocks/CarouselPlaques.astro'
 
 const year = new Date().getFullYear(),
 	{ site, class: classes, ...props } = Astro.props
@@ -29,10 +30,7 @@ const year = new Date().getFullYear(),
 						color='body-light'
 						class='opacity-70 max-w-screen-sm'
 					/>
-					<TitleHidden
-						tag='h2'
-						title='JEE Social Media Presence'
-					/>
+					<TitleHidden tag='h2' title='JEE Social Media Presence' />
 					<ListSocials links={site.socials[0].content.global} />
 				</div>
 				<div
@@ -45,7 +43,13 @@ const year = new Date().getFullYear(),
 						links={site.links}
 						class='col-span-full md:col-span-4 py-6 md:py-0'
 					/>
-					<div class='col-span-full md:col-span-4'>C</div>
+					<div class='col-span-full md:col-span-4'>
+						<TitleHidden
+							tag='h2'
+							title='JEE Awards & Recognitions'
+						/>
+						<CarouselPlaques images={site.awards} />
+					</div>
 				</div>
 				<div
 					class='col-span-full md:col-span-4 lg:col-span-full text-[var(--color-muted)] opacity-70'>
