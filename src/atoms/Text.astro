@@ -20,11 +20,14 @@ const {
 	{...props}
 	class:list={[
 		// Font Sizes
+		size === '2' &&
+			'text-[1.9rem] md:text-[3.775rem] lg:text-[3.995rem] leading-[2.40625rem] md:leading-[4.09375rem] lg:leading-[4.625rem]',
 		size === '6' &&
 			'text-[1.0625rem] lg:text-[1.125rem] leading-[1.3125rem]',
-        size === 'emphasis' && 'text-[0.9375rem] lg:text-[1rem] leading-5 lg:leading-[1.3125rem]',
-        size === 'footnote' && 'text-[0.875rem] leading-[1.0625rem]',
-        size === 'body' && 'text-[1rem] leading-[1.4375rem]',
+		size === 'emphasis' &&
+			'text-[0.9375rem] lg:text-[1rem] leading-5 lg:leading-[1.3125rem]',
+		size === 'footnote' && 'text-[0.875rem] leading-[1.0625rem]',
+		size === 'body' && 'text-[1rem] leading-[1.4375rem]',
 
 		family === 'sans' && 'font-sans',
 		family === 'display' && 'font-display',
