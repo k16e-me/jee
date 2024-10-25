@@ -1,15 +1,22 @@
 ---
+import Section from '@layouts/Section.astro'
+import Wrapper from '@layouts/Wrapper.astro'
+import Grid from '@layouts/Grid.astro'
+
 const { blok, class: classes, ...props } = Astro.props
 ---
 
-<section
-	{...props}
-	class:list={[
-		// Default Classes
-		'',
-
-		// Classes can be passed in when called
-		classes,
-	]}>
-	Intro...
-</section>
+<Section
+	component={blok.component}
+	title={blok.headline}
+    poster
+    section={false}>
+	<Wrapper class=''>
+		<Grid>
+			<div class='col-span-full md:col-span-5 lg:col-span-7'>A</div>
+			<div class='col-span-full md:col-span-3 md:col-start-6 lg:col-span-5 lg:col-start-8'>B</div>
+			<div class='col-span-full'>C</div>
+		</Grid>
+		<div>D</div>
+	</Wrapper>
+</Section>
