@@ -12,6 +12,7 @@
         --color-muted-dark: #382E2E;
         --color-lightest: #FFFDF3;
         --color-lightest-elevated: #F2ECD3;
+        --color-accent: #FDC287;
 
         /* Variable Colors Light/Dark */
         --color-surface-dark: var(--color-dark);
@@ -78,6 +79,9 @@
 @layer components {
     .fix-svg-stroke path {
         stroke: currentColor;
+    }
+    .r-dead-center {
+        @apply left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2;
     }
 }
 

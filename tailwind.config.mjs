@@ -11,7 +11,8 @@ export default {
                 display: 'Urbanist Variable, sans-serif'
             },
             spacing: {
-                18: '4.5rem'
+                18: '4.5rem',
+                26: '6.5rem'
             },
             borderRadius: {
                 '2xl': '1rem',
