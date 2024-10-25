@@ -6,6 +6,7 @@ import Text from '@atoms/Text.astro'
 import ButtonLink from '@atoms/ButtonLink.astro'
 import { _sectionPadding } from '@scripts/snips'
 import Icon from '@atoms/Icon.astro'
+import BrandCutFull from '@atoms/BrandCutFull.astro'
 
 const { blok, class: classes, ...props } = Astro.props
 ---
@@ -50,12 +51,6 @@ const { blok, class: classes, ...props } = Astro.props
 				class='col-span-full h-80 sm:h-[27rem] md:h-[38rem] lg:h-[39rem] bg-[var(--color-bg-default-elevated)] md:rounded-3xl'>
 			</div>
 		</Grid>
-		<div
-			class='absolute inset-0 w-full scale-[1.02] z-[-1] h-[27rem] sm:h-[35rem] md:h-[50rem] lg:h-[52rem]'>
-			<Icon
-				name='largelight'
-				class='text-[var(--color-main)] size-full'
-			/>
-		</div>
+		<BrandCutFull/>
 	</div>
 </Section>
