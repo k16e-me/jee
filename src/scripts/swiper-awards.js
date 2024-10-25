@@ -2,17 +2,25 @@ import {
     _q,
 } from './snips'
 import Swiper from 'swiper'
+import { Navigation } from 'swiper/modules'
 import 'swiper/css'
+// import 'swiper/css/navigation'
 
 export default function _swiperAwards() {
     if (!_q('.swiper-awards')) return
 
     const swiper = new Swiper('.swiper-awards', {
+        modules: [Navigation],
+        navigation: {
+            nextEl: '.swiper-next'
+        },
         mousewheel: true,
         loop: true,
         autoplay: {
-            delay: 5000,
+            delay: 2500,
             pauseOnMouseEnter: true,
+            disableOnInteraction: false,
+            waitForTransition: false
         },
         breakpoints: {
             320: {

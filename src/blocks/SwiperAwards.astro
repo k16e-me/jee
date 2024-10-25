@@ -1,11 +1,12 @@
 ---
+import ButtonFab from '@atoms/ButtonFab.astro'
 import Icon from '@atoms/Icon.astro'
 import _empty from '@scripts/empty'
 
 const { images, limit = 8, class: classes, ...props } = Astro.props
 ---
 
-<div class:list={[classes, 'swiper swiper-awards']} {...props}>
+<div class:list={[classes, 'swiper swiper-awards relative']} {...props}>
 	<ul class='swiper-wrapper'>
 		{
 			images
@@ -21,4 +22,10 @@ const { images, limit = 8, class: classes, ...props } = Astro.props
 				))
 		}
 	</ul>
+	<ButtonFab
+		style='brand'
+		label='Control Carousel'
+		icon='caret-right'
+		class='swiper-next absolute right-0 top-1/2 -translate-y-1/2 z-10'
+	/>
 </div>
