@@ -13,8 +13,13 @@ export default function _carouselAwards() {
         swipeThreshold: 16,
         dragThreshold: 24,
         breakpoints: {
-            1200: { perView: 6 },
-            576: { perView: 6 },
+            1280: { perView: 6 },
+            960: { perView: 5 },
+            768: { perView: 4 },
+        },
+        peek: {
+            before: 0,
+            after: 40
         }
     }).mount()
 }

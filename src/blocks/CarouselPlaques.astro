@@ -6,21 +6,19 @@ const { images, limit = 8, class: classes, ...props } = Astro.props
 ---
 
 <div class:list={[classes, 'carousel-plaques']} {...props}>
-	<div class='scrollbar-hide glide__track gap-4 md:gap-8 lg:gap-10' data-glide-el='track'>
-		<ul class='glide__slides'>
+	<div class='scrollbar-hide glide__track relative' data-glide-el='track'>
+		<div class='glide__slides !space-x-3 md:!space-x-4 lg:!space-x-6 justify-end'>
 			{
 				images
 					.filter((item) => !_empty(item.content.plaque.filename))
 					.map((item) => (
-						<li class='glide__slide size-20 md:size-28 '>
-							<img
-								src={item.content.plaque.filename}
-								alt={item.content.name}
-								class='size-full object-contain'
-							/>
-						</li>
+                        <img
+                            src={item.content.plaque.filename}
+                            alt={item.content.name}
+                            class='object-contain object-top glide__slide !w-20 lg:!w-24 !h-auto !mx-0'
+                        />
 					))
 			}
-		</ul>
+		</div>
 	</div>
 </div>
