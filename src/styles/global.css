@@ -11,12 +11,13 @@
         --color-muted: #D1D1D1;
         --color-muted-dark: #382E2E;
         --color-lightest: #FFFDF3;
+        --color-lightest-elevated: #F2ECD3;
 
         /* Variable Colors Light/Dark */
         --color-surface-dark: var(--color-dark);
 
-        --color-bg-default: #FFFDF3;
-        --color-bg-default-elevated: #F2ECD3;
+        --color-bg-default: var(--color-lightest);
+        --color-bg-default-elevated: var(--color-lightest-elevated);
         --color-bg-neutral-gray: #F4F3F2;
 
         --color-text-title: #211B1B;

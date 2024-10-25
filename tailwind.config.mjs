@@ -12,6 +12,11 @@ export default {
             },
             spacing: {
                 18: '4.5rem'
+            },
+            borderRadius: {
+                '2xl': '1rem',
+                '3xl': '2.5rem',
+                '4xl': '4rem',
             }
         },
         screens: {

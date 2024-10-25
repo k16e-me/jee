@@ -4,6 +4,7 @@ import Wrapper from '@layouts/Wrapper.astro'
 import Grid from '@layouts/Grid.astro'
 import Text from '@atoms/Text.astro'
 import ButtonLink from '@atoms/ButtonLink.astro'
+import { _sectionPadding } from '@scripts/snips'
 
 const { blok, class: classes, ...props } = Astro.props
 ---
@@ -34,10 +35,17 @@ const { blok, class: classes, ...props } = Astro.props
 					class=''
 				/>
 			</div>
-			<div class='col-span-full mt-4 md:mt-0'>
-                <ButtonLink link={blok.button[0].link} label={blok.button[0].label}/>
-            </div>
+			<div class='col-span-full mt-3 md:mt-0'>
+				<ButtonLink
+					link={blok.button[0].link}
+					label={blok.button[0].label}
+				/>
+			</div>
 		</Grid>
-		<div>D</div>
+		<div class:list={[_sectionPadding('top')]}>
+			<div
+				class='h-80 sm:h-[30rem] md:h-[36rem] bg-[var(--color-bg-default-elevated)] rounded-2xl md:rounded-3xl'>
+			</div>
+		</div>
 	</Wrapper>
 </Section>
