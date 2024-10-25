@@ -5,20 +5,22 @@ import _empty from '@scripts/empty'
 const { images, limit = 8, class: classes, ...props } = Astro.props
 ---
 
-<ul
-	class:list={[classes, 'scrollbar-hide glide__track relative']}
-	{...props}
-	data-glide-el='track'>
-	{
-		images
-			.filter((item) => !_empty(item.content.plaque.filename))
-			.map((item) => (
-				<li class='glide__slides'>
-					<img
-						src={item.content.plaque.filename}
-						alt={item.content.name}
-					/>
-				</li>
-			))
-	}
-</ul>
+<div class:list={[classes, 'carousel-plaques']} {...props}>
+	<div class='scrollbar-hide glide__track gap-4 md:gap-8 lg:gap-10' data-glide-el='track'>
+		<ul class='glide__slides'>
+			{
+				images
+					.filter((item) => !_empty(item.content.plaque.filename))
+					.map((item) => (
+						<li class='glide__slide size-20 md:size-28 '>
+							<img
+								src={item.content.plaque.filename}
+								alt={item.content.name}
+								class='size-full object-contain'
+							/>
+						</li>
+					))
+			}
+		</ul>
+	</div>
+</div>
