@@ -16,11 +16,11 @@ export default function _swiperAwards() {
         },
         mousewheel: true,
         loop: true,
+        grabCursor: true,
         autoplay: {
             delay: 2500,
-            pauseOnMouseEnter: true,
             disableOnInteraction: false,
-            waitForTransition: false
+            pauseOnMouseEnter: true
         },
         breakpoints: {
             320: {
