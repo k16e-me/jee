@@ -1,0 +1,24 @@
+---
+import Icon from '@atoms/Icon.astro'
+import _empty from '@scripts/empty'
+
+const { images, limit = 8, class: classes, ...props } = Astro.props
+---
+
+<div class:list={[classes, 'swiper swiper-awards']} {...props}>
+	<ul class='swiper-wrapper'>
+		{
+			images
+				.filter((item) => !_empty(item.content.plaque.filename))
+				.map((item) => (
+					<li class='swiper-slide'>
+						<img
+							src={item.content.plaque.filename}
+							alt={item.content.name}
+							class='object-contain object-top !w-16 lg:!w-20 !h-auto !mx-0'
+						/>
+					</li>
+				))
+		}
+	</ul>
+</div>
