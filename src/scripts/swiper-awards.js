@@ -4,7 +4,6 @@ import {
 import Swiper from 'swiper'
 import { Navigation, Autoplay } from 'swiper/modules'
 import 'swiper/css'
-// import 'swiper/css/navigation'
 
 export default function _swiperAwards() {
     if (!_q('.swiper-awards')) return

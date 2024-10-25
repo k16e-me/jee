@@ -48,13 +48,16 @@ const { blok, class: classes, ...props } = Astro.props
 	<div class:list={[_sectionPadding('top'), 'relative overflow-x-clip']}>
 		<Grid class='md:px-3 lg:px-8 xl:px-18'>
 			<div
-				class='col-span-full flex justify-center w-full aspect-video bg-[var(--color-bg-default-elevated)] md:rounded-3xl relative overflow-hidden'>
+				class='col-span-full flex justify-center w-full aspect-video bg-[var(--color-bg-default-elevated)] md:rounded-3xl relative overflow-hidden'
+				r-autoplay-video>
 				<iframe
 					src=`https://www.youtube.com/embed/${blok.video_id}?controls=0&autoplay=1&mute=1&playsinline=1&loop=1`
 					class='absolute inset-0 size-full'></iframe>
-                <button class="play-video absolute z-10 r-dead-center text-[var(--color-accent)]" play-video>
-                    <Icon name="play-circle" class="size-18 md:size-26"/>
-                </button>
+				<button
+					class='play-video absolute z-10 r-dead-center text-[var(--color-accent)]'
+					r-autoplay-video-ctrl>
+					<Icon name='play-circle' class='size-18 md:size-26' />
+				</button>
 			</div>
 		</Grid>
 		<BrandCutFull />
