@@ -33,3 +33,4 @@ Web: HTML, CSS, & JS
 - Args to Event Listeners => Plain English [https://plainenglish.io/blog/passing-arguments-to-event-listeners-in-javascript-1a81bc397ecb]
 - Map Array n times of n => Stack Overflow [https://stackoverflow.com/questions/37888470/mapping-array-in-javascript-with-sequential-numbers#37889106]
 - Creating an Accessible Accordion Component in Astro => Web Reaper [https://webreaper.dev/posts/astro-accessible-accordion/]
+- Tailwind CSS Border Radius Utilities Explained => Tailkits [https://tailkits.com/blog/tailwind-css-border-radius-utilities-explained/]
