@@ -24,7 +24,7 @@ export default function _swiperAwards() {
         },
         breakpoints: {
             320: {
-                slidesPerView: 5,
+                slidesPerView: 4,
                 spaceBetween: 16
             },
             576: {
