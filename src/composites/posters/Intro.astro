@@ -44,14 +44,14 @@ const { blok, class: classes, ...props } = Astro.props
 			</div>
 		</Grid>
 	</Wrapper>
-	<div class:list={[_sectionPadding('top'), 'relative']}>
+	<div class:list={[_sectionPadding('top'), 'relative overflow-x-clip']}>
 		<Grid class='md:px-3 lg:px-8 xl:px-18'>
 			<div
 				class='col-span-full h-80 sm:h-[27rem] md:h-[38rem] lg:h-[39rem] bg-[var(--color-bg-default-elevated)] md:rounded-3xl'>
 			</div>
 		</Grid>
 		<div
-			class='absolute inset-y-0 -inset-x-8 z-[-1] h-[27rem] sm:h-[35rem] md:h-[50rem] lg:h-[52rem] -translate-y-4 md:-translate-y-6'>
+			class='absolute inset-0 w-full scale-105 z-[-1] h-[27rem] sm:h-[35rem] md:h-[50rem] lg:h-[52rem] -translate-y-4 md:-translate-y-6'>
 			<Icon
 				name='largelight'
 				class='text-[var(--color-main)] size-full'
