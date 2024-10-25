@@ -6,7 +6,12 @@ import _empty from '@scripts/empty'
 const { images, limit = 8, class: classes, ...props } = Astro.props
 ---
 
-<div class:list={[classes, 'swiper swiper-awards relative']} {...props}>
+<div
+	class:list={[
+		classes,
+		'swiper swiper-awards relative [transform:translateZ(0)]',
+	]}
+	{...props}>
 	<ul class='swiper-wrapper'>
 		{
 			images
@@ -22,13 +27,14 @@ const { images, limit = 8, class: classes, ...props } = Astro.props
 				))
 		}
 	</ul>
-	<div class='absolute right-0 top-0 z-10 bg-[var(--color-dark)] h-full w-14'>
+	<div
+		class='fixed -right-1 lg:right-0 top-0 z-10 bg-[var(--color-dark)] h-full w-14'>
 		<ButtonFab
 			style='brand'
 			label='Control Carousel'
 			icon='caret-right'
-            shadow
-			class='swiper-next absolute right-2 top-1/2 -translate-y-1/2 opacity-100'
+			shadow
+			class='swiper-next fixed right-0 lg:right-2 top-1/2 -translate-y-1/2 opacity-100'
 		/>
 	</div>
 </div>
