@@ -9,10 +9,13 @@ export default {
             fontFamily: {
                 sans: ['Instrument Sans Variable, sans-serif', ...defaultTheme.fontFamily.sans],
                 display: 'Urbanist Variable, sans-serif'
+            },
+            spacing: {
+                18: '4.5rem'
             }
         },
         screens: {
-            'sm': '576px',
+            'sm': '640px',
             'md': '960px',
             'lg': '1200px',
             'xl': '1440px',
