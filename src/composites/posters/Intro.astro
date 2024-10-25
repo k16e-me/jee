@@ -3,6 +3,7 @@ import Section from '@layouts/Section.astro'
 import Wrapper from '@layouts/Wrapper.astro'
 import Grid from '@layouts/Grid.astro'
 import Text from '@atoms/Text.astro'
+import ButtonLink from '@atoms/ButtonLink.astro'
 
 const { blok, class: classes, ...props } = Astro.props
 ---
@@ -33,7 +34,9 @@ const { blok, class: classes, ...props } = Astro.props
 					class=''
 				/>
 			</div>
-			<div class='col-span-full'>C</div>
+			<div class='col-span-full mt-4 md:mt-0'>
+                <ButtonLink link={blok.button[0].link} label={blok.button[0].label}/>
+            </div>
 		</Grid>
 		<div>D</div>
 	</Wrapper>
