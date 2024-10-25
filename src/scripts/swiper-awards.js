@@ -2,7 +2,7 @@ import {
     _q,
 } from './snips'
 import Swiper from 'swiper'
-import { Navigation } from 'swiper/modules'
+import { Navigation, Autoplay } from 'swiper/modules'
 import 'swiper/css'
 // import 'swiper/css/navigation'
 
@@ -10,7 +10,7 @@ export default function _swiperAwards() {
     if (!_q('.swiper-awards')) return
 
     const swiper = new Swiper('.swiper-awards', {
-        modules: [Navigation],
+        modules: [Navigation, Autoplay],
         navigation: {
             nextEl: '.swiper-next'
         },
