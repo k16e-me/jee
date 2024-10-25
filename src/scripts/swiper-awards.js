@@ -41,7 +41,7 @@ export default function _swiperAwards() {
             },
             1200: {
                 slidesPerView: 7,
-                spaceBetween: 32
+                spaceBetween: 40
             }
         }
     })

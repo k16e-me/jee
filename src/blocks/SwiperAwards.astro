@@ -16,16 +16,19 @@ const { images, limit = 8, class: classes, ...props } = Astro.props
 						<img
 							src={item.content.plaque.filename}
 							alt={item.content.name}
-							class='object-contain object-top w-20 h-auto'
+							class='object-contain object-top w-20 h-auto saturate-0 sepia-[.25]'
 						/>
 					</li>
 				))
 		}
 	</ul>
-	<ButtonFab
-		style='brand'
-		label='Control Carousel'
-		icon='caret-right'
-		class='swiper-next absolute right-2 top-1/2 -translate-y-1/2 z-10'
-	/>
+	<div class='absolute right-0 top-0 z-10 bg-[var(--color-dark)] h-full w-14 rounded-s-lg'>
+		<ButtonFab
+			style='brand'
+			label='Control Carousel'
+			icon='caret-right'
+            shadow
+			class='swiper-next absolute right-2 top-1/2 -translate-y-1/2 opacity-100'
+		/>
+	</div>
 </div>
