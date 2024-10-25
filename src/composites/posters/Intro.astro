@@ -24,7 +24,16 @@ const { blok, class: classes, ...props } = Astro.props
 			</div>
 			<div
 				class='col-span-full md:col-span-3 md:col-start-6 lg:col-span-5 lg:col-start-8'>
-				B
+				<Text
+					tag='p'
+					text={blok.copy}
+					color='body'
+					size='copy'
+					family='display'
+					weight='extra'
+					tighten
+					class=''
+				/>
 			</div>
 			<div class='col-span-full'>C</div>
 		</Grid>
