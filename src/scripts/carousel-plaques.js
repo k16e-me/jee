@@ -8,18 +8,18 @@ export default function _carouselAwards() {
 
     new Glide('.carousel-plaques', {
         type: 'carousel',
-        autoplay: 5000,
+        // autoplay: 5000,
         perView: 7,
         swipeThreshold: 16,
         dragThreshold: 24,
-        breakpoints: {
-            1280: { perView: 6 },
-            960: { perView: 5 },
-            768: { perView: 4 },
-        },
-        peek: {
-            before: 0,
-            after: 40
-        }
+        // breakpoints: {
+        //     // 1280: { perView: 6 },
+        //     // 960: { perView: 5 },
+        //     // 768: { perView: 4 },
+        // },
+        // peek: {
+        //     before: 0,
+        //     after: 50
+        // }
     }).mount()
 }
