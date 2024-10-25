@@ -48,12 +48,10 @@ const { blok, class: classes, ...props } = Astro.props
 	<div class:list={[_sectionPadding('top'), 'relative overflow-x-clip']}>
 		<Grid class='md:px-3 lg:px-8 xl:px-18'>
 			<div
-				class='col-span-full h-80 sm:h-[27rem] md:h-[38rem] lg:h-[39rem] bg-[var(--color-bg-default-elevated)] md:rounded-3xl relative overflow-hidden'>
-				<div class='w-screen h-screen'>
-					<iframe
-						src=`https://www.youtube.com/embed/${blok.video_id}?controls=0&autoplay=1&mute=1&playsinline=1&loop=1` class="absolute inset-0 size-full"
-					></iframe>
-				</div>
+				class='col-span-full w-full aspect-video bg-[var(--color-bg-default-elevated)] md:rounded-3xl relative overflow-hidden'>
+				<iframe
+					src=`https://www.youtube.com/embed/${blok.video_id}?controls=0&autoplay=1&mute=1&playsinline=1&loop=1`
+					class='absolute inset-0 size-full'></iframe>
 			</div>
 		</Grid>
 		<BrandCutFull />
