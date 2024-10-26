@@ -1,11 +1,22 @@
 ---
-const { tag = 'div', padX = true, negateMargin = false, class: classes, ...props } = Astro.props,
+const {
+		tag = 'div',
+		padX = true,
+		margins = true,
+		negateMargin = false,
+		class: classes,
+		...props
+	} = Astro.props,
 	Tag = tag
 ---
 
-<Tag class:list={[
-    padX && 'px-3',
-    negateMargin ? 'md:px-2 lg:px-6 xl:px-16' : 'md:px-8 lg:px-20',
-    classes]} {...props}>
+<Tag
+	class:list={[
+		padX && 'px-3',
+		margins && 'md:px-8 lg:px-20',
+		negateMargin && 'md:px-2 lg:px-6 xl:px-16',
+		classes,
+	]}
+	{...props}>
 	<slot />
 </Tag>

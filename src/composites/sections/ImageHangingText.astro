@@ -12,17 +12,39 @@ const { blok, class: classes, ...props } = Astro.props
 ---
 
 <Section component={blok.component}>
-	<Wrapper padX={false} class=''>
-		<Grid class='gap-y-5 md:gap-y-12 lg:gap-y-14'>
-			<div class='[grid-area:1/1/2/5]'>
-                <img
-                    src={blok.image.filename}
-                    alt={blok.image.title}
-                    class='object-cover w-full h-[25rem]'
-                />
+	<Wrapper padX={false} margins={false}>
+		<Grid
+			class:list={[
+				'gap-y-5 md:gap-y-12 lg:gap-y-14',
+				blok.is_alternate && 'lg:pl-8 xl:pl-18 2xl:pr-18',
+			]}>
+			<div
+				class:list={[
+					'[grid-area:1/1/2/5]',
+					blok.is_alternate
+						? 'md:[grid-area:1/2/2/9] lg:[grid-area:1/5/2/13]'
+						: '',
+				]}>
+				<img
+					src={blok.image.filename}
+					alt={blok.image.title}
+					class:list={[
+						'object-cover w-full h-[25rem] sm:h-[30rem] md:h-[35rem] lg:h-[40rem]',
+						blok.is_alternate
+							? 'md:rounded-tl-[56px] lg:rounded-tl-[64px] 2xl:rounded-[64px]'
+							: '',
+					]}
+				/>
 			</div>
-			<div class='[grid-area:1/1/2/5] pt-[16rem] px-3'>
-				<div class='bg-[var(--color-bg-default-elevated)]'>
+			<div
+				class:list={[
+					'[grid-area:1/1/2/5] pt-[20rem] md:pt-[22rem] lg:pt-[22rem] px-3 lg:px-0',
+					blok.is_alternate
+						? 'md:[grid-area:1/1/2/6] lg:[grid-area:1/1/2/7]'
+						: '',
+				]}>
+				<div
+					class='bg-[var(--color-bg-default-elevated)] rounded-2xl md:rounded-[32px] p-4 md:p-8 lg:p-12'>
 					<div>
 						<Text
 							tag='h2'
