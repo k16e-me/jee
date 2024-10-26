@@ -8,6 +8,7 @@ const
     _sectionPadding = (direction = 'top') => {
         if (direction === 'top') return new Array('pt-10', 'md:pt-14', 'lg:pt-20')
         if (direction === 'bottom') return new Array('pb-10', 'md:pb-14', 'lg:pb-20')
+        if (direction === 'both') return new Array('py-10', 'md:py-14', 'lg:py-20')
     }
 
 export {

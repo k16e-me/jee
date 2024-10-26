@@ -37,6 +37,9 @@ export default defineConfig({
                 headerImage: 'composites/headers/HeaderImage',
                 headerImageExpressive: 'composites/headers/HeaderImageExpressive',
                 headerPersonnel: 'composites/headers/HeaderPersonnel',
+
+                // Sections
+                imageHangingText: 'composites/sections/ImageHangingText',
             }
         })
     ],

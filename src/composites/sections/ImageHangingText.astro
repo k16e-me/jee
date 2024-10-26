@@ -1,0 +1,43 @@
+---
+import Section from '@layouts/Section.astro'
+import Wrapper from '@layouts/Wrapper.astro'
+import Grid from '@layouts/Grid.astro'
+import Text from '@atoms/Text.astro'
+import ButtonLink from '@atoms/ButtonLink.astro'
+import { _sectionPadding } from '@scripts/snips'
+import Icon from '@atoms/Icon.astro'
+import RichText from '@atoms/RichText.astro'
+
+const { blok, class: classes, ...props } = Astro.props
+---
+
+<Section component={blok.component}>
+	<Wrapper padX={false} class=''>
+		<Grid class='gap-y-5 md:gap-y-12 lg:gap-y-14'>
+			<div class='[grid-area:1/1/2/5]'>
+                <img
+                    src={blok.image.filename}
+                    alt={blok.image.title}
+                    class='object-cover w-full h-[25rem]'
+                />
+			</div>
+			<div class='[grid-area:1/1/2/5] pt-[16rem] px-3'>
+				<div class='bg-[var(--color-bg-default-elevated)]'>
+					<div>
+						<Text
+							tag='h2'
+							text={blok.heading}
+							color='title'
+							size='5'
+							family='display'
+							weight='extra'
+							tighten
+							class=''
+						/>
+					</div>
+					<RichText text={blok.text} />
+				</div>
+			</div>
+		</Grid>
+	</Wrapper>
+</Section>

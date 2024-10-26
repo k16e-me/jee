@@ -4,20 +4,15 @@ import Prose from '@atoms/Prose.astro'
 
 const {
 		text,
-		growText = true,
-		color = 'surface',
 		class: classes,
-		...rest
+		...props
 	} = Astro.props
 ---
 
 <Prose
 	class:list={[
-		growText ? 'text-base sm:text-md font-sans' : 'text-base',
-		color === 'surface' && 'text-surface-800',
-		color === 'white' && 'text-white/80',
 		classes,
 	]}
-	{...rest}>
+	{...props}>
 	<Fragment set:html={ renderRichText(text) } />
 </Prose>

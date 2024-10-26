@@ -6,6 +6,7 @@ const {
 	title,
 	poster,
 	section = true,
+	overlap,
 	class: classes,
 	...props
 } = Astro.props
@@ -15,8 +16,9 @@ const {
 	class:list={[
 		`_section _section-${component} relative`,
 		poster && 'pt-8 lg:pt-12 xl:pt-14',
-        poster && _sectionPadding('bottom'),
-		section && 'py-8 md:py-14 lg:py-20',
+		poster && _sectionPadding('bottom'),
+		section & !overlap && _sectionPadding('both'),
+		section & overlap && _sectionPadding('bottom'),
 		classes,
 	]}
 	{...props}>
