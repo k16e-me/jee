@@ -47,7 +47,7 @@ const { blok, class: classes, ...props } = Astro.props
 				<div
 					class='bg-[var(--color-bg-default-elevated)] rounded-2xl md:rounded-[32px] p-4 md:p-8 lg:p-12 flex flex-col gap-y-2 md:gap-y-4 lg:gap-y-5'>
 					<HeadingSection text={blok.heading} level='h2' />
-					<RichText text={blok.text} />
+					<RichText text={blok.text} pType='copy'/>
 				</div>
 			</div>
 		</Grid>
