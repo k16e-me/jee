@@ -1,0 +1,13 @@
+---
+const { opacity = 80, class: classes, ...props } = Astro.props
+---
+
+<div
+	class:list={[
+		'fixed inset-0 bg-black',
+		opacity ? opacity : 'opacity-75',
+		classes,
+	]}
+	aria-hidden='true'
+	{...props}>
+</div>

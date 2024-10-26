@@ -1,12 +1,13 @@
 ---
 import Icon from '@atoms/Icon.astro'
+import Overlay from '@atoms/Overlay.astro'
 
 const { video, class: classes, ...props } = Astro.props
 ---
 
 <div
 	class:list={[
-		'flex justify-center w-full aspect-video bg-[var(--color-bg-default-elevated)] md:rounded-3xl relative overflow-clip',
+		'flex justify-center w-full aspect-video bg-[var(--color-bg-default-elevated)] md:rounded-3xl relative overflow-clip [transform:translateZ(0)]',
 		classes,
 	]}
 	r-autoplay-video
@@ -15,8 +16,9 @@ const { video, class: classes, ...props } = Astro.props
 		src=`https://www.youtube.com/embed/${video}?controls=0&autoplay=1&mute=1&playsinline=1&loop=1`
 		class='absolute inset-0 size-full'></iframe>
 	<button
-		class='play-video absolute z-10 r-dead-center text-[var(--color-accent)] rounded-full'
+		class='play-video absolute z-30 r-dead-center text-[var(--color-accent)] rounded-full'
 		r-autoplay-video-ctrl>
 		<Icon name='play-circle' class='size-16 md:size-26' />
 	</button>
+	<Overlay opacity='opacity-20' class="z-20"/>
 </div>
