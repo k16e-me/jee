@@ -40,13 +40,13 @@ const { blok, class: classes, ...props } = Astro.props
 			</div>
 			<div
 				class:list={[
-					'[grid-area:1/1/2/5] pt-[20rem] md:pt-[22rem] lg:pt-[22rem] px-3 lg:px-0',
+					'[grid-area:1/1/2/5] pt-[16rem] md:pt-[18rem] lg:pt-[14rem] px-3 lg:px-0',
 					blok.is_alternate
 						? 'md:[grid-area:1/1/2/6] lg:[grid-area:1/1/2/7]'
 						: '',
 				]}>
 				<div
-					class='bg-[var(--color-bg-default-elevated)] rounded-2xl md:rounded-[32px] p-4 md:p-8 lg:p-12 flex flex-col gap-y-3 md:gap-y-4 lg:gap-y-6'>
+					class='bg-[var(--color-bg-default-elevated)] rounded-2xl md:rounded-[32px] p-4 md:p-8 lg:p-12 flex flex-col gap-y-4 lg:gap-y-6'>
 					<HeadingSection text={blok.heading} level='h2' />
 					<RichText text={blok.text} pType='copy' />
 					{
