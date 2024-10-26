@@ -1,5 +1,5 @@
 ---
-const { tag = 'div', class: classes, ...attrs } = Astro.props,
+const { tag = 'div', class: classes, ...props } = Astro.props,
 	Tag = tag
 ---
 
@@ -8,6 +8,6 @@ const { tag = 'div', class: classes, ...attrs } = Astro.props,
 		'grid grid-cols-4 md:grid-cols-8 lg:grid-cols-12 gap-x-3 md:gap-x-6 lg:gap-x-8 h-full',
 		classes,
 	]}
-	{...attrs}>
+	{...props}>
 	<slot/>
 </Tag>

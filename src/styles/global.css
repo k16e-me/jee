@@ -29,6 +29,7 @@
         --color-emphasis: var(--color-main);
 
         --color-border-muted: #D1D1D1;
+        --color-border-accent: var(--color-accent);
 
         @media (prefers-color-scheme: dark) {
 

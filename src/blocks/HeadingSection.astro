@@ -1,0 +1,22 @@
+---
+import Text from '@atoms/Text.astro'
+
+const { text, level, class: classes, ...props } = Astro.props
+---
+
+<div
+	class:list={['border-b border-[var(--color-border-accent)]', classes]}
+	{...props}>
+	<div class="pb-2 md:pb-4">
+		<Text
+			tag={level}
+			text={text}
+			color='title'
+			size='5'
+			family='display'
+			weight='extra'
+			tighten
+			class=''
+		/>
+	</div>
+</div>
