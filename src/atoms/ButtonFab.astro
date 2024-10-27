@@ -7,7 +7,6 @@ const {
 	icon,
 	style = 'default',
 	flipIcon,
-	shadow,
 	class: classes,
 	...props
 } = Astro.props
@@ -24,8 +23,7 @@ const {
 			'bg-transparent text-[var(--color-text-emphasis)]',
 		style === 'brand' && 'bg-[var(--color-emphasis)] text-white',
 		style === 'brand-inverted' &&
-			'bg-[var(--color-main-inverted)] text-white',
-		shadow && 'shadow hover:shadow-md',
+			'bg-[var(--color-main-inverted)] text-white'
 	]}
 	{...props}
 	aria-label={label}>

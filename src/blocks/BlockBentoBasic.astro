@@ -1,9 +1,9 @@
 ---
-const { blok, class: classes, ...props } = Astro.props
+import Grid from '@layouts/Grid.astro'
+
+const { block } = Astro.props
 ---
 
-<div
-	class:list={['', classes]}
-	{...props}>
-	Basic...
-</div>
+<Grid class='col-span-full'>
+	<div class='col-span-full'>Basic...</div>
+</Grid>

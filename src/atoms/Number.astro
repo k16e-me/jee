@@ -4,13 +4,25 @@ import Text from '@atoms/Text.astro'
 const { number, class: classes, ...props } = Astro.props
 ---
 
-<div>
-	<Text
-		text={number.number}
-		color='title'
-		size='4'
-		family='display'
-		weight='extra'
-		class=''
-	/>
+<div class="flex flex-col gap-y-0">
+	<p class='border-l-4 border-[var(--color-border-subtle)]'>
+		<Text
+			text={number.number}
+			color='title'
+			size='4'
+			family='display'
+			weight='extra'
+			class='pl-4 block'
+		/>
+	</p>
+	<p class='border-l border-[var(--color-border-muted)] pt-2'>
+		<Text
+			text={number.headline}
+			color='body'
+			size='body'
+			family='display'
+			weight='medium'
+			class='pl-4 block'
+		/>
+	</p>
 </div>

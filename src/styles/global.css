@@ -13,6 +13,8 @@
         --color-lightest: #FFFDF3;
         --color-lightest-elevated: #F2ECD3;
         --color-accent: #FDC287;
+        --color-gray-200: #D1D1D1;
+        --color-gray-300: #B0B0B0;
 
         /* Variable Colors Light/Dark */
         --color-surface-dark: var(--color-dark);
@@ -28,8 +30,9 @@
 
         --color-emphasis: var(--color-main);
 
-        --color-border-muted: #D1D1D1;
+        --color-border-muted: var(--color-gray-200);
         --color-border-accent: var(--color-accent);
+        --color-border-subtle: var(--color-gray-300);
 
         @media (prefers-color-scheme: dark) {
 

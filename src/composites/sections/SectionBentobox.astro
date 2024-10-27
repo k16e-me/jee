@@ -5,29 +5,22 @@ import Grid from '@layouts/Grid.astro'
 import BlockBentoBasic from '@blocks/BlockBentoBasic.astro'
 import BlockBentoPlaques from '@blocks/BlockBentoPlaques.astro'
 import BlockBentoHighlights from '@blocks/BlockBentoHighlights.astro'
+import { _gridGap } from '@scripts/snips'
 
 const { blok, class: classes, ...props } = Astro.props
 ---
 
 <Section component={blok.component} title={blok.heading}>
 	<Wrapper margins={false} marginsMd>
-		<Grid>
+		<Grid class:list={[_gridGap('y'), '']}>
 			{
 				blok.blocks.map((block) => {
 					switch (block.component) {
 						case 'block_bento_basic':
-							return (
-								<BlockBentoBasic
-									{...block}
-									block={block}
-								/>
-							)
+							return <BlockBentoBasic {...block} block={block} />
 						case 'block_bento_plaques':
 							return (
-								<BlockBentoPlaques
-									{...block}
-									block={block}
-								/>
+								<BlockBentoPlaques {...block} block={block} />
 							)
 						case 'block_bento_highlights':
 							return (
