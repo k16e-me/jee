@@ -17,17 +17,35 @@ const { blok, class: classes, ...props } = Astro.props
 ---
 
 <Section component={blok.component} title={blok.heading}>
-	<Wrapper>
+	<Wrapper padX={false} margins={false}>
 		<Grid class:list={['']}>
 			{
 				blok.blocks.map((block) => {
 					switch (block.component) {
 						case 'block_bento_basic':
-							return <BlockBentoBasic {...block} />
+							return (
+								<BlockBentoBasic
+									{...block}
+									block={block}
+									class='col-span-full'
+								/>
+							)
 						case 'block_bento_plaques':
-							return <BlockBentoPlaques {...block} />
+							return (
+								<BlockBentoPlaques
+									{...block}
+									block={block}
+									class='col-span-full'
+								/>
+							)
 						case 'block_bento_highlights':
-							return <BlockBentoHighlights {...block} />
+							return (
+								<BlockBentoHighlights
+									{...block}
+									block={block}
+									class='col-span-full'
+								/>
+							)
 						default:
 							return null
 					}

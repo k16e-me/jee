@@ -1,5 +1,29 @@
 ---
-const { blok, class: classes, ...props } = Astro.props
+import Image from '@atoms/Image.astro'
+import HeadingSection from '@blocks/HeadingSection.astro'
+import Grid from '@layouts/Grid.astro'
+
+const { block, class: classes, ...props } = Astro.props
 ---
 
-<div class:list={['', classes]} {...props}>Highlights...</div>
+<div class:list={['', classes]} {...props}>
+	<Grid class='col-span-full'>
+		<div
+			class='col-span-full md:[grid-area:1/1/2/6] lg:[grid-area:1/1/2/8]'>
+			<HeadingSection
+				tag='h3'
+				text={block.heading}
+				underline={false}
+				size='3'
+			/>
+		</div>
+		<div
+			class='col-span-full md:[grid-area:1/6/2/9] lg:[grid-area:1/8/2/13]'>
+			<Image
+				filename={block.illustration.filename}
+				alt={block.illustration.alt}
+				class='h-[20rem] md:h-[23.5rem] lg:h-[26.5rem] md:rounded-[2rem]'
+			/>
+		</div>
+	</Grid>
+</div>
