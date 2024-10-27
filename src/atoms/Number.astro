@@ -1,0 +1,17 @@
+---
+import Text from '@atoms/Text.astro'
+
+const { number, class: classes, ...props } = Astro.props
+---
+
+<div>
+	<Text
+		text={number.number}
+		color='title'
+		size='4'
+		family='display'
+		weight='extra'
+		tighten
+		class=''
+	/>
+</div>

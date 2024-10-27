@@ -1,22 +1,32 @@
 ---
 import Text from '@atoms/Text.astro'
 
-const { text, level, underline = true, size, class: classes, ...props } = Astro.props
+const {
+	text,
+	level,
+	underline = true,
+	size,
+	class: classes,
+	...props
+} = Astro.props
 ---
 
 <div
-	class:list={['', underline && 'border-b border-[var(--color-border-accent)]', classes]}
+	class:list={[
+		'',
+		underline &&
+			'border-b border-[var(--color-border-accent)] pb-2 md:pb-4',
+		classes,
+	]}
 	{...props}>
-	<div class="pb-2 md:pb-4">
-		<Text
-			tag={level}
-			text={text}
-			color='title'
-			size={size}
-			family='display'
-			weight='extra'
-			tighten
-			class=''
-		/>
-	</div>
+    <Text
+        tag={level}
+        text={text}
+        color='title'
+        size={size}
+        family='display'
+        weight='extra'
+        tighten
+        class=''
+    />
 </div>

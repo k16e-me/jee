@@ -1,5 +1,6 @@
 ---
 import Image from '@atoms/Image.astro'
+import Number from '@atoms/Number.astro'
 import HeadingSection from '@blocks/HeadingSection.astro'
 import Grid from '@layouts/Grid.astro'
 
@@ -8,16 +9,21 @@ const { block } = Astro.props
 
 <Grid class='col-span-full'>
     <div
-        class='col-span-full md:[grid-area:1/1/2/6] lg:[grid-area:1/1/2/8] px-3 md:px-0'>
+        class='col-span-full lg:[grid-area:1/1/2/8] px-3 md:px-0 space-y-6 sm:space-y-8 md:space-y-10 lg:space-y-16'>
         <HeadingSection
             level='h3'
             text={block.heading}
             underline={false}
             size='3'
         />
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-x-4 md:gap-x-6 gap-y-8 md:gap-y-0">
+            {
+                block.highlights.map(h => (<Number number={h}/>))
+            }
+        </div>
     </div>
     <div
-        class='col-span-full md:[grid-area:1/6/2/9] lg:[grid-area:1/8/2/13]'>
+        class='col-span-full lg:[grid-area:1/8/2/13]'>
         <Image
             filename={block.illustration.filename}
             alt={block.illustration.alt}
