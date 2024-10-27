@@ -1,9 +1,37 @@
 ---
+import Image from '@atoms/Image.astro'
+import Number from '@atoms/Number.astro'
+import HeadingSection from '@blocks/HeadingSection.astro'
 import Grid from '@layouts/Grid.astro'
+import { _gridGap } from '@scripts/snips'
+import RichText from '@atoms/RichText.astro'
+import ButtonMore from '@atoms/ButtonMore.astro'
 
 const { block } = Astro.props
 ---
 
-<Grid class='col-span-full'>
-	<div class='col-span-full'>Basic...</div>
+<Grid class:list={['col-span-full', _gridGap('y')]}>
+	<div
+		class='col-span-full lg:[grid-area:1/1/2/8] px-3 md:px-0 space-y-4 md:space-y-6'>
+		<HeadingSection
+			level='h3'
+			text={block.heading}
+			underline={false}
+			size='3'
+		/>
+		<div
+			class='grid grid-cols-4 md:grid-cols-5 lg:grid-cols-7 gap-x-4 md:gap-x-6 lg:gap-x-8 gap-y-4 md:gap-y-6'>
+			<RichText
+				text={block.content}
+				pType='emphasis'
+				class='col-span-full lg:col-span-5'
+			/>
+			<div class='col-span-full lg:col-span-2 lg:col-start-6'>
+				<ButtonMore
+					link={block.action[0].link}
+					label={block.action[0].label}
+				/>
+			</div>
+		</div>
+	</div>
 </Grid>
