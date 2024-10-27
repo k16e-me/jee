@@ -9,6 +9,7 @@ import Icon from '@atoms/Icon.astro'
 import RichText from '@atoms/RichText.astro'
 import HeadingSection from '@blocks/HeadingSection.astro'
 import _empty from '@scripts/empty'
+import Image from '@atoms/Image.astro'
 
 const { blok, class: classes, ...props } = Astro.props
 ---
@@ -27,11 +28,11 @@ const { blok, class: classes, ...props } = Astro.props
 						? 'md:[grid-area:1/2/2/9] lg:[grid-area:1/5/2/13]'
 						: '',
 				]}>
-				<img
-					src={blok.image.filename}
+				<Image
+					filename={blok.image.filename}
 					alt={blok.image.title}
 					class:list={[
-						'object-cover w-full h-[25rem] sm:h-[30rem] md:h-[35rem] lg:h-[40rem]',
+						'h-[25rem] sm:h-[30rem] md:h-[35rem] lg:h-[40rem]',
 						blok.is_alternate
 							? 'md:rounded-tl-[56px] lg:rounded-tl-[64px] 2xl:rounded-[64px]'
 							: '',
@@ -40,7 +41,7 @@ const { blok, class: classes, ...props } = Astro.props
 			</div>
 			<div
 				class:list={[
-					'[grid-area:1/1/2/5] pt-[16rem] md:pt-[18rem] lg:pt-[14rem] px-3 lg:px-0',
+					'[grid-area:1/1/2/5] pt-[16rem] md:pt-[18rem] lg:pt-[14rem] px-3 lg:px-0 z-10',
 					blok.is_alternate
 						? 'md:[grid-area:1/1/2/6] lg:[grid-area:1/1/2/7]'
 						: '',
@@ -54,7 +55,7 @@ const { blok, class: classes, ...props } = Astro.props
 							<ButtonLink
 								link={blok.action[0].link}
 								label={blok.action[0].label}
-                                class="my-3"
+								class='my-3'
 							/>
 						)
 					}
