@@ -35,3 +35,4 @@ Web: HTML, CSS, & JS
 - Creating an Accessible Accordion Component in Astro => Web Reaper [https://webreaper.dev/posts/astro-accessible-accordion/]
 - Tailwind CSS Border Radius Utilities Explained => Tailkits [https://tailkits.com/blog/tailwind-css-border-radius-utilities-explained/]
 - Astro Embed => [https://astro-embed.netlify.app/]
+- How to Access Direct Children of a Div in Tailwind CSS v3 => Bobby Iliev, Dev.to [https://dev.to/bobbyiliev/how-to-access-direct-children-of-a-div-in-tailwind-css-v3-5714]

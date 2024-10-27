@@ -4,6 +4,7 @@ const {
 		margins = true,
 		negateMargin = false,
 		inset,
+		marginsMd,
 		class: classes,
 		...props
 	} = Astro.props,
@@ -15,6 +16,7 @@ const {
 		margins && 'px-3 md:px-8 lg:px-18',
 		negateMargin && 'md:px-2 lg:px-6 xl:px-18',
 		inset && '[&>*]:xl:px-18',
+		marginsMd && 'md:px-8 lg:px-18',
 		classes,
 	]}
 	{...props}>

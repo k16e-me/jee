@@ -2,13 +2,6 @@
 import Section from '@layouts/Section.astro'
 import Wrapper from '@layouts/Wrapper.astro'
 import Grid from '@layouts/Grid.astro'
-import Text from '@atoms/Text.astro'
-import ButtonLink from '@atoms/ButtonLink.astro'
-import { _sectionPadding } from '@scripts/snips'
-import Icon from '@atoms/Icon.astro'
-import RichText from '@atoms/RichText.astro'
-import HeadingSection from '@blocks/HeadingSection.astro'
-import _empty from '@scripts/empty'
 import BlockBentoBasic from '@blocks/BlockBentoBasic.astro'
 import BlockBentoPlaques from '@blocks/BlockBentoPlaques.astro'
 import BlockBentoHighlights from '@blocks/BlockBentoHighlights.astro'
@@ -17,8 +10,8 @@ const { blok, class: classes, ...props } = Astro.props
 ---
 
 <Section component={blok.component} title={blok.heading}>
-	<Wrapper padX={false} margins={false}>
-		<Grid class:list={['']}>
+	<Wrapper margins={false} marginsMd>
+		<Grid>
 			{
 				blok.blocks.map((block) => {
 					switch (block.component) {
