@@ -9,16 +9,30 @@ import Icon from '@atoms/Icon.astro'
 import RichText from '@atoms/RichText.astro'
 import HeadingSection from '@blocks/HeadingSection.astro'
 import _empty from '@scripts/empty'
+import BlockBentoBasic from '@blocks/BlockBentoBasic.astro'
+import BlockBentoPlaques from '@blocks/BlockBentoPlaques.astro'
+import BlockBentoHighlights from '@blocks/BlockBentoHighlights.astro'
 
 const { blok, class: classes, ...props } = Astro.props
 ---
 
 <Section component={blok.component} title={blok.heading}>
 	<Wrapper>
-		<Grid
-			class:list={[
-				'',
-			]}>
+		<Grid class:list={['']}>
+			{
+				blok.blocks.map((block) => {
+					switch (block.component) {
+						case 'block_bento_basic':
+							return <BlockBentoBasic {...block} />
+						case 'block_bento_plaques':
+							return <BlockBentoPlaques {...block} />
+						case 'block_bento_highlights':
+							return <BlockBentoHighlights {...block} />
+						default:
+							return null
+					}
+				})
+			}
 		</Grid>
 	</Wrapper>
 </Section>
