@@ -1,0 +1,37 @@
+---
+import Icon from '@atoms/Icon.astro'
+import Text from '@atoms/Text.astro'
+import _slug from '@scripts/slug'
+
+const {
+		link,
+		label,
+		theme = 'default',
+		tag = 'a',
+		class: classes,
+		...props
+	} = Astro.props,
+	Tag = tag
+---
+
+<Tag
+	link
+	&&
+	href={_slug(link)}
+	class:list={['group relative inline-flex flex-col justify-center', classes]}
+	{...props}>
+	<Text
+		text={label}
+		size='emphasis'
+		family='display'
+		class={[
+			'flex items-center justify-center font-semibold',
+			theme === 'default' &&
+				'text-[var(--color-text-title)] group-hover:text-[var(--color-text-emphasis)]',
+		]}
+	/>
+	<Icon
+		name='underslash'
+		class='fix-svg-stroke w-full h-3 text-[var(--color-main-inverted)] -translate-y-[1px] group-hover:-translate-y-[3px]'
+	/>
+</Tag>
