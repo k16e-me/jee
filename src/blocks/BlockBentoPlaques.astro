@@ -11,7 +11,20 @@ const { block } = Astro.props
 ---
 
 <Grid class:list={['col-span-full', _gridGap('y')]}>
-	<div class='col-span-full lg:[grid-area:1/1/2/6]'>Plaques...</div>
+	<div class='col-span-full lg:[grid-area:1/1/2/6] px-3 md:px-0 columns-4 gap-4 space-y-4 sm:columns-7 md:columns-8 lg:columns-4 lg:space-y-5 lg:gap-5'>
+		{
+			block.plaques.map((plaque) => (
+                <Image
+                    filename={plaque.content.plaque.filename}
+                    alt={plaque.content.plaque.alt}
+                    filter={false}
+                    contain={true}
+                    top={true}
+                    class=''
+                />
+			))
+		}
+	</div>
 	<div
 		class='col-span-full lg:[grid-area:1/6/2/13] space-y-4 md:space-y-6 bg-[var(--color-bg-default-elevated)] md:rounded-[32px] px-3 py-4 sm:p-5 md:px-7 md:py-7 lg:px-10 lg:py-9'>
 		<HeadingSection

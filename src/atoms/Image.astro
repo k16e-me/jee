@@ -27,10 +27,10 @@ const {
 	draggable='false'
 	loading={loading}
 	class:list={[
-        'w-full',
+		'w-full',
 		filter && 'saturate-[.8] sepia-[7%] grayscale-[5%]',
 		contain ? 'object-contain' : 'object-cover',
-		top ? 'object-top' : 'object-center',
+		top ? 'object-left-top' : 'object-center',
 		classes,
 	]}
 	{...props}
