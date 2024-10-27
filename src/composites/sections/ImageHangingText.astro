@@ -32,16 +32,16 @@ const { blok, class: classes, ...props } = Astro.props
 					filename={blok.image.filename}
 					alt={blok.image.title}
 					class:list={[
-						'h-[25rem] sm:h-[31rem] md:h-[36rem] lg:h-[41rem]',
+						'h-[25rem] sm:h-[31rem] md:h-[37.5rem] lg:h-[41rem]',
 						blok.is_alternate
-							? 'md:rounded-tl-[56px] lg:rounded-tl-[64px] 2xl:rounded-[64px]'
+							? 'rounded-t-[1.5rem] md:rounded-tr-none md:rounded-tl-[56px] lg:rounded-tl-[64px] 2xl:rounded-[64px]'
 							: '',
 					]}
 				/>
 			</div>
 			<div
 				class:list={[
-					'[grid-area:1/1/2/5] pt-[18rem] md:pt-[16rem] lg:pt-[14rem] px-3 lg:px-0 z-10',
+					'[grid-area:1/1/2/5] pt-[18rem] md:pt-[16rem] lg:pt-[14rem] px-2 sm:px-3 lg:px-0 z-10',
 					blok.is_alternate
 						? 'md:[grid-area:1/1/2/6] lg:[grid-area:1/1/2/7]'
 						: '',
