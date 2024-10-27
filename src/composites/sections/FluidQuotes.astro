@@ -6,12 +6,33 @@ import BlockBentoBasic from '@blocks/BlockBentoBasic.astro'
 import BlockBentoPlaques from '@blocks/BlockBentoPlaques.astro'
 import BlockBentoHighlights from '@blocks/BlockBentoHighlights.astro'
 import { _gridGap, _sectionPadding } from '@scripts/snips'
+import Image from '@atoms/Image.astro'
 
 const { blok, class: classes, ...props } = Astro.props
 ---
 
-<Section component={blok.component} title={blok.heading}>
-	<Wrapper margins={false} marginsMd>
-		Quotes...
+<Section
+	component={blok.component}
+	title={blok.heading}
+	section={false}
+	class='bg-[var(--color-dark)]'>
+	<Wrapper margins={false}>
+		<Grid>
+			<div
+				class='col-span-full md:[grid-area:1/1/2/5] lg:[grid-area:1/1/2/7]'>
+				<Image
+					filename={blok.image.filename}
+					alt={blok.image.alt}
+					top
+					class:list={[
+						'h-[24rem] sm:h-[30rem] md:h-[37.5rem] lg:h-[40rem] rounded-b-[32px] md:rounded-bl-none md:rounded-br-[224px] lg:rounded-br-[320px]',
+					]}
+				/>
+			</div>
+			<div
+				class='col-span-full md:[grid-area:1/5/2/9] lg:[grid-area:1/8/2/12] text-white'>
+				B
+			</div>
+		</Grid>
 	</Wrapper>
 </Section>
