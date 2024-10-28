@@ -12,26 +12,29 @@ const { blok, class: classes, ...props } = Astro.props
 <Section
 	component={blok.component}
 	class='relative [transform:translateZ(0)] overflow-x-clip min-h-[22.5rem] md:min-h-[18.5rem] lg:min-h-[25rem]'>
-	<Wrapper margins={false} marginsMd>
+	<Wrapper>
 		<Grid class:list={[_gridGap('y'), '']}>
-			<div class='col-span-full flex flex-col gap-y-3 md:gap-y-4 lg:gap-y-6'>
+			<div
+				class='col-span-full md:[grid-area:1/1/2/6] lg:[grid-area:1/1/2/8] flex flex-col gap-y-3 md:gap-y-4 lg:gap-y-6'>
 				<Text
 					text={blok.heading}
 					color='title'
 					size='3'
 					family='display'
 					weight='extra'
-					tighten
 				/>
 				<Text
 					text={blok.copy}
-					color='title'
+					color='body'
 					size='1hx'
 					family='display'
 					weight='medium'
 				/>
 			</div>
-			<div class='col-span-full'>B</div>
+			<div
+				class='col-span-full md:[grid-area:1/6/2/9] lg:[grid-area:1/8/2/13]'>
+				B
+			</div>
 		</Grid>
 	</Wrapper>
 	<div class='absolute bottom-[-95%] md:bottom-[-150%] -right-1'>
