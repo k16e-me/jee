@@ -1,0 +1,66 @@
+---
+import Section from '@layouts/Section.astro'
+import Wrapper from '@layouts/Wrapper.astro'
+import Grid from '@layouts/Grid.astro'
+import Text from '@atoms/Text.astro'
+import ButtonLink from '@atoms/ButtonLink.astro'
+import { _sectionPadding } from '@scripts/snips'
+import Icon from '@atoms/Icon.astro'
+import RichText from '@atoms/RichText.astro'
+import HeadingSection from '@blocks/HeadingSection.astro'
+import _empty from '@scripts/empty'
+import Image from '@atoms/Image.astro'
+
+const { blok, class: classes, ...props } = Astro.props
+---
+
+<Section component={blok.component}>
+	<Wrapper margins={false}>
+		<Grid
+			class:list={[
+				'gap-y-5 md:gap-y-12 lg:gap-y-14',
+				blok.is_alternate && 'lg:pl-8 xl:pl-18 2xl:pr-18',
+			]}>
+			<div
+				class:list={[
+					'[grid-area:1/1/2/5]',
+					blok.is_alternate
+						? 'md:[grid-area:1/2/2/9] lg:[grid-area:1/5/2/13]'
+						: '',
+				]}>
+				<Image
+					filename={blok.insight.content.image.filename}
+					alt={blok.insight.content.image.title}
+					class:list={[
+						'h-[25rem] sm:h-[31rem] md:h-[37.5rem] lg:h-[41rem]',
+						blok.is_alternate
+							? 'rounded-t-[1.5rem] md:rounded-tr-none md:rounded-tl-[56px] lg:rounded-tl-[64px] 2xl:rounded-[64px]'
+							: '',
+					]}
+				/>
+			</div>
+			<div
+				class:list={[
+					'[grid-area:1/1/2/5] pt-[18rem] md:pt-[16rem] lg:pt-[14rem] px-2 sm:px-3 lg:px-0 z-10',
+					blok.is_alternate
+						? 'md:[grid-area:1/1/2/6] lg:[grid-area:1/1/2/7]'
+						: '',
+				]}>
+				<div
+					class='bg-[var(--color-bg-default-elevated)] rounded-2xl md:rounded-[32px] p-4 md:p-8 lg:p-12 flex flex-col gap-y-4 lg:gap-y-6'>
+					<HeadingSection text={blok.heading} level='h2' size='5' />
+					
+					{
+						!_empty(blok.action) && (
+							<ButtonLink
+								link={blok.action[0].link}
+								label={blok.action[0].label}
+								class='my-3'
+							/>
+						)
+					}
+				</div>
+			</div>
+		</Grid>
+	</Wrapper>
+</Section>

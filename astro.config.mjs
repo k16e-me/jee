@@ -40,6 +40,7 @@ export default defineConfig({
 
                 // Sections
                 imageHangingText: 'composites/sections/ImageHangingText',
+                imageHangingInsight: 'composites/sections/ImageHangingInsight',
                 sectionBentobox: 'composites/sections/SectionBentobox',
                 fluidQuotes: 'composites/sections/FluidQuotes',
             }
