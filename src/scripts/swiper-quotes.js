@@ -17,7 +17,7 @@ export default function _swiperQuotes() {
         loop: true,
         grabCursor: true,
         autoplay: {
-            delay: 15000,
+            delay: 7000,
             disableOnInteraction: false,
             pauseOnMouseEnter: true
         },
