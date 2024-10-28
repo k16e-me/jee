@@ -2,11 +2,9 @@
 import Section from '@layouts/Section.astro'
 import Wrapper from '@layouts/Wrapper.astro'
 import Grid from '@layouts/Grid.astro'
-import BlockBentoBasic from '@blocks/BlockBentoBasic.astro'
-import BlockBentoPlaques from '@blocks/BlockBentoPlaques.astro'
-import BlockBentoHighlights from '@blocks/BlockBentoHighlights.astro'
 import { _gridGap } from '@scripts/snips'
 import Icon from '@atoms/Icon.astro'
+import Text from '@atoms/Text.astro'
 
 const { blok, class: classes, ...props } = Astro.props
 ---
@@ -15,9 +13,31 @@ const { blok, class: classes, ...props } = Astro.props
 	component={blok.component}
 	class='relative [transform:translateZ(0)] overflow-x-clip min-h-[22.5rem] md:min-h-[18.5rem] lg:min-h-[25rem]'>
 	<Wrapper margins={false} marginsMd>
-		<Grid class:list={[_gridGap('y'), '']} />
+		<Grid class:list={[_gridGap('y'), '']}>
+			<div class='col-span-full flex flex-col gap-y-3 md:gap-y-4 lg:gap-y-6'>
+				<Text
+					text={blok.heading}
+					color='title'
+					size='3'
+					family='display'
+					weight='extra'
+					tighten
+				/>
+				<Text
+					text={blok.copy}
+					color='title'
+					size='1hx'
+					family='display'
+					weight='medium'
+				/>
+			</div>
+			<div class='col-span-full'>B</div>
+		</Grid>
 	</Wrapper>
 	<div class='absolute bottom-[-95%] md:bottom-[-150%] -right-1'>
-		<Icon name='cutout-up' class='w-[560px] md:w-[720px] lg:w-[920px] scale-105 h-auto text-[var(--color-main)]' />
+		<Icon
+			name='cutout-up'
+			class='w-[560px] md:w-[720px] lg:w-[920px] scale-105 h-auto text-[var(--color-main)]'
+		/>
 	</div>
 </Section>
