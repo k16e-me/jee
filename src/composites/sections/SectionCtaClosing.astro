@@ -34,7 +34,7 @@ const { blok, class: classes, ...props } = Astro.props
 				/>
 			</div>
 			<div
-				class='col-span-full md:[grid-area:1/6/2/9] lg:[grid-area:1/8/2/13] flex items-start gap-x-3'>
+				class='col-span-full md:[grid-area:1/6/2/9] lg:[grid-area:1/8/2/13] flex items-center gap-x-4 lg:gap-x-8'>
 				<ButtonLink
 					link={blok.link[0].link}
 					label={blok.link[0].label}
@@ -50,7 +50,7 @@ const { blok, class: classes, ...props } = Astro.props
 			</div>
 		</Grid>
 	</Wrapper>
-	<div class='absolute bottom-[-90%] md:bottom-[-150%] -right-1'>
+	<div class='absolute bottom-[-85%] md:bottom-[-150%] -right-1'>
 		<Icon
 			name='cutout-up'
 			class='w-[560px] md:w-[720px] lg:w-[920px] scale-105 h-auto text-[var(--color-main)]'
