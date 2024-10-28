@@ -1,0 +1,17 @@
+---
+import RichText from '@atoms/RichText.astro'
+import Text from '@atoms/Text.astro'
+
+const { quote, class: classes, ...props } = Astro.props
+---
+
+<div class:list={['', classes]} {...props}>
+	<Text
+		tag='p'
+		text={quote}
+		color='title'
+		size='5'
+		weight='medium'
+		class=''
+	/>
+</div>

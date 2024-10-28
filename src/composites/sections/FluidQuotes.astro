@@ -7,15 +7,12 @@ import BlockBentoPlaques from '@blocks/BlockBentoPlaques.astro'
 import BlockBentoHighlights from '@blocks/BlockBentoHighlights.astro'
 import { _gridGap, _sectionPadding } from '@scripts/snips'
 import Image from '@atoms/Image.astro'
+import Quote from '@blocks/Quote.astro'
 
 const { blok, class: classes, ...props } = Astro.props
 ---
 
-<Section
-	component={blok.component}
-	title={blok.heading}
-	section={false}
-	class='bg-[var(--color-dark)]'>
+<Section component={blok.component} title={blok.heading} class=''>
 	<Wrapper margins={false}>
 		<Grid>
 			<div
@@ -25,13 +22,29 @@ const { blok, class: classes, ...props } = Astro.props
 					alt={blok.image.alt}
 					top
 					class:list={[
-						'h-[24rem] sm:h-[30rem] md:h-[37.5rem] lg:h-[40rem] rounded-b-[32px] md:rounded-bl-none md:rounded-br-[224px] lg:rounded-br-[320px]',
+						'h-[25rem] sm:h-[32rem] md:h-[37.5rem] lg:h-[40rem] rounded-br-[128px] md:rounded-br-[224px] lg:rounded-br-[320px] rounded-tr-3xl md:rounded-tr-[64px] lg:rounded-tr-[72px]',
 					]}
 				/>
 			</div>
 			<div
-				class='col-span-full md:[grid-area:1/5/2/9] lg:[grid-area:1/8/2/12] text-white'>
-				B
+				class='col-span-full md:[grid-area:1/5/2/9] lg:[grid-area:1/7/2/13]'>
+				<div
+					class:list={[
+						_sectionPadding('both'),
+						'px-5 sm:px-8 lg:px-10 xl:px-18',
+					]}>
+					<div>
+						<ul class=''>
+							{
+								blok.quotes.map((quote) => (
+									<li class=''>
+										<Quote quote={quote.quote} />
+									</li>
+								))
+							}
+						</ul>
+					</div>
+				</div>
 			</div>
 		</Grid>
 	</Wrapper>
