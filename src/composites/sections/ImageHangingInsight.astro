@@ -52,21 +52,50 @@ const { blok, class: classes, ...props } = Astro.props
 					class='bg-[var(--color-bg-default-elevated)] rounded-2xl md:rounded-[32px] p-4 md:p-8 lg:p-12 flex flex-col gap-y-4 lg:gap-y-6 min-h-96 md:min-h-[30rem]'>
 					<HeadingSection text={blok.heading} level='h2' size='5' />
 					<div class='flex flex-col gap-4 md:gap-y-6 lg:gap-y-8'>
-						<Text
-							text={blok.insight.content.title}
-							color='title'
-							size='4'
-							family='display'
-							weight='bold'
-							tighten
-							class=''
-						/>
+						<div class='flex flex-col gap-y-4'>
+							<Text
+								text={blok.insight.content.title}
+								color='title'
+								size='4'
+								family='display'
+								weight='bold'
+								tighten
+							/>
+							<Text
+								text={blok.insight.content.excerpt}
+								color='body'
+								size='body'
+								family='display'
+                                class='line-clamp-3'
+							/>
+						</div>
+						<div class='flex items-center gap-3'>
+							<Text
+								text={blok.insight.content.author[0].name}
+								color='title'
+								size='1hx'
+								family='display'
+								weight='semi'
+								tighten
+							/>
+							{
+								blok.insight.content.author.length > 1 && (
+									<Text
+										text={`+${blok.insight.content.author.length - 1}`}
+										color='body'
+										size='1hx'
+										family='display'
+										weight='medium'
+									/>
+								)
+							}
+						</div>
 					</div>
 					{
 						!_empty(blok.action) && (
 							<ButtonLink
-								link={blok.action[0].link}
-								label={blok.action[0].label}
+								link={`/${blok.insight.full_slug}`}
+								label={blok.action}
 								class='my-3'
 							/>
 						)
