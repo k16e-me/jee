@@ -1,0 +1,19 @@
+---
+import Section from '@layouts/Section.astro'
+import Wrapper from '@layouts/Wrapper.astro'
+import Grid from '@layouts/Grid.astro'
+import BlockBentoBasic from '@blocks/BlockBentoBasic.astro'
+import BlockBentoPlaques from '@blocks/BlockBentoPlaques.astro'
+import BlockBentoHighlights from '@blocks/BlockBentoHighlights.astro'
+import { _gridGap } from '@scripts/snips'
+
+const { blok, class: classes, ...props } = Astro.props
+---
+
+<Section component={blok.component}>
+	<Wrapper margins={false} marginsMd>
+		<Grid class:list={[_gridGap('y'), '']}>
+
+		</Grid>
+	</Wrapper>
+</Section>

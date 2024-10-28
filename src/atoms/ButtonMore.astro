@@ -4,20 +4,18 @@ import Text from '@atoms/Text.astro'
 import _slug from '@scripts/slug'
 
 const {
-		link,
-		label,
-		theme = 'default',
-		tag = 'a',
-		class: classes,
-		...props
-	} = Astro.props,
-	Tag = tag
+	link,
+	label,
+	theme = 'default',
+	tag = 'a',
+	class: classes,
+	...props
+} = Astro.props,
+Tag = tag
 ---
 
 <Tag
-	link
-	&&
-	href={_slug(link)}
+    href={link ? _slug(link) : '#'}
 	class:list={['group relative inline-block text-center w-min', classes]}
 	{...props}>
 	<Text
@@ -28,10 +26,16 @@ const {
 			'flex items-center justify-center font-semibold whitespace-nowrap',
 			theme === 'default' &&
 				'text-[var(--color-text-title)] group-hover:text-[var(--color-text-emphasis)]',
+			theme === 'on-dark' &&
+				'text-[var(--color-lightest)] group-hover:text-[var(--color-main-inverted)]',
 		]}
 	/>
 	<Icon
 		name='underslash'
-		class='fix-svg-stroke w-full h-3 text-[var(--color-main-inverted)] -translate-y-[1px] group-hover:-translate-y-[3px]'
+		class:list={[
+			'fix-svg-stroke w-full h-3 -translate-y-[1px] group-hover:-translate-y-[3px]',
+			theme === 'default' && 'text-[var(--color-main)]',
+			theme === 'on-dark' && 'text-[var(--color-main-inverted)]',
+		]}
 	/>
 </Tag>

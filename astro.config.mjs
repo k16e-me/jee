@@ -42,6 +42,7 @@ export default defineConfig({
                 imageHangingText: 'composites/sections/ImageHangingText',
                 imageHangingInsight: 'composites/sections/ImageHangingInsight',
                 sectionBentobox: 'composites/sections/SectionBentobox',
+                sectionCtaClosing: 'composites/sections/SectionCtaClosing',
                 fluidQuotes: 'composites/sections/FluidQuotes',
             }
         })

@@ -8,6 +8,7 @@ import ListSitemap from '@blocks/ListSitemap.astro'
 import TitleHidden from '@blocks/TitleHidden.astro'
 import SwiperAwards from '@blocks/SwiperAwards.astro'
 import { _sectionPadding } from '@scripts/snips'
+import ButtonMore from '@atoms/ButtonMore.astro'
 
 const year = new Date().getFullYear(),
 	{ site, class: classes, ...props } = Astro.props
@@ -32,6 +33,14 @@ const year = new Date().getFullYear(),
 					/>
 					<TitleHidden tag='h2' title='JEE Social Media Presence' />
 					<ListSocials links={site.socials[0].content.global} />
+					<div>
+						<ButtonMore
+							tag='button'
+                            theme='on-dark'
+							label={'Subscribe to JEE Insights'}
+							class='my-3'
+						/>
+					</div>
 				</div>
 				<div
 					class='col-span-full md:col-span-4 lg:col-span-8 flex flex-col gap-8 py-6 md:gap-10 lg:gap-16 md:pt-0'>
