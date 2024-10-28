@@ -1,0 +1,24 @@
+---
+import Text from '@atoms/Text.astro'
+
+const { dateString, class: classes, ...props } = Astro.props,
+	date = new Date(dateString),
+    isoString = date.toISOString(),
+	formattedDate = date.toLocaleDateString('en-EN', {
+		day: 'numeric',
+		month: 'short',
+		year: 'numeric'
+	})
+---
+
+<Text
+	tag='time'
+	datetime={isoString}
+	text={formattedDate}
+	{...props}
+	color='caption'
+	size='6'
+	family='display'
+	weight='semi'
+	tighten
+/>
