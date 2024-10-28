@@ -5,6 +5,8 @@ import Grid from '@layouts/Grid.astro'
 import { _gridGap } from '@scripts/snips'
 import Icon from '@atoms/Icon.astro'
 import Text from '@atoms/Text.astro'
+import ButtonLink from '@atoms/ButtonLink.astro'
+import ButtonMore from '@atoms/ButtonMore.astro'
 
 const { blok, class: classes, ...props } = Astro.props
 ---
@@ -32,8 +34,19 @@ const { blok, class: classes, ...props } = Astro.props
 				/>
 			</div>
 			<div
-				class='col-span-full md:[grid-area:1/6/2/9] lg:[grid-area:1/8/2/13]'>
-				B
+				class='col-span-full md:[grid-area:1/6/2/9] lg:[grid-area:1/8/2/13] flex items-start gap-x-3'>
+				<ButtonLink
+					link={blok.link[0].link}
+					label={blok.link[0].label}
+				/>
+				{
+					blok.link[1] && (
+						<ButtonMore
+							link={blok.link[1].link}
+							label={blok.link[1].label}
+						/>
+					)
+				}
 			</div>
 		</Grid>
 	</Wrapper>
