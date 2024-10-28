@@ -33,11 +33,11 @@ const { blok, class: classes, ...props } = Astro.props
 						_sectionPadding('both'),
 						'px-5 sm:px-8 lg:px-10 xl:px-18',
 					]}>
-					<div>
-						<ul class=''>
+					<div class="swiper swiper-quotes">
+						<ul class='swiper-wrapper'>
 							{
 								blok.quotes.map((quote) => (
-									<li class=''>
+									<li class='swiper-slide'>
 										<Quote quote={quote.quote} />
 									</li>
 								))

@@ -5,6 +5,7 @@ import _active from './active'
 import _accordion from './accordion'
 import _swiperAwards from './swiper-awards'
 import _playVideo from './play-video'
+import _swiperQuotes from './swiper-quotes'
 
 const swup = new Swup({
     animationSelector: '[class*="swup-"]',
@@ -30,6 +31,7 @@ function init() {
     _active()
     _accordion()
     _swiperAwards()
+    _swiperQuotes()
     _playVideo()
 }
 
