@@ -8,6 +8,7 @@ import BlockBentoHighlights from '@blocks/BlockBentoHighlights.astro'
 import { _gridGap, _sectionPadding } from '@scripts/snips'
 import Image from '@atoms/Image.astro'
 import Quote from '@blocks/Quote.astro'
+import Icon from '@atoms/Icon.astro'
 
 const { blok, class: classes, ...props } = Astro.props
 ---
@@ -16,29 +17,36 @@ const { blok, class: classes, ...props } = Astro.props
 	<Wrapper margins={false}>
 		<Grid>
 			<div
-				class='col-span-full md:[grid-area:1/1/2/5] lg:[grid-area:1/1/2/7]'>
+				class='col-span-full md:[grid-area:1/1/2/5] lg:[grid-area:1/1/2/7] 2xl:pl-18'>
 				<Image
 					filename={blok.image.filename}
 					alt={blok.image.alt}
 					top
 					class:list={[
-						'h-[25rem] sm:h-[32rem] md:h-[37.5rem] lg:h-[40rem] rounded-br-[128px] md:rounded-br-[224px] lg:rounded-br-[320px] rounded-tr-3xl md:rounded-tr-[64px] lg:rounded-tr-[72px]',
+						'h-[25rem] sm:h-[32rem] md:h-[37.5rem] lg:h-[40rem] rounded-br-[128px] md:rounded-br-[224px] lg:rounded-br-[320px] rounded-tr-3xl md:rounded-tr-[64px] lg:rounded-tr-[72px] rounded-tl-3xl md:rounded-tl-4xl 2xl:rounded-tl-[72px]',
 					]}
 				/>
 			</div>
 			<div
-				class='col-span-full md:[grid-area:1/5/2/9] lg:[grid-area:1/7/2/13]'>
+				class='col-span-full md:[grid-area:1/5/2/9] lg:[grid-area:1/7/2/13] relative [transform:translateZ(0)]'>
 				<div
 					class:list={[
 						_sectionPadding('both'),
 						'px-5 sm:px-8 lg:px-10 xl:px-18',
 					]}>
-					<div class="swiper swiper-quotes">
+					<div
+						class='absolute -top-4 -left-4 md:-top-6 md:-left-6 lg:-top-8'>
+						<Icon
+							name='quote-open'
+							class='size-28 md:size-48 lg:size-52 text-[var(--color-text-title)] opacity-10'
+						/>
+					</div>
+					<div class='swiper swiper-quotes'>
 						<ul class='swiper-wrapper'>
 							{
 								blok.quotes.map((quote) => (
 									<li class='swiper-slide'>
-										<Quote quote={quote.quote} />
+										<Quote quote={quote} />
 									</li>
 								))
 							}
