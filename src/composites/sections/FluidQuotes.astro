@@ -25,7 +25,7 @@ const { blok, class: classes, ...props } = Astro.props,
 					alt={blok.image.alt}
 					top
 					class:list={[
-						'h-[25rem] sm:h-[32rem] md:h-[37.5rem] lg:h-[40rem] rounded-bl-2xl md:rounded-bl-[32px] rounded-br-[128px] md:rounded-br-[224px] lg:rounded-br-[320px] rounded-tr-3xl md:rounded-tr-[64px] lg:rounded-tr-[72px] rounded-tl-3xl md:rounded-tl-4xl 2xl:rounded-tl-[72px]',
+						'h-[25rem] sm:h-[32rem] md:h-[37.5rem] lg:h-[40rem] rounded-bl-2xl md:rounded-bl-[32px] rounded-br-[128px] md:rounded-br-[224px] lg:rounded-br-[320px] rounded-tr-[1.5rem] rounded-tl-[1.5rem] md:rounded-tr-[64px] lg:rounded-tr-[72px] md:rounded-tl-4xl 2xl:rounded-tl-[72px]',
 					]}
 				/>
 			</div>
@@ -53,7 +53,10 @@ const { blok, class: classes, ...props } = Astro.props,
 								))
 							}
 						</ul>
-						<div class='swiper-pagination !relative !text-left !bottom-0 !left-0 [&>*]:!size-2.5 [&>.swiper-pagination-bullet-active]:!bg-[var(--color-main)] [&>.swiper-pagination-bullet-active]:!w-10 [&>.swiper-pagination-bullet-active]:!rounded-3xl' aria-hidden="true"/>
+						<div
+							class='swiper-pagination !relative !text-left !bottom-0 !left-0 [&>*]:!size-2.5 [&>.swiper-pagination-bullet-active]:!bg-[var(--color-main)] [&>.swiper-pagination-bullet-active]:!w-10 [&>.swiper-pagination-bullet-active]:!rounded-3xl'
+							aria-hidden='true'>
+						</div>
 					</div>
 				</div>
 			</div>
