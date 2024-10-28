@@ -6,14 +6,18 @@ import BlockBentoBasic from '@blocks/BlockBentoBasic.astro'
 import BlockBentoPlaques from '@blocks/BlockBentoPlaques.astro'
 import BlockBentoHighlights from '@blocks/BlockBentoHighlights.astro'
 import { _gridGap } from '@scripts/snips'
+import Icon from '@atoms/Icon.astro'
 
 const { blok, class: classes, ...props } = Astro.props
 ---
 
-<Section component={blok.component}>
+<Section
+	component={blok.component}
+	class='relative [transform:translateZ(0)] overflow-x-clip min-h-[22.5rem] md:min-h-[18.5rem] lg:min-h-[25rem]'>
 	<Wrapper margins={false} marginsMd>
-		<Grid class:list={[_gridGap('y'), '']}>
-
-		</Grid>
+		<Grid class:list={[_gridGap('y'), '']} />
 	</Wrapper>
+	<div class='absolute bottom-[-80%] sm:bottom-[-85%] md:bottom-[-150%] -right-1'>
+		<Icon name='cutout-up' class='w-[560px] md:w-[720px] lg:w-[920px] scale-105 h-auto text-[var(--color-main)]' />
+	</div>
 </Section>
