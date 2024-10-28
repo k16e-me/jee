@@ -10,7 +10,8 @@ import Image from '@atoms/Image.astro'
 import Quote from '@blocks/Quote.astro'
 import Icon from '@atoms/Icon.astro'
 
-const { blok, class: classes, ...props } = Astro.props
+const { blok, class: classes, ...props } = Astro.props,
+	quotes = blok.quotes
 ---
 
 <Section component={blok.component} title={blok.heading} class=''>
@@ -32,7 +33,7 @@ const { blok, class: classes, ...props } = Astro.props
 				<div
 					class:list={[
 						_sectionPadding('both'),
-						'px-5 sm:px-8 lg:px-10 xl:px-18',
+						'px-5 sm:px-8 lg:px-10 xl:px-18 h-full',
 					]}>
 					<div
 						class='absolute -top-4 -left-4 md:-top-6 md:-left-6 lg:-top-8'>
@@ -41,17 +42,26 @@ const { blok, class: classes, ...props } = Astro.props
 							class='size-28 md:size-48 lg:size-52 text-[var(--color-text-title)] opacity-10'
 						/>
 					</div>
-					<div class='swiper swiper-quotes'>
+					<div class='swiper swiper-quotes h-full'>
 						<ul class='swiper-wrapper'>
 							{
-								blok.quotes.map((quote) => (
+								quotes.map((quote) => (
 									<li class='swiper-slide'>
 										<Quote quote={quote} />
 									</li>
 								))
 							}
 						</ul>
+						<div
+							class='swiper-pagination !absolute !text-left !-bottom-0 !left-0 [&>*]:!size-2.5 [&>.swiper-pagination-bullet-active]:!bg-[var(--color-main)]'>
+						</div>
 					</div>
+					<!-- <div class='absolute bottom-0 right-0'>
+						<Icon
+							name='cutout-up'
+							class='w-56 text-[var(--color-text-emphasis)]'
+						/>
+					</div> -->
 				</div>
 			</div>
 		</Grid>
