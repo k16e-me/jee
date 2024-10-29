@@ -3,12 +3,19 @@ import Icon from '@atoms/Icon.astro'
 import Text from '@atoms/Text.astro'
 import _slug from '@scripts/slug'
 
-const { link, tag = 'a', label, theme = 'dark', class: classes, ...props } = Astro.props,
-Tag = tag
+const {
+		link,
+		tag = 'a',
+		label,
+		theme = 'dark',
+		class: classes,
+		...props
+	} = Astro.props,
+	Tag = tag
 ---
 
 <Tag
-	link && href={_slug(link)}
+	{...link ? { href: _slug(link) } : {}}
 	class:list={[
 		'text-[var(--color-lightest)] h-10 lg:h-12 flex flex-col justify-center min-w-28 max-w-fit rounded-full px-5 group relative',
 		theme === 'dark' && 'bg-[var(--color-surface-dark)]',
