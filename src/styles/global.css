@@ -46,7 +46,7 @@
         @apply opacity-0 scale-[.99] translate-y-10 ease-in;
     }
     .swup-progress-bar {
-        @apply h-1;
+        @apply h-1 bg-[var(--color-main)];
     }
     main:focus {
         outline: none;
