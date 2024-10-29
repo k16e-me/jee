@@ -1,0 +1,16 @@
+---
+import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro'
+
+const { blok } = Astro.props
+---
+
+{
+	blok.sections.map((blok) => {
+		return '...'
+	})
+}
+<!-- {
+	blok.body.sections.map((blok) => {
+		return <StoryblokComponent blok={blok} />
+	})
+} -->

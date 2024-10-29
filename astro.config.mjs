@@ -44,6 +44,7 @@ export default defineConfig({
                 sectionBentobox: 'composites/sections/SectionBentobox',
                 sectionCtaClosing: 'composites/sections/SectionCtaClosing',
                 fluidQuotes: 'composites/sections/FluidQuotes',
+                wrapper: 'composites/sections/Wrapper',
             }
         })
     ],
