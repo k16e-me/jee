@@ -18,7 +18,7 @@ const { blok, class: classes, ...props } = Astro.props
 	component={blok.component}
 	header
 	section={false}
-	class='r-hide-overflow min-h-[17.25rem] md:min-h-[20rem] lg:min-h-[24.5rem]'>
+	class='r-hide-overflow min-h-[21rem] sm:min-h-[22rem] lg:min-h-[24.5rem]'>
 	<Wrapper inset>
 		<Grid class='gap-y-5 md:gap-y-12 lg:gap-y-14'>
 			<div class='col-span-full md:col-span-6 lg:col-span-8'>
@@ -50,5 +50,5 @@ const { blok, class: classes, ...props } = Astro.props
 			</div>
 		</Grid>
 	</Wrapper>
-	<BrandCutout />
+	<BrandCutout top/>
 </Section>
