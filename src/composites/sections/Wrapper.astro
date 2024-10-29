@@ -12,9 +12,11 @@ const { blok } = Astro.props
 	component={blok.component}
 	title={blok.heading}
 	overlap
-	class='r-hide-overflow z-20 bg-[var(--color-bg-default)] rounded-t-[2rem] md:rounded-t-[3.5rem] lg:rounded-t-4xl'>
-	<Wrapper class:list={[_xPadding(), _sectionPadding('top'), 'overflow-x-clip']}>
-		<Grid class=''>
+	class='r-hide-overflow z-20 bg-[var(--color-bg-default)] rounded-t-[2rem] md:rounded-t-[3.5rem] lg:rounded-t-[4.5rem]'>
+	<Wrapper
+		class:list={[_xPadding(), _sectionPadding('top'), 'overflow-x-clip']}>
+		<Grid
+			class='rounded-t-[2rem] md:rounded-t-[3.5rem] lg:rounded-t-[4.5rem]'>
 			<div
 				class='col-span-full lg:[grid-area:1/1/2/3] self-start sticky top-0 lg:top-20 bg-[var(--color-bg-default)]'>
 				<p>
