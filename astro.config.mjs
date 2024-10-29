@@ -45,6 +45,7 @@ export default defineConfig({
                 sectionCtaClosing: 'composites/sections/SectionCtaClosing',
                 fluidQuotes: 'composites/sections/FluidQuotes',
                 wrapper: 'composites/sections/Wrapper',
+                stackHighlights: 'composites/sections/StackHighlights',
             }
         })
     ],

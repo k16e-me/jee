@@ -1,16 +1,58 @@
 ---
+import Section from '@layouts/Section.astro'
+import Wrapper from '@layouts/Wrapper.astro'
+import Grid from '@layouts/Grid.astro'
 import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro'
+import { _xPadding } from '@scripts/snips'
 
 const { blok } = Astro.props
 ---
 
-{
-	blok.sections.map((blok) => {
-		return '.'
-	})
-}
-<!-- {
-	blok.body.sections.map((blok) => {
-		return <StoryblokComponent blok={blok} />
-	})
-} -->
+<Section
+	component={blok.component}
+	title={blok.heading}
+	overlap
+	class='r-hide-overflow z-20 bg-[var(--color-bg-default)] rounded-t-[2rem] md:rounded-t-[3.5rem] lg:rounded-t-4xl'>
+	<Wrapper class:list={[_xPadding()]}>
+		<Grid class=''>
+			<div>
+				<p>
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+					Bork <i>Nam Pyrrho, Aristo, Erillus iam diu abiecti.</i>
+				</p>
+
+				<p>
+					Cum audissem Antiochum, Brute, ut solebam, cum M. Quodsi
+					ipsam honestatem undique pertectam atque absolutam. Duo
+					Reges: constructio interrete. <b
+						>Quis istud possit, inquit, negare?</b
+					>
+				</p>
+
+				<p>
+					Consequens enim est et post oritur, ut dixi. Quae
+					diligentissime contra Aristonem dicuntur a Chryippo. Itaque
+					haec cum illis est dissensio, cum Peripateticis nulla sane.
+					Hosne igitur laudas et hanc eorum, inquam, sententiam sequi
+					nos censes oportere? Obsecro, inquit, Torquate, haec dicit
+					Epicurus? Nam his libris eum malo quam reliquo ornatu villae
+					delectari.
+				</p>
+
+				<p>
+					Occultum facinus esse potuerit, gaudebit; Minime vero
+					istorum quidem, inquit. Sin dicit obscurari quaedam nec
+					apparere, quia valde parva sint, nos quoque concedimus;
+					Invidiosum nomen est, infame, suspectum. Itaque mihi non
+					satis videmini considerare quod iter sit naturae quaeque
+					progressio. Quid ergo aliud intellegetur nisi uti ne quae
+					pars naturae neglegatur? Experiamur igitur, inquit, etsi
+					habet haec Stoicorum ratio difficilius quiddam et obscurius.
+					Quod dicit Epicurus etiam de voluptate, quae minime sint
+					voluptates, eas obscurari saepe et obrui.
+				</p>
+			</div>
+			<div>B</div>
+		</Grid>
+	</Wrapper>
+</Section>

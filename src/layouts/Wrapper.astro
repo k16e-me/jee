@@ -1,4 +1,6 @@
 ---
+import { _xPadding } from '@scripts/snips'
+
 const {
 		tag = 'div',
 		margins = true,
@@ -13,7 +15,7 @@ const {
 
 <Tag
 	class:list={[
-		margins && 'px-3 md:px-8 lg:px-16',
+		margins && _xPadding(),
 		negateMargin && 'md:px-2 lg:px-6 xl:px-16',
 		inset && '[&>*]:xl:px-16',
 		marginsMd && 'md:px-8 lg:px-16',

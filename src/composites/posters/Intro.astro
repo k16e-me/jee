@@ -4,7 +4,7 @@ import Wrapper from '@layouts/Wrapper.astro'
 import Grid from '@layouts/Grid.astro'
 import Text from '@atoms/Text.astro'
 import ButtonLink from '@atoms/ButtonLink.astro'
-import { _sectionPadding } from '@scripts/snips'
+import { _sectionPadding, _xPadding } from '@scripts/snips'
 import Icon from '@atoms/Icon.astro'
 import BrandCutFull from '@atoms/BrandCutFull.astro'
 import VideoFrame from '@blocks/VideoFrame.astro'
@@ -47,9 +47,9 @@ const { blok, class: classes, ...props } = Astro.props
 		</Grid>
 	</Wrapper>
 	<div class:list={[_sectionPadding('top'), 'relative overflow-x-clip']}>
-		<Grid class='md:px-3 lg:px-8 xl:px-18'>
+		<Grid class:list={[_xPadding()]}>
 			<VideoFrame video={blok.video_id} class='col-span-full' />
 		</Grid>
-		<BrandCutFull/>
+		<BrandCutFull />
 	</div>
 </Section>

@@ -10,10 +10,13 @@ const
         if (direction === 'bottom') return new Array('pb-10', 'md:pb-14', 'lg:pb-20')
         if (direction === 'both') return new Array('py-10', 'md:py-14', 'lg:py-20')
     },
+    _xPadding = (edges = 'both') => {
+        if (edges === 'both') return new Array('px-3', 'md:px-8', 'lg:px-16')
+    },
     _gridGap = (direction = 'y') => {
         if (direction === 'y') return new Array('gap-y-10', 'md:gap-y-14', 'lg:gap-y-20')
     }
 
 export {
-    _body, _q, _ql, _even, _odd, _capitalize, _sectionPadding, _gridGap
+    _body, _q, _ql, _even, _odd, _capitalize, _sectionPadding, _gridGap, _xPadding
 }
