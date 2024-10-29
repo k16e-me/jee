@@ -5,6 +5,7 @@ const {
 	component = null,
 	title,
 	poster,
+    header,
 	section = true,
 	overlap,
 	class: classes,
@@ -15,8 +16,8 @@ const {
 <section
 	class:list={[
 		`_section _section-${component} relative`,
-		poster && 'pt-8 lg:pt-14 xl:pt-18',
-		poster && _sectionPadding('bottom'),
+		(poster || header) && 'pt-8 lg:pt-14',
+		(poster || header) && _sectionPadding('bottom'),
 		section & !overlap && _sectionPadding('both'),
 		section & overlap && _sectionPadding('bottom'),
 		classes,

@@ -1,15 +1,36 @@
 ---
+import Section from '@layouts/Section.astro'
+import Wrapper from '@layouts/Wrapper.astro'
+import Grid from '@layouts/Grid.astro'
+import Text from '@atoms/Text.astro'
+import ButtonLink from '@atoms/ButtonLink.astro'
+import { _sectionPadding } from '@scripts/snips'
+import Icon from '@atoms/Icon.astro'
+import BrandCutout from '@atoms/BrandCutout.astro'
+
 const { blok, class: classes, ...props } = Astro.props
 ---
 
-<section
-	{...props}
-	class:list={[
-		// Default Classes
-		'',
-
-		// Classes can be passed in when called
-		classes,
-	]}>
-	Header Basic...
-</section>
+<Section
+	component={blok.component}
+	header
+	section={false}
+	class='r-hide-overflow min-h-[17.25rem] md:min-h-[20rem] lg:min-h-[24.5rem]'>
+	<Wrapper inset>
+		<Grid class='gap-y-5 md:gap-y-12 lg:gap-y-14'>
+			<div class='col-span-full md:col-span-6 lg:col-span-8'>
+				<Text
+					tag='h2'
+					text={blok.headline}
+					color='title'
+					size='3'
+					family='display'
+					weight='extra'
+					tighten
+					class=''
+				/>
+			</div>
+		</Grid>
+	</Wrapper>
+	<BrandCutout />
+</Section>

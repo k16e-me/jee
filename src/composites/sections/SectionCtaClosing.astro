@@ -7,6 +7,7 @@ import Icon from '@atoms/Icon.astro'
 import Text from '@atoms/Text.astro'
 import ButtonLink from '@atoms/ButtonLink.astro'
 import ButtonMore from '@atoms/ButtonMore.astro'
+import BrandCutout from '@atoms/BrandCutout.astro'
 
 const { blok, class: classes, ...props } = Astro.props
 ---
@@ -51,11 +52,5 @@ const { blok, class: classes, ...props } = Astro.props
 			</div>
 		</Grid>
 	</Wrapper>
-	<div
-		class='absolute bottom-[-85%] md:bottom-[-140%] xl:bottom-[-125%] -right-1'>
-		<Icon
-			name='cutout-up'
-			class='w-[560px] md:w-[720px] lg:w-[920px] scale-105 h-auto text-[var(--color-main)]'
-		/>
-	</div>
+	<BrandCutout/>
 </Section>
