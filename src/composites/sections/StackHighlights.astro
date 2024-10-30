@@ -1,4 +1,28 @@
 ---
+import Grid from '@layouts/Grid.astro'
+import Section from '@layouts/Section.astro'
+import Wrapper from '@layouts/Wrapper.astro'
+import { _xPadding, _gridGap } from '@scripts/snips'
 
+const { blok, class: classes, ...props } = Astro.props
 ---
-Stuff...
+
+<Section component={blok.component}>
+	<Wrapper
+		margins={false}
+		class:list={[
+			_xPadding('right'),
+			_gridGap('x'),
+            _gridGap('y'),
+			'grid grid-cols-4 lg:grid-cols-8 xl:grid-cols-9 px-3 lg:pl-0',
+		]}>
+		<div
+			class='col-span-full lg:[grid-area:1/1/2/5] xl:[grid-area:1/1/2/6]'>
+			A
+		</div>
+		<div
+			class='col-span-full lg:[grid-area:1/5/2/9] xl:[grid-area:1/6/2/10]'>
+			Lorem ipsum dolor sit, amet consectetur adipisicing elit. Praesentium dolorem minima beatae blanditiis aperiam quos iste! Quas itaque quos voluptatum. Est voluptatum similique perspiciatis accusantium tenetur alias et ipsa enim!
+		</div>
+	</Wrapper>
+</Section>

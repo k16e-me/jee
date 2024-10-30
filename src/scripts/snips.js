@@ -11,11 +11,13 @@ const
         if (direction === 'both') return ['py-8', 'md:py-14', 'lg:py-20']
     },
     _xPadding = (edges = 'both') => {
-        if (edges === 'both') return ['px-3', 'md:px-8', 'lg:px-16'];
+        if (edges === 'both') return ['px-3', 'md:px-8', 'lg:px-16']
+        if (edges === 'right') return ['pr-3', 'md:pr-8', 'lg:pr-16']
         if (edges === 'both-mdup') return ['md:px-8', 'lg:px-16']
     },
     _gridGap = (direction = 'y') => {
         if (direction === 'y') return ['gap-y-8', 'md:gap-y-14', 'lg:gap-y-20']
+        if (direction === 'x') return ['gap-x-3', 'md:gap-x-6', 'lg:gap-x-8']
     }
 
 export {

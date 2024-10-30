@@ -13,19 +13,25 @@ const { blok } = Astro.props
 	title={blok.heading}
 	overlap
 	class='r-hide-overflow z-20 bg-[var(--color-bg-default)] rounded-t-[2rem] md:rounded-t-[3.5rem] lg:rounded-t-[4.5rem]'>
-	<Wrapper
-		class:list={[_xPadding(), _sectionPadding('top'), 'overflow-x-clip']}>
+	<Wrapper margins={false} class:list={['overflow-x-clip']}>
 		<Grid
-			class='rounded-t-[2rem] md:rounded-t-[3.5rem] lg:rounded-t-[4.5rem]'>
+			class='rounded-t-[2rem] md:rounded-t-[3.5rem] lg:rounded-t-[4.5rem] overflow-clip'>
 			<div
-				class='col-span-full lg:[grid-area:1/1/2/3] self-start sticky top-0 lg:top-20 bg-[var(--color-bg-default)]'>
+				class:list={[
+					'col-span-full xl:[grid-area:1/1/2/3] self-start sticky top-0 bg-[var(--color-bg-default)] z-10 px-3 lg:pr-0 lg:pl-16',
+					_sectionPadding('top'),
+				]}>
 				<p>
 					Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 					Bork <i>Nam Pyrrho, Aristo, Erillus iam diu abiecti.</i>
 				</p>
 			</div>
-			<div class='col-span-full lg:[grid-area:1/4/2/13]'>
-				
+			<div class='col-span-full xl:[grid-area:1/4/2/13]'>
+				{
+					blok.sections.map((blok) => {
+						return <StoryblokComponent blok={blok} />
+					})
+				}
 			</div>
 		</Grid>
 	</Wrapper>
