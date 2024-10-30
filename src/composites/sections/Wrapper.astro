@@ -18,8 +18,9 @@ const { blok } = Astro.props
 			class='rounded-t-[2rem] md:rounded-t-[3.5rem] lg:rounded-t-[4.5rem] overflow-clip'>
 			<div
 				class:list={[
-					'col-span-full xl:[grid-area:1/1/2/3] self-start sticky top-0 bg-[var(--color-bg-default)] z-10 px-3 lg:pr-0 lg:pl-16',
+					'col-span-full xl:[grid-area:1/1/2/3] self-start sticky top-0 bg-[var(--color-bg-default)] z-10',
 					_sectionPadding('top'),
+					_xPadding('both-lgdown'),
 				]}>
 				<p>
 					Lorem ipsum dolor sit amet, consectetur adipiscing elit.

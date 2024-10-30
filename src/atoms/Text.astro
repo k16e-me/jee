@@ -1,4 +1,6 @@
 ---
+import { _fontSize } from '@scripts/font-size'
+
 const {
 		tag = 'span',
 		text,
@@ -32,13 +34,12 @@ const {
 			'text-[1.1875rem] leading-[1.495rem] sm:text-[1.25rem] lg:text-[1.3125rem] lg:leading-[1.475rem]',
 		size === '6' &&
 			'text-[1.0625rem] lg:text-[1.125rem] leading-[1.3125rem]',
-		size === 'copy' &&
-			'text-[1.0725rem] leading-[1.395rem] lg:text-[1.125rem] lg:leading-[1.65rem]',
-		size === 'emphasis' &&
-			'text-[1.0625rem] lg:text-[1.0325rem] leading-[1.4925rem]',
+		size === 'copy' && _fontSize('copy'),
+		size === 'emphasis' && _fontSize('emphasis'),
+		size === 'body' && _fontSize('body'),
+		size === 'blurb' && _fontSize('blurb'),
 		size === 'emphasis-upper' && 'text-[0.975rem] leading-[1rem]',
 		size === 'footnote' && 'text-[0.875rem] leading-[1.0625rem]',
-		size === 'body' && 'text-[1rem] leading-[1.4375rem]',
 		size === 'button' && 'text-[0.935rem] leading-[1.175rem]',
 
 		family === 'sans' && 'font-sans',
@@ -64,6 +65,6 @@ const {
 		loosen && 'tracking-[0.085em]',
 
 		// Classes Passed In
-		classes
+		classes,
 	]}
 />
