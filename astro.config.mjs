@@ -43,6 +43,7 @@ export default defineConfig({
                 imageHangingInsight: 'composites/sections/ImageHangingInsight',
                 sectionBentobox: 'composites/sections/SectionBentobox',
                 sectionCtaClosing: 'composites/sections/SectionCtaClosing',
+                sectionStack: 'composites/sections/SectionStack',
                 fluidQuotes: 'composites/sections/FluidQuotes',
                 fluidImage: 'composites/sections/FluidImage',
                 wrapper: 'composites/sections/Wrapper',
