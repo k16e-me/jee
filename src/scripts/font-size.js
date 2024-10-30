@@ -1,7 +1,7 @@
 const
     s4 = 'text-[1.55625rem] leading-[1.75rem] md:text-[1.795rem] md:leading-[1.875rem] lg:text-[1.9rem] lg:leading-[2.05rem]',
-    s4Upper = 'text-[1.9075rem] leading-[2rem] md:text-[1.9175rem]',
-    sx1 = 'text-[1.1895rem] leading-[1.495rem] sm:text-[1.275rem] lg:text-[1.3225rem] lg:leading-[1.475rem]',
+    s4Upper = 'text-[1.8875rem] leading-[2rem] md:text-[1.9175rem]',
+    sx1 = 'text-[1.1995rem] leading-[1.495rem] sm:text-[1.275rem] lg:text-[1.3225rem] lg:leading-[1.475rem]',
     body = 'text-[1.05rem] leading-[1.4975rem]',
     copy = 'text-[1.0725rem] leading-[1.395rem] lg:text-[1.125rem] lg:leading-[1.65rem]',
     emphasis = 'text-[1.0625rem] lg:text-[1.0325rem] leading-[1.4925rem]',
