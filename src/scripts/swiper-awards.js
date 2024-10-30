@@ -3,7 +3,6 @@ import {
 } from './snips'
 import Swiper from 'swiper'
 import { Navigation, Autoplay } from 'swiper/modules'
-import 'swiper/css'
 
 export default function _swiperAwards() {
     if (!_q('.swiper-awards')) return

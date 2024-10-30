@@ -16,19 +16,21 @@ const { blok, class: classes, ...props } = Astro.props,
 		<Grid>
 			<div class:list={['col-span-full', _spaceY()]}>
 				<HeadingSection level='h3' text={blok.heading} size='4' />
-				<ul>
-					{
-						values.map(({ title, description }, idx) => (
-							<li class=''>
-								<CardValue
-									title={title}
-									description={description}
-									facing={_odd(idx + 1) ? 'west' : 'east'}
-								/>
-							</li>
-						))
-					}
-				</ul>
+				<div class='swiper swiper-all'>
+					<ul class='swiper-wrapper'>
+						{
+							values.map(({ title, description }, idx) => (
+								<li class='swiper-slide !w-auto'>
+									<CardValue
+										title={title}
+										description={description}
+										facing={_odd(idx + 1) ? 'west' : 'east'}
+									/>
+								</li>
+							))
+						}
+					</ul>
+				</div>
 			</div>
 		</Grid>
 	</Wrapper>

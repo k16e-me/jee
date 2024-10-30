@@ -3,6 +3,8 @@ import '@fontsource-variable/urbanist'
 import '@fontsource-variable/instrument-sans'
 import { SEO } from 'astro-seo'
 import '@styles/global.css'
+import 'swiper/css'
+import 'swiper/css/pagination'
 
 const { title, image, description = '' } = Astro.props,
 	canonicalURL = new URL(Astro.url.pathname, Astro.site)
