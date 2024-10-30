@@ -4,7 +4,7 @@ import Wrapper from '@layouts/Wrapper.astro'
 import Grid from '@layouts/Grid.astro'
 import HeadingSection from '@blocks/HeadingSection.astro'
 import RichText from '@atoms/RichText.astro'
-import { _xPadding } from '@scripts/snips'
+import { _xPadding, _spaceY } from '@scripts/snips'
 
 const { blok, class: classes, ...props } = Astro.props
 ---
@@ -12,7 +12,7 @@ const { blok, class: classes, ...props } = Astro.props
 <Section component={blok.component} overlap={blok.overlap}>
 	<Wrapper margins={false} class:list={[_xPadding('both-lgdown-l')]}>
 		<Grid>
-			<div class='col-span-full space-y-3 md:space-y-4 lg:space-y-6'>
+			<div class:list={['col-span-full', _spaceY()]}>
 				<HeadingSection level='h3' text={blok.heading} size='4' />
 				<RichText text={blok.body} pType='body' />
 			</div>
