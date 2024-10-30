@@ -20,7 +20,7 @@ export default function _swiperAll() {
         loop: true,
         grabCursor: true,
         autoplay: {
-            delay: 3500,
+            delay: 4500,
             disableOnInteraction: false,
             pauseOnMouseEnter: true
         },
