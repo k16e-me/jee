@@ -12,24 +12,39 @@ const { blok, class: classes, ...props } = Astro.props,
 ---
 
 <Section component={blok.component} overlap={blok.overlap}>
-	<Wrapper margins={false} class:list={[_xPadding('both-lgdown-l')]}>
+	<Wrapper margins={false}>
 		<Grid>
 			<div class:list={['col-span-full', _spaceY()]}>
-				<HeadingSection level='h3' text={blok.heading} size='4' />
-				<div class='swiper swiper-all'>
-					<ul class='swiper-wrapper'>
-						{
-							values.map(({ title, description }, idx) => (
-								<li class='swiper-slide !w-auto'>
-									<CardValue
-										title={title}
-										description={description}
-										facing={_odd(idx + 1) ? 'west' : 'east'}
-									/>
-								</li>
-							))
-						}
-					</ul>
+				<div class:list={[_xPadding('both-lgdown-l')]}>
+					<HeadingSection
+						level='h3'
+						text={blok.heading}
+						size='4'
+						isSwiper
+					/>
+				</div>
+				<div class:list={[_xPadding('left-lgdown-l')]}>
+					<div
+						class:list={[
+							'swiper swiper-all',
+							_xPadding('left-lgdown-l'),
+						]}>
+						<ul class='swiper-wrapper'>
+							{
+								values.map(({ title, description }, idx) => (
+									<li class='swiper-slide !w-auto'>
+										<CardValue
+											title={title}
+											description={description}
+											facing={
+												_odd(idx + 1) ? 'west' : 'east'
+											}
+										/>
+									</li>
+								))
+							}
+						</ul>
+					</div>
 				</div>
 			</div>
 		</Grid>
