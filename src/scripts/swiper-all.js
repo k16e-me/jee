@@ -10,7 +10,7 @@ export default function _swiperAll() {
     const swiper = new Swiper('.swiper-all', {
         modules: [Navigation, Autoplay],
         slidesPerView: 'auto',
-        spaceBetween: 16,
+        spaceBetween: 12,
         freeMode: true,
         navigation: {
             nextEl: '.swiper-next',
@@ -24,14 +24,13 @@ export default function _swiperAll() {
             disableOnInteraction: false,
             pauseOnMouseEnter: true
         },
-        // breakpoints: {
-        //     576: {
-        //         slidesPerView: 2
-        //     },
-        //     768: {
-        //         slidesPerView: 3,
-        //         spaceBetween: 24
-        //     }
-        // }
+        breakpoints: {
+            768: {
+                spaceBetween: 16
+            },
+            960: {
+                spaceBetween: 24
+            }
+        }
     })
 }
