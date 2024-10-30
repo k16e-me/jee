@@ -48,6 +48,7 @@ export default defineConfig({
                 fluidImage: 'composites/sections/FluidImage',
                 wrapper: 'composites/sections/Wrapper',
                 stackHighlights: 'composites/sections/StackHighlights',
+                carouselValues: 'composites/sections/CarouselValues',
             }
         })
     ],

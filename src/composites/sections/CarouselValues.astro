@@ -3,10 +3,10 @@ import Section from '@layouts/Section.astro'
 import Wrapper from '@layouts/Wrapper.astro'
 import Grid from '@layouts/Grid.astro'
 import HeadingSection from '@blocks/HeadingSection.astro'
-import RichText from '@atoms/RichText.astro'
 import { _xPadding } from '@scripts/snips'
 
-const { blok, class: classes, ...props } = Astro.props
+const { blok, class: classes, ...props } = Astro.props,
+	values = blok.values
 ---
 
 <Section component={blok.component} overlap={blok.overlap}>
@@ -14,7 +14,6 @@ const { blok, class: classes, ...props } = Astro.props
 		<Grid>
 			<div class='col-span-full space-y-3 md:space-y-4 lg:space-y-6'>
 				<HeadingSection level='h3' text={blok.heading} size='4' />
-				<RichText text={blok.body} pType='body' />
 			</div>
 		</Grid>
 	</Wrapper>
