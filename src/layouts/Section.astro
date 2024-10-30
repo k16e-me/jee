@@ -16,7 +16,8 @@ const {
 <section
 	class:list={[
 		`_section _section-${component} relative`,
-		(poster || header) && 'pt-8 lg:pt-14',
+		poster && 'pt-8 lg:pt-14',
+		header && 'pt-[1.75rem] lg:pt-[3.25rem]',
 		(poster || header) && _sectionPadding('bottom'),
 		section & !overlap && _sectionPadding('both'),
 		section & overlap && _sectionPadding('bottom'),
