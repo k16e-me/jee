@@ -4,8 +4,11 @@ import Header from '@layouts/Header.astro'
 import Footer from '@layouts/Footer.astro'
 import { useStoryblokApi } from '@storyblok/astro'
 import TitleHidden from '@blocks/TitleHidden.astro'
+import { _addAwards, _awards } from '@scripts/store'
 
-const { pageTitle, pageDescription, pageThumbnail, showNav, isError } =
+const currentYear = new Date().getFullYear(),
+	lastYear = currentYear - 1,
+	{ pageTitle, pageDescription, pageThumbnail, showNav, isError } =
 		Astro.props,
 	api = useStoryblokApi(),
 	{ data: settings } = await api.get('cdn/stories/settings', {
@@ -18,12 +21,20 @@ const { pageTitle, pageDescription, pageThumbnail, showNav, isError } =
 		],
 	}),
 	site = settings.story.content
+
+let { data: awards } = await api.get('cdn/stories', {
+	starts_with: 'awards/',
+	version: import.meta.env.DEV ? 'draft' : 'published',
+	by_slugs: [`awards/${currentYear}/*`, `awards/${lastYear}/*`],
+	level: 3,
+	is_startpage: 0,
+})
+
+_addAwards(awards)
 ---
 
 <!doctype html>
-<html
-	lang='en'
-	class='scroll-smooth bg-[var(--color-bg-default)]'>
+<html lang='en' class='scroll-smooth bg-[var(--color-bg-default)]'>
 	<Head
 		title={`${pageTitle} | ${site.title}`}
 		description={pageDescription || site.description}
