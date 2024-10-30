@@ -26,12 +26,11 @@ const {
 			'text-[1.875rem] leading-[1.975rem] md:text-[3.775rem] md:leading-[4.09375rem] lg:text-[4.25rem] lg:leading-[4.515rem]',
 		size === '3' &&
 			'text-[1.775rem] leading-[2rem] md:text-[2.75rem] md:leading-[2.875rem] lg:text-[3.15rem] lg:leading-[3.375rem]',
-		size === '4' &&
-			'text-[1.55625rem] leading-[1.75rem] md:text-[1.795rem] md:leading-[1.875rem] lg:text-[1.9rem] lg:leading-[2.05rem]',
+		size === '4' && _fontSize('s4'),
+		size === 's4-upper' && _fontSize('s4-upper'),
 		size === '5' &&
 			'text-[1.475rem] leading-[1.675rem] sm:text-[1.575rem] sm:leading-[1.8775rem] md:text-[1.6625rem] md:leading-[1.955rem] lg:text-[1.875rem] lg:leading-[2.25rem]',
-		size === '1hx' &&
-			'text-[1.1875rem] leading-[1.495rem] sm:text-[1.25rem] lg:text-[1.3125rem] lg:leading-[1.475rem]',
+		(size === '1hx' || size === 'sx1') && _fontSize('sx1'),
 		size === '6' &&
 			'text-[1.0625rem] lg:text-[1.125rem] leading-[1.3125rem]',
 		size === 'copy' && _fontSize('copy'),
@@ -54,6 +53,7 @@ const {
 
 		// Colors
 		color === 'title' && 'text-[var(--color-text-title)]',
+		color === 'title-light' && 'text-[var(--color-lightest)]',
 		color === 'body' && 'text-[var(--color-text-body)]',
 		color === 'body-light' && 'text-[var(--color-muted)]',
 		color === 'caption' && 'text-[var(--color-text-caption)]',

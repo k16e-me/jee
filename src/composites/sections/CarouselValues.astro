@@ -3,7 +3,9 @@ import Section from '@layouts/Section.astro'
 import Wrapper from '@layouts/Wrapper.astro'
 import Grid from '@layouts/Grid.astro'
 import HeadingSection from '@blocks/HeadingSection.astro'
-import { _xPadding } from '@scripts/snips'
+import { _odd, _xPadding } from '@scripts/snips'
+import CardValue from '@blocks/CardValue.astro'
+import { _odd } from '@scripts/snips'
 
 const { blok, class: classes, ...props } = Astro.props,
 	values = blok.values
@@ -14,6 +16,19 @@ const { blok, class: classes, ...props } = Astro.props,
 		<Grid>
 			<div class='col-span-full space-y-3 md:space-y-4 lg:space-y-6'>
 				<HeadingSection level='h3' text={blok.heading} size='4' />
+				<ul>
+					{
+						values.map(({ title, description }, idx) => (
+							<li class=''>
+								<CardValue
+									title={title}
+									description={description}
+									facing={_odd(idx + 1) ? 'west' : 'east'}
+								/>
+							</li>
+						))
+					}
+				</ul>
 			</div>
 		</Grid>
 	</Wrapper>

@@ -1,0 +1,46 @@
+---
+import Text from '@atoms/Text.astro'
+
+const {
+	title,
+	description,
+	facing = 'west',
+	class: classes,
+	...props
+} = Astro.props
+---
+
+<div
+	class:list={[
+		'w-[18.5rem] h-[24.5rem] border-[8px] border-[var(--color-dark)] p-2',
+		classes,
+	]}
+	{...props}>
+	<div class='h-[30%] pt-3'>
+		<Text
+			tag={'h4'}
+			text={title}
+			color='title'
+			size={'s4-upper'}
+			family='display'
+			weight='extra'
+			uppercase
+		/>
+	</div>
+	<div
+		class:list={[
+			'bg-[var(--color-main)] h-[70%] rounded-br-[1.5rem] p-3 flex flex-col justify-end',
+			facing === 'west' &&
+				'rounded-tl-[8.5rem] rounded-tr-[1.5rem]',
+			facing === 'east' && 'rounded-tr-[8.5rem] rounded-tl-[1.5rem]',
+		]}>
+		<Text
+			tag={'p'}
+			text={description}
+			color='title-light'
+			size={'sx1'}
+			weight='bold'
+            class="min-h-20"
+		/>
+	</div>
+</div>
