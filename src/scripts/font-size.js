@@ -13,5 +13,5 @@ const
     }
 
 export {
-   _fontSize 
+   _fontSize
 }
