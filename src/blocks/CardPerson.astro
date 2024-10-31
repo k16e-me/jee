@@ -10,11 +10,11 @@ const { person, facing = 'west', class: classes, ...props } = Astro.props
 <a
 	href={_slug(person.full_slug)}
 	class:list={[
-		'inline-flex flex-col w-[18.5rem] h-[24.5rem] bg-[var(--color-bg-default-elevated)]',
+		'grid grid-cols-1 w-full bg-[var(--color-bg-default-elevated)]',
 		classes,
 	]}
 	{...props}>
-	<div class=''>
+	<div class='[grid-area:1/1/2/2]'>
 		<Image
 			filename={person.content.headshot.filename}
 			alt={person.content.headshot.alt}
@@ -23,10 +23,10 @@ const { person, facing = 'west', class: classes, ...props } = Astro.props
 	</div>
 	<div
 		class:list={[
-			'bg-[var(--color-emphasis)]',
-			facing === 'west' && 'rounded-tl-[8.5rem] rounded-tr-[1.5rem]',
-			facing === 'east' && 'rounded-tr-[8.5rem] rounded-tl-[1.5rem]',
+			'[grid-area:1/1/2/2]',
+			facing === 'west' && '',
+			facing === 'east' && '',
 		]}>
-		Icon...
+		{person.content.byline[0].content.title}
 	</div>
 </a>
