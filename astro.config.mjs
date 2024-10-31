@@ -24,6 +24,8 @@ export default defineConfig({
                 // Types/Templates
                 page: 'types/Page',
                 person: 'types/Person',
+                event: 'types/Event',
+                insight: 'types/Insight',
 
                 // Posters
                 feature: 'composites/posters/Feature',

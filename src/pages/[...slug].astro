@@ -8,6 +8,7 @@ export async function getStaticPaths() {
 	const storyblokApi = useStoryblokApi(),
 		{ data } = await storyblokApi.get('cdn/links/', {
 			version: import.meta.env.DEV ? 'draft' : 'published',
+			
 		})
 
 	let links = data.links,
