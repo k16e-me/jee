@@ -19,6 +19,7 @@ const { person, class: classes, ...props } = Astro.props
 		<Image
 			filename={person.content.headshot.filename}
 			alt={person.content.headshot.alt}
+            filter
 			top
 			class:list={[
 				'h-[23.5rem] transition-transform duration-200 group-hover:scale-110',
