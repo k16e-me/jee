@@ -19,7 +19,7 @@ export default defineConfig({
         storyblok({
             accessToken: env.STORYBLOK_TOKEN,
             livePreview: false,
-            // bridge: import.meta.env.DEV,
+            bridge: import.meta.env.DEV,
             components: {
                 // Types/Templates
                 page: 'types/Page',
