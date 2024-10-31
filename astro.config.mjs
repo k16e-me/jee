@@ -44,12 +44,18 @@ export default defineConfig({
                 sectionBentobox: 'composites/sections/SectionBentobox',
                 sectionCtaClosing: 'composites/sections/SectionCtaClosing',
                 sectionStack: 'composites/sections/SectionStack',
+                sectionLatest: 'composites/sections/SectionLatest',
                 fluidQuotes: 'composites/sections/FluidQuotes',
                 fluidImage: 'composites/sections/FluidImage',
                 wrapper: 'composites/sections/Wrapper',
                 stackHighlights: 'composites/sections/StackHighlights',
                 carouselValues: 'composites/sections/CarouselValues',
                 carouselPeople: 'composites/sections/CarouselPeople',
+
+                // Collections
+                allPeople: 'composites/collections/AllPeople',
+                allInsights: 'composites/collections/AllInsights',
+                allEvents: 'composites/collections/AllEvents',
             }
         })
     ],
