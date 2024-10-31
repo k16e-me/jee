@@ -21,7 +21,9 @@ export default defineConfig({
             livePreview: false,
             bridge: import.meta.env.DEV,
             components: {
+                // Types/Templates
                 page: 'types/Page',
+                person: 'types/Person',
 
                 // Posters
                 feature: 'composites/posters/Feature',
