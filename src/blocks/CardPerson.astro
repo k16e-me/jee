@@ -11,7 +11,7 @@ const { person, facing = 'west', class: classes, ...props } = Astro.props
 <a
 	href={_slug(person.full_slug)}
 	class:list={[
-		'grid grid-cols-1 items-end w-[18.5rem] h-[24.5rem] bg-[var(--color-bg-default-elevated)] group',
+		'grid grid-cols-1 items-end w-[18.5rem] h-[24.5rem] bg-[var(--color-bg-default-elevated)] group overflow-clip rounded-[1.25rem] md:rounded-[1.5rem]',
 		classes,
 	]}
 	{...props}>
@@ -19,19 +19,23 @@ const { person, facing = 'west', class: classes, ...props } = Astro.props
 		<Image
 			filename={person.content.headshot.filename}
 			alt={person.content.headshot.alt}
-            top
-			class:list={['h-[22.5rem] transition-[height] duration-200 group-hover:h-[24rem]']}
+			top
+			class:list={[
+				'h-[23.5rem] transition-transform duration-200 group-hover:scale-110',
+			]}
 		/>
 	</div>
 	<div
 		class:list={[
-			'[grid-area:1/1/2/2] h-11 z-10',
+			'[grid-area:1/1/2/2] z-10',
 			facing === 'west' && '',
 			facing === 'east' && '',
 		]}>
-		<Byline
-			title={person.name}
-			designation={person.content.byline[0].content.title}
-		/>
+		<div class="p-4">
+			<Byline
+				title={person.name}
+				designation={person.content.byline[0].content.title}
+			/>
+		</div>
 	</div>
 </a>
