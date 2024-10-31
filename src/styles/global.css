@@ -7,6 +7,8 @@
         /* Fixed Colors */
         --color-main: #E80000;
         --color-main-inverted: #FF2626;
+        --color-secondary: #FDC287;
+        --color-secondary-inverted: #FED6AA;
         --color-dark: #211B1B;
         --color-muted: #D1D1D1;
         --color-muted-dark: #382E2E;
@@ -29,6 +31,7 @@
         --color-text-emphasis: var(--color-main);
 
         --color-emphasis: var(--color-main);
+        --color-accent: var(--color-secondary);
 
         --color-border-muted: var(--color-gray-200);
         --color-border-accent: var(--color-accent);

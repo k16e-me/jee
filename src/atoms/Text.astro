@@ -31,8 +31,7 @@ const {
 		size === '5' &&
 			'text-[1.475rem] leading-[1.675rem] sm:text-[1.575rem] sm:leading-[1.8775rem] md:text-[1.6625rem] md:leading-[1.955rem] lg:text-[1.875rem] lg:leading-[2.25rem]',
 		(size === '1hx' || size === 'sx1') && _fontSize('sx1'),
-		size === '6' &&
-			'text-[1.0625rem] lg:text-[1.125rem] leading-[1.3125rem]',
+		size === '6' && _fontSize('s6'),
 		size === 'copy' && _fontSize('copy'),
 		size === 'emphasis' && _fontSize('emphasis'),
 		size === 'body' && _fontSize('body'),
@@ -57,6 +56,7 @@ const {
 		color === 'body' && 'text-[var(--color-text-body)]',
 		color === 'body-light' && 'text-[var(--color-muted)]',
 		color === 'caption' && 'text-[var(--color-text-caption)]',
+		color === 'accent' && 'text-[var(--color-accent)]',
 		color === 'white' && 'text-white',
 
 		// Booleans
