@@ -49,6 +49,7 @@ export default defineConfig({
                 wrapper: 'composites/sections/Wrapper',
                 stackHighlights: 'composites/sections/StackHighlights',
                 carouselValues: 'composites/sections/CarouselValues',
+                carouselPeople: 'composites/sections/CarouselPeople',
             }
         })
     ],

@@ -1,0 +1,49 @@
+---
+import Section from '@layouts/Section.astro'
+import Wrapper from '@layouts/Wrapper.astro'
+import Grid from '@layouts/Grid.astro'
+import HeadingSection from '@blocks/HeadingSection.astro'
+import { _odd, _xPadding } from '@scripts/snips'
+import CardValue from '@blocks/CardValue.astro'
+import { _odd, _spaceY } from '@scripts/snips'
+
+const { blok, class: classes, ...props } = Astro.props,
+	people = blok.people,
+	collection = blok.collection[0]
+---
+
+<Section component={blok.component} overlap={blok.overlap}>
+	<Wrapper margins={false}>
+		<Grid>
+			<div class:list={['col-span-full', _spaceY()]}>
+				<div class:list={[_xPadding('both-lgdown-l')]}>
+					<HeadingSection
+						level='h3'
+						text={blok.heading}
+						size='4'
+						isFromCollection
+						label={collection.label}
+                        link={collection.link}
+					/>
+				</div>
+				<div class:list={[_xPadding('left-lgdown-l')]}>
+					<div
+						class:list={[
+							'swiper swiper-all',
+							_xPadding('left-lgdown-l'),
+						]}>
+						<ul class='swiper-wrapper'>
+							{
+								people.map((person, idx) => (
+									<li class='swiper-slide !w-auto'>
+										{person.name}
+									</li>
+								))
+							}
+						</ul>
+					</div>
+				</div>
+			</div>
+		</Grid>
+	</Wrapper>
+</Section>

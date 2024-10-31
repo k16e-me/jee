@@ -1,5 +1,6 @@
 ---
 import ButtonFab from '@atoms/ButtonFab.astro'
+import ButtonMore from '@atoms/ButtonMore.astro'
 import Text from '@atoms/Text.astro'
 
 const {
@@ -7,6 +8,9 @@ const {
 	level,
 	underline = true,
 	hasCarouselControls,
+	isFromCollection,
+    link,
+    label,
 	size,
 	class: classes,
 	...props
@@ -33,7 +37,7 @@ const {
 	/>
 	{
 		hasCarouselControls && (
-			<div class="flex items-center gap-2">
+			<div class='flex items-center gap-2'>
 				<ButtonFab
 					style='brand'
 					label='Control Carousel'
@@ -47,6 +51,14 @@ const {
 					class='swiper-next'
 				/>
 			</div>
+		)
+	}
+	{
+		isFromCollection && (
+			<ButtonMore
+				label={label}
+                link={link}
+			/>
 		)
 	}
 </div>
