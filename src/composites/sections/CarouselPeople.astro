@@ -4,7 +4,7 @@ import Wrapper from '@layouts/Wrapper.astro'
 import Grid from '@layouts/Grid.astro'
 import HeadingSection from '@blocks/HeadingSection.astro'
 import { _odd, _xPadding } from '@scripts/snips'
-import CardValue from '@blocks/CardValue.astro'
+import CardPerson from '@blocks/CardPerson.astro'
 import { _odd, _spaceY } from '@scripts/snips'
 
 const { blok, class: classes, ...props } = Astro.props,
@@ -23,7 +23,7 @@ const { blok, class: classes, ...props } = Astro.props,
 						size='4'
 						isFromCollection
 						label={collection.label}
-                        link={collection.link}
+						link={collection.link}
 					/>
 				</div>
 				<div class:list={[_xPadding('left-lgdown-l')]}>
@@ -36,7 +36,7 @@ const { blok, class: classes, ...props } = Astro.props,
 							{
 								people.map((person, idx) => (
 									<li class='swiper-slide !w-auto'>
-										{person.name}
+										<CardPerson person={person}/>
 									</li>
 								))
 							}

@@ -12,6 +12,10 @@ export default function _swiperAll() {
         slidesPerView: 'auto',
         spaceBetween: 12,
         freeMode: true,
+        keyboard: {
+            enabled: true,
+            onlyInViewport: false
+        },
         navigation: {
             nextEl: '.swiper-next',
             prevEl: '.swiper-prev'
