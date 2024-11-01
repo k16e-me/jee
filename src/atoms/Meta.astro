@@ -9,7 +9,6 @@ const { info, class: classes, ...props } = Astro.props
 	<Text
 		tag='p'
 		text={info.category.content.title}
-		{...props}
 		color='emphasis'
 		size='blurb'
 		family='display'
@@ -19,6 +18,7 @@ const { info, class: classes, ...props } = Astro.props
 		dateString={info.published_date}
 		size='blurb'
 		color='caption'
+        weight='medium'
 		class='justify-self-end'
 	/>
 </div>

@@ -5,6 +5,7 @@ import Text from '@atoms/Text.astro'
 import _slug from '@scripts/slug'
 import Byline from '@blocks/Byline.astro'
 import Meta from '@atoms/Meta.astro'
+import Author from '@blocks/Author.astro'
 
 const { piece, class: classes, ...props } = Astro.props
 ---
@@ -20,7 +21,18 @@ const { piece, class: classes, ...props } = Astro.props
 			]}
 		/>
 	</div>
-	<div class:list={['pt-4 pr-4']}>
-        <Meta info={piece.content} class="pb-1"/>
-    </div>
+	<div class:list={['pt-4 pr-4 space-y-3']}>
+		<Meta info={piece.content} />
+		<div class='flex flex-col h-full justify-between'>
+			<Text
+				tag='h3'
+				text={piece.content.title}
+				color='title'
+				size='6'
+				family='display'
+				weight='semi'
+			/>
+			<!-- <Author source={piece.content.author} /> -->
+		</div>
+	</div>
 </a>

@@ -11,6 +11,7 @@ import HeadingSection from '@blocks/HeadingSection.astro'
 import _empty from '@scripts/empty'
 import Image from '@atoms/Image.astro'
 import FormattedDate from '@atoms/FormattedDate.astro'
+import Author from '@blocks/Author.astro'
 
 const { blok, class: classes, ...props } = Astro.props
 ---
@@ -71,27 +72,7 @@ const { blok, class: classes, ...props } = Astro.props
 							/>
 						</div>
 						<div class='flex flex-col gap-1.5'>
-							<div class='flex items-center gap-3'>
-								<Text
-									text={blok.insight.content.author[0].name}
-									color='title'
-									size='1hx'
-									family='display'
-									weight='semi'
-									tighten
-								/>
-								{
-									blok.insight.content.author.length > 1 && (
-										<Text
-											text={`+${blok.insight.content.author.length - 1}`}
-											color='body'
-											size='1hx'
-											family='display'
-											weight='medium'
-										/>
-									)
-								}
-							</div>
+                            <Author source={blok.insight}/>
 							<FormattedDate
 								dateString={blok.insight.content.published_date}
 							/>
