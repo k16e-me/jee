@@ -21,9 +21,9 @@ const { piece, class: classes, ...props } = Astro.props
 			]}
 		/>
 	</div>
-	<div class:list={['pt-4 pr-4 space-y-3']}>
-		<Meta info={piece.content} />
-		<div class='flex flex-col h-full justify-between'>
+	<div class:list={['pt-4 pr-4 h-[9rem] flex flex-col justify-between']}>
+		<div class='space-y-3'>
+			<Meta info={piece.content} />
 			<Text
 				tag='h3'
 				text={piece.content.title}
@@ -31,8 +31,9 @@ const { piece, class: classes, ...props } = Astro.props
 				size='6'
 				family='display'
 				weight='semi'
+                class='line-clamp-3'
 			/>
-			<!-- <Author source={piece.content.author} /> -->
 		</div>
+		<Author source={piece} size='body' weight='semi' color='body' class='mt-auto'/>
 	</div>
 </a>
