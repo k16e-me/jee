@@ -1,0 +1,23 @@
+---
+import Icon from '@atoms/Icon.astro'
+import Image from '@atoms/Image.astro'
+import Text from '@atoms/Text.astro'
+import _slug from '@scripts/slug'
+import Byline from '@blocks/Byline.astro'
+
+const { piece, class: classes, ...props } = Astro.props
+---
+
+<a href={_slug(piece.full_slug)} class:list={['size-full', classes]} {...props}>
+	<div class='rounded-bl-[1.5rem] rounded-br-[8rem] relative overflow-clip'>
+		<Image
+			filename={piece.content.image.filename}
+			alt={piece.content.image.alt}
+			filter
+			class:list={[
+				'h-[15.5rem] transition-transform duration-200 lg:group-hover:scale-110',
+			]}
+		/>
+	</div>
+	<div class:list={['']}></div>
+</a>

@@ -7,7 +7,7 @@ import Base from '@layouts/Base.astro'
 export async function getStaticPaths() {
 	const storyblokApi = useStoryblokApi(),
 		{ data } = await storyblokApi.get('cdn/links/', {
-			version: import.meta.env.DEV ? 'draft' : 'published'
+			version: import.meta.env.DEV ? 'draft' : 'published',
 		})
 
 	let links = data.links,
@@ -60,6 +60,7 @@ const { slug } = Astro.params,
 				'carousel_people.people',
 				'person.byline',
 				'section_latest.insights',
+				'insight.author',
 			],
 		},
 	),

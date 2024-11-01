@@ -23,11 +23,11 @@ export default function _swiperAll() {
         mousewheel: true,
         loop: true,
         grabCursor: true,
-        autoplay: {
-            delay: 4500,
-            disableOnInteraction: false,
-            pauseOnMouseEnter: true
-        },
+        // autoplay: {
+        //     delay: 4500,
+        //     disableOnInteraction: false,
+        //     pauseOnMouseEnter: true
+        // },
         breakpoints: {
             768: {
                 spaceBetween: 24
