@@ -10,6 +10,7 @@ import CardInsight from '@blocks/CardInsight.astro'
 const { blok, class: classes, ...props } = Astro.props,
 	insights = blok.insights,
 	collection = blok.collection[0]
+    console.log(insights[0])
 ---
 
 <Section component={blok.component} overlap={blok.overlap}>
