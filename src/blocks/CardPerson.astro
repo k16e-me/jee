@@ -19,7 +19,7 @@ const { person, class: classes, ...props } = Astro.props
 		<Image
 			filename={person.content.headshot.filename}
 			alt={person.content.headshot.alt}
-            filter
+			filter
 			top
 			class:list={[
 				'h-[23.5rem] transition-transform duration-200 lg:group-hover:scale-110',
@@ -34,9 +34,7 @@ const { person, class: classes, ...props } = Astro.props
 		<div class='p-4 relative z-10'>
 			<Byline
 				title={person.name}
-
 			/>
 		</div>
 	</div>
 </a>
-<!-- designation={person.content.byline[0].content.title} -->
