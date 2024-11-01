@@ -4,6 +4,7 @@ import Image from '@atoms/Image.astro'
 import Text from '@atoms/Text.astro'
 import _slug from '@scripts/slug'
 import Byline from '@blocks/Byline.astro'
+import Meta from '@atoms/Meta.astro'
 
 const { piece, class: classes, ...props } = Astro.props
 ---
@@ -19,5 +20,7 @@ const { piece, class: classes, ...props } = Astro.props
 			]}
 		/>
 	</div>
-	<div class:list={['']}></div>
+	<div class:list={['pt-4 pr-4']}>
+        <Meta info={piece.content} class="pb-1"/>
+    </div>
 </a>

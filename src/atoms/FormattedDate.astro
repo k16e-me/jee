@@ -1,7 +1,7 @@
 ---
 import Text from '@atoms/Text.astro'
 
-const { dateString, class: classes, ...props } = Astro.props,
+const { dateString, color = 'caption', size = '6', family = 'display', tighten = true, weight = 'semi', class: classes, ...props } = Astro.props,
 	date = new Date(dateString),
     isoString = date.toISOString(),
 	formattedDate = date.toLocaleDateString('en-EN', {
@@ -16,9 +16,9 @@ const { dateString, class: classes, ...props } = Astro.props,
 	datetime={isoString}
 	text={formattedDate}
 	{...props}
-	color='caption'
-	size='6'
-	family='display'
-	weight='semi'
-	tighten
+	color={color}
+	size={size}
+	family={family}
+	weight={weight}
+	tighten={tighten}
 />

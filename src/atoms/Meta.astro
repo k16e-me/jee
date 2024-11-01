@@ -1,0 +1,24 @@
+---
+import Text from '@atoms/Text.astro'
+import FormattedDate from '@atoms/FormattedDate.astro'
+
+const { info, class: classes, ...props } = Astro.props
+---
+
+<div class='flex items-center justify-between'>
+	<Text
+		tag='p'
+		text={info.category.content.title}
+		{...props}
+		color='emphasis'
+		size='blurb'
+		family='display'
+		weight='semi'
+	/>
+	<FormattedDate
+		dateString={info.published_date}
+		size='blurb'
+		color='caption'
+		class='justify-self-end'
+	/>
+</div>

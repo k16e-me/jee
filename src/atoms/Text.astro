@@ -36,8 +36,8 @@ const {
 		size === 'emphasis' && _fontSize('emphasis'),
 		size === 'body' && _fontSize('body'),
 		size === 'blurb' && _fontSize('blurb'),
+		size === 'footnote' && _fontSize('footnote'),
 		size === 'emphasis-upper' && 'text-[0.975rem] leading-[1rem]',
-		size === 'footnote' && 'text-[0.875rem] leading-[1.0625rem]',
 		size === 'button' && 'text-[0.935rem] leading-[1.175rem]',
 
 		family === 'sans' && 'font-sans',
@@ -51,6 +51,7 @@ const {
 		weight === 'extra' && 'font-extrabold',
 
 		// Colors
+		color === 'emphasis' && 'text-[var(--color-emphasis)]',
 		color === 'title' && 'text-[var(--color-text-title)]',
 		color === 'title-light' && 'text-[var(--color-lightest)]',
 		color === 'body' && 'text-[var(--color-text-body)]',
