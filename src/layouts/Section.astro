@@ -5,10 +5,11 @@ const {
 	component = null,
 	title,
 	poster,
-    header,
+	header,
 	section = true,
 	overlap,
-    id,
+	id,
+	spy = false,
 	class: classes,
 	...props
 } = Astro.props
@@ -24,7 +25,8 @@ const {
 		section & overlap && _sectionPadding('bottom'),
 		classes,
 	]}
-    id={id}
+	id={id}
+	{...spy ? { 'data-spy': '' } : {}}
 	{...props}>
 	{title && <h2 set:text={title} class='sr-only' />}
 	<slot />

@@ -17,30 +17,23 @@ const { blok } = Astro.props,
 	component={blok.component}
 	title={blok.heading}
 	overlap
+    spy
 	class='r-hide-overflow z-20 bg-[var(--color-bg-default)] rounded-t-[2rem] md:rounded-t-[3.5rem] lg:rounded-t-[4.5rem]'>
 	<Wrapper margins={false} class:list={['overflow-x-clip']}>
 		<Grid
 			class='rounded-t-[2rem] md:rounded-t-[3.5rem] lg:rounded-t-[4.5rem] overflow-clip'>
-			<div
+			<aside
 				class:list={[
-					'col-span-full xl:[grid-area:1/1/2/3] self-start sticky bg-[var(--color-bg-default)] z-10 pt-3 -top-px [&.is-pinned]:shadow [&.is-pinned]:pb-3 lg:!pb-0 xl:!shadow-none',
+					'col-span-full xl:[grid-area:1/1/2/3] self-start sticky bg-[var(--color-bg-default)] z-10 -top-px [&.is-pinned]:shadow xl:!shadow-none',
 					_sectionPadding('top-xl-up'),
 					_xPadding('both-lgdown'),
 				]}
 				data-pin-top>
-				<SectionSelect
-					headings={headings}
-					class='block lg:hidden'
-					data-spy-sections
-                    id="data-spy"
-				/>
 				<SectionSpy
 					headings={headings}
-					class='hidden'
 					data-spy-sections
-                    id="data-spy"
 				/>
-			</div>
+			</aside>
 			<div class='col-span-full xl:[grid-area:1/4/2/13]'>
 				{
 					blok.sections.map((blok) => {

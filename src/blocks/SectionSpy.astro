@@ -7,19 +7,22 @@ const { headings, class: classes, ...props } = Astro.props
 
 <ul
 	class:list={[
-		'lg:flex xl:flex-col items-center xl:items-end justify-between border-b border-[var(--color-border-muted)] xl:border-b-0 xl:border-r [&>*]:xl:text-right',
+		'flex xl:flex-col items-center xl:items-end justify-between border-b border-[var(--color-border-muted)] xl:border-b-0 xl:border-r [&>*]:xl:text-right',
 		classes,
 	]}
 	{...props}>
 	{
 		headings.map((h) => (
 			<li
-				data-section={_slugify(h)}
 				class:list={[
 					_fontSize('1hx'),
-					'font-semibold font-display px-4 xl:pl-0 xl:pr-4 py-6 xl:py-4 [&.is-in-view]:border-b-2 [&.is-in-view]:border-[var(--color-emphasis)] group',
+					'group translate-y-[0.1rem] xl:translate-x-[0.1rem]',
 				]}>
-				<a href={`#${_slugify(h)}`} set:text={h} class="size-full block group-hover:text-[var(--color-emphasis)]"/>
+				<a
+					href={`#${_slugify(h)}`}
+					set:text={h}
+					class='flex text-right font-semibold font-display p-4 xl:pl-0 [&.is-in-view]:border-b-[3px] [&.is-in-view]:xl:border-r-[3px] xl:!border-b-0 [&.is-in-view]:border-[var(--color-emphasis)] group-hover:text-[var(--color-emphasis)] [&.is-in-view]:text-[var(--color-emphasis)]'
+				/>
 			</li>
 		))
 	}
