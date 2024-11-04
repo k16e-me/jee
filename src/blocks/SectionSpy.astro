@@ -1,0 +1,18 @@
+---
+import { _fontSize } from '@scripts/font-size'
+import _slugify from '@scripts/slugify'
+
+const { headings, class: classes, ...props } = Astro.props
+---
+
+<ul class:list={['lg:flex xl:flex-col items-center xl:items-end justify-between border-b border-[]', classes]} {...props}>
+	{
+		headings.map((h) => (
+			<li
+				set:text={h}
+				data-section={_slugify(h)}
+				class:list={[_fontSize('1hx'), 'font-semibold font-display px-4 py-6 [&.is-in-view]']}
+			/>
+		))
+	}
+</ul>

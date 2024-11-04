@@ -7,6 +7,7 @@ import _swiperAwards from './swiper-awards'
 import _playVideo from './play-video'
 import _swiperQuotes from './swiper-quotes'
 import _swiperAll from './swiper-all'
+import _isSticky from './pin-top'
 
 const swup = new Swup({
     animationSelector: '[class*="swup-"]',
@@ -35,6 +36,7 @@ function init() {
     _swiperQuotes()
     _swiperAll()
     _playVideo()
+    _isSticky()
 }
 
 function once() {
