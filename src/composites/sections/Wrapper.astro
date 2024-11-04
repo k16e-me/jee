@@ -6,7 +6,7 @@ import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro'
 import { _xPadding, _sectionPadding } from '@scripts/snips'
 
 const { blok } = Astro.props,
-	headings = blok.sections.map(section => section.heading)
+	headings = blok.sections.map((section) => section.heading)
 
 console.log(headings)
 ---
@@ -22,7 +22,7 @@ console.log(headings)
 			<div
 				class:list={[
 					'col-span-full xl:[grid-area:1/1/2/3] self-start sticky top-0 bg-[var(--color-bg-default)] z-10',
-					_sectionPadding('top'),
+					_sectionPadding('top-lg-up'),
 					_xPadding('both-lgdown'),
 				]}>
 				<p>

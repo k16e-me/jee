@@ -4,22 +4,24 @@ import Wrapper from '@layouts/Wrapper.astro'
 import Grid from '@layouts/Grid.astro'
 import { _gridGap, _sectionPadding } from '@scripts/snips'
 import Image from '@atoms/Image.astro'
+import _slugify from '@scripts/slugify'
 
 const { blok, class: classes, ...props } = Astro.props,
 	quotes = blok.quotes
 ---
 
-<Section component={blok.component} title={blok.heading} overlap={blok.overlap}>
+<Section
+	component={blok.component}
+	title={blok.heading}
+	overlap={blok.overlap}
+	id={_slugify(blok.heading)}>
 	<Wrapper margins={false}>
 		<Grid>
-			<div
-				class='col-span-full'>
+			<div class='col-span-full'>
 				<Image
 					filename={blok.image.filename}
 					alt={blok.image.alt}
-					class:list={[
-						'h-[24.5rem] sm:h-[32.5rem] md:h-[37.5rem]',
-					]}
+					class:list={['h-[24.5rem] sm:h-[32.5rem] md:h-[37.5rem]']}
 				/>
 			</div>
 		</Grid>

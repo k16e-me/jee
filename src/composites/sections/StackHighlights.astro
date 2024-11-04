@@ -6,11 +6,12 @@ import { _xPadding, _gridGap } from '@scripts/snips'
 import HeadingSection from '@blocks/HeadingSection.astro'
 import RichText from '@atoms/RichText.astro'
 import Number from '@atoms/Number.astro'
+import _slugify from '@scripts/slugify'
 
 const { blok, class: classes, ...props } = Astro.props
 ---
 
-<Section component={blok.component}>
+<Section component={blok.component} id={_slugify(blok.heading)}>
 	<Wrapper
 		margins={false}
 		class:list={[

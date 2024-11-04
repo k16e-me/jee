@@ -5,11 +5,15 @@ import Grid from '@layouts/Grid.astro'
 import HeadingSection from '@blocks/HeadingSection.astro'
 import RichText from '@atoms/RichText.astro'
 import { _xPadding, _spaceY } from '@scripts/snips'
+import _slugify from '@scripts/slugify'
 
 const { blok, class: classes, ...props } = Astro.props
 ---
 
-<Section component={blok.component} overlap={blok.overlap}>
+<Section
+	component={blok.component}
+	overlap={blok.overlap}
+	id={_slugify(blok.heading)}>
 	<Wrapper margins={false} class:list={[_xPadding('both-lgdown-l')]}>
 		<Grid>
 			<div class:list={['col-span-full', _spaceY()]}>

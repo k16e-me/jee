@@ -8,6 +8,7 @@ const {
     header,
 	section = true,
 	overlap,
+    id,
 	class: classes,
 	...props
 } = Astro.props
@@ -23,6 +24,7 @@ const {
 		section & overlap && _sectionPadding('bottom'),
 		classes,
 	]}
+    id={id}
 	{...props}>
 	{title && <h2 set:text={title} class='sr-only' />}
 	<slot />

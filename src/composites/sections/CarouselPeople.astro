@@ -7,15 +7,17 @@ import HeadingSection from '@blocks/HeadingSection.astro'
 import { _odd, _xPadding } from '@scripts/snips'
 import CardPerson from '@blocks/CardPerson.astro'
 import { _odd, _spaceY } from '@scripts/snips'
+import _slugify from '@scripts/slugify'
 
 const { blok, class: classes, ...props } = Astro.props,
 	people = blok.people,
 	collection = blok.collection[0]
-
-// console.log(people[0].content.byline)
 ---
 
-<Section component={blok.component} overlap={blok.overlap}>
+<Section
+	component={blok.component}
+	overlap={blok.overlap}
+	id={_slugify(blok.heading)}>
 	<Wrapper margins={false}>
 		<Grid>
 			<div class:list={['col-span-full', _spaceY()]}>

@@ -6,12 +6,16 @@ import HeadingSection from '@blocks/HeadingSection.astro'
 import { _odd, _xPadding } from '@scripts/snips'
 import CardValue from '@blocks/CardValue.astro'
 import { _odd, _spaceY } from '@scripts/snips'
+import _slugify from '@scripts/slugify'
 
 const { blok, class: classes, ...props } = Astro.props,
 	values = blok.values
 ---
 
-<Section component={blok.component} overlap={blok.overlap}>
+<Section
+	component={blok.component}
+	overlap={blok.overlap}
+	id={_slugify(blok.heading)}>
 	<Wrapper margins={false}>
 		<Grid>
 			<div class:list={['col-span-full', _spaceY()]}>
@@ -24,10 +28,7 @@ const { blok, class: classes, ...props } = Astro.props,
 					/>
 				</div>
 				<div class:list={[_xPadding('left-lgdown-l')]}>
-					<div
-						class:list={[
-							'swiper swiper-all',
-						]}>
+					<div class:list={['swiper swiper-all']}>
 						<ul class='swiper-wrapper'>
 							{
 								values.map(({ title, description }, idx) => (
