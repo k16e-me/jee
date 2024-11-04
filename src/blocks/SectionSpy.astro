@@ -16,7 +16,7 @@ const { headings, class: classes, ...props } = Astro.props
 			<li
 				class:list={[
 					_fontSize('1hx'),
-					'group translate-y-[0.1rem] xl:translate-x-[0.1rem]',
+					'group translate-y-[0.1rem] xl:translate-x-[0.1rem] whitespace-nowrap xl:whitespace-normal r-transition',
 				]}>
 				<a
 					href={`#${_slugify(h)}`}
