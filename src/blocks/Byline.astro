@@ -1,7 +1,7 @@
 ---
 import Text from '@atoms/Text.astro'
 
-const { title, designation, class: classes, ...props } = Astro.props
+const { title, tag = 'p', designation, class: classes, ...props } = Astro.props
 ---
 
 <div
@@ -10,6 +10,6 @@ const { title, designation, class: classes, ...props } = Astro.props
 		classes,
 	]}
 	{...props}>
-	<Text tag='p' text={title} color='white' size='6' weight='bold' family='display' />
+	<Text tag={tag} text={title} color='white' size='6' weight='bold' family='display' />
 	<Text tag='p' text={designation} color='accent' size='blurb' weight='medium' />
 </div>

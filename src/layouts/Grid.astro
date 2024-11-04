@@ -1,11 +1,15 @@
 ---
-const { tag = 'div', class: classes, ...props } = Astro.props,
+const { tag = 'div', split = '', class: classes, ...props } = Astro.props,
 	Tag = tag
 ---
 
 <Tag
 	class:list={[
 		'grid grid-cols-4 md:grid-cols-8 lg:grid-cols-12 gap-x-3 md:gap-x-6 lg:gap-x-8 h-full',
+        split === 'sidebar' && `
+            [&>*]:col-span-full
+            [&>:first-child]:md:[grid-area:1/1/2/3] [&>:last-child]:md:[grid-area:1/3/2/9]
+            [&>:first-child]:lg:[grid-area:1/1/2/4] [&>:last-child]:lg:[grid-area:1/4/2/13]`,
 		classes,
 	]}
 	{...props}>

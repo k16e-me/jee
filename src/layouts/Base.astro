@@ -4,7 +4,7 @@ import Header from '@layouts/Header.astro'
 import Footer from '@layouts/Footer.astro'
 import { useStoryblokApi } from '@storyblok/astro'
 import TitleHidden from '@blocks/TitleHidden.astro'
-import { _addAwards, _awards } from '@scripts/store'
+import { _addAwards, _awards, _people, _addPeople } from '@scripts/store'
 
 const currentYear = new Date().getFullYear(),
 	lastYear = currentYear - 1,
@@ -29,8 +29,19 @@ let { data: awards } = await api.get('cdn/stories', {
 	level: 3,
 	is_startpage: 0,
 })
+let { data: dataPeople } = await api.get('cdn/stories', {
+	starts_with: 'people/',
+	version: import.meta.env.DEV ? 'draft' : 'published',
+	is_startpage: 0,
+	resolve_links: 'url',
+	resolve_relations: [
+		'person.byline',
+	],
+})
+let people = dataPeople.stories
 
 _addAwards(awards)
+_addPeople(people)
 ---
 
 <!doctype html>

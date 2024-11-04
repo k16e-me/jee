@@ -1,4 +1,38 @@
 ---
+import Section from '@layouts/Section.astro'
+import Wrapper from '@layouts/Wrapper.astro'
+import Grid from '@layouts/Grid.astro'
+import { _sectionPadding } from '@scripts/snips'
+import { _people } from '@scripts/store'
+import CardPerson from '@blocks/CardPerson.astro'
 
+const { blok } = Astro.props
+console.log(_people.value)
 ---
-All People...
+
+<Section
+	component={blok.component}
+	title={blok.title}
+	overlap
+	class='r-hide-overflow z-20'>
+	<Wrapper class:list={['overflow-x-clip']}>
+		<Grid split='sidebar' class=''>
+			<div class='self-start sticky top-0'>
+				Lorem ipsum dolor sit amet consectetur adipisicing elit.
+				Aspernatur pariatur nihil voluptate libero saepe quam soluta
+				quaerat, quisquam at! Qui rem ratione dicta voluptatem porro
+				blanditiis fuga labore doloremque voluptas.
+			</div>
+			<ul
+				class='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8'>
+				{
+					_people.value.map((person, idx) => (
+						<li class=''>
+							<CardPerson person={person} tag='h3' />
+						</li>
+					))
+				}
+			</ul>
+		</Grid>
+	</Wrapper>
+</Section>
