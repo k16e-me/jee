@@ -5,44 +5,37 @@ import Base from '@layouts/Base.astro'
 
 // Let Astro know what routes to build
 export async function getStaticPaths() {
-	const storyblokApi = useStoryblokApi(),
-		{ data } = await storyblokApi.get('cdn/links/', {
-			version: import.meta.env.DEV ? 'draft' : 'published',
-		})
+	const storyblokApi = useStoryblokApi()
 
-	let links = data.links,
-		exceptions = [
-			'settings',
-			'global',
-			'awards',
-			'designations',
-			'profiles',
-			'category',
-			'offices',
-			'regions',
-			'previews',
-			'legal',
-			'contact',
-			'careers',
-			'africa-expertise',
-			'sectors',
-			'practices',
-			// 'people',
-			// 'insights',
-			'events',
-			'successes',
-		]
+	let links = await storyblokApi.getAll('cdn/links', {
+		version: import.meta.env.DEV ? 'draft' : 'published',
+	})
 	links = Object.values(links).filter(
-		(link) => !exceptions.includes(link.slug.split('/')[0]),
+		(link) =>
+			!(link.slug === 'settings') &&
+			!link.slug.includes('global/') &&
+			!link.slug.includes('awards/') &&
+			!link.slug.includes('awards/') &&
+			!link.slug.includes('designations/') &&
+			!link.slug.includes('profiles/') &&
+			!link.slug.includes('category/') &&
+			!link.slug.includes('successes/') &&
+			!link.slug.includes('offices/') &&
+			!link.slug.includes('regions/') &&
+			!link.slug.includes('legal/') &&
+			!link.slug.includes('events/') &&
+			!link.slug.includes('previews/')
 	)
 
-	return links.map((link) => {
-		return {
-			params: {
-				slug: link.slug === 'home' ? undefined : link.slug,
-			},
-		}
-	})
+	return links
+		.filter((link) => !link.is_folder)
+		.map((link) => {
+			return {
+				params: {
+					slug: link.slug === 'home' ? undefined : link.slug
+				}
+			}
+		})
 }
 
 // Pull slug from the routes and corresponding content/blocks from Storyblok

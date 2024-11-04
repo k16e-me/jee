@@ -26,6 +26,8 @@ export default defineConfig({
                 person: 'types/Person',
                 event: 'types/Event',
                 insight: 'types/Insight',
+                practice: 'types/Practice',
+                sector: 'types/Sector',
 
                 // Posters
                 feature: 'composites/posters/Feature',
@@ -55,11 +57,15 @@ export default defineConfig({
                 stackHighlights: 'composites/sections/StackHighlights',
                 carouselValues: 'composites/sections/CarouselValues',
                 carouselPeople: 'composites/sections/CarouselPeople',
+                imageGridQuotes: 'composites/sections/ImageGridQuotes',
+                sectionOpenPositions: 'composites/sections/SectionOpenPositions',
+                sectionLongform: 'composites/sections/SectionLongform',
 
                 // Collections
                 allPeople: 'composites/collections/AllPeople',
                 allInsights: 'composites/collections/AllInsights',
                 allEvents: 'composites/collections/AllEvents',
+                allOffices: 'composites/collections/AllOffices',
             }
         })
     ],

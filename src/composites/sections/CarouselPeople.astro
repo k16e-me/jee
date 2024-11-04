@@ -10,8 +10,6 @@ import { _odd, _spaceY } from '@scripts/snips'
 const { blok, class: classes, ...props } = Astro.props,
 	people = blok.people,
 	collection = blok.collection[0]
-
-console.log(people[1].content.byline)
 ---
 
 <Section component={blok.component} overlap={blok.overlap}>
