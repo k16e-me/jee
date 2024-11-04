@@ -1,8 +1,8 @@
 import { _ql, _q } from '@scripts/snips'
 
 
-export default function _isPinned() {
-    if (!_q('[data-pin-top]')) return
+export default function _scrollspy() {
+    if (!_q('[data-spy-sections]')) return
 
     const
         stickies = _ql('[data-pin-top]'),

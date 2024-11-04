@@ -14,13 +14,13 @@ const { headings, class: classes, ...props } = Astro.props
 	{
 		headings.map((h) => (
 			<li
-				set:text={h}
 				data-section={_slugify(h)}
 				class:list={[
 					_fontSize('1hx'),
-					'font-semibold font-display px-4 xl:pl-0 xl:pr-4 py-6 xl:py-4 [&.is-in-view]:border-b-2 [&.is-in-view]:border-[var(--color-emphasis)]',
-				]}
-			/>
+					'font-semibold font-display px-4 xl:pl-0 xl:pr-4 py-6 xl:py-4 [&.is-in-view]:border-b-2 [&.is-in-view]:border-[var(--color-emphasis)] group',
+				]}>
+				<a href={`#${_slugify(h)}`} set:text={h} class="size-full block group-hover:text-[var(--color-emphasis)]"/>
+			</li>
 		))
 	}
 </ul>
