@@ -5,7 +5,10 @@ import Grid from '@layouts/Grid.astro'
 import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro'
 import { _xPadding, _sectionPadding } from '@scripts/snips'
 
-const { blok } = Astro.props
+const { blok } = Astro.props,
+	headings = blok.sections.map(section => section.heading)
+
+console.log(headings)
 ---
 
 <Section
