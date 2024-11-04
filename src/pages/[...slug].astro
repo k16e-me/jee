@@ -15,7 +15,6 @@ export async function getStaticPaths() {
 			!(link.slug === 'settings') &&
 			!link.slug.includes('global/') &&
 			!link.slug.includes('awards/') &&
-			!link.slug.includes('awards/') &&
 			!link.slug.includes('designations/') &&
 			!link.slug.includes('profiles/') &&
 			!link.slug.includes('category/') &&
@@ -53,7 +52,6 @@ const { slug } = Astro.params,
 				'carousel_people.people',
 				'person.byline',
 				'section_latest.insights',
-				'insight.author',
 				'insight.category',
 				'insight.expertise',
 			],

@@ -1,5 +1,5 @@
 const
-    topPadding = 'pt-8 md:pt-14 lg:pt-20',
+    topPadding = 'pt-10 md:pt-14 lg:pt-20',
     headerAndBlockSpacing = 'space-y-4 lg:space-y-6',
 
     _body = () => document.body,
@@ -10,8 +10,8 @@ const
     _capitalize = str => str.charAt(0).toUpperCase() + str.slice(1).toLowerCase(),
     _sectionPadding = (direction = 'top') => {
         if (direction === 'top') return [...topPadding.split(' ')]
-        if (direction === 'bottom') return ['pb-10', 'md:pb-14', 'lg:pb-20']
-        if (direction === 'both') return ['py-10', 'md:py-14', 'lg:py-20']
+        if (direction === 'bottom') return ['pb-12', 'md:pb-14', 'lg:pb-20']
+        if (direction === 'both') return ['py-12', 'md:py-14', 'lg:py-20']
     },
     _xPadding = (edges = 'both') => {
         if (edges === 'both') return ['px-3', 'md:px-8', 'lg:px-16']
