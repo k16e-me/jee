@@ -23,7 +23,7 @@ export async function getStaticPaths() {
 			!link.slug.includes('regions/') &&
 			!link.slug.includes('legal/') &&
 			!link.slug.includes('events/') &&
-			!link.slug.includes('previews/')
+			!link.slug.includes('previews/'),
 	)
 
 	return links
@@ -31,8 +31,8 @@ export async function getStaticPaths() {
 		.map((link) => {
 			return {
 				params: {
-					slug: link.slug === 'home' ? undefined : link.slug
-				}
+					slug: link.slug === 'home' ? undefined : link.slug,
+				},
 			}
 		})
 }
@@ -48,12 +48,12 @@ const { slug } = Astro.params,
 			resolve_relations: [
 				'block_bento_plaques.plaques',
 				'image_hanging_insight.insight',
-				'insight.author',
 				'carousel_people.people',
 				'person.byline',
 				'section_latest.insights',
 				'insight.category',
-				'insight.expertise',
+				'insight.author',
+				'insight.expertise'
 			],
 		},
 	),
