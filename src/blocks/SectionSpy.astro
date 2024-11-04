@@ -5,13 +5,21 @@ import _slugify from '@scripts/slugify'
 const { headings, class: classes, ...props } = Astro.props
 ---
 
-<ul class:list={['lg:flex xl:flex-col items-center xl:items-end justify-between border-b border-[]', classes]} {...props}>
+<ul
+	class:list={[
+		'lg:flex xl:flex-col items-center xl:items-end justify-between border-b border-[var(--color-border-muted)] xl:border-b-0 xl:border-r [&>*]:xl:text-right',
+		classes,
+	]}
+	{...props}>
 	{
 		headings.map((h) => (
 			<li
 				set:text={h}
 				data-section={_slugify(h)}
-				class:list={[_fontSize('1hx'), 'font-semibold font-display px-4 py-6 [&.is-in-view]']}
+				class:list={[
+					_fontSize('1hx'),
+					'font-semibold font-display px-4 xl:pl-0 xl:pr-4 py-6 xl:py-4 [&.is-in-view]:border-b-2 [&.is-in-view]:border-[var(--color-emphasis)]',
+				]}
 			/>
 		))
 	}
