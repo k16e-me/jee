@@ -12,33 +12,29 @@ const { blok } = Astro.props,
 			a.content.byline[0].content.rank - b.content.byline[0].content.rank,
 		),
 	)
-
-console.log(Number(_people.value[0].content.byline[0].content.rank))
 ---
 
 <Section
 	component={blok.component}
 	title={blok.title}
 	overlap
-	class='r-hide-overflow z-20'>
+	class='r-hide-overflow z-20 bg-[var(--color-bg-default)] rounded-t-[2rem] md:rounded-t-[3.5rem] lg:rounded-t-[4.5rem]'>
 	<Wrapper class:list={['overflow-x-clip']}>
 		<Grid split='sidebar' class=''>
-			<div class='self-start sticky top-0 z-10'>
+			<div class='self-start sticky top-0 z-20'>
 				Lorem ipsum dolor sit amet consectetur adipisicing elit.
 				Aspernatur pariatur nihil voluptate libero saepe quam soluta
 				quaerat, quisquam at! Qui rem ratione dicta voluptatem porro
 				blanditiis fuga labore doloremque voluptas.
 			</div>
-			<ul
-				class='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 lg:gap-8'>
+			<div
+				class='flex items-center justify-center xl:justify-start flex-wrap gap-6 lg:gap-8 relative z-10 pt-4 lg:pt-8'>
 				{
 					sortedPeople.map((person, idx) => (
-						<li class='flex'>
-							<CardPerson person={person} tag='h3' responsive />
-						</li>
+						<CardPerson person={person} tag='h3' responsive />
 					))
 				}
-			</ul>
+			</div>
 		</Grid>
 	</Wrapper>
 </Section>
