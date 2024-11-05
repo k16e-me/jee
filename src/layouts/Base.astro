@@ -36,7 +36,7 @@ let { data: dataPeople } = await api.get('cdn/stories', {
 	resolve_links: 'url',
 	resolve_relations: [
 		'person.byline',
-	],
+	]
 })
 let people = dataPeople.stories
 

@@ -3,7 +3,6 @@ import { useStoryblokApi } from '@storyblok/astro'
 import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro'
 import Base from '@layouts/Base.astro'
 
-// Let Astro know what routes to build
 export async function getStaticPaths() {
 	const storyblokApi = useStoryblokApi()
 
@@ -28,16 +27,9 @@ export async function getStaticPaths() {
 
 	return links
 		.filter((link) => !link.is_folder)
-		.map((link) => {
-			return {
-				params: {
-					slug: link.slug === 'home' ? undefined : link.slug,
-				},
-			}
-		})
+		.map((link) => { return { params: { slug: link.slug === 'home' ? undefined : link.slug } } })
 }
 
-// Pull slug from the routes and corresponding content/blocks from Storyblok
 const { slug } = Astro.params,
 	storyblokApi = useStoryblokApi(),
 	{ data } = await storyblokApi.get(
