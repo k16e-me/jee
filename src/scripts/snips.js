@@ -2,6 +2,7 @@ const
     topPadding = 'pt-10 md:pt-14 lg:pt-20',
     topPaddingLgUp = 'lg:pt-20',
     topPaddingXlUp = 'xl:pt-20',
+    edgePaddingXlUpR = 'xl:pr-16',
     headerAndBlockSpacing = 'space-y-4 lg:space-y-6',
 
     _body = () => document.body,
@@ -24,6 +25,7 @@ const
         if (edges === 'both-lgdown') return ['px-3', 'md:px-8', 'lg:px-16', 'xl:pr-0']
         if (edges === 'both-lgdown-l') return ['px-3', 'md:px-8', 'lg:px-16', 'xl:pl-0']
         if (edges === 'left-lgdown-l') return ['pl-3', 'md:pl-8', 'lg:pl-16', 'xl:pl-0']
+        if (edges === 'both-xlup-r') return [...edgePaddingXlUpR.split(' ')]
     },
     _gridGap = (direction = 'y') => {
         if (direction === 'y') return ['gap-y-8', 'md:gap-y-14', 'lg:gap-y-20']
