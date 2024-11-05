@@ -13,10 +13,10 @@ import {
 	_addDesignations,
 	_offices,
 	_addOffices,
-    _sectors,
-    _addSectors,
-    _practices,
-    _addPractices
+	_sectors,
+	_addSectors,
+	_practices,
+	_addPractices,
 } from '@scripts/store'
 
 const currentYear = new Date().getFullYear(),
@@ -68,18 +68,26 @@ let { data: awards } = await api.get('cdn/stories', {
 		version: import.meta.env.DEV ? 'draft' : 'published',
 		is_startpage: 0,
 		resolve_links: 'url',
+	}),
+	{ data: dataPractices } = await api.get('cdn/stories', {
+		starts_with: 'practices/',
+		version: import.meta.env.DEV ? 'draft' : 'published',
+		is_startpage: 0,
+		resolve_links: 'url',
 	})
 
 let people = dataPeople.stories,
 	designations = dataDesignations.stories,
 	offices = dataOffices.stories,
-	sectors = dataSectors.stories
+	sectors = dataSectors.stories,
+	practices = dataPractices.stories
 
 _addAwards(awards)
 _addPeople(people)
 _addDesignations(designations)
 _addOffices(offices)
 _addSectors(sectors)
+_addPractices(practices)
 ---
 
 <!doctype html>

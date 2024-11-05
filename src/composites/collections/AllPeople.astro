@@ -3,7 +3,7 @@ import Section from '@layouts/Section.astro'
 import Wrapper from '@layouts/Wrapper.astro'
 import Grid from '@layouts/Grid.astro'
 import { _sectionPadding, _xPadding } from '@scripts/snips'
-import { _people, _designations, _offices, _sectors } from '@scripts/store'
+import { _people, _designations, _offices, _sectors, _practices } from '@scripts/store'
 import CardPerson from '@blocks/CardPerson.astro'
 import ButtonFab from '@atoms/ButtonFab.astro'
 import InputText from '@atoms/InputText.astro'
@@ -20,7 +20,8 @@ const { blok } = Astro.props,
 		.map((a) => a.content.title)
 		.slice(0, 4),
 	offices = _offices.value.map((o) => o.content.tag),
-	sectors = _sectors.value.map((o) => o.content.title)
+	sectors = _sectors.value.map((o) => o.content.title),
+	practices = _practices.value.map((o) => o.content.title)
 ---
 
 <Section
@@ -55,6 +56,7 @@ const { blok } = Astro.props,
 						designations={designations}
 						locations={offices}
 						sectors={sectors}
+						practices={practices}
 						class='hidden xl:flex xl:flex-col'
 					/>
 				</form>

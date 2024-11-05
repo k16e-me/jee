@@ -149,10 +149,10 @@ const { links, designations, locations, sectors, practices, class: classes, ...p
 			class='accordion__content overflow-hidden max-h-0 transition-all ease-in-out'>
 			<fieldset
 				class='max-w-full pt-1 px-4 pb-4 transition-[height] duration-[250ms]'>
-				<legend set:text='Offices of JEE Lawyers' class='sr-only' />
+				<legend set:text='JEE Practices' class='sr-only' />
 				<div class='space-y-3'>
 					{
-						locations.map((i) => (
+						practices.map((i) => (
 							<InputCheck
 								label={i}
 								id={_slugify(i)}
