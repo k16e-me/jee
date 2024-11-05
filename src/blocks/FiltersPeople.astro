@@ -5,15 +5,15 @@ import InputRadio from '@atoms/InputRadio.astro'
 import Text from '@atoms/Text.astro'
 import _slugify from '@scripts/slugify'
 
-const { links, designations, locations, class: classes, ...props } = Astro.props
+const { links, designations, locations, sectors, practices, class: classes, ...props } = Astro.props
 ---
 
 <ul class:list={['', classes]} {...props}>
 	<li
-		class='accordion group border-b border-[var(--color-border-muted)] is-active'>
+		class='accordion group border-b border-[var(--color-border-muted)]'>
 		<div
 			class='accordion__button r-transition flex items-center justify-between h-14 cursor-pointer'
-			aria-expanded='true'>
+			aria-expanded='false'>
 			<Text
 				tag='p'
 				text='Sort by'
@@ -21,16 +21,15 @@ const { links, designations, locations, class: classes, ...props } = Astro.props
 				size='copy'
 				weight='semi'
 				family='display'
-				class='pointer-events-none'
 			/>
 			<Icon
 				name='caret-down'
 				aria-hidden='true'
-				class='accordion__icon block w-5 text-[var(--color-text-caption)] opacity-70 group-hover/button:opacity-100 shrink-0 transition-all group-[.is-active]:opacity-100 rotate-180'
+				class='accordion__icon block w-5 text-[var(--color-text-caption)] opacity-70 group-hover/button:opacity-100 shrink-0 transition-all group-[.is-active]:opacity-100'
 			/>
 		</div>
 		<div
-			class='accordion__content overflow-hidden max-h-max transition-all ease-in-out'>
+			class='accordion__content overflow-hidden max-h-0 transition-all ease-in-out'>
 			<fieldset
 				class='max-w-full pt-1 px-4 pb-4 transition-[height] duration-[250ms]'>
 				<legend set:text='Sort JEE People by Rank' class='sr-only' />
@@ -42,10 +41,10 @@ const { links, designations, locations, class: classes, ...props } = Astro.props
 						checked
 					/>
 					{
-						designations.map((d) => (
+						designations.map((i) => (
 							<InputRadio
-								label={d + 's'}
-								id={_slugify(d)}
+								label={i + 's'}
+								id={_slugify(i)}
 								name={'designations'}
 							/>
 						))
@@ -65,7 +64,6 @@ const { links, designations, locations, class: classes, ...props } = Astro.props
 				size='copy'
 				weight='semi'
 				family='display'
-				class='pointer-events-none'
 			/>
 			<Icon
 				name='caret-down'
@@ -80,11 +78,85 @@ const { links, designations, locations, class: classes, ...props } = Astro.props
 				<legend set:text='Offices of JEE Lawyers' class='sr-only' />
 				<div class='space-y-3'>
 					{
-						locations.map((o) => (
+						locations.map((i) => (
 							<InputCheck
-								label={o}
-								id={_slugify(o)}
+								label={i}
+								id={_slugify(i)}
 								name={'offices'}
+							/>
+						))
+					}
+				</div>
+			</fieldset>
+		</div>
+	</li>
+	<li class='accordion group border-b border-[var(--color-border-muted)]'>
+		<div
+			class='accordion__button r-transition flex items-center justify-between h-14 cursor-pointer'
+			aria-expanded='false'>
+			<Text
+				tag='p'
+				text='Sectors'
+				color='body'
+				size='copy'
+				weight='semi'
+				family='display'
+			/>
+			<Icon
+				name='caret-down'
+				aria-hidden='true'
+				class='accordion__icon block w-5 text-[var(--color-text-caption)] opacity-70 group-hover/button:opacity-100 shrink-0 transition-all group-[.is-active]:opacity-100'
+			/>
+		</div>
+		<div
+			class='accordion__content overflow-hidden max-h-0 transition-all ease-in-out'>
+			<fieldset
+				class='max-w-full pt-1 px-4 pb-4 transition-[height] duration-[250ms]'>
+				<legend set:text='JEE Sectors' class='sr-only' />
+				<div class='space-y-3'>
+					{
+						sectors.map(i => (
+							<InputCheck
+								label={i}
+								id={_slugify(i)}
+								name={'sectors'}
+							/>
+						))
+					}
+				</div>
+			</fieldset>
+		</div>
+	</li>
+	<li class='accordion group border-b border-[var(--color-border-muted)]'>
+		<div
+			class='accordion__button r-transition flex items-center justify-between h-14 cursor-pointer'
+			aria-expanded='false'>
+			<Text
+				tag='p'
+				text='Practices'
+				color='body'
+				size='copy'
+				weight='semi'
+				family='display'
+			/>
+			<Icon
+				name='caret-down'
+				aria-hidden='true'
+				class='accordion__icon block w-5 text-[var(--color-text-caption)] opacity-70 group-hover/button:opacity-100 shrink-0 transition-all group-[.is-active]:opacity-100'
+			/>
+		</div>
+		<div
+			class='accordion__content overflow-hidden max-h-0 transition-all ease-in-out'>
+			<fieldset
+				class='max-w-full pt-1 px-4 pb-4 transition-[height] duration-[250ms]'>
+				<legend set:text='Offices of JEE Lawyers' class='sr-only' />
+				<div class='space-y-3'>
+					{
+						locations.map((i) => (
+							<InputCheck
+								label={i}
+								id={_slugify(i)}
+								name={'practices'}
 							/>
 						))
 					}

@@ -13,6 +13,10 @@ import {
 	_addDesignations,
 	_offices,
 	_addOffices,
+    _sectors,
+    _addSectors,
+    _practices,
+    _addPractices
 } from '@scripts/store'
 
 const currentYear = new Date().getFullYear(),
@@ -32,37 +36,50 @@ const currentYear = new Date().getFullYear(),
 	site = settings.story.content
 
 let { data: awards } = await api.get('cdn/stories', {
-	starts_with: 'awards/',
-	version: import.meta.env.DEV ? 'draft' : 'published',
-	by_slugs: [`awards/${currentYear}/*`, `awards/${lastYear}/*`],
-	level: 3,
-	is_startpage: 0,
-})
-let { data: dataDesignations } = await api.get('cdn/stories', {
-	starts_with: 'designations/',
-	version: import.meta.env.DEV ? 'draft' : 'published',
-	is_startpage: 0,
-})
-let { data: dataOffices } = await api.get('cdn/stories', {
-	starts_with: 'offices/',
-	version: import.meta.env.DEV ? 'draft' : 'published',
-	is_startpage: 0,
-})
-let { data: dataPeople } = await api.get('cdn/stories', {
-	starts_with: 'people/',
-	version: import.meta.env.DEV ? 'draft' : 'published',
-	is_startpage: 0,
-	resolve_links: 'url',
-	resolve_relations: ['person.byline', 'person_links.location'],
-})
-let people = dataPeople.stories
-let designations = dataDesignations.stories
-let offices = dataOffices.stories
+		starts_with: 'awards/',
+		version: import.meta.env.DEV ? 'draft' : 'published',
+		by_slugs: [`awards/${currentYear}/*`, `awards/${lastYear}/*`],
+		level: 3,
+		is_startpage: 0,
+	}),
+	{ data: dataDesignations } = await api.get('cdn/stories', {
+		starts_with: 'designations/',
+		version: import.meta.env.DEV ? 'draft' : 'published',
+		is_startpage: 0,
+	}),
+	{ data: dataOffices } = await api.get('cdn/stories', {
+		starts_with: 'offices/',
+		version: import.meta.env.DEV ? 'draft' : 'published',
+		is_startpage: 0,
+	}),
+	{ data: dataPeople } = await api.get('cdn/stories', {
+		starts_with: 'people/',
+		version: import.meta.env.DEV ? 'draft' : 'published',
+		is_startpage: 0,
+		resolve_links: 'url',
+		resolve_relations: [
+			'person.byline',
+			'person_links.location',
+			'collection.collection',
+		],
+	}),
+	{ data: dataSectors } = await api.get('cdn/stories', {
+		starts_with: 'sectors/',
+		version: import.meta.env.DEV ? 'draft' : 'published',
+		is_startpage: 0,
+		resolve_links: 'url',
+	})
+
+let people = dataPeople.stories,
+	designations = dataDesignations.stories,
+	offices = dataOffices.stories,
+	sectors = dataSectors.stories
 
 _addAwards(awards)
 _addPeople(people)
 _addDesignations(designations)
 _addOffices(offices)
+_addSectors(sectors)
 ---
 
 <!doctype html>
