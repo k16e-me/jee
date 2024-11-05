@@ -12,17 +12,17 @@ export async function getStaticPaths() {
 	links = Object.values(links).filter(
 		(link) =>
 			!(link.slug === 'settings') &&
-			!link.slug.includes('global/') &&
-			!link.slug.includes('awards/') &&
-			!link.slug.includes('designations/') &&
-			!link.slug.includes('profiles/') &&
-			!link.slug.includes('category/') &&
-			!link.slug.includes('successes/') &&
-			!link.slug.includes('offices/') &&
-			!link.slug.includes('regions/') &&
-			!link.slug.includes('legal/') &&
-			!link.slug.includes('events/') &&
-			!link.slug.includes('previews/'),
+			!link.slug.startsWith('global') &&
+			!link.slug.startsWith('awards') &&
+			!link.slug.startsWith('designations') &&
+			!link.slug.startsWith('profiles') &&
+			!link.slug.startsWith('category') &&
+			!link.slug.startsWith('successes') &&
+			!link.slug.startsWith('offices') &&
+			!link.slug.startsWith('regions') &&
+			!link.slug.startsWith('legal') &&
+			!link.slug.startsWith('events') &&
+			!link.slug.startsWith('previews'),
 	)
 
 	return links

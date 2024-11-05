@@ -1,0 +1,27 @@
+---
+import Icon from '@atoms/Icon.astro'
+import { _fontSize } from '@scripts/font-size'
+
+const { label, id, name, checked, class: classes, ...props } = Astro.props
+---
+
+<p class:list={['flex items-center m-0 cursor-pointer w-full', classes]} {...props}>
+	<input
+		type='radio'
+		name={name}
+		id={id}
+		class:list={[
+			'h-4 w-4 border-[var(--color-border-subtle)] text-[var(--color-emphasis)] focus:ring-[var(--color-emphasis)]',
+			_fontSize('body'),
+		]}
+		{...checked ? { checked: '' } : {}}
+	/>
+	<label
+		set:text={label}
+		for={id}
+		class:list={[
+			'pl-3 block font-medium font-display text-[var(--color-text-body)] w-full',
+			_fontSize('body'),
+		]}
+	/>
+</p>
