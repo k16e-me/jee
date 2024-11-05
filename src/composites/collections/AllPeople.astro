@@ -6,6 +6,7 @@ import { _sectionPadding } from '@scripts/snips'
 import { _people } from '@scripts/store'
 import CardPerson from '@blocks/CardPerson.astro'
 import ButtonFab from '@atoms/ButtonFab.astro'
+import InputText from '@atoms/InputText.astro'
 
 const { blok } = Astro.props,
 	sortedPeople = _people.value.sort((a, b) =>
@@ -23,9 +24,9 @@ const { blok } = Astro.props,
 	<Wrapper>
 		<Grid split='sidebar' class=''>
 			<div
-				class='self-start sticky top-0 z-20 bg-[var(--color-bg-default)] xl:bg-transparent xl:pt-8 flex justify-between items-center py-3'>
-				<div class='w-full'>A</div>
-				<ButtonFab icon='funnel' label="Toggle Page Sorting & Filtering" class="xl:hidden flex-shrink-0"/>
+				class='self-start sticky top-0 z-20 bg-[var(--color-bg-default)] xl:bg-transparent xl:pt-8 flex justify-between items-center py-3 gap-4 md:gap-6'>
+				<InputText label='Search' id='text' class='w-full'/>
+				<ButtonFab icon='funnel' label="Toggle Page Sorting & Filtering" class="xl:sr-only flex-shrink-0"/>
 			</div>
 			<div
 				class='flex items-center justify-center xl:justify-start flex-wrap gap-6 lg:gap-8 relative z-10 pt-4 lg:pt-8'>
