@@ -7,6 +7,7 @@ import { _people } from '@scripts/store'
 import CardPerson from '@blocks/CardPerson.astro'
 import ButtonFab from '@atoms/ButtonFab.astro'
 import InputText from '@atoms/InputText.astro'
+import FiltersPeople from '@blocks/FiltersPeople.astro'
 
 const { blok } = Astro.props,
 	sortedPeople = _people.value.sort((a, b) =>
@@ -29,21 +30,18 @@ const { blok } = Astro.props,
 					_xPadding('both-lgdown'),
 				]}
 				data-pin-top>
-				<div
-					class='flex items-center justify-between pt-3 group-[&.is-pinned]:pb-3 gap-3'>
-					<InputText label='Search' id='text' class='w-full' />
-					<ButtonFab
-						icon='funnel'
-						label='Toggle Page Sorting & Filtering'
-						class='xl:sr-only flex-shrink-0'
-					/>
-				</div>
-				<div class='hidden xl:flex xl:flex-col'>
-					Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-					Inventore perferendis porro ipsum qui, ex dolor modi
-					accusantium facilis odit dolorum quas numquam maiores?
-					Reiciendis in ad, voluptates reprehenderit rem impedit.
-				</div>
+				<form>
+					<div
+						class='flex items-center justify-between pt-3 group-[&.is-pinned]:pb-3 gap-3'>
+						<InputText label='Search' id='text' class='w-full' />
+						<ButtonFab
+							icon='funnel'
+							label='Toggle Page Sorting & Filtering'
+							class='xl:sr-only flex-shrink-0'
+						/>
+					</div>
+					<FiltersPeople class='hidden xl:flex xl:flex-col'/>
+				</form>
 			</div>
 			<div
 				class:list={[

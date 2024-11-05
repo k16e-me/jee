@@ -1,0 +1,37 @@
+---
+import Icon from '@atoms/Icon.astro'
+import Text from '@atoms/Text.astro'
+
+const { links, class: classes, ...props } = Astro.props
+---
+
+<ul class:list={['', classes]} {...props}>
+	<li class='accordion group is-active'>
+		<div
+			class='accordion__button r-transition flex items-center justify-between h-14 lg:h-10 cursor-pointer'
+			aria-expanded='true'>
+			<Text
+				tag='p'
+				text='Sort by'
+				color='body'
+				size='copy'
+				weight='semi'
+				class='pointer-events-none'
+			/>
+			<Icon
+				name='caret-down'
+				aria-hidden='true'
+				class='accordion__icon block w-5 text-[var(--color-text-caption)] opacity-70 group-hover/button:opacity-100 shrink-0 transition-all group-[.is-active]:opacity-100 rotate-180'
+			/>
+		</div>
+		<div
+			class='accordion__content overflow-hidden transition-all ease-in-out is-active'>
+			<div>
+				Lorem ipsum dolor sit amet consectetur adipisicing elit.
+				Asperiores sapiente velit perspiciatis, iste autem sed, aliquid
+				praesentium tenetur ratione, a quis? Consequuntur cum,
+				voluptatem sapiente a laborum minus obcaecati sit?
+			</div>
+		</div>
+	</li>
+</ul>
