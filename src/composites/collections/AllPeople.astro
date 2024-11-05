@@ -3,7 +3,7 @@ import Section from '@layouts/Section.astro'
 import Wrapper from '@layouts/Wrapper.astro'
 import Grid from '@layouts/Grid.astro'
 import { _sectionPadding, _xPadding } from '@scripts/snips'
-import { _people, _designtions } from '@scripts/store'
+import { _people, _designations, _offices } from '@scripts/store'
 import CardPerson from '@blocks/CardPerson.astro'
 import ButtonFab from '@atoms/ButtonFab.astro'
 import InputText from '@atoms/InputText.astro'
@@ -15,10 +15,11 @@ const { blok } = Astro.props,
 			a.content.byline[0].content.rank - b.content.byline[0].content.rank,
 		),
 	),
-    designations = _designtions.value
-        .sort((a, b) => parseInt(a.content.rank - b.content.rank))
-        .map(a => a.content.title)
-        .slice(0, 4)
+	designations = _designations.value
+		.sort((a, b) => parseInt(a.content.rank - b.content.rank))
+		.map((a) => a.content.title)
+		.slice(0, 4),
+	offices = _offices.value.map((o) => o.content.tag)
 ---
 
 <Section
@@ -34,17 +35,26 @@ const { blok } = Astro.props,
 					_xPadding('both-lgdown'),
 				]}
 				data-pin-top>
-				<form class="space-y-1.5">
+				<form class='space-y-1.5'>
 					<div
 						class='flex items-center justify-between pt-3 group-[&.is-pinned]:pb-3 xl:!pb-0 gap-3'>
-						<InputText label='Search' id='text' name='search-people' class='w-full' />
+						<InputText
+							label='Search'
+							id='text'
+							name='search-people'
+							class='w-full'
+						/>
 						<ButtonFab
 							icon='funnel'
 							label='Toggle Page Sorting & Filtering'
 							class='xl:sr-only flex-shrink-0'
 						/>
 					</div>
-					<FiltersPeople designations={designations} class='hidden xl:flex xl:flex-col'/>
+					<FiltersPeople
+						designations={designations}
+						locations={offices}
+						class='hidden xl:flex xl:flex-col'
+					/>
 				</form>
 			</div>
 			<div
