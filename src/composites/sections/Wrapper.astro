@@ -17,8 +17,8 @@ const { blok } = Astro.props,
 	component={blok.component}
 	title={blok.heading}
 	overlap
-    spy
-	class='r-hide-overflow z-20 bg-[var(--color-bg-default)] rounded-t-[2rem] md:rounded-t-[3.5rem] lg:rounded-t-[4.5rem]'>
+	spy
+	class='r-hide-overflow overflow-y-clip z-20 bg-[var(--color-bg-default)] rounded-t-[2rem] md:rounded-t-[3.5rem] lg:rounded-t-[4.5rem]'>
 	<Wrapper margins={false} class:list={['overflow-x-clip']}>
 		<Grid
 			class='rounded-t-[2rem] md:rounded-t-[3.5rem] lg:rounded-t-[4.5rem] overflow-clip'>
@@ -29,10 +29,7 @@ const { blok } = Astro.props,
 					_xPadding('both-lgdown'),
 				]}
 				data-pin-top>
-				<SectionSpy
-					headings={headings}
-					data-spy-sections
-				/>
+				<SectionSpy headings={headings} data-spy-sections />
 			</aside>
 			<div class='col-span-full xl:[grid-area:1/4/2/13]'>
 				{
