@@ -17,7 +17,7 @@ const {
 } = Astro.props
 ---
 
-<div class='pt-6'>
+<div class:list={['pt-6', classes]} {...props}>
 	<HeadingSection
 		text={'Filters'}
 		level='h2'
@@ -26,7 +26,7 @@ const {
 		padding='small'
 		hasResetButton
 	/>
-	<ul class:list={['', classes]} {...props}>
+	<ul>
 		<li class='accordion group border-b border-[var(--color-border-muted)]'>
 			<div
 				class='accordion__button r-transition flex items-center justify-between h-14 cursor-pointer'
