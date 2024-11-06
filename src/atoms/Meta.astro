@@ -6,14 +6,14 @@ const { info, class: classes, ...props } = Astro.props
 ---
 
 <div class='flex items-center justify-between'>
-	<!-- <Text
+	<Text
 		tag='p'
-		text={info.category.content.title}
+		text={info?.category?.content?.title}
 		color='emphasis'
 		size='blurb'
 		family='display'
 		weight='semi'
-	/> -->
+	/>
 	<FormattedDate
 		dateString={info.published_date}
 		size='blurb'
