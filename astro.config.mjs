@@ -66,6 +66,7 @@ export default defineConfig({
                 allInsights: 'composites/collections/AllInsights',
                 allEvents: 'composites/collections/AllEvents',
                 allOffices: 'composites/collections/AllOffices',
+                allSectors: 'composites/collections/AllSectors',
             }
         })
     ],
