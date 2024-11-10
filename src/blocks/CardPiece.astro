@@ -13,7 +13,7 @@ const { piece, class: classes, ...props } = Astro.props
 	{...props}>
 	<div class='relative overflow-clip grid grid-cols-1'>
 		<div
-			class='rounded-tl-[1.5rem] rounded-tr-[3.5rem] rounded-bl-[2rem] rounded-br-[9rem] relative overflow-clip [grid-area:1/1/2/2] h-[22rem] sm:h-[23rem] lg:h-[20rem]'>
+			class='rounded-tl-[2rem] rounded-tr-[3.5rem] rounded-bl-[2rem] rounded-br-[9rem] relative overflow-clip [grid-area:1/1/2/2] h-[22rem] sm:h-[23rem] lg:h-[20rem]'>
 			<Image
 				filename={piece.content.image.filename}
 				alt={piece.content.image.alt}
@@ -23,9 +23,9 @@ const { piece, class: classes, ...props } = Astro.props
 				]}
 			/>
 		</div>
-		<div class='[grid-area:1/1/2/2] mt-[14rem] ml-6 mr-8 z-10'>
+		<div class='[grid-area:1/1/2/2] mt-[12rem] ml-3 mr-4 sm:ml-5 sm:mr-7 lg:ml-6 lg:mr-8 z-10'>
 			<div
-				class='bg-[var(--color-bg-default)] rounded-[1.5rem] min-h-[11rem] p-4 sm:p-5 md:p-6'>
+				class='bg-[var(--color-bg-default)] rounded-[1.5rem] min-h-[11rem] p-3 sm:p-5 md:p-6'>
 				Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit
 				beatae cum aliquam, asperiores, veniam quae cupiditate at
 				molestias ea commodi pariatur ullam voluptatem aspernatur! Ullam
