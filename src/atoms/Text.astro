@@ -30,6 +30,7 @@ const {
 		size === 's4-upper' && _fontSize('s4-upper'),
 		size === '5' &&
 			'text-[1.475rem] leading-[1.675rem] sm:text-[1.575rem] sm:leading-[1.8775rem] md:text-[1.6625rem] md:leading-[1.955rem] lg:text-[1.875rem] lg:leading-[2.25rem]',
+		(size === '2hx' || size === 'sx2') && _fontSize('sx2'),
 		(size === '1hx' || size === 'sx1') && _fontSize('sx1'),
 		size === '6' && _fontSize('s6'),
 		size === 'copy' && _fontSize('copy'),
