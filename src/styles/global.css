@@ -44,6 +44,9 @@
         }
     }
 
+    html {
+        @apply scroll-p-10 md:scroll-p-14 lg:scroll-p-20;
+    }
     html.is-changing .swup-in {
         @apply opacity-100 duration-[.4s] ease-[cubic-bezier(0,0.16,0,1)];
     }
