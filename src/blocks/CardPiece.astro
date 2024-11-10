@@ -13,18 +13,19 @@ const { piece, class: classes, ...props } = Astro.props
 	{...props}>
 	<div class='relative overflow-clip grid grid-cols-1'>
 		<div
-			class='rounded-tl-[1.5rem] rounded-tr-[3.5rem] rounded-bl-[2rem] rounded-br-[9rem] relative overflow-clip [grid-area:1/1/2/2] size-full'>
+			class='rounded-tl-[1.5rem] rounded-tr-[3.5rem] rounded-bl-[2rem] rounded-br-[9rem] relative overflow-clip [grid-area:1/1/2/2] h-[22rem] sm:h-[23rem] lg:h-[20rem]'>
 			<Image
 				filename={piece.content.image.filename}
 				alt={piece.content.image.alt}
 				filter
 				class:list={[
-					'h-[19rem] transition-transform duration-200 lg:group-hover:scale-110',
+					'size-full transition-transform duration-200 group-hover:scale-110',
 				]}
 			/>
 		</div>
-		<div class='[grid-area:1/1/2/2] mt-[11rem] ml-6 mr-8 z-10'>
-			<div class='bg-[var(--color-bg-default)] rounded-[1.5rem] !rounded-br-none'>
+		<div class='[grid-area:1/1/2/2] mt-[14rem] ml-6 mr-8 z-10'>
+			<div
+				class='bg-[var(--color-bg-default)] rounded-[1.5rem] min-h-[11rem] p-4 sm:p-5 md:p-6'>
 				Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit
 				beatae cum aliquam, asperiores, veniam quae cupiditate at
 				molestias ea commodi pariatur ullam voluptatem aspernatur! Ullam
