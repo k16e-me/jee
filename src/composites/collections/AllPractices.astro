@@ -3,7 +3,7 @@ import Section from '@layouts/Section.astro'
 import Wrapper from '@layouts/Wrapper.astro'
 import Grid from '@layouts/Grid.astro'
 import { _sectionPadding, _xPadding } from '@scripts/snips'
-import { _sectors } from '@scripts/store'
+import { _practices } from '@scripts/store'
 import CardPiece from '@blocks/CardPiece.astro'
 
 const { blok } = Astro.props
@@ -16,6 +16,6 @@ const { blok } = Astro.props
 	class='r-hide-overflow overflow-y-clip z-20'>
 	<Wrapper
 		class='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-y-6 md:gap-x-6 lg:gap-x-8 md:gap-y-8 lg:gap-y-10 xl:gap-14'>
-		{_sectors.value.map((item, idx) => <CardPiece piece={item} />)}
+		{_practices.value.map((item, idx) => <CardPiece piece={item} />)}
 	</Wrapper>
 </Section>

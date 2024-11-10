@@ -67,6 +67,8 @@ export default defineConfig({
                 allEvents: 'composites/collections/AllEvents',
                 allOffices: 'composites/collections/AllOffices',
                 allSectors: 'composites/collections/AllSectors',
+                allPractices: 'composites/collections/AllPractices',
+                allAfricaPractices: 'composites/collections/AllAfricaPractices',
             }
         })
     ],

@@ -14,7 +14,7 @@ const { blok, class: classes, ...props } = Astro.props
 
 <Section
 	component={blok.component}
-	class='relative [transform:translateZ(0)] overflow-x-clip min-h-[19rem] md:min-h-[20rem] lg:min-h-[22rem] bg-[var(--color-bg-default)]'>
+	class='relative [transform:translateZ(0)] overflow-x-clip min-h-[19rem] md:min-h-[20rem] lg:min-h-[23rem] bg-[var(--color-bg-default)]'>
 	<Wrapper>
 		<Grid class:list={[_gridGap('y'), '']}>
 			<div
@@ -36,7 +36,7 @@ const { blok, class: classes, ...props } = Astro.props
 				/>
 			</div>
 			<div
-				class='col-span-full md:[grid-area:1/6/2/9] lg:[grid-area:1/8/2/13] flex items-center gap-x-4 lg:gap-x-8'>
+				class='col-span-full md:[grid-area:1/6/2/9] lg:[grid-area:1/8/2/13] flex items-center gap-x-4 lg:gap-x-8 z-30'>
 				<ButtonLink
 					link={blok.link[0].link}
 					label={blok.link[0].label}
