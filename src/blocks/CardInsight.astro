@@ -19,30 +19,45 @@ const {
 <a
 	href={_slug(piece.full_slug)}
 	class:list={[
-		'',
+		'r-hide-overflow overflow-y-clip group',
 		profile && 'size-full',
-		landscape && 'h-[23rem] bg-[var(--color-bg-default-elevated)]',
+		landscape &&
+			'w-full h-full md:h-[24rem] bg-[var(--color-bg-default-elevated)] rounded-3xl p-2 flex flex-col md:flex-row ',
 		classes,
 	]}
 	{...props}>
 	<div
 		class:list={[
-			'relative overflow-clip',
+			'relative overflow-clip flex',
 			profile && 'rounded-bl-[1.5rem] rounded-br-[8rem]',
+			landscape &&
+				'w-full min-w-[23rem] max-w-[23rem] h-full rounded-tl-[2rem] rounded-bl-[2rem] rounded-tr-[4rem] rounded-br-[10rem]',
 		]}>
 		<Image
 			filename={piece.content.image.filename}
 			alt={piece.content.image.alt}
 			filter
 			class:list={[
-				profile && 'h-[15.5rem]',
 				'transition-transform duration-200 lg:group-hover:scale-110',
+				profile && 'h-[15.5rem]',
+				landscape && '',
 			]}
 		/>
 	</div>
-	<div class:list={['pt-4 pr-4 h-[9rem] flex flex-col justify-between']}>
+	<div
+		class:list={[
+			'flex flex-col justify-between',
+			profile && 'pt-4 pr-4 h-[9rem]',
+			landscape && 'px-8 py-10 w-full',
+		]}>
 		<div class='space-y-3'>
-			<Meta info={piece.content} />
+			<Text
+				text={piece.content.category?.content?.title}
+				color='caption'
+				size='copy'
+				family='display'
+				weight='medium'
+			/>
 			<Text
 				tag='h3'
 				text={piece.content.title}
