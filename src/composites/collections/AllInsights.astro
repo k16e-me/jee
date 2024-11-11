@@ -13,8 +13,15 @@ import FiltersInsights from '@blocks/FiltersInsights.astro'
 
 const { blok } = Astro.props,
 	categories = _categories.value.map((i) => i.content.title),
-	sectors = _sectors.value.map(i => i.content.title),
-	practices = _practices.value.map(i => i.content.title)
+	sectors = _sectors.value.map((i) => i.content.title),
+	practices = _practices.value.map((i) => i.content.title),
+	authors = _insights.value
+		.map((i) => i.content.author)
+		.flat()
+		.map((i) => i.name),
+	uniqueAuthors = [...new Set(authors)]
+
+console.log(uniqueAuthors)
 ---
 
 <Section
@@ -54,6 +61,7 @@ const { blok } = Astro.props,
 						categories={categories}
 						sectors={sectors}
 						practices={practices}
+						people={uniqueAuthors}
 						class='hidden xl:flex xl:flex-col'
 					/>
 				</form>
