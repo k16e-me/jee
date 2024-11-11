@@ -17,8 +17,8 @@ import {
 	_addSectors,
 	_practices,
 	_addPractices,
-    _africaPractices,
-    _addAfricaPractices
+	_africaPractices,
+	_addAfricaPractices,
 } from '@scripts/store'
 
 const currentYear = new Date().getFullYear(),
@@ -77,12 +77,14 @@ let { data: awards } = await api.get('cdn/stories', {
 		version: import.meta.env.DEV ? 'draft' : 'published',
 		is_startpage: 0,
 		resolve_links: 'url',
+		sort_by: 'content.title:asc',
 	}),
 	{ data: dataAfricaPractices } = await api.get('cdn/stories', {
 		starts_with: 'africa-expertise/',
 		version: import.meta.env.DEV ? 'draft' : 'published',
 		is_startpage: 0,
 		resolve_links: 'url',
+		sort_by: 'content.title:asc',
 	})
 
 let people = dataPeople.stories,
