@@ -21,6 +21,8 @@ import {
 	_addAfricaPractices,
 	_insights,
 	_addInsights,
+    _categories,
+    _addCategories
 } from '@scripts/store'
 
 const currentYear = new Date().getFullYear(),
@@ -48,6 +50,11 @@ let { data: awards } = await api.get('cdn/stories', {
 	}),
 	{ data: dataDesignations } = await api.get('cdn/stories', {
 		starts_with: 'designations/',
+		version: import.meta.env.DEV ? 'draft' : 'published',
+		is_startpage: 0,
+	}),
+	{ data: dataCategories } = await api.get('cdn/stories', {
+		starts_with: 'category/',
 		version: import.meta.env.DEV ? 'draft' : 'published',
 		is_startpage: 0,
 	}),
@@ -106,7 +113,8 @@ let people = dataPeople.stories,
 	sectors = dataSectors.stories,
 	practices = dataPractices.stories,
 	africaPractices = dataAfricaPractices.stories,
-	insights = dataInsights.stories
+	insights = dataInsights.stories,
+	categories = dataCategories.stories
 
 _addAwards(awards)
 _addPeople(people)
@@ -116,6 +124,7 @@ _addSectors(sectors)
 _addPractices(practices)
 _addAfricaPractices(africaPractices)
 _addInsights(insights)
+_addCategories(categories)
 ---
 
 <!doctype html>

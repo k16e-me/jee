@@ -15,12 +15,12 @@ const {
 		landscape,
 		class: classes,
 		...props
-	} = Astro.props,
-	practices = piece.content.expertise.map((p) =>
-		_slugify(p.full_slug).toString(),
-	)
+	} = Astro.props
 
-console.log(practices)
+// data-category={_slugify(piece.content.category?.content?.title)}
+// data-expertise={piece.content.expertise?.map((p) =>
+// 	_slugify(p.full_slug).toString()
+// )}
 ---
 
 <a
@@ -33,10 +33,7 @@ console.log(practices)
 		classes,
 	]}
 	{...props}
-	data-category={_slugify(piece.content.category?.content?.title)}
-	data-expertise={piece.content.expertise.map((p) =>
-		_slugify(p.full_slug).toString()
-	)}>
+	>
 	<div
 		class:list={[
 			'relative overflow-clip flex',

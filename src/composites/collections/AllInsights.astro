@@ -6,11 +6,13 @@ import { _xPadding, _sectionPadding } from '@scripts/snips'
 import { _fontSize } from '@scripts/font-size'
 import _slugify from '@scripts/slugify'
 import CardInsight from '@blocks/CardInsight.astro'
-import { _insights } from '@scripts/store'
+import { _insights, _categories } from '@scripts/store'
 import InputText from '@atoms/InputText.astro'
 import ButtonFab from '@atoms/ButtonFab.astro'
+import FiltersInsights from '@blocks/FiltersInsights.astro'
 
-const { blok } = Astro.props
+const { blok } = Astro.props,
+	categories = _categories.value.map((i) => i.content.title)
 ---
 
 <Section
@@ -26,7 +28,7 @@ const { blok } = Astro.props
 		<Grid class='overflow-clip'>
 			<div
 				class:list={[
-					'col-span-full lg:[grid-area:1/1/2/4] self-start sticky bg-[var(--color-bg-default)] z-10 -top-px [&.is-pinned]:shadow lg:!shadow-none h-18 place-content-center',
+					'col-span-full lg:[grid-area:1/1/2/4] self-start sticky bg-[var(--color-bg-default)] z-10 -top-px [&.is-pinned]:shadow lg:!shadow-none h-18 place-content-center lg:pt-8',
 					_xPadding('both-md-down-l'),
 				]}
 				data-pin-top>
@@ -37,7 +39,7 @@ const { blok } = Astro.props
 							label='Search'
 							id='text'
 							name='search-insights'
-                            placeholder='Search JEE Insights'
+							placeholder='Search JEE Insights'
 							class='w-full'
 						/>
 						<ButtonFab
@@ -46,6 +48,10 @@ const { blok } = Astro.props
 							class='lg:sr-only flex-shrink-0'
 						/>
 					</div>
+					<FiltersInsights
+						categories={categories}
+						class='hidden xl:flex xl:flex-col'
+					/>
 				</form>
 			</div>
 			<div

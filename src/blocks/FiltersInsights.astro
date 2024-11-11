@@ -54,8 +54,20 @@ const {
 						class='sr-only'
 					/>
 					<div class='space-y-3'>
-
-
+						<InputCheck
+							label='All'
+							id={'all-category'}
+							name={'categories'}
+						/>
+						{
+							categories.map(i => (
+								<InputCheck
+									label={i}
+									id={_slugify(i)}
+									name={'categories'}
+								/>
+							))
+						}
 					</div>
 				</fieldset>
 			</div>

@@ -9,7 +9,8 @@ export const
     _offices = atom([]),
     _sectors = atom([]),
     _practices = atom([]),
-    _africaPractices = atom([])
+    _africaPractices = atom([]),
+    _categories = atom([])
 
 
 export function _addAwards(item) { _awards.set(item) }
@@ -20,3 +21,4 @@ export function _addOffices(item) { _offices.set(item) }
 export function _addSectors(item) { _sectors.set(item) }
 export function _addPractices(item) { _practices.set(item) }
 export function _addAfricaPractices(item) { _africaPractices.set(item) }
+export function _addCategories(item) { _categories.set(item) }
