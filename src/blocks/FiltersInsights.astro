@@ -8,7 +8,7 @@ import HeadingSection from '@blocks/HeadingSection.astro'
 
 const {
 	links,
-	designations,
+	categories,
 	locations,
 	sectors,
 	practices,
@@ -50,17 +50,12 @@ const {
 				<fieldset
 					class='max-w-full pt-1 px-4 pb-4 transition-[height] duration-[250ms]'>
 					<legend
-						set:text='Sort JEE People by Rank'
+						set:text='Filter JEE Insights by Category'
 						class='sr-only'
 					/>
 					<div class='space-y-3'>
-						<InputRadio
-							label='All People'
-							id={'all-people'}
-							name={'designations'}
-							checked
-						/>
-						
+
+
 					</div>
 				</fieldset>
 			</div>

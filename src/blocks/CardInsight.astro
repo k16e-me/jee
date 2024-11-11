@@ -7,14 +7,20 @@ import Byline from '@blocks/Byline.astro'
 import Meta from '@atoms/Meta.astro'
 import Author from '@blocks/Author.astro'
 import FormattedDate from '@atoms/FormattedDate.astro'
+import _slugify from '@scripts/slugify'
 
 const {
-	piece,
-	profile = true,
-	landscape,
-	class: classes,
-	...props
-} = Astro.props
+		piece,
+		profile = true,
+		landscape,
+		class: classes,
+		...props
+	} = Astro.props,
+	practices = piece.content.expertise.map((p) =>
+		_slugify(p.full_slug).toString(),
+	)
+
+console.log(practices)
 ---
 
 <a
@@ -26,7 +32,11 @@ const {
 			'w-full h-full md:h-[24rem] bg-[var(--color-bg-default-elevated)] rounded-3xl p-2 flex flex-col md:flex-row ',
 		classes,
 	]}
-	{...props}>
+	{...props}
+	data-category={_slugify(piece.content.category?.content?.title)}
+	data-expertise={piece.content.expertise.map((p) =>
+		_slugify(p.full_slug).toString()
+	)}>
 	<div
 		class:list={[
 			'relative overflow-clip flex',
