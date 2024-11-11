@@ -16,11 +16,15 @@ const { blok } = Astro.props
 	title={blok.title}
 	overlap
 	class='r-hide-overflow overflow-y-clip z-20'>
-	<Wrapper margins={false} class:list={['overflow-x-clip']}>
+	<Wrapper
+		margins={false}
+		class:list={[
+			'overflow-clip bg-[var(--color-bg-default)] lg:bg-transparent rounded-t-[2rem] md:rounded-t-[3.5rem] lg:rounded-t-none',
+		]}>
 		<Grid class='overflow-clip'>
 			<div
 				class:list={[
-					'col-span-full lg:[grid-area:1/1/2/4] self-start sticky bg-[var(--color-bg-default)] z-10 -top-px [&.is-pinned]:shadow lg:!shadow-none overflow-auto min-h-11 pt-10',
+					'col-span-full lg:[grid-area:1/1/2/4] self-start sticky bg-[var(--color-bg-default)] z-10 -top-px [&.is-pinned]:shadow lg:!shadow-none overflow-auto min-h-11',
 					_xPadding('both-lgdown'),
 				]}
 				data-pin-top>
@@ -28,7 +32,7 @@ const { blok } = Astro.props
 			</div>
 			<div
 				class:list={[
-					'col-span-full lg:[grid-area:1/4/2/13] grid grid-cols-1 gap-y-8 pt-10',
+					'col-span-full lg:[grid-area:1/4/2/13] grid grid-cols-1 gap-y-8',
 					_xPadding('both-mddown-lg-l'),
 				]}>
 				{
