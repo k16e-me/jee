@@ -7,6 +7,8 @@ import { _fontSize } from '@scripts/font-size'
 import _slugify from '@scripts/slugify'
 import CardInsight from '@blocks/CardInsight.astro'
 import { _insights } from '@scripts/store'
+import InputText from '@atoms/InputText.astro'
+import ButtonFab from '@atoms/ButtonFab.astro'
 
 const { blok } = Astro.props
 ---
@@ -24,11 +26,27 @@ const { blok } = Astro.props
 		<Grid class='overflow-clip'>
 			<div
 				class:list={[
-					'col-span-full lg:[grid-area:1/1/2/4] self-start sticky bg-[var(--color-bg-default)] z-10 -top-px [&.is-pinned]:shadow lg:!shadow-none overflow-auto min-h-11',
-					_xPadding('both-lgdown'),
+					'col-span-full lg:[grid-area:1/1/2/4] self-start sticky bg-[var(--color-bg-default)] z-10 -top-px [&.is-pinned]:shadow lg:!shadow-none h-18 place-content-center',
+					_xPadding('both-md-down-l'),
 				]}
 				data-pin-top>
-				A
+				<form class='space-y-1.5'>
+					<div
+						class='flex items-center justify-between group-[&.is-pinned]:pb-3 lg:!pb-0 gap-3'>
+						<InputText
+							label='Search'
+							id='text'
+							name='search-insights'
+                            placeholder='Search JEE Insights'
+							class='w-full'
+						/>
+						<ButtonFab
+							icon='funnel'
+							label='Toggle Page Sorting & Filtering'
+							class='lg:sr-only flex-shrink-0'
+						/>
+					</div>
+				</form>
 			</div>
 			<div
 				class:list={[

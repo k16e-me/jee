@@ -2,7 +2,7 @@
 import Icon from '@atoms/Icon.astro'
 import { _fontSize } from '@scripts/font-size'
 
-const { label, icon, id, name, type = 'text', style = 'default', hideLabel = true, class: classes, ...props } = Astro.props
+const { label, icon, id, name, type = 'text', style = 'default', hideLabel = true, placeholder = 'Search a JEE', class: classes, ...props } = Astro.props
 ---
 
 <div class:list={['relative', classes]} {...props}>
@@ -23,6 +23,6 @@ const { label, icon, id, name, type = 'text', style = 'default', hideLabel = tru
             'block w-full rounded-lg border-0 py-3 pl-10 text-[var(--color-text-body)] ring-1 ring-inset ring-[var(--color-border-subtle)] placeholder:text-[var(--color-text-muted)] focus:ring-2 focus:ring-inset focus:ring-[var(--color-emphasis)]',
             _fontSize('body'),
         ]}
-        placeholder='Search a JEE'
+        placeholder={placeholder}
     />
 </div>
