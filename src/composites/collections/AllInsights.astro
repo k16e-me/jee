@@ -1,4 +1,42 @@
 ---
+import Section from '@layouts/Section.astro'
+import Wrapper from '@layouts/Wrapper.astro'
+import Grid from '@layouts/Grid.astro'
+import { _xPadding, _sectionPadding } from '@scripts/snips'
+import { _fontSize } from '@scripts/font-size'
+import _slugify from '@scripts/slugify'
+import CardInsight from '@blocks/CardInsight.astro'
+import { _insights } from '@scripts/store'
 
+const { blok } = Astro.props
 ---
-All Insights...
+
+<Section
+	component={blok.component}
+	title={blok.title}
+	overlap
+	class='r-hide-overflow overflow-y-clip z-20'>
+	<Wrapper margins={false} class:list={['overflow-x-clip']}>
+		<Grid class='overflow-clip'>
+			<div
+				class:list={[
+					'col-span-full lg:[grid-area:1/1/2/4] self-start sticky bg-[var(--color-bg-default)] z-10 -top-px [&.is-pinned]:shadow lg:!shadow-none overflow-auto min-h-11',
+					_xPadding('both-lgdown'),
+				]}
+				data-pin-top>
+				A
+			</div>
+			<div
+				class:list={[
+					'col-span-full lg:[grid-area:1/4/2/13] grid grid-cols-1 gap-y-8',
+					_xPadding('both-lgdown'),
+				]}>
+				{
+					_insights.value.map((item, idx) => (
+						<CardInsight piece={item} landscape />
+					))
+				}
+			</div>
+		</Grid>
+	</Wrapper>
+</Section>

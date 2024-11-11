@@ -7,17 +7,36 @@ import Byline from '@blocks/Byline.astro'
 import Meta from '@atoms/Meta.astro'
 import Author from '@blocks/Author.astro'
 
-const { piece, class: classes, ...props } = Astro.props
+const {
+	piece,
+	profile = true,
+	landscape,
+	class: classes,
+	...props
+} = Astro.props
 ---
 
-<a href={_slug(piece.full_slug)} class:list={['size-full', classes]} {...props}>
-	<div class='rounded-bl-[1.5rem] rounded-br-[8rem] relative overflow-clip'>
+<a
+	href={_slug(piece.full_slug)}
+	class:list={[
+		'',
+		profile && 'size-full',
+		landscape && 'h-[23rem] bg-[var(--color-bg-default-elevated)]',
+		classes,
+	]}
+	{...props}>
+	<div
+		class:list={[
+			'relative overflow-clip',
+			profile && 'rounded-bl-[1.5rem] rounded-br-[8rem]',
+		]}>
 		<Image
 			filename={piece.content.image.filename}
 			alt={piece.content.image.alt}
 			filter
 			class:list={[
-				'h-[15.5rem] transition-transform duration-200 lg:group-hover:scale-110',
+				profile && 'h-[15.5rem]',
+				'transition-transform duration-200 lg:group-hover:scale-110',
 			]}
 		/>
 	</div>
@@ -31,9 +50,15 @@ const { piece, class: classes, ...props } = Astro.props
 				size='6'
 				family='display'
 				weight='semi'
-                class='line-clamp-3'
+				class='line-clamp-3'
 			/>
 		</div>
-		<Author source={piece} size='body' weight='semi' color='body' class='mt-auto'/>
+		<Author
+			source={piece}
+			size='body'
+			weight='semi'
+			color='body'
+			class='mt-auto'
+		/>
 	</div>
 </a>
