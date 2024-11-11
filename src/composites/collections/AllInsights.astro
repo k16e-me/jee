@@ -6,13 +6,15 @@ import { _xPadding, _sectionPadding } from '@scripts/snips'
 import { _fontSize } from '@scripts/font-size'
 import _slugify from '@scripts/slugify'
 import CardInsight from '@blocks/CardInsight.astro'
-import { _insights, _categories } from '@scripts/store'
+import { _insights, _categories, _sectors, _practices } from '@scripts/store'
 import InputText from '@atoms/InputText.astro'
 import ButtonFab from '@atoms/ButtonFab.astro'
 import FiltersInsights from '@blocks/FiltersInsights.astro'
 
 const { blok } = Astro.props,
-	categories = _categories.value.map((i) => i.content.title)
+	categories = _categories.value.map((i) => i.content.title),
+	sectors = _sectors.value.map(i => i.content.title),
+	practices = _practices.value.map(i => i.content.title)
 ---
 
 <Section
@@ -50,6 +52,8 @@ const { blok } = Astro.props,
 					</div>
 					<FiltersInsights
 						categories={categories}
+						sectors={sectors}
+						practices={practices}
 						class='hidden xl:flex xl:flex-col'
 					/>
 				</form>
