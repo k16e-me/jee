@@ -49,40 +49,52 @@ const {
 		class:list={[
 			'flex flex-col justify-between',
 			profile && 'pt-4 pr-4 h-[9rem]',
-			landscape && 'px-2 sm:px-3 py-5 sm:py-7 md:px-8 md:py-10 w-full min-h-[12rem]',
+			landscape &&
+				'px-2 sm:px-3 py-5 sm:py-7 md:px-8 md:py-10 w-full min-h-[12rem] sm:min-h-[14rem]',
 		]}>
 		<div class='flex flex-col gap-1 md:gap-2'>
+			{profile && <Meta info={piece.content} />}
+			{
+				landscape && (
+					<Text
+						text={piece.content.category?.content?.title}
+						color='caption'
+						size='copy'
+						family='display'
+						weight='medium'
+					/>
+				)
+			}
 			<Text
-				text={piece.content.category?.content?.title}
-				color='caption'
-				size='copy'
-				family='display'
-				weight='medium'
-			/>
-			<Text
-				tag='h3'
+				tag=`${profile ? 'h4' : 'h3'}`
 				text={piece.content.title}
 				color='title'
-				size='5'
+				size=`${ profile ? '6' : '5'}`
 				family='display'
-				weight='extra'
+				weight=`${profile ? 'semi' : 'extra'}`
+				class=`${profile ? 'line-clamp-3' : ''}`
 			/>
 		</div>
-		<div class='flex flex-col gap-1.5'>
+		<div class:list={[landscape && 'flex flex-col gap-1.5']}>
 			<Author
 				source={piece}
-				size='6'
-				weight='medium'
+				size=`${ profile ? 'body' : '6'}`
+				weight=`${ profile ? 'semi' : 'medium'}`
+				family='display'
 				color='body'
 				class='mt-auto'
 			/>
-			<FormattedDate
-				dateString={piece.content.published_date}
-				size='emphasis'
-				color='caption'
-				weight='medium'
-				class='justify-self-end'
-			/>
+			{
+				landscape && (
+					<FormattedDate
+						dateString={piece.content.published_date}
+						size='emphasis'
+						color='caption'
+						weight='medium'
+						class='justify-self-end'
+					/>
+				)
+			}
 		</div>
 	</div>
 </a>
