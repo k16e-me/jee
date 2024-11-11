@@ -2,7 +2,7 @@
 import Section from '@layouts/Section.astro'
 import Wrapper from '@layouts/Wrapper.astro'
 import Grid from '@layouts/Grid.astro'
-import { _gridGap } from '@scripts/snips'
+import { _gridGap, _sectionPadding } from '@scripts/snips'
 import Icon from '@atoms/Icon.astro'
 import Text from '@atoms/Text.astro'
 import ButtonLink from '@atoms/ButtonLink.astro'
@@ -14,7 +14,7 @@ const { blok, class: classes, ...props } = Astro.props
 
 <Section
 	component={blok.component}
-	class='relative [transform:translateZ(0)] overflow-x-clip min-h-[19rem] md:min-h-[20rem] lg:min-h-[23rem] bg-[var(--color-bg-default)]'>
+	class='relative [transform:translateZ(0)] overflow-x-clip min-h-[23rem] xs:min-h-[21rem] md:min-h-[23.5rem] lg:min-h-[25.5rem] bg-[var(--color-bg-default)]'>
 	<Wrapper>
 		<Grid class:list={[_gridGap('y'), '']}>
 			<div
