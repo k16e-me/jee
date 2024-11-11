@@ -6,6 +6,7 @@ import _slug from '@scripts/slug'
 import Byline from '@blocks/Byline.astro'
 import Meta from '@atoms/Meta.astro'
 import Author from '@blocks/Author.astro'
+import FormattedDate from '@atoms/FormattedDate.astro'
 
 const {
 	piece,
@@ -15,6 +16,7 @@ const {
 	...props
 } = Astro.props
 ---
+
 <a
 	href={_slug(piece.full_slug)}
 	class:list={[
@@ -30,14 +32,14 @@ const {
 			'relative overflow-clip flex',
 			profile && 'rounded-bl-[1.5rem] rounded-br-[8rem]',
 			landscape &&
-				'w-full min-w-[24rem] max-w-[24rem] h-full rounded-tl-[2rem] rounded-bl-[2rem] rounded-tr-[4rem] rounded-br-[10rem]',
+				'w-full h-[22rem] sm:h-[24rem] md:h-full md:min-w-[25rem] md:max-w-[25rem] rounded-tl-[2rem] rounded-bl-[2rem] rounded-tr-[2rem] md:rounded-tr-[4rem] rounded-br-[10rem]',
 		]}>
 		<Image
 			filename={piece.content.image.filename}
 			alt={piece.content.image.alt}
 			filter
 			class:list={[
-				'transition-transform duration-200 lg:group-hover:scale-110',
+				'transition-transform duration-200 group-hover:scale-110',
 				profile && 'h-[15.5rem]',
 				landscape && '',
 			]}
@@ -47,9 +49,9 @@ const {
 		class:list={[
 			'flex flex-col justify-between',
 			profile && 'pt-4 pr-4 h-[9rem]',
-			landscape && 'px-8 py-10 w-full',
+			landscape && 'px-2 sm:px-3 py-5 sm:py-7 md:px-8 md:py-10 w-full min-h-[12rem]',
 		]}>
-		<div class='space-y-3'>
+		<div class='flex flex-col gap-1 md:gap-2'>
 			<Text
 				text={piece.content.category?.content?.title}
 				color='caption'
@@ -61,18 +63,26 @@ const {
 				tag='h3'
 				text={piece.content.title}
 				color='title'
-				size='6'
+				size='5'
 				family='display'
-				weight='semi'
-				class='line-clamp-3'
+				weight='extra'
 			/>
 		</div>
-		<Author
-			source={piece}
-			size='body'
-			weight='semi'
-			color='body'
-			class='mt-auto'
-		/>
+		<div class='flex flex-col gap-1.5'>
+			<Author
+				source={piece}
+				size='6'
+				weight='medium'
+				color='body'
+				class='mt-auto'
+			/>
+			<FormattedDate
+				dateString={piece.content.published_date}
+				size='emphasis'
+				color='caption'
+				weight='medium'
+				class='justify-self-end'
+			/>
+		</div>
 	</div>
 </a>
