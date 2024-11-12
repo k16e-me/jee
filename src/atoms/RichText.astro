@@ -8,7 +8,8 @@ const { text, pType, class: classes, ...props } = Astro.props
 
 <Prose
 	class:list={[
-        (pType === 'copy' || pType === 'emphasis') && 'font-display',
+        (pType === 'copy' || pType === 'emphasis' || pType === '1hx') && 'font-display',
+		pType === '1hx' && _fontSize('1hx'),
 		pType === 'copy' && _fontSize('copy'),
 		pType === 'emphasis' && _fontSize('emphasis'),
 		pType === 'body' && _fontSize('body'),
