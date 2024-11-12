@@ -10,17 +10,12 @@ import FormattedDate from '@atoms/FormattedDate.astro'
 import _slugify from '@scripts/slugify'
 
 const {
-		piece,
-		profile = true,
-		landscape,
-		class: classes,
-		...props
-	} = Astro.props
-
-// data-category={_slugify(piece.content.category?.content?.title)}
-// data-expertise={piece.content.expertise?.map((p) =>
-// 	_slugify(p.full_slug).toString()
-// )}
+	piece,
+	profile = true,
+	landscape,
+	class: classes,
+	...props
+} = Astro.props
 ---
 
 <a
@@ -32,14 +27,13 @@ const {
 			'w-full h-full md:h-[24rem] bg-[var(--color-bg-default-elevated)] rounded-3xl p-2 flex flex-col md:flex-row ',
 		classes,
 	]}
-	{...props}
-	>
+	{...props}>
 	<div
 		class:list={[
 			'relative overflow-clip flex',
 			profile && 'rounded-bl-[1.5rem] rounded-br-[8rem]',
 			landscape &&
-				'w-full h-[22rem] sm:h-[24rem] md:h-full md:min-w-[25rem] md:max-w-[25rem] rounded-tl-[2rem] rounded-bl-[2rem] rounded-tr-[2rem] md:rounded-tr-[4rem] rounded-br-[10rem]',
+				'w-full h-[23rem] sm:h-[24.5rem] md:h-full md:min-w-[26rem] md:max-w-[26rem] rounded-tl-[2rem] rounded-bl-[2rem] rounded-tr-[2rem] md:rounded-tr-[4rem] rounded-br-[10rem]',
 		]}>
 		<Image
 			filename={piece.content.image.filename}

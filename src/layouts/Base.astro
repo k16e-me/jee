@@ -23,8 +23,8 @@ import {
 	_addInsights,
 	_categories,
 	_addCategories,
-    _addEvents,
-    _events
+	_addEvents,
+	_events,
 } from '@scripts/store'
 
 const currentYear = new Date().getFullYear(),
@@ -101,6 +101,7 @@ let { data: awards } = await api.get('cdn/stories', {
 		starts_with: 'insights/',
 		version: import.meta.env.DEV ? 'draft' : 'published',
 		is_startpage: 0,
+		sort_by: 'content.published_date:desc',
 		resolve_links: 'url',
 		resolve_relations: [
 			'insight.category',
@@ -112,11 +113,9 @@ let { data: awards } = await api.get('cdn/stories', {
 		starts_with: 'events/',
 		version: import.meta.env.DEV ? 'draft' : 'published',
 		is_startpage: 0,
+		sort_by: 'content.start_date:desc',
 		resolve_links: 'url',
-		resolve_relations: [
-			'session.host',
-			'panelist.person'
-		]
+		resolve_relations: ['session.host', 'panelist.person'],
 	})
 
 let people = dataPeople.stories,
