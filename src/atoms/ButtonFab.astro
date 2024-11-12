@@ -2,17 +2,19 @@
 import Icon from '@atoms/Icon.astro'
 
 const {
-	link,
-	label,
-	icon,
-	style = 'default',
-	flipIcon,
-	class: classes,
-	...props
-} = Astro.props
+		tag = 'button',
+		link,
+		label,
+		icon,
+		style = 'default',
+		flipIcon,
+		class: classes,
+		...props
+	} = Astro.props,
+	Tag = tag
 ---
 
-<button
+<Tag
 	class:list={[
 		'w-11 h-11 flex items-center justify-center group rounded-full',
 		classes,
@@ -23,15 +25,15 @@ const {
 			'bg-transparent text-[var(--color-text-emphasis)]',
 		style === 'brand' && 'bg-[var(--color-emphasis)] text-white',
 		style === 'brand-inverted' &&
-			'bg-[var(--color-main-inverted)] text-white'
+			'bg-[var(--color-main-inverted)] text-white',
 	]}
 	{...props}
 	aria-label={label}>
 	<Icon
 		name={icon}
 		class:list={[
-			'w-[23px] text-inherit group-hover:scale-[1.15] block',
+			'w-[23px] text-inherit group-hover:scale-[1.15] group-hover/link:scale-[1.15] block',
 			flipIcon && 'rotate-90',
 		]}
 	/>
-</button>
+</Tag>

@@ -1,0 +1,22 @@
+---
+import ButtonFab from '@atoms/ButtonFab.astro'
+import Icon from '@atoms/Icon.astro'
+import Text from '@atoms/Text.astro'
+import _slug from '@scripts/slug'
+import _unslash from '@scripts/unslash'
+
+const { link, slug, icon, label, class: classes, ...props } = Astro.props
+---
+
+<li class='group/link truncate'>
+	<a href={link ? _slug(link.link) : slug} class='flex items-center gap-3'>
+		<ButtonFab icon={icon} label={link ? link.label : label} />
+		<Text
+			size='emphasis'
+			text={link ? link.label : label}
+			color='title'
+			weight='medium'
+			class='opacity-80 group-hover/link:opacity-100'
+		/>
+	</a>
+</li>
