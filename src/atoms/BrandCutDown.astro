@@ -6,13 +6,13 @@ const { top = true, class: classes, ...props } = Astro.props
 
 <div
 	class:list={[
-		'absolute -left-1',
-		top && 'top-[45%] xs:top-[43%] sm:top-[38%] md:top-[40%] lg:top-[50%] xl:top-[45%]',
+		'absolute -left-1 md:-left-[20rem] lg:-left-[24rem] xl:-left-[19rem]',
+		top && 'top-[45%] xs:top-[43%] sm:top-[20%] md:top-[42%] lg:top-[32%] xl:top-[34%]',
         classes
 	]}
 	{...props}>
 	<Icon
 		name='cutout-down'
-		class='w-[40rem] md:w-[45rem] lg:w-[58rem] scale-110 sm:scale-125 md:scale-150 h-auto text-[var(--color-main)]'
+		class='w-[40rem] md:w-[45rem] lg:w-[58rem] scale-110 sm:scale-125 md:scale-105 lg:scale-100 h-auto text-[var(--color-main)]'
 	/>
 </div>
