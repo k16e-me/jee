@@ -58,9 +58,18 @@ const { person, class: classes, ...props } = Astro.props
 							weight='medium'
 						/>
 					</div>
-                    <ul class="flex flex-col py-4 sm:py-6 gap-3">
-                        <ListLinkFab slug='/contact' icon="map-pin-area" label={person.links[0].location.content.tag}/>
-                    </ul>
+					<ul class='flex flex-col py-4 sm:py-6 gap-3'>
+						<ListLinkFab
+							slug='/contact'
+							icon='map-pin-area'
+							label={person.links[0].location.content.tag}
+						/>
+						<ListLinkFab
+							slug={person.links[0].vcard.filename}
+							icon='download'
+							label={'vCard'}
+						/>
+					</ul>
 				</div>
 			</div>
 		</Grid>
