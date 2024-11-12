@@ -1,5 +1,6 @@
 const
     topPadding = 'pt-10 md:pt-14 lg:pt-20',
+    topPaddingMdUp = 'md:pt-14 lg:pt-20',
     topPaddingLgUp = 'lg:pt-20',
     topPaddingXlUp = 'xl:pt-20',
     edgePaddingXlUpR = 'xl:pr-16',
@@ -13,6 +14,7 @@ const
     _capitalize = str => str.charAt(0).toUpperCase() + str.slice(1).toLowerCase(),
     _sectionPadding = (direction = 'top') => {
         if (direction === 'top') return [...topPadding.split(' ')]
+        if (direction === 'top-md-up') return [...topPaddingMdUp.split(' ')]
         if (direction === 'top-lg-up') return [...topPaddingLgUp.split(' ')]
         if (direction === 'top-xl-up') return [...topPaddingXlUp.split(' ')]
         if (direction === 'bottom') return ['pb-12', 'md:pb-14', 'lg:pb-20']

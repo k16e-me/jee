@@ -2,12 +2,16 @@
 import { _fontSize } from '@scripts/font-size'
 import _slugify from '@scripts/slugify'
 
-const { headings, class: classes, ...props } = Astro.props
+const { headings, breakAt = 'xl', class: classes, ...props } = Astro.props
 ---
 
 <ul
 	class:list={[
-		'flex xl:flex-col items-center xl:items-end justify-between border-b border-[var(--color-border-muted)] xl:border-b-0 xl:border-r [&>*]:xl:text-right',
+		'flex items-center justify-between border-b border-[var(--color-border-muted)]',
+		breakAt === 'md' &&
+			'md:flex-col md:items-end md:border-b-0 md:border-r [&>*]:md:text-right',
+		breakAt === 'xl' &&
+			'xl:flex-col xl:items-end xl:border-b-0 xl:border-r [&>*]:xl:text-right',
 		classes,
 	]}
 	{...props}>
@@ -16,12 +20,22 @@ const { headings, class: classes, ...props } = Astro.props
 			<li
 				class:list={[
 					_fontSize('1hx'),
-					'group translate-y-[0.1rem] xl:translate-x-[0.1rem] whitespace-nowrap xl:whitespace-normal r-transition',
+					'group translate-y-[0.1rem] whitespace-nowrap r-transition',
+					breakAt === 'md' &&
+						'md:translate-x-[0.1rem] md:whitespace-normal',
+					breakAt === 'xl' &&
+						'xl:translate-x-[0.1rem] xl:whitespace-normal',
 				]}>
 				<a
 					href={`#${_slugify(h)}`}
 					set:text={h}
-					class='flex text-right font-semibold font-display p-4 xl:pl-0 [&.is-in-view]:border-b-[3px] [&.is-in-view]:xl:border-r-[3px] xl:!border-b-0 [&.is-in-view]:border-[var(--color-emphasis)] group-hover:text-[var(--color-emphasis)] [&.is-in-view]:text-[var(--color-emphasis)]'
+					class:list={[
+						'flex text-right font-semibold font-display p-4 [&.is-in-view]:border-b-[3px] [&.is-in-view]:border-[var(--color-emphasis)] group-hover:text-[var(--color-emphasis)] [&.is-in-view]:text-[var(--color-emphasis)]',
+						breakAt === 'md' &&
+							'md:pl-0 md:!border-b-0 [&.is-in-view]:md:border-r-[3px]',
+						breakAt === 'xl' &&
+							'xl:pl-0 xl:!border-b-0 [&.is-in-view]:xl:border-r-[3px]',
+					]}
 				/>
 			</li>
 		))
