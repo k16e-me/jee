@@ -1,6 +1,9 @@
 ---
 import HeaderPerson from '@composites/headers/HeaderPerson.astro'
+import Grid from '@layouts/Grid.astro'
 import Section from '@layouts/Section.astro'
+import Wrapper from '@layouts/Wrapper.astro'
+import { _sectionPadding, _xPadding } from '@scripts/snips'
 import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro'
 
 const { blok } = Astro.props
@@ -9,9 +12,21 @@ const { blok } = Astro.props
 <HeaderPerson person={blok} />
 <Section
 	tag='div'
+    overlap
 	class='r-hide-overflow overflow-y-clip z-20 bg-[var(--color-bg-default)] rounded-t-[2rem] md:rounded-t-[3.5rem] lg:rounded-t-[4.5rem]'>
-	Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corporis animi
-	ipsum tempore mollitia nobis qui voluptatum consequuntur laboriosam nostrum,
-	itaque est distinctio optio officiis? Similique iure labore sed nisi
-	debitis!
+	<Wrapper margins={false} class:list={['overflow-x-clip']}>
+		<Grid>
+			<div
+				class:list={[
+					'col-span-full self-start sticky bg-[var(--color-bg-default)] z-10 -top-px [&.is-pinned]:shadow xl:!shadow-none overflow-auto',
+					_xPadding('both-lgdown'),
+				]}
+				data-pin-top>
+				ABCDEFGH...
+			</div>
+			<div class='col-span-full'>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam cum delectus quidem enim repellat, quae, laudantium earum soluta, tenetur illum impedit inventore distinctio quod maxime tempore assumenda. Voluptate, saepe quod!
+			</div>
+		</Grid>
+	</Wrapper>
 </Section>
