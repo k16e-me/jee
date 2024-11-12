@@ -9,6 +9,7 @@ import _swiperQuotes from './swiper-quotes'
 import _swiperAll from './swiper-all'
 import _isSticky from './pin-top'
 import _scrollspy from './scrollspy'
+import _moreOrLess from './more-less'
 
 const swup = new Swup({
     animationSelector: '[class*="swup-"]',
@@ -39,6 +40,7 @@ function init() {
     _playVideo()
     _isSticky()
     _scrollspy()
+    _moreOrLess()
 }
 
 function once() {

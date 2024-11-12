@@ -7,18 +7,32 @@ import RichText from '@atoms/RichText.astro'
 import { _xPadding, _spaceY } from '@scripts/snips'
 import _slugify from '@scripts/slugify'
 
-const { blok, class: classes, ...props } = Astro.props
+const { blok, overlap, showLess, class: classes, ...props } = Astro.props
 ---
 
 <Section
 	component={blok.component}
-	overlap={blok.overlap}
-	id={_slugify(blok.heading)}>
+	overlap={blok.overlap || overlap}
+	id={typeof blok.heading != 'string'
+		? _slugify(blok.heading[0].heading)
+		: _slugify(blok.heading)}>
 	<Wrapper margins={false} class:list={[_xPadding('both-lgdown-l')]}>
 		<Grid>
 			<div class:list={['col-span-full', _spaceY()]}>
-				<HeadingSection level='h3' text={blok.heading} size='4' />
-				<RichText text={blok.body} pType='body' />
+				<HeadingSection
+					level='h3'
+					text={typeof blok.heading === 'string'
+						? blok.heading
+						: blok.heading[0].heading}
+					size='4'
+				/>
+				<RichText
+					text={Array.isArray(blok.body)
+						? blok.body[0].content
+						: blok.body}
+					pType='body'
+					class:list={[showLess && 'is-more-less']}
+				/>
 			</div>
 		</Grid>
 	</Wrapper>
