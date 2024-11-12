@@ -3,13 +3,20 @@ import ButtonMore from '@atoms/ButtonMore.astro'
 import Text from '@atoms/Text.astro'
 import _slug from '@scripts/slug'
 
-const { link, page, class: classes, ...props } = Astro.props
+const {
+	link,
+	altLink = '/',
+	labelText = 'JEE Home',
+	page,
+	class: classes,
+	...props
+} = Astro.props
 ---
 
 <div class='flex items-center gap-3'>
 	<ButtonMore
-		link={link ? link[0].link : _slug('/')}
-		label={link ? link[0].label : 'JEE Home'}
+		link={link ? link[0].link : _slug(altLink)}
+		label={link ? link[0].label : labelText}
 	/>
 	<div
 		class='px-3 pt-2 pb-[0.875rem] border-l-[1.5px] border-[var(--color-border-subtle)] overflow-clip'>
