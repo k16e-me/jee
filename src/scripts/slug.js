@@ -2,6 +2,7 @@ import _unslash from '@scripts/unslash'
 
 export default function _slug(linkObj) {
     if (typeof linkObj === 'string') return linkObj
+    
     const
         iLink = linkObj.linktype === 'story',
         xLink = linkObj.linktype === 'url'

@@ -1,0 +1,57 @@
+---
+import Section from '@layouts/Section.astro'
+import Wrapper from '@layouts/Wrapper.astro'
+import Grid from '@layouts/Grid.astro'
+import Text from '@atoms/Text.astro'
+import ButtonLink from '@atoms/ButtonLink.astro'
+import { _sectionPadding } from '@scripts/snips'
+import Icon from '@atoms/Icon.astro'
+import BrandCutDown from '@atoms/BrandCutDown.astro'
+import ButtonMore from '@atoms/ButtonMore.astro'
+import Breadcrumb from '@blocks/Breadcrumb.astro'
+import _empty from '@scripts/empty'
+import _slug from '@scripts/slug'
+import Image from '@atoms/Image.astro'
+
+const { person, class: classes, ...props } = Astro.props
+---
+
+<Section
+	component={person.component}
+	header
+	section={false}
+	class='r-hide-overflow'>
+	<Wrapper inset>
+		<Grid class='gap-3 gap-y-8 sm:gap-y-12 md:gap-6 lg:gap-8 z-20'>
+			<div
+				class='col-span-full md:[grid-area:1/1/2/5] lg:[grid-area:1/1/2/6]'>
+				<div
+					class='h-[30rem] xs:h-[34rem] sm:h-[36rem] lg:h-[37.5rem] overflow-clip bg-[var(--color-bg-default-elevated)] rounded-3xl'>
+					<Image
+						filename={person.headshot.filename}
+						alt={person.headshot.alt}
+						filter
+						class:list={['size-full !object-cover md:!object-contain !object-top md:!object-bottom']}
+					/>
+				</div>
+			</div>
+			<div
+				class='col-span-full md:[grid-area:1/5/2/9] lg:[grid-area:1/6/2/13]'>
+				<div class='flex flex-col gap-1.5 sm:gap-2 lg:gap-3'>
+					<Breadcrumb page={person.name} />
+					<Text
+						tag='h2'
+						text={person.name}
+						color='title'
+						size='3'
+						family='display'
+						weight='extra'
+						tighten
+						class=''
+					/>
+				</div>
+			</div>
+		</Grid>
+	</Wrapper>
+	<BrandCutDown class='z-[-1]' />
+</Section>

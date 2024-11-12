@@ -1,0 +1,18 @@
+---
+import Icon from '@atoms/Icon.astro'
+
+const { top = true, class: classes, ...props } = Astro.props
+---
+
+<div
+	class:list={[
+		'absolute -left-1',
+		top && 'top-[45%] xs:top-[43%] sm:top-[38%] md:top-[40%] lg:top-[50%] xl:top-[45%]',
+        classes
+	]}
+	{...props}>
+	<Icon
+		name='cutout-down'
+		class='w-[40rem] md:w-[45rem] lg:w-[58rem] scale-110 sm:scale-125 md:scale-150 h-auto text-[var(--color-main)]'
+	/>
+</div>

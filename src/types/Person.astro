@@ -1,7 +1,8 @@
 ---
+import HeaderPerson from '@composites/headers/HeaderPerson.astro'
 import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro'
 
 const { blok } = Astro.props
 ---
 
-Person...
+<HeaderPerson person={blok}/>
