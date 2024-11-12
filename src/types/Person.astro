@@ -28,7 +28,7 @@ const { blok } = Astro.props
 				]}
 				data-pin-top>
 				<SectionSpy
-					headings={['Biography', 'Practice Areas']}
+					headings={['Biography', 'Practice Areas', 'Sectors']}
 					breakAt='md'
 					data-spy-sections
 				/>
@@ -42,6 +42,12 @@ const { blok } = Astro.props
 				<SectionMinicards
 					blok={blok.practices[0]}
 					list={blok.practices[0].collection}
+					xPadding={false}
+					overlap
+				/>
+				<SectionMinicards
+					blok={blok.sectors[0]}
+					list={blok.sectors[0].collection}
 					xPadding={false}
 					overlap
 				/>
