@@ -7,6 +7,7 @@ import Section from '@layouts/Section.astro'
 import Wrapper from '@layouts/Wrapper.astro'
 import { _sectionPadding, _xPadding } from '@scripts/snips'
 import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro'
+import SectionMinicards from '@composites/sections/SectionMinicards.astro'
 
 const { blok } = Astro.props
 ---
@@ -21,13 +22,13 @@ const { blok } = Astro.props
 		<Grid>
 			<div
 				class:list={[
-					'col-span-full md:[grid-area:1/1/2/3] lg:[grid-area:1/1/2/4] self-start sticky bg-[var(--color-bg-default)] z-10 -top-px [&.is-pinned]:shadow xl:!shadow-none overflow-auto',
+					'col-span-full md:[grid-area:1/1/2/3] lg:[grid-area:1/1/2/4] self-start sticky bg-[var(--color-bg-default)] z-10 -top-px [&.is-pinned]:shadow md:!shadow-none overflow-auto',
 					_xPadding('both-lgdown'),
 					_sectionPadding('top-md-up'),
 				]}
 				data-pin-top>
 				<SectionSpy
-					headings={['Biography']}
+					headings={['Biography', 'Practice Areas']}
 					breakAt='md'
 					data-spy-sections
 				/>
@@ -38,6 +39,12 @@ const { blok } = Astro.props
 					_xPadding('both-mddown-lg-l'),
 				]}>
 				<SectionStack blok={blok.bio[0]} showLess xPadding={false} />
+				<SectionMinicards
+					blok={blok.practices[0]}
+					list={blok.practices[0].collection}
+					xPadding={false}
+					overlap
+				/>
 			</div>
 		</Grid>
 	</Wrapper>

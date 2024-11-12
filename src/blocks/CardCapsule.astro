@@ -1,0 +1,27 @@
+---
+import Image from '@atoms/Image.astro'
+import _slug from '@scripts/slug'
+
+const { link, entry, tag = 'a', class: classes, ...props } = Astro.props,
+	Tag = tag
+---
+
+<Tag
+	{...link ? { href: `/${_slug(link)}` } : {}}
+	class:list={[
+		'flex items-center w-full sm:w-[18rem] lg:w-[19rem] h-24 bg-[var(--color-bg-default-elevated)] p-1 pr-4 rounded-xl group',
+		classes,
+	]}
+	{...props}>
+	<div
+		class='rounded-tl-lg rounded-bl-lg rounded-tr-2xl rounded-br-[3rem] overflow-clip size-[5.5rem]'>
+		<Image
+			filename={entry.content.image.filename}
+			alt={entry.content.image.alt}
+			filter
+			class:list={[
+				'size-full object-cover object-top group-hover:scale-110 transition-transform duration-200',
+			]}
+		/>
+	</div>
+</Tag>

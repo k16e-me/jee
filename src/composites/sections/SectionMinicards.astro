@@ -1,0 +1,45 @@
+---
+import Section from '@layouts/Section.astro'
+import Wrapper from '@layouts/Wrapper.astro'
+import Grid from '@layouts/Grid.astro'
+import HeadingSection from '@blocks/HeadingSection.astro'
+import RichText from '@atoms/RichText.astro'
+import { _xPadding, _spaceY } from '@scripts/snips'
+import _slugify from '@scripts/slugify'
+import CardCapsule from '@blocks/CardCapsule.astro'
+
+const {
+	blok,
+	overlap,
+	list,
+	xPadding = true,
+	class: classes,
+	...props
+} = Astro.props
+---
+
+<Section
+	component={blok.component}
+	overlap={blok.overlap || overlap}
+	id={typeof blok.heading != 'string'
+		? _slugify(blok.heading[0].heading)
+		: _slugify(blok.heading)}>
+	<Wrapper
+		margins={false}
+		class:list={[xPadding && _xPadding('both-lgdown-l')]}>
+		<Grid>
+			<div class:list={['col-span-full', _spaceY()]}>
+				<HeadingSection
+					level='h3'
+					text={typeof blok.heading === 'string'
+						? blok.heading
+						: blok.heading[0].heading}
+					size='4'
+				/>
+				<div class="flex flex-wrap gap-4">
+					{list.map((i) => <CardCapsule entry={i} link={i.full_slug}/>)}
+				</div>
+			</div>
+		</Grid>
+	</Wrapper>
+</Section>
