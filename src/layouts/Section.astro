@@ -10,12 +10,14 @@ const {
 	overlap,
 	id,
 	spy = false,
+    tag = 'section',
 	class: classes,
 	...props
-} = Astro.props
+} = Astro.props,
+Tag = tag
 ---
 
-<section
+<Tag
 	class:list={[
 		`_section _section-${component} relative`,
 		poster && 'pt-10 lg:pt-14',
@@ -30,4 +32,4 @@ const {
 	{...props}>
 	{title && <h2 set:text={title} class='sr-only' />}
 	<slot />
-</section>
+</Tag>

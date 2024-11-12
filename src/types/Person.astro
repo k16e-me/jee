@@ -1,8 +1,17 @@
 ---
 import HeaderPerson from '@composites/headers/HeaderPerson.astro'
+import Section from '@layouts/Section.astro'
 import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro'
 
 const { blok } = Astro.props
 ---
 
-<HeaderPerson person={blok}/>
+<HeaderPerson person={blok} />
+<Section
+	tag='div'
+	class='r-hide-overflow overflow-y-clip z-20 bg-[var(--color-bg-default)] rounded-t-[2rem] md:rounded-t-[3.5rem] lg:rounded-t-[4.5rem]'>
+	Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corporis animi
+	ipsum tempore mollitia nobis qui voluptatum consequuntur laboriosam nostrum,
+	itaque est distinctio optio officiis? Similique iure labore sed nisi
+	debitis!
+</Section>

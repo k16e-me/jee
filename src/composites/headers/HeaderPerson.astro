@@ -84,7 +84,9 @@ const { person, class: classes, ...props } = Astro.props
 							icon='linkedin'
 						/>
 					</ul>
-					<RichText text={person.excerpt} pType='1hx' />
+					<div class="max-w-screen-sm">
+						<RichText text={person.excerpt} pType='1hx' />
+					</div>
 				</div>
 			</div>
 		</Grid>
