@@ -36,7 +36,7 @@ const { blok } = Astro.props,
 			<div
 				class:list={[
 					'col-span-full lg:[grid-area:1/1/2/4] self-start sticky bg-[var(--color-bg-default)] z-10 -top-px [&.is-pinned]:shadow lg:!shadow-none h-18 place-content-center lg:pt-8',
-					_xPadding('both-md-down-l'),
+					_xPadding('both-md-down-l')
 				]}
 				data-pin-top>
 				<form class='space-y-1.5'>
@@ -67,7 +67,7 @@ const { blok } = Astro.props,
 			<div
 				class:list={[
 					'col-span-full lg:[grid-area:1/4/2/13] grid grid-cols-1 gap-y-6 md:gap-y-8',
-					_xPadding('both-mddown-lg-l'),
+					_xPadding('both-mddown-lg-l')
 				]}>
 				{
 					_insights.value.map((item, idx) => (

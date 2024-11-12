@@ -20,14 +20,16 @@ export async function getStaticPaths() {
 			!link.slug.startsWith('successes') &&
 			!link.slug.startsWith('offices') &&
 			!link.slug.startsWith('regions') &&
-			!link.slug.startsWith('legal') &&
-			!link.slug.startsWith('events') &&
-			!link.slug.startsWith('previews'),
+			!link.slug.startsWith('legal'),
 	)
 
 	return links
 		.filter((link) => !link.is_folder)
-		.map((link) => { return { params: { slug: link.slug === 'home' ? undefined : link.slug } } })
+		.map((link) => {
+			return {
+				params: { slug: link.slug === 'home' ? undefined : link.slug },
+			}
+		})
 }
 
 const { slug } = Astro.params,
@@ -42,12 +44,14 @@ const { slug } = Astro.params,
 				'image_hanging_insight.insight',
 				'carousel_people.people',
 				'person.byline',
-                'person_links.location',
-                'collection.collection',
+				'person_links.location',
+				'collection.collection',
 				'section_latest.insights',
 				'insight.category',
 				'insight.author',
-				'insight.expertise'
+				'insight.expertise',
+				'session.host',
+				'panelist.person',
 			],
 		},
 	),

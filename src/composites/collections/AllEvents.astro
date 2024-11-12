@@ -1,4 +1,61 @@
 ---
+import Section from '@layouts/Section.astro'
+import Wrapper from '@layouts/Wrapper.astro'
+import Grid from '@layouts/Grid.astro'
+import { _xPadding, _sectionPadding } from '@scripts/snips'
+import { _fontSize } from '@scripts/font-size'
+import _slugify from '@scripts/slugify'
+import CardEvent from '@blocks/CardEvent.astro'
+import { _events } from '@scripts/store'
+import InputText from '@atoms/InputText.astro'
+import ButtonFab from '@atoms/ButtonFab.astro'
 
+const { blok } = Astro.props
+// {_events.value.map((i, x) => <CardEvent entry={i} class='' />)}
 ---
-All Events...
+
+<Section
+	component={blok.component}
+	title={blok.title}
+	overlap
+	class='r-hide-overflow overflow-y-clip z-20'>
+	<Wrapper
+		margins={false}
+		class:list={[
+			'overflow-clip bg-[var(--color-bg-default)] lg:bg-transparent rounded-t-[2rem] md:rounded-t-[3.5rem] lg:rounded-t-none',
+		]}>
+		<Grid class='overflow-clip'>
+			<div
+				class:list={[
+					'col-span-full lg:[grid-area:1/1/2/4] self-start sticky bg-[var(--color-bg-default)] z-10 -top-px [&.is-pinned]:shadow lg:!shadow-none h-18 place-content-center lg:pt-8',
+					_xPadding('both-md-down-l'),
+				]}
+				data-pin-top>
+				<form class='space-y-1.5'>
+					<div
+						class='flex items-center justify-between group-[&.is-pinned]:pb-3 lg:!pb-0 gap-3'>
+						<InputText
+							label='Search'
+							id='text'
+							name='search-events'
+							placeholder='Find a JEE Event'
+							class='w-full'
+						/>
+						<ButtonFab
+							icon='funnel'
+							label='Toggle Page Sorting & Filtering'
+							class='lg:sr-only flex-shrink-0'
+						/>
+					</div>
+				</form>
+			</div>
+			<div
+				class:list={[
+					'col-span-full lg:[grid-area:1/4/2/13] grid grid-cols-1 gap-y-6 md:gap-y-8',
+					_xPadding('both-mddown-lg-l'),
+				]}>
+				{_events.value.map((i, x) => <CardEvent entry={i} class='' />)}
+			</div>
+		</Grid>
+	</Wrapper>
+</Section>

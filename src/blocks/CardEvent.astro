@@ -1,0 +1,28 @@
+---
+import Icon from '@atoms/Icon.astro'
+import Image from '@atoms/Image.astro'
+import Text from '@atoms/Text.astro'
+import _slug from '@scripts/slug'
+import Byline from '@blocks/Byline.astro'
+import Meta from '@atoms/Meta.astro'
+import Author from '@blocks/Author.astro'
+import FormattedDate from '@atoms/FormattedDate.astro'
+import _slugify from '@scripts/slugify'
+
+const {
+		entry,
+		class: classes,
+		...props
+	} = Astro.props
+---
+
+<a
+	href={_slug(entry.full_slug)}
+	class:list={[
+		'r-hide-overflow overflow-y-clip group',
+		classes,
+	]}
+	{...props}
+	>
+    { entry.name }
+</a>
