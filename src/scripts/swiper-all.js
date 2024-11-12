@@ -2,7 +2,7 @@ import {
     _q,
 } from './snips'
 import Swiper from 'swiper'
-import { Navigation, Autoplay } from 'swiper/modules'
+import { Navigation, Autoplay, Keyboard } from 'swiper/modules'
 
 export default function _swiperAll() {
     if (!_q('.swiper-all')) return
@@ -13,8 +13,7 @@ export default function _swiperAll() {
         spaceBetween: 16,
         freeMode: true,
         keyboard: {
-            enabled: true,
-            onlyInViewport: false
+            enabled: true
         },
         navigation: {
             nextEl: '.swiper-next',
