@@ -1,0 +1,19 @@
+---
+import Text from '@atoms/Text.astro'
+import RichText from '@atoms/RichText.astro'
+
+const { entry, class: classes, ...props } = Astro.props
+---
+
+<div class='flex flex-col sm:flex-row gap-1 sm:gap-8 lg:gap-10'>
+	<Text
+		tag='p'
+		text={entry.item}
+		color='title'
+		size='body'
+		family='display'
+		weight='bold'
+        class='min-w-[7rem]'
+	/>
+	<RichText text={entry.details} pType='body' weight='medium'/>
+</div>

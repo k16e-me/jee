@@ -8,6 +8,8 @@ import Wrapper from '@layouts/Wrapper.astro'
 import { _sectionPadding, _xPadding } from '@scripts/snips'
 import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro'
 import SectionMinicards from '@composites/sections/SectionMinicards.astro'
+import RegisterItem from '@blocks/RegisterItem.astro'
+import Register from '@blocks/Register.astro'
 
 const { blok } = Astro.props
 ---
@@ -28,7 +30,12 @@ const { blok } = Astro.props
 				]}
 				data-pin-top>
 				<SectionSpy
-					headings={['Biography', 'Practice Areas', 'Sectors']}
+					headings={[
+						'Biography',
+						'Practice Areas',
+						'Sectors',
+						'Career',
+					]}
 					breakAt='md'
 					data-spy-sections
 				/>
@@ -51,6 +58,11 @@ const { blok } = Astro.props
 					xPadding={false}
 					overlap
 				/>
+				{
+					blok.registers.map((i) => (
+						<Register entry={i} overlap xPadding={false} />
+					))
+				}
 			</div>
 		</Grid>
 	</Wrapper>

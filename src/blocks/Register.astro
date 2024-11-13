@@ -1,0 +1,36 @@
+---
+import Section from '@layouts/Section.astro'
+import Wrapper from '@layouts/Wrapper.astro'
+import Grid from '@layouts/Grid.astro'
+import HeadingSection from '@blocks/HeadingSection.astro'
+import { _xPadding, _spaceY } from '@scripts/snips'
+import RegisterItem from '@blocks/RegisterItem.astro'
+import _slugify from '@scripts/slugify'
+
+const {
+	entry,
+	overlap,
+	tag,
+	xPadding = true,
+	class: classes,
+	...props
+} = Astro.props
+---
+
+<Section
+	component={entry.component}
+	overlap={entry.overlap || overlap}
+	id={_slugify(entry.title)}>
+	<Wrapper
+		margins={false}
+		class:list={[xPadding && _xPadding('both-lgdown-l')]}>
+		<Grid>
+			<div class:list={['col-span-full', _spaceY()]}>
+				<HeadingSection level='h3' text={entry.title} size='4' />
+				<div class='flex flex-col gap-6 sm:gap-4'>
+					{entry.register.map((i) => <RegisterItem entry={i} />)}
+				</div>
+			</div>
+		</Grid>
+	</Wrapper>
+</Section>

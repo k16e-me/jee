@@ -73,7 +73,7 @@ let { data: awards } = await api.get('cdn/stories', {
 		resolve_relations: [
 			'person.byline',
 			'person_links.location',
-			'collection.collection',
+			'collection.collection'
 		],
 	}),
 	{ data: dataSectors } = await api.get('cdn/stories', {
