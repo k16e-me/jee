@@ -3,18 +3,21 @@ import { renderRichText } from '@storyblok/astro'
 import Prose from '@atoms/Prose.astro'
 import { _fontSize } from '@scripts/font-size'
 
-const { text, pType, weight, class: classes, ...props } = Astro.props
+const { text, pType, weight, color = 'body', class: classes, ...props } = Astro.props
 ---
 
 <Prose
 	class:list={[
-        (pType === 'copy' || pType === 'emphasis' || pType === '1hx') && 'font-display',
+		(pType === 'copy' || pType === 'emphasis' || pType === '1hx') &&
+			'font-display',
 		pType === '1hx' && _fontSize('1hx'),
 		pType === 'copy' && _fontSize('copy'),
 		pType === 'emphasis' && _fontSize('emphasis'),
 		pType === 'body' && _fontSize('body'),
 		pType === 'blurb' && _fontSize('blurb'),
-        weight === 'medium' && 'font-medium',
+		weight === 'medium' && 'font-medium',
+		color === 'body' && 'text-[var(--color-text-body)]',
+		color === 'title' && 'text-[var(--color-text-title)]',
 		classes,
 	]}
 	{...props}>

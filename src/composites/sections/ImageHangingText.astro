@@ -14,7 +14,7 @@ import Image from '@atoms/Image.astro'
 const { blok, class: classes, ...props } = Astro.props
 ---
 
-<Section component={blok.component}>
+<Section component={blok.component} overlap={blok.overlap}>
 	<Wrapper margins={false}>
 		<Grid
 			class:list={[
@@ -34,10 +34,10 @@ const { blok, class: classes, ...props } = Astro.props
 					filename={blok.image.filename}
 					alt={blok.image.title}
 					class:list={[
-						'h-[25rem] sm:h-[31rem] md:h-[37.5rem] lg:h-[41rem] rounded-t-[1.5rem] 2xl:rounded-[64px]',
+						'h-[25rem] sm:h-[31rem] md:h-[37.5rem] lg:h-[41rem] rounded-t-[1.5rem] 2xl:rounded-[4rem]',
 						blok.is_alternate
-							? 'md:rounded-tr-none md:rounded-tl-[56px] lg:rounded-tl-[64px]'
-							: 'md:rounded-tl-none md:rounded-tr-[56px] lg:rounded-tr-[64px]',
+							? 'md:rounded-tr-none md:rounded-tl-[3.5rem] md:rounded-bl-[3.5rem] lg:rounded-tl-[4rem] lg:rounded-bl-[4rem]'
+							: 'md:rounded-tl-none md:rounded-tr-[3.5rem] md:rounded-br-[3.5rem] lg:rounded-tr-[4rem] lg:rounded-br-[4rem]',
 					]}
 				/>
 			</div>
@@ -51,7 +51,7 @@ const { blok, class: classes, ...props } = Astro.props
 				<div
 					class='bg-[var(--color-bg-default-elevated)] rounded-2xl md:rounded-[32px] p-4 md:p-8 lg:p-12 flex flex-col gap-y-4 lg:gap-y-6'>
 					<HeadingSection text={blok.heading} level='h2' size='5' />
-					<RichText text={blok.text} pType='copy' />
+					<RichText text={blok.text} pType='copy' color='title'/>
 					{
 						!_empty(blok.action) && (
 							<ButtonLink
