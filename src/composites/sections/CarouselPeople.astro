@@ -9,26 +9,37 @@ import CardPerson from '@blocks/CardPerson.astro'
 import { _odd, _spaceY } from '@scripts/snips'
 import _slugify from '@scripts/slugify'
 
-const { blok, class: classes, ...props } = Astro.props,
-	people = blok.people,
-	collection = blok.collection[0]
+const {
+		blok,
+		altComponent,
+		altOverlap,
+		altHeading,
+		altLabel,
+		altLink,
+		altPeople,
+		altCollection,
+		class: classes,
+		...props
+	} = Astro.props,
+	people = altPeople ? altPeople : blok.people,
+	collection = altCollection ? altCollection : blok.collection[0]
 ---
 
 <Section
-	component={blok.component}
-	overlap={blok.overlap}
-	id={_slugify(blok.heading)}>
+	component={altComponent ? altComponent : blok.component}
+	overlap={altOverlap ? altHeading : blok.overlap}
+	id={altHeading ? _slugify(altHeading) : _slugify(blok.heading)}>
 	<Wrapper margins={false}>
 		<Grid>
 			<div class:list={['col-span-full', _spaceY()]}>
 				<div class:list={[_xPadding('both-lgdown-l')]}>
 					<HeadingSection
 						level='h3'
-						text={blok.heading}
+						text={altHeading ? altHeading : blok.heading}
 						size='4'
 						isFromCollection
-						label={collection.label}
-						link={collection.link}
+						label={altLabel ? altLabel : collection.label}
+						link={altLink ? altLink : collection.link}
 					/>
 				</div>
 				<div class:list={[_xPadding('left-lgdown-l')]}>
@@ -43,7 +54,6 @@ const { blok, class: classes, ...props } = Astro.props,
 							}
 						</ul>
 					</div>
-				</div>
 			</div>
 		</Grid>
 	</Wrapper>

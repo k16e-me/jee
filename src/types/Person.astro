@@ -10,20 +10,23 @@ import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro'
 import SectionMinicards from '@composites/sections/SectionMinicards.astro'
 import RegisterItem from '@blocks/RegisterItem.astro'
 import Register from '@blocks/Register.astro'
-import { _insights } from '@scripts/store'
+import { _insights, _people } from '@scripts/store'
 import _empty from '@scripts/empty'
+import CarouselPeople from '@composites/sections/CarouselPeople.astro'
 
 const { blok } = Astro.props,
-	person = blok.slug
-
-let insightsHeading
-let insights
-let headings = [
-	blok.bio[0].heading[0].heading,
-	blok.sectors[0].heading[0].heading,
-	blok.practices[0].heading[0].heading,
-	...blok.registers.map((i) => i.title)
-]
+	person = blok.slug,
+	bylineRank = blok.byline[0].content.rank,
+	relatedPeople = _people.value
+		.filter((i) => i.content.byline[0].content.rank === bylineRank)
+		.slice(0, 9),
+	headings = [
+		blok.bio[0].heading[0].heading,
+		blok.sectors[0].heading[0].heading,
+		blok.practices[0].heading[0].heading,
+		...blok.registers.map((i) => i.title),
+		!_empty(relatedPeople) && 'Related People',
+	]
 ---
 
 <HeaderPerson person={blok} />
@@ -70,6 +73,20 @@ let headings = [
 						<Register entry={i} overlap xPadding={false} />
 					))
 				}
+				<!-- {
+					!_empty(relatedPeople) && (
+						<CarouselPeople
+							altHeading='Related People'
+							altComponent='related-people'
+							altOverlap={true}
+							altLabel='All People'
+							altLink='/people'
+							altPeople={relatedPeople}
+							isFromCollection
+							altCollection={relatedPeople}
+						/>
+					)
+				} -->
 			</div>
 		</Grid>
 	</Wrapper>
