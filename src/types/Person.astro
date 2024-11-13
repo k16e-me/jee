@@ -10,8 +10,20 @@ import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro'
 import SectionMinicards from '@composites/sections/SectionMinicards.astro'
 import RegisterItem from '@blocks/RegisterItem.astro'
 import Register from '@blocks/Register.astro'
+import { _insights } from '@scripts/store'
+import _empty from '@scripts/empty'
 
-const { blok } = Astro.props
+const { blok } = Astro.props,
+	person = blok.slug
+
+let insightsHeading
+let insights
+let headings = [
+	blok.bio[0].heading[0].heading,
+	blok.sectors[0].heading[0].heading,
+	blok.practices[0].heading[0].heading,
+	...blok.registers.map((i) => i.title)
+]
 ---
 
 <HeaderPerson person={blok} />
@@ -30,12 +42,7 @@ const { blok } = Astro.props
 				]}
 				data-pin-top>
 				<SectionSpy
-					headings={[
-						'Biography',
-						'Practice Areas',
-						'Sectors',
-						'Career',
-					]}
+					headings={headings}
 					breakAt='md'
 					data-spy-sections
 				/>
@@ -47,14 +54,14 @@ const { blok } = Astro.props
 				]}>
 				<SectionStack blok={blok.bio[0]} showLess xPadding={false} />
 				<SectionMinicards
-					blok={blok.practices[0]}
-					list={blok.practices[0].collection}
+					blok={blok.sectors[0]}
+					list={blok.sectors[0].collection}
 					xPadding={false}
 					overlap
 				/>
 				<SectionMinicards
-					blok={blok.sectors[0]}
-					list={blok.sectors[0].collection}
+					blok={blok.practices[0]}
+					list={blok.practices[0].collection}
 					xPadding={false}
 					overlap
 				/>

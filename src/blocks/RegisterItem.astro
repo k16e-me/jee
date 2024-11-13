@@ -13,7 +13,7 @@ const { entry, class: classes, ...props } = Astro.props
 		size='body'
 		family='display'
 		weight='bold'
-        class='min-w-[7rem]'
+		class='min-w-[7rem] sm:max-w-[7rem] truncate'
 	/>
-	<RichText text={entry.details} pType='body' weight='medium'/>
+	<RichText text={entry.details} pType='body' weight='medium' />
 </div>

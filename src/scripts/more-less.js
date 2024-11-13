@@ -37,6 +37,7 @@ export default function _moreOrLess() {
     function expand() {
         paraWrap.style.height = getHeight(paraWrap)
         paraWrap.style.overflow = 'auto'
+        paraWrap.firstElementChild.style.marginTop = 0
         paraWrap.addEventListener('transitionend', () => button.textContent = '...less', false)
     }
 }
