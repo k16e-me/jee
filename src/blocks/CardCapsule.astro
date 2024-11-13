@@ -18,8 +18,8 @@ const { link, entry, tag = 'a', class: classes, ...props } = Astro.props,
 	<div
 		class='rounded-tl-lg rounded-bl-lg rounded-tr-2xl rounded-br-[3rem] overflow-clip w-[6rem] h-full shrink-0'>
 		<Image
-			filename={entry.content.image.filename}
-			alt={entry.content.image.alt}
+			filename={entry.content?.image.filename}
+			alt={entry.content?.image.alt}
 			filter
 			class:list={[
 				'size-full group-hover:scale-110 transition-transform duration-200',
