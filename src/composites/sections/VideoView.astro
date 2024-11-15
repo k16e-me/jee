@@ -5,7 +5,6 @@ import Wrapper from '@layouts/Wrapper.astro'
 import { _xPadding, _gridGap, _spaceY } from '@scripts/snips'
 import HeadingSection from '@blocks/HeadingSection.astro'
 import RichText from '@atoms/RichText.astro'
-import Number from '@atoms/Number.astro'
 import _slugify from '@scripts/slugify'
 import ListBullet from '@blocks/ListBullet.astro'
 import { YouTube } from 'astro-embed'
@@ -14,7 +13,7 @@ const { blok, class: classes, ...props } = Astro.props
 ---
 
 <Section component={blok.component} id={_slugify(blok.heading)}>
-	<Wrapper class:list={[]}>
+	<Wrapper>
 		<Grid class:list={[_gridGap()]}>
 			<div
 				class:list={[
