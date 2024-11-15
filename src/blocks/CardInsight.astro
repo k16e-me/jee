@@ -2,7 +2,6 @@
 import Icon from '@atoms/Icon.astro'
 import Image from '@atoms/Image.astro'
 import Text from '@atoms/Text.astro'
-import _slug from '@scripts/slug'
 import Byline from '@blocks/Byline.astro'
 import Meta from '@atoms/Meta.astro'
 import Author from '@blocks/Author.astro'
@@ -19,7 +18,7 @@ const {
 ---
 
 <a
-	href={_slug(piece.full_slug)}
+	href={`/${piece.full_slug}`}
 	class:list={[
 		'r-hide-overflow overflow-y-clip group',
 		profile && 'size-full',

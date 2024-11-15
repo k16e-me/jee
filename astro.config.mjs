@@ -60,6 +60,10 @@ export default defineConfig({
                 imageGridQuotes: 'composites/sections/ImageGridQuotes',
                 sectionOpenPositions: 'composites/sections/SectionOpenPositions',
                 sectionLongform: 'composites/sections/SectionLongform',
+                sectionImpacts: 'composites/sections/SectionImpacts',
+                sectionDistribution: 'composites/sections/SectionDistribution',
+                distributionAccordion: 'composites/sections/DistributionAccordion',
+                videoView: 'composites/sections/VideoView',
 
                 // Collections
                 allPeople: 'composites/collections/AllPeople',

@@ -1,8 +1,18 @@
 ---
 import HeaderExpertise from '@composites/headers/HeaderExpertise.astro'
+import Grid from '@layouts/Grid.astro'
 import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro'
 
 const { blok } = Astro.props
 ---
 
-<HeaderExpertise item={blok.component}/>
+<Grid>
+	<HeaderExpertise item={blok.component} class='col-span-full' />
+	<div class='col-span-full'>
+		{
+			blok.body.map((blok) => {
+				return <StoryblokComponent blok={blok} />
+			})
+		}
+	</div>
+</Grid>
