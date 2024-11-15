@@ -18,19 +18,27 @@ const { item, class: classes, ...props } = Astro.props
 	component={item.component}
 	header
 	section={false}
-	class:list={['r-hide-overflow'], classes}
-    {...props}>
-	<Wrapper inset>
-		<Grid class='gap-3 gap-y-8 sm:gap-y-12 md:gap-6 lg:gap-8 z-20'>
-			<div
-				class='col-span-full md:[grid-area:1/1/2/5] lg:[grid-area:1/1/2/6]'>
-				ABCDEF
+	class:list={(['r-hide-overflow'], classes)}
+	{...props}>
+	<Wrapper>
+		<Grid grid='4-12-12' class=''>
+			<div class='col-span-full ml:[grid-area:1/1/2/7]'>
+				<div
+					class='h-[24.5rem] xs:h-[30rem] lg:h-[32rem] rounded-t-[1.5rem] md:rounded-t-[3.5rem] rounded-bl-[1.5rem] md:rounded-bl-[3.5rem] rounded-br-[15rem] md:rounded-br-[20rem] overflow-clip'>
+					<Image
+						filename={item.image.filename}
+						alt={item.image.alt}
+						filter
+						class:list={['h-full']}
+					/>
+				</div>
 			</div>
-			<div
-				class='col-span-full md:[grid-area:1/5/2/9] lg:[grid-area:1/6/2/13]'>
-				Lorem, ipsum dolor sit amet consectetur adipisicing elit. Natus laborum nam reiciendis accusamus quo sunt ratione officiis? Id blanditiis architecto quasi ad possimus rerum autem dolorum cum, quod consectetur quas.
+			<div class='col-span-full ml:[grid-area:1/7/2/13] w-full flex'>
+				Lorem, ipsum dolor sit amet consectetur adipisicing elit. Natus
+				laborum nam reiciendis accusamus quo sunt ratione officiis? Id
+				blanditiis architecto quasi ad possimus rerum autem dolorum cum,
+				quod consectetur quas.
 			</div>
 		</Grid>
 	</Wrapper>
-	<BrandCutDown class='z-[-1]' />
 </Section>

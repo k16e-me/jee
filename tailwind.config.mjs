@@ -24,6 +24,7 @@ export default {
             'xs': '480px',
             'sm': '640px',
             'md': '800px',
+            'ml': '992px',
             'lg': '1280px',
             'xl': '1440px',
             '2xl': '1600px',
