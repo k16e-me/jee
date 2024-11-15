@@ -1,4 +1,29 @@
 ---
+import Grid from '@layouts/Grid.astro'
+import Section from '@layouts/Section.astro'
+import Wrapper from '@layouts/Wrapper.astro'
+import { _xPadding, _gridGap, _spaceY } from '@scripts/snips'
+import _slugify from '@scripts/slugify'
+
 const { blok, class: classes, ...props } = Astro.props
 ---
-Distribution...
+
+<Section component={blok.component} id={_slugify(blok.heading)}>
+	<Wrapper>
+		<Grid class:list={[_gridGap()]}>
+			<div
+				class:list={[
+					'col-span-full md:[grid-area:1/1/2/4] lg:[grid-area:1/1/2/7] xl:[grid-area:1/2/2/7] flex flex-col gap-8 md:flex-row md:flex-wrap md:gap-10',
+				]}>
+				ABCDEF
+			</div>
+			<div
+				class:list={[
+					'col-span-full md:[grid-area:1/4/2/9] lg:[grid-area:1/7/2/13] xl:[grid-area:1/7/2/12] relative',
+					_spaceY(),
+				]}>
+				Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates provident voluptate dicta nemo sequi dolorum hic. Veritatis, qui? Ad reiciendis dolorem, veniam aspernatur eos quaerat harum inventore odio voluptatum! Mollitia.
+			</div>
+		</Grid>
+	</Wrapper>
+</Section>
