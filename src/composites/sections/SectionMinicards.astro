@@ -23,7 +23,8 @@ const {
 	overlap={blok.overlap || overlap}
 	id={typeof blok.heading != 'string'
 		? _slugify(blok.heading[0].heading)
-		: _slugify(blok.heading)}>
+		: _slugify(blok.heading)}
+        class:list={[classes]} {...props}>
 	<Wrapper
 		margins={false}
 		class:list={[xPadding && _xPadding('both-lgdown-l')]}>

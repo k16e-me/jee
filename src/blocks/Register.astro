@@ -20,7 +20,9 @@ const {
 <Section
 	component={entry.component}
 	overlap={entry.overlap || overlap}
-	id={_slugify(entry.title)}>
+	id={_slugify(entry.title)}
+    class:list={[classes]}
+    {...props}>
 	<Wrapper
 		margins={false}
 		class:list={[xPadding && _xPadding('both-lgdown-l')]}>

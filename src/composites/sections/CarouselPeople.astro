@@ -32,7 +32,15 @@ const {
 	<Wrapper margins={false}>
 		<Grid>
 			<div class:list={['col-span-full', _spaceY()]}>
-				<div class:list={[_xPadding('both-lgdown-l')]}>
+				<div
+					class:list={[
+						altComponent
+							? [
+									_xPadding('both-mddown-lg-l'),
+									'lg:max-w-[48rem]',
+								]
+							: _xPadding('both-lgdown-l'),
+					]}>
 					<HeadingSection
 						level='h3'
 						text={altHeading ? altHeading : blok.heading}
@@ -42,7 +50,12 @@ const {
 						link={altLink ? altLink : collection.link}
 					/>
 				</div>
-				<div class:list={[_xPadding('left-lgdown-l')]}>
+				<div
+					class:list={[
+						altComponent
+							? _xPadding('left-md-down')
+							: _xPadding('left-lgdown-l'),
+					]}>
 					<div class:list={['swiper swiper-all']}>
 						<ul class='swiper-wrapper'>
 							{
@@ -53,7 +66,8 @@ const {
 								))
 							}
 						</ul>
-					</div> 
+					</div>
+				</div>
 			</div>
 		</Grid>
 	</Wrapper>

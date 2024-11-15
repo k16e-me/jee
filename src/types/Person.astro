@@ -39,7 +39,7 @@ const { blok } = Astro.props,
 		<Grid>
 			<div
 				class:list={[
-					'col-span-full md:[grid-area:1/1/2/3] lg:[grid-area:1/1/2/4] self-start sticky bg-[var(--color-bg-default)] z-10 -top-px [&.is-pinned]:shadow md:!shadow-none overflow-auto',
+					'col-span-full md:[grid-area:1/1/1/3] lg:[grid-area:1/1/1/4] self-start sticky bg-[var(--color-bg-default)] z-10 -top-px [&.is-pinned]:shadow md:!shadow-none overflow-auto',
 					_xPadding('both-lgdown'),
 					_sectionPadding('top-md-up'),
 				]}
@@ -52,28 +52,51 @@ const { blok } = Astro.props,
 			</div>
 			<div
 				class:list={[
-					'col-span-full md:[grid-area:1/3/2/9] lg:[grid-area:1/5/2/11]',
-					_xPadding('both-mddown-lg-l'),
+					'col-span-full md:[grid-area:1/3/2/9] lg:[grid-area:1/5/2/13]',
 				]}>
-				<SectionStack blok={blok.bio[0]} showLess xPadding={false} />
+				<SectionStack
+					blok={blok.bio[0]}
+					showLess
+					xPadding={false}
+					class:list={[
+						_xPadding('both-mddown-lg-l'),
+						'lg:max-w-[48rem]',
+					]}
+				/>
 				<SectionMinicards
 					blok={blok.sectors[0]}
 					list={blok.sectors[0].collection}
 					xPadding={false}
 					overlap
+					class:list={[
+						_xPadding('both-mddown-lg-l'),
+						'lg:max-w-[48rem]',
+					]}
 				/>
 				<SectionMinicards
 					blok={blok.practices[0]}
 					list={blok.practices[0].collection}
 					xPadding={false}
 					overlap
+					class:list={[
+						_xPadding('both-mddown-lg-l'),
+						'lg:max-w-[48rem]',
+					]}
 				/>
 				{
 					blok.registers.map((i) => (
-						<Register entry={i} overlap xPadding={false} />
+						<Register
+							entry={i}
+							overlap
+							xPadding={false}
+							class:list={[
+								_xPadding('both-mddown-lg-l'),
+								'lg:max-w-[48rem]',
+							]}
+						/>
 					))
 				}
-				<!-- {
+				{
 					!_empty(relatedPeople) && (
 						<CarouselPeople
 							altHeading='Related People'
@@ -86,7 +109,7 @@ const { blok } = Astro.props,
 							altCollection={relatedPeople}
 						/>
 					)
-				} -->
+				}
 			</div>
 		</Grid>
 	</Wrapper>
