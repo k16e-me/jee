@@ -8,6 +8,7 @@ import RichText from '@atoms/RichText.astro'
 import Number from '@atoms/Number.astro'
 import _slugify from '@scripts/slugify'
 import ListBullet from '@blocks/ListBullet.astro'
+import { YouTube } from 'astro-embed'
 
 const { blok, class: classes, ...props } = Astro.props
 ---
@@ -19,7 +20,9 @@ const { blok, class: classes, ...props } = Astro.props
 				class:list={[
 					'col-span-full ml:[grid-area:1/1/2/6] lg:[grid-area:1/1/2/9]',
 				]}>
-				Video...
+				<div class="overflow-clip rounded-[2rem]">
+					<YouTube id={blok.video_id} class:list={['max-w-none']} />
+				</div>
 			</div>
 			<div
 				class:list={[
