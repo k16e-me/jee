@@ -1,18 +1,25 @@
 ---
 import Icon from '@atoms/Icon.astro'
 
-const { top = true, class: classes, ...props } = Astro.props
+const { top, specialCase, class: classes, ...props } = Astro.props
 ---
 
 <div
 	class:list={[
-		'absolute -left-1 md:-left-[19.75rem] lg:-left-[22.5rem] xl:-left-[18.5rem] 2xl:-left-[15rem]',
-		top && 'top-[28%] xs:top-[30%] sm:top-[26.5%] md:top-[32%] lg:top-[20%] 2xl:',
-        classes
+		'absolute -left-1',
+		top &&
+			'md:-left-[19.75rem] lg:-left-[22.5rem] xl:-left-[18.5rem] 2xl:-left-[15rem] top-[28%] xs:top-[30%] sm:top-[26.5%] md:top-[32%] lg:top-[20%]',
+		specialCase &&
+			'top-[15%] xs:top-[18%] sm:top-[13.5%] ml:-left-[16rem] ml:top-[32.5%] lg:top-[20%]',
+		classes,
 	]}
 	{...props}>
 	<Icon
 		name='cutout-down'
-		class='w-[40rem] md:w-[45rem] lg:w-[58rem] scale-110 sm:scale-[1.4] md:scale-100 h-auto text-[var(--color-main)]'
+		class:list={[
+			'w-[40rem] md:w-[45rem] lg:w-[58rem] scale-110 sm:scale-[1.4] h-auto text-[var(--color-main)]',
+			top && 'md:scale-100',
+			specialCase && 'sm:scale-x-[1.5] sm:scale-y-[1.045] lg:scale-100',
+		]}
 	/>
 </div>
