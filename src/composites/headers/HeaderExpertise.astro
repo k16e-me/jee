@@ -13,7 +13,15 @@ import Image from '@atoms/Image.astro'
 import HeadingSection from '@blocks/HeadingSection.astro'
 import CardPerson from '@blocks/CardPerson.astro'
 
-const { item, heads, breadcrumbLink, breadcrumbLabel, class: classes, ...props } = Astro.props
+const {
+	item,
+	heads,
+	breadcrumbLink,
+	breadcrumbLabel,
+	flipped,
+	class: classes,
+	...props
+} = Astro.props
 ---
 
 <Section
@@ -26,10 +34,18 @@ const { item, heads, breadcrumbLink, breadcrumbLabel, class: classes, ...props }
 		<Grid grid='4-12-12' class:list={[_gridGap('y')]}>
 			<div
 				class:list={[
-					'col-span-full ml:[grid-area:1/1/2/7]',
+					'col-span-full',
+					flipped
+						? 'ml:[grid-area:1/7/2/13]'
+						: 'ml:[grid-area:1/1/2/7]',
 				]}>
 				<div
-					class='h-[22.5rem] xs:h-[30rem] lg:h-[32rem] rounded-t-[1.5rem] md:rounded-t-[3.5rem] rounded-bl-[1.5rem] md:rounded-bl-[3.5rem] rounded-br-[12.5rem] md:rounded-br-[18rem] overflow-clip'>
+					class:list={[
+						'h-[22.5rem] xs:h-[30rem] lg:h-[32rem] rounded-t-[1.5rem] md:rounded-t-[3.5rem] overflow-clip',
+						flipped
+							? 'rounded-bl-[1.5rem] ml:rounded-bl-[18rem] rounded-br-[12.5rem] ml:rounded-br-[3.5rem]'
+							: 'rounded-br-[12.5rem] md:rounded-br-[18rem] rounded-bl-[1.5rem] md:rounded-bl-[3.5rem]',
+					]}>
 					<Image
 						filename={item.image.filename}
 						alt={item.image.alt}
@@ -39,9 +55,16 @@ const { item, heads, breadcrumbLink, breadcrumbLabel, class: classes, ...props }
 				</div>
 			</div>
 			<div
-				class='col-span-full ml:[grid-area:1/7/2/13] w-full flex'>
+				class:list={[
+					'col-span-full  w-full flex',
+					flipped
+						? 'ml:[grid-area:1/1/2/7]'
+						: 'ml:[grid-area:1/7/2/13]',
+				]}>
 				<div
-					class='flex flex-col gap-1.5 sm:gap-2 lg:gap-3 overflow-hidden'>
+					class:list={[
+						'flex flex-col gap-1.5 sm:gap-2 lg:gap-3 overflow-hidden',
+					]}>
 					<Breadcrumb
 						page={item.title}
 						altLink={breadcrumbLink}
@@ -86,5 +109,5 @@ const { item, heads, breadcrumbLink, breadcrumbLabel, class: classes, ...props }
 			</div>
 		</Grid>
 	</Wrapper>
-	<BrandCutDown class='z-[-1]' specialCase />
+	<BrandCutDown class='z-[-1]' specialCase flipped={flipped} />
 </Section>
