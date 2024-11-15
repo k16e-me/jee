@@ -1,5 +1,4 @@
 export default function _slugify(s) {
-    // if (s == null || s == undefined || s == '') return
     return s
         .replace(/^\s+|\s+$/g, '')
         .toLowerCase()
