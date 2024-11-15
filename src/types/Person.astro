@@ -15,18 +15,22 @@ import _empty from '@scripts/empty'
 import CarouselPeople from '@composites/sections/CarouselPeople.astro'
 
 const { blok } = Astro.props,
-	person = blok.slug,
+	personName = blok.name,
 	bylineRank = blok.byline[0].content.rank,
 	relatedPeople = _people.value
 		.filter((i) => i.content.byline[0].content.rank === bylineRank)
+		.filter((i) => i.name !== personName)
 		.slice(0, 9),
 	headings = [
 		blok.bio[0].heading[0].heading,
 		blok.sectors[0].heading[0].heading,
 		blok.practices[0].heading[0].heading,
-		...blok.registers.map((i) => i.title),
-		!_empty(relatedPeople) && 'Related People',
+		...blok.registers.map((i) => i.title)
 	]
+
+    !_empty(relatedPeople) && headings.push('Related People')
+
+    console.log(relatedPeople, _empty([]))
 ---
 
 <HeaderPerson person={blok} />
