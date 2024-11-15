@@ -1,5 +1,7 @@
 const
-    topPadding = 'pt-10 md:pt-14 lg:pt-20',
+    topPadding = 'pt-8 md:pt-14 lg:pt-20',
+    bottomPadding = 'pb-8 md:pb-14 lg:pb-20',
+    bothPadding = 'py-8 md:py-14 lg:py-20',
     topPaddingMdUp = 'md:pt-14 lg:pt-20',
     topPaddingLgUp = 'lg:pt-20',
     topPaddingXlUp = 'xl:pt-20',
@@ -18,8 +20,8 @@ const
         if (direction === 'top-md-up') return [...topPaddingMdUp.split(' ')]
         if (direction === 'top-lg-up') return [...topPaddingLgUp.split(' ')]
         if (direction === 'top-xl-up') return [...topPaddingXlUp.split(' ')]
-        if (direction === 'bottom') return ['pb-12', 'md:pb-14', 'lg:pb-20']
-        if (direction === 'both') return ['py-12', 'md:py-14', 'lg:py-20']
+        if (direction === 'bottom') return [...bottomPadding.split(' ')]
+        if (direction === 'both') return [...bothPadding.split(' ')]
     },
     _xPadding = (edges = 'both') => {
         if (edges === 'both') return ['px-3', 'md:px-8', 'lg:px-16']

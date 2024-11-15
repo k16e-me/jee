@@ -17,13 +17,13 @@ const { blok, class: classes, ...props } = Astro.props
 		<Grid class:list={[_gridGap()]}>
 			<div
 				class:list={[
-					'col-span-full ml:[grid-area:1/1/2/7] lg:[grid-area:1/2/2/7] flex flex-col gap-y-4 ml:flex-row ml:flex-wrap gap-8 ml:gap-10',
+					'col-span-full md:[grid-area:1/1/2/5] lg:[grid-area:1/1/2/7] xl:[grid-area:1/2/2/7] flex flex-col gap-8 md:flex-row md:flex-wrap md:gap-10',
 				]}>
 				{
 					blok.numbers.map((i) => (
 						<Number
 							number={i}
-							class='min-w-[14.5rem] ml:max-w-[16rem] lg:max-w-[14.5rem]'
+							class='max-w-full lg:max-w-[14.5rem]'
 							headlineSize='body'
 						/>
 					))
@@ -31,11 +31,11 @@ const { blok, class: classes, ...props } = Astro.props
 			</div>
 			<div
 				class:list={[
-					'col-span-full ml:[grid-area:1/7/2/13] lg:[grid-area:1/7/2/12] relative',
+					'col-span-full md:[grid-area:1/5/2/9] lg:[grid-area:1/7/2/13] xl:[grid-area:1/7/2/12] relative',
 					_spaceY(),
 				]}>
 				<div
-					class='absolute -top-2 -left-4 md:-top-6 md:-left-[4rem] ml:-top-[4rem]'>
+					class='absolute -top-8 -left-8 md:-top-14 md:-left-12'>
 					<Icon
 						name='quote-open'
 						class='size-24 md:size-40 text-[var(--color-text-title)] opacity-10'
