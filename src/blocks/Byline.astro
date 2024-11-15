@@ -11,7 +11,13 @@ const {
 } = Astro.props
 ---
 
-<div class:list={['flex flex-col gap-[0.15rem]', classes]} {...props}>
+<div
+	class:list={[
+		'flex flex-col',
+		size === 'mini' ? 'gap-[0.04rem]' : 'gap-[0.15rem]',
+		classes,
+	]}
+	{...props}>
 	<Text
 		tag={tag}
 		text={title}

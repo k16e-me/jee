@@ -7,7 +7,7 @@ const
     sx1 = 'text-[1.1995rem] leading-[1.495rem] md:text-[1.2rem] md:leading-[1.475rem]',
     sx2 = 'text-[1.35rem] leading-[1.5rem] md:text-[1.4rem]',
     body = 'text-[1.025rem] leading-[1.4975rem]',
-    copy = 'text-[1.0725rem] leading-[1.395rem] lg:text-[1.125rem] lg:leading-[1.65rem]',
+    copy = 'text-[1.0725rem] leading-[1.395rem] lg:text-[1.125rem] lg:leading-[1.55rem]',
     emphasis = 'text-[1.0625rem] lg:text-[1.0325rem] leading-[1.425rem]',
     blurb = 'text-[0.9375rem] leading-[1.125rem]',
     footnote = 'text-[0.8975rem] leading-[1.0625rem]',
