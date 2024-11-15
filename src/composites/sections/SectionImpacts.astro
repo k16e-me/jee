@@ -16,18 +16,24 @@ const { blok, class: classes, ...props } = Astro.props
 		<Grid class:list={[_gridGap()]}>
 			<div
 				class:list={[
-					'col-span-full ml:[grid-area:1/1/2/6] lg:[grid-area:1/1/2/9]',
+					'col-span-full lg:[grid-area:1/2/2/7] flex flex-col gap-y-4 lg:flex-row lg:flex-wrap gap-8 lg:gap-10',
 				]}>
-				<div class='overflow-clip rounded-[2rem]'>
-					Impacts...
-				</div>
+				{
+					blok.numbers.map((i) => (
+						<Number
+							number={i}
+							class='min-w-[14.5rem] lg:max-w-[14.5rem]'
+							headlineSize="body"
+						/>
+					))
+				}
 			</div>
 			<div
 				class:list={[
-					'col-span-full ml:[grid-area:1/6/2/9] lg:[grid-area:1/9/2/13]',
+					'col-span-full lg:[grid-area:1/7/2/12]',
 					_spaceY(),
 				]}>
-
+				B
 			</div>
 		</Grid>
 	</Wrapper>
