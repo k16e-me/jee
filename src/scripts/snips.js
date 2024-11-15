@@ -5,6 +5,7 @@ const
     topPaddingXlUp = 'xl:pt-20',
     edgePaddingXlUpR = 'xl:pr-16',
     headerAndBlockSpacing = 'space-y-4 lg:space-y-6',
+    gapY = 'gap-y-6 xs:gap-y-8 md:gap-y-10 ml:gap-y-14 lg:gap-y-20',
 
     _body = () => document.body,
     _q = (selector, parent) => (parent ? parent : document).querySelector(selector),
@@ -34,7 +35,7 @@ const
         if (edges === 'both-xlup-r') return [...edgePaddingXlUpR.split(' ')]
     },
     _gridGap = (direction = 'y') => {
-        if (direction === 'y') return ['gap-y-8', 'md:gap-y-14', 'lg:gap-y-20']
+        if (direction === 'y') return [...gapY.split(' ')]
         if (direction === 'x') return ['gap-x-3', 'md:gap-x-6', 'lg:gap-x-8']
     },
     _spaceY = () => {

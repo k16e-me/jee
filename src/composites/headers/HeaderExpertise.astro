@@ -3,7 +3,7 @@ import Section from '@layouts/Section.astro'
 import Wrapper from '@layouts/Wrapper.astro'
 import Grid from '@layouts/Grid.astro'
 import Text from '@atoms/Text.astro'
-import { _sectionPadding } from '@scripts/snips'
+import { _gridGap, _sectionPadding } from '@scripts/snips'
 import BrandCutDown from '@atoms/BrandCutDown.astro'
 import ButtonMore from '@atoms/ButtonMore.astro'
 import Breadcrumb from '@blocks/Breadcrumb.astro'
@@ -21,10 +21,10 @@ const { item, class: classes, ...props } = Astro.props
 	class:list={(['r-hide-overflow'], classes)}
 	{...props}>
 	<Wrapper>
-		<Grid grid='4-12-12' class=''>
+		<Grid grid='4-12-12' class:list={[_gridGap('y')]}>
 			<div class='col-span-full ml:[grid-area:1/1/2/7]'>
 				<div
-					class='h-[24.5rem] xs:h-[30rem] lg:h-[32rem] rounded-t-[1.5rem] md:rounded-t-[3.5rem] rounded-bl-[1.5rem] md:rounded-bl-[3.5rem] rounded-br-[15rem] md:rounded-br-[20rem] overflow-clip'>
+					class='h-[22.5rem] xs:h-[30rem] lg:h-[32rem] rounded-t-[1.5rem] md:rounded-t-[3.5rem] rounded-bl-[1.5rem] md:rounded-bl-[3.5rem] rounded-br-[15rem] md:rounded-br-[20rem] overflow-clip'>
 					<Image
 						filename={item.image.filename}
 						alt={item.image.alt}
@@ -34,10 +34,32 @@ const { item, class: classes, ...props } = Astro.props
 				</div>
 			</div>
 			<div class='col-span-full ml:[grid-area:1/7/2/13] w-full flex'>
-				Lorem, ipsum dolor sit amet consectetur adipisicing elit. Natus
-				laborum nam reiciendis accusamus quo sunt ratione officiis? Id
-				blanditiis architecto quasi ad possimus rerum autem dolorum cum,
-				quod consectetur quas.
+				<div
+					class='flex flex-col gap-1.5 sm:gap-2 lg:gap-3'>
+					<Breadcrumb
+						page={item.title}
+						altLink='/sectors'
+						labelText='JEE Sectors'
+					/>
+					<div class='flex flex-col gap-3 ml:gap-4'>
+						<Text
+							tag='h2'
+							text={item.title}
+							color='title'
+							size='3'
+							family='display'
+							weight='extra'
+							tighten
+						/>
+						<Text
+							text={item.excerpt}
+							color='caption'
+							size='1hx'
+							family='display'
+                            class='pr-3 xs:pr-6 sm:pr-8 ml:pr-10'
+						/>
+					</div>
+				</div>
 			</div>
 		</Grid>
 	</Wrapper>
