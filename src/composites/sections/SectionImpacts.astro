@@ -12,7 +12,10 @@ import Icon from '@atoms/Icon.astro'
 const { blok, class: classes, ...props } = Astro.props
 ---
 
-<Section component={blok.component} id={_slugify(blok.heading)}>
+<Section
+	component={blok.component}
+	id={_slugify(blok.heading)}
+	title={blok.heading}>
 	<Wrapper>
 		<Grid class:list={[_gridGap()]}>
 			<div
@@ -34,8 +37,7 @@ const { blok, class: classes, ...props } = Astro.props
 					'col-span-full md:[grid-area:1/5/2/9] lg:[grid-area:1/7/2/13] xl:[grid-area:1/7/2/12] relative',
 					_spaceY(),
 				]}>
-				<div
-					class='absolute -top-8 -left-8 md:-top-14 md:-left-12'>
+				<div class='absolute -top-8 -left-8 md:-top-14 md:-left-12'>
 					<Icon
 						name='quote-open'
 						class='size-24 md:size-40 text-[var(--color-text-title)] opacity-10'

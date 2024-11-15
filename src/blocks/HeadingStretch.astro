@@ -1,0 +1,30 @@
+---
+import ButtonFab from '@atoms/ButtonFab.astro'
+import ButtonMore from '@atoms/ButtonMore.astro'
+import Text from '@atoms/Text.astro'
+
+const {
+	tag = 'span',
+	size = '1hx',
+	text,
+	level,
+	class: classes,
+	...props
+} = Astro.props
+---
+
+<div
+	class:list={['border-l border-[var(--color-border-muted)]', classes]}
+	{...props}>
+	<div
+		class='h-[2.625rem] flex pl-4 border-l-[3px] border-[var(--color-emphasis)]'>
+		<Text
+			tag={tag}
+			text={text}
+			color='title'
+			size={size}
+			family='display'
+			weight='bold'
+		/>
+	</div>
+</div>
