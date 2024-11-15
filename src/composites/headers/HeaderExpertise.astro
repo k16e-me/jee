@@ -13,7 +13,7 @@ import Image from '@atoms/Image.astro'
 import HeadingSection from '@blocks/HeadingSection.astro'
 import CardPerson from '@blocks/CardPerson.astro'
 
-const { item, class: classes, ...props } = Astro.props
+const { item, heads, breadcrumbLink, breadcrumbLabel, class: classes, ...props } = Astro.props
 ---
 
 <Section
@@ -44,8 +44,8 @@ const { item, class: classes, ...props } = Astro.props
 					class='flex flex-col gap-1.5 sm:gap-2 lg:gap-3 overflow-hidden'>
 					<Breadcrumb
 						page={item.title}
-						altLink='/sectors'
-						labelText='JEE Sectors'
+						altLink={breadcrumbLink}
+						labelText={breadcrumbLabel}
 					/>
 					<div class='flex flex-col gap-3 ml:gap-4'>
 						<Text
@@ -68,13 +68,13 @@ const { item, class: classes, ...props } = Astro.props
 					<div class:list={[_sectionPadding('top'), _spaceY()]}>
 						<HeadingSection
 							level='h2'
-							text={item.chair[0].title}
+							text={heads.title}
 							size='5'
 							weight='extra'
 						/>
 						<ul class:list={['flex gap-4 overflow-auto w-full']}>
 							{
-								item.chair[0].persons.map((i, x) => (
+								heads.persons.map((i, x) => (
 									<li class='!w-auto shrink-0'>
 										<CardPerson person={i} size='mini' />
 									</li>

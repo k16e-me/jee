@@ -61,8 +61,11 @@ export default defineConfig({
                 sectionOpenPositions: 'composites/sections/SectionOpenPositions',
                 sectionLongform: 'composites/sections/SectionLongform',
                 sectionImpacts: 'composites/sections/SectionImpacts',
+                sectionSuccesses: 'composites/sections/SectionSuccesses',
                 sectionDistribution: 'composites/sections/SectionDistribution',
                 distributionAccordion: 'composites/sections/DistributionAccordion',
+                distributionBullets: 'composites/sections/DistributionBullets',
+                distributionMulticol: 'composites/sections/DistributionMulticol',
                 videoView: 'composites/sections/VideoView',
 
                 // Collections

@@ -5,11 +5,18 @@ import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro'
 
 const { blok } = Astro.props
 ---
-<HeaderExpertise item={blok} class='col-span-full' />
+
+<HeaderExpertise
+	item={blok}
+	heads={blok.chair[0]}
+	breadcrumbLink='/sectors'
+	breadcrumbLabel='JEE Sectors'
+	class='col-span-full'
+/>
 <div class='col-span-full'>
-    {
-        blok.body.map((blok) => {
-            return <StoryblokComponent blok={blok} />
-        })
-    }
+	{
+		blok.body.map((blok) => {
+			return <StoryblokComponent blok={blok} />
+		})
+	}
 </div>
