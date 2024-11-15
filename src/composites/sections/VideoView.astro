@@ -1,4 +1,51 @@
 ---
+import Grid from '@layouts/Grid.astro'
+import Section from '@layouts/Section.astro'
+import Wrapper from '@layouts/Wrapper.astro'
+import { _xPadding, _gridGap, _spaceY } from '@scripts/snips'
+import HeadingSection from '@blocks/HeadingSection.astro'
+import RichText from '@atoms/RichText.astro'
+import Number from '@atoms/Number.astro'
+import _slugify from '@scripts/slugify'
+import ListBullet from '@blocks/ListBullet.astro'
 
+const { blok, class: classes, ...props } = Astro.props
 ---
-Video View...
+
+<Section component={blok.component} id={_slugify(blok.heading)}>
+	<Wrapper class:list={[]}>
+		<Grid class:list={[_gridGap()]}>
+			<div
+				class:list={[
+					'col-span-full ml:[grid-area:1/1/2/6] lg:[grid-area:1/1/2/9]',
+				]}>
+				Video...
+			</div>
+			<div
+				class:list={[
+					'col-span-full ml:[grid-area:1/6/2/9] lg:[grid-area:1/9/2/13]',
+					_spaceY(),
+				]}>
+				<HeadingSection
+					text={blok.summary[0].title}
+					level='h2'
+					size='5'
+				/>
+				<RichText text={blok.summary[0].body} pType='body' />
+				<div class='flex flex-col gap-y-2'>
+					<HeadingSection
+						text={blok.takeaways[0].title}
+						level='h3'
+						size='6'
+						padding='small'
+					/>
+					<RichText
+						text={blok.takeaways[0].content}
+						pType='blurb'
+						class='prose-li:list-image-[url(/graphics/marker.svg)]'
+					/>
+				</div>
+			</div>
+		</Grid>
+	</Wrapper>
+</Section>

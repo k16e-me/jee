@@ -2,7 +2,7 @@
 import Grid from '@layouts/Grid.astro'
 import Section from '@layouts/Section.astro'
 import Wrapper from '@layouts/Wrapper.astro'
-import { _xPadding, _gridGap } from '@scripts/snips'
+import { _xPadding, _gridGap, _spaceY } from '@scripts/snips'
 import HeadingSection from '@blocks/HeadingSection.astro'
 import RichText from '@atoms/RichText.astro'
 import Number from '@atoms/Number.astro'
@@ -11,9 +11,7 @@ import _slugify from '@scripts/slugify'
 const { blok, spy, class: classes, ...props } = Astro.props
 ---
 
-<Section
-	component={blok.component}
-	id={_slugify(blok.heading)}>
+<Section component={blok.component} id={_slugify(blok.heading)}>
 	<Wrapper
 		margins={false}
 		class:list={[
@@ -23,7 +21,10 @@ const { blok, spy, class: classes, ...props } = Astro.props
 			'grid grid-cols-4 md:grid-cols-8 lg:grid-cols-9',
 		]}>
 		<div
-			class='col-span-full md:[grid-area:1/1/2/5] lg:[grid-area:1/1/2/6] space-y-3 md:space-y-4 lg:space-y-6 lg:pr-4'>
+			class:list={[
+				'col-span-full md:[grid-area:1/1/2/5] lg:[grid-area:1/1/2/6] lg:pr-4',
+				_spaceY(),
+			]}>
 			<HeadingSection level='h3' text={blok.heading} size='4' />
 			<RichText text={blok.body} pType='body' />
 		</div>
