@@ -4,9 +4,10 @@ import Section from '@layouts/Section.astro'
 import Wrapper from '@layouts/Wrapper.astro'
 import { _xPadding, _gridGap, _spaceY } from '@scripts/snips'
 import HeadingSection from '@blocks/HeadingSection.astro'
-import RichText from '@atoms/RichText.astro'
 import Number from '@atoms/Number.astro'
 import _slugify from '@scripts/slugify'
+import SwiperQuotes from '@blocks/SwiperQuotes.astro'
+import Icon from '@atoms/Icon.astro'
 
 const { blok, class: classes, ...props } = Astro.props
 ---
@@ -16,24 +17,31 @@ const { blok, class: classes, ...props } = Astro.props
 		<Grid class:list={[_gridGap()]}>
 			<div
 				class:list={[
-					'col-span-full lg:[grid-area:1/2/2/7] flex flex-col gap-y-4 lg:flex-row lg:flex-wrap gap-8 lg:gap-10',
+					'col-span-full ml:[grid-area:1/1/2/7] lg:[grid-area:1/2/2/7] flex flex-col gap-y-4 ml:flex-row ml:flex-wrap gap-8 ml:gap-10',
 				]}>
 				{
 					blok.numbers.map((i) => (
 						<Number
 							number={i}
-							class='min-w-[14.5rem] lg:max-w-[14.5rem]'
-							headlineSize="body"
+							class='min-w-[14.5rem] ml:max-w-[16rem] lg:max-w-[14.5rem]'
+							headlineSize='body'
 						/>
 					))
 				}
 			</div>
 			<div
 				class:list={[
-					'col-span-full lg:[grid-area:1/7/2/12]',
+					'col-span-full ml:[grid-area:1/7/2/13] lg:[grid-area:1/7/2/12] relative',
 					_spaceY(),
 				]}>
-				B
+				<div
+					class='absolute -top-2 -left-4 md:-top-6 md:-left-[4rem] ml:-top-[4rem]'>
+					<Icon
+						name='quote-open'
+						class='size-24 md:size-40 text-[var(--color-text-title)] opacity-10'
+					/>
+				</div>
+				<SwiperQuotes quotes={blok.quotes} />
 			</div>
 		</Grid>
 	</Wrapper>
