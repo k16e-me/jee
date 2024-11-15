@@ -1,7 +1,8 @@
 ---
+import HeaderExpertise from '@composites/headers/HeaderExpertise.astro'
 import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro'
 
 const { blok } = Astro.props
 ---
 
-Sector...
+<HeaderExpertise item={blok.component}/>
