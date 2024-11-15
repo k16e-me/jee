@@ -1,7 +1,7 @@
 const
     s3 = 'text-[1.775rem] leading-[2rem] md:text-[2.75rem] md:leading-[2.875rem] lg:text-[3.25rem] lg:leading-[3.4375rem]',
     s4 = 'text-[1.55625rem] leading-[1.75rem] md:text-[1.795rem] md:leading-[1.875rem] lg:text-[1.9rem] lg:leading-[2.05rem]',
-    s5 = 'text-[1.3125rem] leading-[1.5rem] md:text-[1.5625rem] md:leading-[1.75rem] lg:text-[1.6875rem] lg:leading-[1.9375rem]',
+    s5 = 'text-[1.3125rem] leading-[1.45rem] md:text-[1.4625rem] md:leading-[1.75rem] lg:text-[1.5275rem] lg:leading-[1.7375rem]',
     s6 = 'text-[1.1875rem] leading-[1.3725rem]',
     s4Upper = 'text-[1.8875rem] leading-[2rem] md:text-[1.9175rem]',
     sx1 = 'text-[1.1995rem] leading-[1.495rem] md:text-[1.2rem] md:leading-[1.475rem]',

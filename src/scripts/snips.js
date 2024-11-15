@@ -4,7 +4,7 @@ const
     topPaddingLgUp = 'lg:pt-20',
     topPaddingXlUp = 'xl:pt-20',
     edgePaddingXlUpR = 'xl:pr-16',
-    headerAndBlockSpacing = 'space-y-4 lg:space-y-6',
+    headerAndBlockSpacing = 'space-y-3.5 lg:space-y-[1.25rem]',
     gapY = 'gap-y-6 xs:gap-y-8 md:gap-y-10 ml:gap-y-14 lg:gap-y-20',
 
     _body = () => document.body,

@@ -9,6 +9,7 @@ const {
 	person,
 	tag,
 	responsive = false,
+	size = 'default',
 	class: classes,
 	...props
 } = Astro.props
@@ -17,8 +18,12 @@ const {
 <a
 	href={`/${person.full_slug}`}
 	class:list={[
-		'grid grid-cols-1 items-end bg-[var(--color-bg-default-elevated)] group relative overflow-clip rounded-[1.25rem] md:rounded-[1.5rem] ',
-		responsive ? 'w-[19rem] h-[25rem]' : 'w-[18.5rem] h-[24.5rem]',
+		'grid grid-cols-1 items-end bg-[var(--color-bg-default-elevated)] group relative overflow-clip',
+        size === 'default' && 'rounded-[1.25rem] md:rounded-[1.5rem]',
+        size === 'mini' && 'rounded-2xl',
+		size === 'default' && !responsive && 'w-[18.5rem] h-[24.5rem]',
+		size === 'mini' && !responsive && 'w-[14.5rem] h-[19.5rem]',
+		responsive && 'w-[19rem] h-[25rem]',
 		classes,
 	]}
 	{...props}>
@@ -29,7 +34,9 @@ const {
 			filter
 			top
 			class:list={[
-				'h-[24rem] transition-transform duration-200 group-hover:scale-105',
+				size === 'default' && !responsive && 'h-[24rem]',
+				size === 'mini' && !responsive && 'h-[18rem]',
+				'transition-transform duration-200 group-hover:scale-105',
 			]}
 		/>
 	</div>
@@ -38,10 +45,16 @@ const {
 			name='cutout-down'
 			class='text-[var(--color-main)] h-[18rem] transition-transform duration-200 scale-105 group-hover:scale-110 absolute top-[75%] inset-x-0 z-0'
 		/>
-		<div class='p-4 relative z-10'>
+		<div
+			class:list={[
+				'relative z-10',
+				size === 'default' && 'p-4',
+				size === 'mini' && 'p-3',
+			]}>
 			<Byline
 				title={person.name}
 				designation={person?.content?.byline[0]?.content?.title}
+                size='mini'
 			/>
 		</div>
 	</div>

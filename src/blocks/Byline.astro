@@ -1,15 +1,30 @@
 ---
 import Text from '@atoms/Text.astro'
 
-const { title, tag = 'p', designation, class: classes, ...props } = Astro.props
+const {
+	title,
+	tag = 'p',
+	designation,
+	size = 'default',
+	class: classes,
+	...props
+} = Astro.props
 ---
 
-<div
-	class:list={[
-		'flex flex-col gap-[0.1875rem]',
-		classes,
-	]}
-	{...props}>
-	<Text tag={tag} text={title} color='white' size='6' weight='bold' family='display' />
-	<Text tag='p' text={designation} color='accent' size='blurb' weight='medium' />
+<div class:list={['flex flex-col gap-[0.15rem]', classes]} {...props}>
+	<Text
+		tag={tag}
+		text={title}
+		color='white'
+		size=`${size === 'mini' ? 'copy' : '6'}`
+		weight='semi'
+		family='display'
+	/>
+	<Text
+		tag='p'
+		text={designation}
+		color='accent'
+		size='blurb'
+		weight='medium'
+	/>
 </div>
