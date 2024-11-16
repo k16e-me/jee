@@ -1,5 +1,44 @@
 ---
+import Grid from '@layouts/Grid.astro'
+import Section from '@layouts/Section.astro'
+import Wrapper from '@layouts/Wrapper.astro'
+import { _xPadding, _gridGap, _spaceY } from '@scripts/snips'
+import _slugify from '@scripts/slugify'
+import HeadingStretch from '@blocks/HeadingStretch.astro'
+import RichText from '@atoms/RichText.astro'
+import ListBullet from '@blocks/ListBullet.astro'
+
 const { blok, class: classes, ...props } = Astro.props
 ---
 
-Bullets...
+<Section component={blok.component} id={_slugify(blok.heading)}>
+	<Wrapper>
+		<Grid grid="4-12-12" class:list={[_gridGap()]}>
+			<div
+				class:list={[
+					'col-span-full ml:[grid-area:1/1/2/9] xl:[grid-area:1/2/2/9] flex flex-col gap-8 md:flex-row md:flex-wrap md:gap-10',
+				]}>
+				<div class="flex flex-col gap-8 md:flex-row">
+					<HeadingStretch tag='h2' text={blok.heading} class="min-w-[12rem] max-w-[13rem]"/>
+					<RichText
+						text={blok.body}
+						pType='body'
+					/>
+				</div>
+			</div>
+			<div
+				class:list={[
+					'col-span-full ml:[grid-area:1/9/2/13] xl:[grid-area:1/9/2/12] relative',
+					_spaceY(),
+				]}>
+				<div
+					class='p-4 rounded-2xl bg-[var(--color-bg-default-elevated)]'>
+					<RichText
+						text={blok.bullets[0].content}
+						pType='blurb'
+					/>
+				</div>
+			</div>
+		</Grid>
+	</Wrapper>
+</Section>
