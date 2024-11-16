@@ -8,7 +8,7 @@ const { item, tag = 'li', class: classes, ...props } = Astro.props,
 
 <Tag
 	class:list={[
-		'w-[21rem] ml:w-[23.5rem] h-[24.5rem] relative overflow-clip',
+		'w-[21rem] ml:w-[24rem] h-[25rem] relative overflow-clip',
 		classes,
 	]}
 	{...props}>
@@ -21,6 +21,32 @@ const { item, tag = 'li', class: classes, ...props } = Astro.props,
 				filter
 				class:list={['h-full']}
 			/>
+		</div>
+		<div
+			class='[grid-area:1/1/2/2] mt-[10rem] ml-4 mr-4 sm:ml-5 sm:mr-7 lg:mr-8 z-10'>
+			<div
+				class='bg-[var(--color-bg-default)] rounded-[1.5rem] min-h-[12rem] p-4 sm:p-5 space-y-1.5'>
+				<Text
+					tag='h3'
+					size='copy'
+					text={item.content.headline}
+					color='title'
+					weight='semi'
+					family='display'
+                    class="pb-2"
+				/>
+				{
+					item.content.copy && (
+						<Text
+							tag='p'
+							size='footnote'
+							text={item.content.copy}
+							color='body'
+                            class='line-clamp-4 pt-3 pr-3 border-t border-[var(--color-border-muted)]'
+						/>
+					)
+				}
+			</div>
 		</div>
 	</div>
 </Tag>
