@@ -36,14 +36,14 @@ const {
 				class:list={[
 					'col-span-full',
 					flipped
-						? 'ml:[grid-area:1/7/2/13]'
-						: 'ml:[grid-area:1/1/2/7]',
+						? 'lg:[grid-area:1/8/2/13]'
+						: 'lg:[grid-area:1/1/2/6]',
 				]}>
 				<div
 					class:list={[
 						'h-[22.5rem] xs:h-[30rem] lg:h-[32rem] rounded-t-[1.5rem] md:rounded-t-[3.5rem] overflow-clip',
 						flipped
-							? 'rounded-bl-[1.5rem] ml:rounded-bl-[18rem] rounded-br-[12.5rem] ml:rounded-br-[3.5rem]'
+							? 'rounded-bl-[1.5rem] lg:rounded-bl-[18rem] rounded-br-[12.5rem] lg:rounded-br-[3.5rem]'
 							: 'rounded-br-[12.5rem] md:rounded-br-[18rem] rounded-bl-[1.5rem] md:rounded-bl-[3.5rem]',
 					]}>
 					<Image
@@ -56,15 +56,12 @@ const {
 			</div>
 			<div
 				class:list={[
-					'col-span-full  w-full flex',
+					'col-span-full',
 					flipped
-						? 'ml:[grid-area:1/1/2/7]'
-						: 'ml:[grid-area:1/7/2/13]',
+						? 'lg:[grid-area:1/1/2/8]'
+						: 'lg:[grid-area:1/6/2/13]',
 				]}>
-				<div
-					class:list={[
-						'flex flex-col gap-1.5 sm:gap-2 lg:gap-3 overflow-hidden',
-					]}>
+				<div class:list={['flex flex-col gap-1.5 sm:gap-2 lg:gap-3']}>
 					<div
 						class:list={[
 							flipped && _xPadding('both-xlup-l'),
@@ -75,7 +72,7 @@ const {
 							altLink={breadcrumbLink}
 							labelText={breadcrumbLabel}
 						/>
-						<div class='flex flex-col gap-3 ml:gap-4'>
+						<div class='flex flex-col gap-3 lg:gap-4'>
 							<Text
 								tag='h2'
 								text={item.title}
@@ -90,18 +87,26 @@ const {
 								color='caption'
 								size='1hx'
 								family='display'
-								class='pr-3 xs:pr-6 sm:pr-8 ml:pr-10'
+								class='pr-3 xs:pr-6 sm:pr-8 lg:pr-10'
 							/>
 						</div>
 					</div>
-					<div class:list={[_sectionPadding('top'), _spaceY()]}>
+					<div
+						class:list={[
+							'pt-6 ml:pt-8 lg:pt-12',
+							_spaceY(),
+							flipped
+								? 'lg:mr-[calc(-50vw+50%)]'
+								: '',
+						]}>
 						<HeadingSection
 							level='h2'
 							text={heads.title}
 							size='5'
 							weight='extra'
+							class='max-w-max'
 						/>
-						<ul class:list={['flex gap-4 overflow-auto w-full']}>
+						<ul class:list={['flex gap-4 overflow-auto']}>
 							{
 								heads.persons.map((i, x) => (
 									<li class='!w-auto shrink-0'>
