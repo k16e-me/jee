@@ -1,11 +1,34 @@
 ---
+import Image from '@atoms/Image.astro'
 import HeaderInsight from '@composites/headers/HeaderInsight.astro'
+import Grid from '@layouts/Grid.astro'
+import Wrapper from '@layouts/Wrapper.astro'
+import { _sectionPadding } from '@scripts/snips'
 
 const { blok } = Astro.props
 ---
 
-<HeaderInsight
-	blok={blok}
-	breadcrumbLink='/insights'
-	breadcrumbLabel='JEE Insights'
-/>
+<div>
+	<HeaderInsight
+		blok={blok}
+		breadcrumbLink='/insights'
+		breadcrumbLabel='JEE Insights'
+	/>
+	<Wrapper class:list={[_sectionPadding('bottom'), 'relative z-30']}>
+		<Grid>
+			<div
+				class='col-span-full lg:[grid-area:1/1/2/4] self-start lg:sticky z-10 lg:-top-px [&.is-pinned]:pt-8'
+				data-pin-top>
+				A
+			</div>
+			<div
+				class='col-span-full lg:[grid-area:1/4/2/12]'>
+				<Image
+					filename={blok.image.filename}
+					alt={blok.image.alt}
+					class:list={['h-[15rem] xs:h-[20rem] md:h-[25rem] ml:h-[30rem] rounded-[1.5rem] md:rounded-[2rem]']}
+				/>
+			</div>
+		</Grid>
+	</Wrapper>
+</div>

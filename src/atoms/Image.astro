@@ -31,7 +31,7 @@ const {
 		'w-full max-w-full',
 		filter && 'saturate-[.8] sepia-[7%] grayscale-[5%]',
 		contain ? 'object-contain' : 'object-cover',
-		(top & !bottom) ? 'object-top' : 'object-center',
+		(top && !bottom) ? 'object-top' : 'object-center',
         bottom && 'object-bottom',
 		classes,
 	]}
