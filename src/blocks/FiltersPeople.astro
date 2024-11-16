@@ -50,7 +50,7 @@ const {
 				<fieldset
 					class='max-w-full pt-1 px-4 pb-4 transition-[height] duration-[250ms]'>
 					<legend
-						set:text='Sort JEE People by Rank'
+						set:text='Sort JEE People by Role'
 						class='sr-only'
 					/>
 					<div class='space-y-3'>
@@ -79,7 +79,7 @@ const {
 				aria-expanded='false'>
 				<Text
 					tag='p'
-					text='Locations'
+					text='Practices'
 					color='body'
 					size='copy'
 					weight='semi'
@@ -95,14 +95,14 @@ const {
 				class='accordion__content overflow-hidden max-h-0 transition-all ease-in-out'>
 				<fieldset
 					class='max-w-full pt-1 px-4 pb-4 transition-[height] duration-[250ms]'>
-					<legend set:text='Offices of JEE Lawyers' class='sr-only' />
+					<legend set:text='JEE Practices' class='sr-only' />
 					<div class='space-y-3'>
 						{
-							locations.map((i) => (
+							practices.map((i) => (
 								<InputCheck
 									label={i}
 									id={_slugify(i)}
-									name={'offices'}
+									name={'practices'}
 								/>
 							))
 						}
@@ -153,7 +153,7 @@ const {
 				aria-expanded='false'>
 				<Text
 					tag='p'
-					text='Practices'
+					text='Locations'
 					color='body'
 					size='copy'
 					weight='semi'
@@ -169,14 +169,14 @@ const {
 				class='accordion__content overflow-hidden max-h-0 transition-all ease-in-out'>
 				<fieldset
 					class='max-w-full pt-1 px-4 pb-4 transition-[height] duration-[250ms]'>
-					<legend set:text='JEE Practices' class='sr-only' />
+					<legend set:text='Offices of JEE Lawyers' class='sr-only' />
 					<div class='space-y-3'>
 						{
-							practices.map((i) => (
+							locations.map((i) => (
 								<InputCheck
 									label={i}
 									id={_slugify(i)}
-									name={'practices'}
+									name={'offices'}
 								/>
 							))
 						}
