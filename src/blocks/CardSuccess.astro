@@ -1,0 +1,23 @@
+---
+import Image from '@atoms/Image.astro'
+import Text from '@atoms/Text.astro'
+
+const { item, tag = 'li', class: classes, ...props } = Astro.props,
+	Tag = tag
+---
+
+<Tag
+	class:list={['w-[23.5rem] h-[24.5rem] relative overflow-clip', classes]}
+	{...props}>
+	<div class='grid grid-cols-1 relative overflow-clip'>
+		<div
+			class='rounded-tl-[1.5rem] rounded-tr-[3.5rem] rounded-bl-[2rem] rounded-br-[9rem] [grid-area:1/1/2/2] h-[18.5rem] relative overflow-clip'>
+			<Image
+				filename={item.content.image.filename}
+				alt={item.content.image.alt}
+				filter
+				class:list={['h-full']}
+			/>
+		</div>
+	</div>
+</Tag>

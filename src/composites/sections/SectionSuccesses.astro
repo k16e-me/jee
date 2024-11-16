@@ -1,5 +1,54 @@
 ---
-const { blok, class: classes, ...props } = Astro.props
+import Section from '@layouts/Section.astro'
+import Wrapper from '@layouts/Wrapper.astro'
+import Grid from '@layouts/Grid.astro'
+import HeadingSection from '@blocks/HeadingSection.astro'
+import { _xPadding, _spaceY } from '@scripts/snips'
+import _slugify from '@scripts/slugify'
+import CardSuccess from '@blocks/CardSuccess.astro'
+
+
+const { blok, class: classes, ...props } = Astro.props,
+	list = blok.list
 ---
 
-Successes...
+<Section
+	component={blok.component}
+	overlap={blok.overlap}
+	id={_slugify(blok.heading)}>
+	<Wrapper margins={false}>
+		<Grid>
+			<div class:list={['col-span-full', _spaceY()]}>
+				<div
+					class:list={[
+						blok.bleed
+							? _xPadding('both-lgdown-l')
+							: _xPadding('both'),
+					]}>
+					<HeadingSection
+						level='h2'
+						text={blok.heading}
+						size='4'
+						hasCarouselControls
+					/>
+				</div>
+				<div
+					class:list={[
+						blok.bleed
+							? _xPadding('left-lgdown-l')
+							: _xPadding('left'),
+					]}>
+					<div class:list={['swiper swiper-all']}>
+						<ul class='swiper-wrapper'>
+							{
+								list.map((i, x) => (
+                                    <CardSuccess item={i} class='swiper-slide'/>
+								))
+							}
+						</ul>
+					</div>
+				</div>
+			</div>
+		</Grid>
+	</Wrapper>
+</Section>
