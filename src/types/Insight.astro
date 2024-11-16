@@ -1,7 +1,11 @@
 ---
-import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro'
+import HeaderInsight from '@composites/headers/HeaderInsight.astro'
 
 const { blok } = Astro.props
 ---
 
-Insight...
+<HeaderInsight
+	blok={blok}
+	breadcrumbLink='/insights'
+	breadcrumbLabel='JEE Insights'
+/>
