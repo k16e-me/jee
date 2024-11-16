@@ -1,5 +1,37 @@
 ---
+import Grid from '@layouts/Grid.astro'
+import Section from '@layouts/Section.astro'
+import Wrapper from '@layouts/Wrapper.astro'
+import { _xPadding, _gridGap, _spaceY } from '@scripts/snips'
+import _slugify from '@scripts/slugify'
+import HeadingStretch from '@blocks/HeadingStretch.astro'
+import RichText from '@atoms/RichText.astro'
+
 const { blok, class: classes, ...props } = Astro.props
 ---
 
-Accordion...
+<Section component={blok.component} id={_slugify(blok.heading)}>
+	<Wrapper>
+		<Grid grid='4-12-12' class:list={[_gridGap()]}>
+			<div
+				class:list={[
+					'col-span-full ml:[grid-area:1/1/2/4] lg:[grid-area:1/2/2/6] flex flex-col gap-8 md:flex-row md:flex-wrap md:gap-10',
+				]}>
+				<div class='flex flex-col gap-8 md:flex-row'>
+					<HeadingStretch
+						tag='h2'
+						text={blok.heading}
+						class='min-w-[12rem] max-w-[13rem]'
+					/>
+				</div>
+			</div>
+			<div
+				class:list={[
+					'col-span-full ml:[grid-area:1/4/2/13] lg:[grid-area:1/6/2/12] relative',
+					_spaceY(),
+				]}>
+				Lorem ipsum, dolor sit amet consectetur adipisicing elit. In nulla sequi explicabo odit id quae optio qui minima necessitatibus repellat! Fugiat aliquid tempora optio eveniet accusamus expedita veniam dignissimos consequuntur!
+			</div>
+		</Grid>
+	</Wrapper>
+</Section>
