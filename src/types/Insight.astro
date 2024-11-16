@@ -1,9 +1,10 @@
 ---
 import Image from '@atoms/Image.astro'
+import RichText from '@atoms/RichText.astro'
 import HeaderInsight from '@composites/headers/HeaderInsight.astro'
 import Grid from '@layouts/Grid.astro'
 import Wrapper from '@layouts/Wrapper.astro'
-import { _sectionPadding } from '@scripts/snips'
+import { _gridGap, _sectionPadding, _spaceY } from '@scripts/snips'
 
 const { blok } = Astro.props
 ---
@@ -15,19 +16,25 @@ const { blok } = Astro.props
 		breadcrumbLabel='JEE Insights'
 	/>
 	<Wrapper class:list={[_sectionPadding('bottom'), 'relative z-30']}>
-		<Grid>
+		<Grid class:list={[_gridGap('y')]}>
 			<div
 				class='col-span-full lg:[grid-area:1/1/2/4] self-start lg:sticky z-10 lg:-top-px [&.is-pinned]:pt-8'
 				data-pin-top>
 				A
 			</div>
 			<div
-				class='col-span-full lg:[grid-area:1/4/2/12]'>
+				class:list={[
+					'col-span-full lg:[grid-area:1/4/2/13] grid grid-cols-12 [&>*]:col-span-full [&>*]:lg:col-span-10 [&>img:not:first-of-type]:col-span-full [&>figure]:col-span-full [&>img]:col-span-full [&>img:first-of-type]:col-span-full [&>img:first-of-type]:lg:col-span-11',
+					_spaceY(),
+				]}>
 				<Image
 					filename={blok.image.filename}
 					alt={blok.image.alt}
-					class:list={['h-[15rem] xs:h-[20rem] md:h-[25rem] ml:h-[30rem] rounded-[1.5rem] md:rounded-[2rem]']}
+					class:list={[
+						'h-[15rem] xs:h-[20rem] md:h-[25rem] ml:h-[30rem] rounded-[1.5rem] md:rounded-[2rem]',
+					]}
 				/>
+				<RichText text={blok.post} post />
 			</div>
 		</Grid>
 	</Wrapper>

@@ -3,7 +3,7 @@ import { renderRichText } from '@storyblok/astro'
 import Prose from '@atoms/Prose.astro'
 import { _fontSize } from '@scripts/font-size'
 
-const { text, pType, weight, color = 'body', class: classes, ...props } = Astro.props
+const { text, pType, post, weight, color = 'body', class: classes, ...props } = Astro.props
 ---
 
 <Prose
@@ -18,6 +18,7 @@ const { text, pType, weight, color = 'body', class: classes, ...props } = Astro.
 		weight === 'medium' && 'font-medium',
 		color === 'body' && 'text-[var(--color-text-body)]',
 		color === 'title' && 'text-[var(--color-text-title)]',
+        post && '',
 		classes,
 	]}
 	{...props}>
