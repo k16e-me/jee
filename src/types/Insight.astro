@@ -7,7 +7,7 @@ import HeadingStretch from '@blocks/HeadingStretch.astro'
 import HeaderInsight from '@composites/headers/HeaderInsight.astro'
 import Grid from '@layouts/Grid.astro'
 import Wrapper from '@layouts/Wrapper.astro'
-import { _gridGap, _sectionPadding, _spaceY } from '@scripts/snips'
+import { _gridGap, _sectionPadding, _spaceY, _xPadding } from '@scripts/snips'
 import _titlelize from '@scripts/titlelize'
 
 const { blok } = Astro.props,
@@ -104,6 +104,37 @@ const { blok } = Astro.props,
 						/>
 					</div>
 				</div>
+			</div>
+		</Grid>
+	</Wrapper>
+	<Wrapper
+		margins={false}
+		class:list={[_sectionPadding('bottom'), 'relative z-30']}>
+		<Grid>
+			<div
+				class='col-span-full ml:[grid-area:1/1/2/5] lg:[grid-area:1/1/2/6] bg-[var(--color-bg-default-elevated)] ml:rounded-r-[2rem]'>
+				<div
+					class:list={[
+						_xPadding('left'),
+						_spaceY(),
+						'px-3 sm:px-4 md:px-6 ml:pr-8 py-6 sm:py-8 ml:py-10',
+					]}>
+					<HeadingStretch tag='h2' text='Subscribe to JEE Insights' />
+					<form>
+						Lorem ipsum dolor sit, amet consectetur adipisicing
+						elit. Cum delectus obcaecati maiores veritatis explicabo
+						nostrum accusantium. Suscipit minima modi odit autem
+						dolores quaerat facere mollitia nihil dolor. Natus,
+						laudantium quos.
+					</form>
+				</div>
+			</div>
+			<div
+				class='col-span-full ml:[grid-area:1/5/2/9] lg:[grid-area:1/6/2/13]'>
+				Lorem ipsum dolor, sit amet consectetur adipisicing elit. Modi
+				quod doloremque explicabo praesentium, vero atque, assumenda
+				quisquam iure, ipsa officia dolore rerum aspernatur culpa odit
+				neque totam repudiandae animi perspiciatis!
 			</div>
 		</Grid>
 	</Wrapper>
