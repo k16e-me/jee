@@ -2,12 +2,15 @@
 import Image from '@atoms/Image.astro'
 import RichText from '@atoms/RichText.astro'
 import Text from '@atoms/Text.astro'
+import HeadingStretch from '@blocks/HeadingStretch.astro'
 import HeaderInsight from '@composites/headers/HeaderInsight.astro'
 import Grid from '@layouts/Grid.astro'
 import Wrapper from '@layouts/Wrapper.astro'
 import { _gridGap, _sectionPadding, _spaceY } from '@scripts/snips'
 
-const { blok } = Astro.props
+const { blok } = Astro.props,
+	authors = blok.author,
+	expertise = blok.expertise
 ---
 
 <div>
@@ -19,11 +22,19 @@ const { blok } = Astro.props
 	<Wrapper class:list={[_sectionPadding('bottom'), 'relative z-30']}>
 		<Grid class:list={[_gridGap('y')]}>
 			<div
-				class='col-span-full lg:[grid-area:1/1/2/4] self-start lg:sticky z-10 lg:-top-px [&.is-pinned]:pt-8'
+				class='col-span-full lg:[grid-area:1/1/2/4] self-start lg:sticky z-10 lg:-top-px lg:pt-8 order-2 lg:order-1'
 				data-pin-top>
-				A
+				<div class="flex flex-col gap-8 lg:gap-14">
+					<div>
+						<HeadingStretch tag='h2' text='Authors' />
+					</div>
+					<div>
+						<HeadingStretch tag='h2' text='Expertise' />
+					</div>
+				</div>
 			</div>
-			<div class='col-span-full lg:[grid-area:1/4/2/13] grid grid-cols-6'>
+			<div
+				class='col-span-full lg:[grid-area:1/4/2/13] grid grid-cols-6 order-1 lg:order-2'>
 				<div class:list={[_sectionPadding('bottom'), 'col-span-full']}>
 					<Image
 						filename={blok.image.filename}

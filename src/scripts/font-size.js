@@ -4,7 +4,7 @@ const
     s5 = 'text-[1.3125rem] leading-[1.45rem] md:text-[1.4625rem] md:leading-[1.75rem] lg:text-[1.5275rem] lg:leading-[1.7375rem]',
     s6 = 'text-[1.1875rem] leading-[1.3725rem]',
     s4Upper = 'text-[1.8875rem] leading-[2rem] md:text-[1.9175rem]',
-    sx1 = 'text-[1.1995rem] leading-[1.495rem] md:text-[1.2rem] md:leading-[1.475rem]',
+    sx1 = 'text-[1.1995rem] leading-[1.495rem] md:text-[1.2rem]',
     sx2 = 'text-[1.35rem] leading-[1.5rem] md:text-[1.4rem]',
     body = 'text-[1.025rem] leading-[1.4975rem]',
     copy = 'text-[1.0725rem] leading-[1.395rem] lg:text-[1.125rem] lg:leading-[1.55rem]',
