@@ -5,12 +5,16 @@ import InputText from '@atoms/InputText.astro'
 import HeadingSection from '@blocks/HeadingSection.astro'
 import HeadingStretch from '@blocks/HeadingStretch.astro'
 import _slugify from '@scripts/slugify'
+import { _newsletter } from '@scripts/store'
 
-const { topics, formId, formAction, class: classes, ...props } = Astro.props
+const { topics, formId, formAction, class: classes, ...props } = Astro.props,
+    newsletter = _newsletter.value.global[0],
+	title = newsletter.title,
+    id = newsletter.component
 ---
 
-<HeadingStretch tag='h2' text='Subscribe to JEE Insights' />
-<form>
+<HeadingStretch tag='h2' text={title} />
+<form id={id}>
 	<div class='grid grid-cols-1 md:grid-cols-2 gap-x-3 gap-y-5'>
 		<InputText
 			label='Name'
@@ -60,6 +64,13 @@ const { topics, formId, formAction, class: classes, ...props } = Astro.props
 				))
 			}
 		</div>
-        <ButtonLink tag="button" label="Subscribe" type="submit"/>
+		<ButtonLink
+			tag='button'
+			label='Subscribe'
+			type='submit'
+			iconRight
+			icon='paper-plane'
+			data-form-submit
+		/>
 	</div>
 </form>

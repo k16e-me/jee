@@ -25,6 +25,8 @@ import {
 	_addCategories,
 	_addEvents,
 	_events,
+    _newsletter,
+    _addNewsletter
 } from '@scripts/store'
 
 const currentYear = new Date().getFullYear(),
@@ -41,7 +43,11 @@ const currentYear = new Date().getFullYear(),
 			'settings.socials',
 		],
 	}),
-	site = settings.story.content
+	site = settings.story.content,
+	{ data: dataNewsletter } = await api.get('cdn/stories/global/newsletter', {
+		version: import.meta.env.DEV ? 'draft' : 'published',
+	}),
+    newsletter = dataNewsletter.story.content
 
 let { data: awards } = await api.get('cdn/stories', {
 		starts_with: 'awards/',
@@ -73,7 +79,7 @@ let { data: awards } = await api.get('cdn/stories', {
 		resolve_relations: [
 			'person.byline',
 			'person_links.location',
-			'collection.collection'
+			'collection.collection',
 		],
 	}),
 	{ data: dataSectors } = await api.get('cdn/stories', {
@@ -138,6 +144,7 @@ _addAfricaPractices(africaPractices)
 _addInsights(insights)
 _addCategories(categories)
 _addEvents(events)
+_addNewsletter(newsletter)
 ---
 
 <!doctype html>
@@ -147,7 +154,8 @@ _addEvents(events)
 		description={pageDescription || site.description}
 		image={pageThumbnail || '/thumbnail.png'}
 	/>
-	<body class='max-w-screen-3xl mx-auto flex flex-col min-h-screen overflow-x-hidden'>
+	<body
+		class='max-w-screen-3xl mx-auto flex flex-col min-h-screen overflow-x-hidden'>
 		<TitleHidden tag='h2' title={pageTitle} />
 		<Header nav={site.nav} tools={site.tools} />
 		<main class='mb-auto swup-in' id='swup'>

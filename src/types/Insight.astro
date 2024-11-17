@@ -14,7 +14,7 @@ import HeadingSection from '@blocks/HeadingSection.astro'
 import { _categories } from '@scripts/store'
 import InputCheck from '@atoms/InputCheck.astro'
 import _slugify from '@scripts/slugify'
-import FormSubscribe from '@blocks/FormSubscribe.astro'
+import Newsletter from '@blocks/Newsletter.astro'
 
 const { blok } = Astro.props,
 	authors = blok.author.slice(0, 3),
@@ -126,7 +126,7 @@ const { blok } = Astro.props,
 						_spaceY(),
 						'px-3 sm:px-4 md:px-6 ml:pr-8 py-6 sm:py-8 ml:py-10',
 					]}>
-                    <FormSubscribe topics={categories}/>
+                    <Newsletter topics={categories}/>
 				</div>
 			</div>
 			<div
