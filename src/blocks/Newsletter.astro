@@ -19,7 +19,7 @@ const { topics, formId, formAction, class: classes, ...props } = Astro.props,
 ---
 
 <div class:list={['newsletter-form space-y-6', classes]} {...props}>
-	<HeadingStretch tag='h2' text={title} />
+	<HeadingStretch tag='h3' text={title} />
 	<div
 		class='border-y-2 border-[var(--color-border-muted)] py-5 ml:py-6 hidden form-submitted'>
 		<div class='space-y-4 on-success -translate-y-4 opacity-0'>

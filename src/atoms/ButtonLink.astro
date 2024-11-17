@@ -19,7 +19,7 @@ const {
 <Tag
 	{...link ? { href: _slug(link) } : {}}
 	class:list={[
-		'text-[var(--color-lightest)] h-[2.75rem] lg:h-[3.0625rem] flex flex-col justify-center min-w-28 max-w-fit rounded-full px-5 group relative',
+		'text-[var(--color-lightest)] h-[2.75rem] lg:h-[3.0625rem] flex flex-col justify-center min-w-28 max-w-fit rounded-full px-5 group relative [&.disabled]:cursor-not-allowed',
 		theme === 'dark' && 'bg-[var(--color-surface-dark)]',
 		classes,
 	]}

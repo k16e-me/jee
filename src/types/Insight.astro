@@ -15,11 +15,13 @@ import { _categories } from '@scripts/store'
 import InputCheck from '@atoms/InputCheck.astro'
 import _slugify from '@scripts/slugify'
 import Newsletter from '@blocks/Newsletter.astro'
+import SectionLatest from '@composites/sections/SectionLatest.astro'
 
 const { blok } = Astro.props,
 	authors = blok.author.slice(0, 3),
 	expertise = blok.expertise.slice(0, 3),
-	categories = _categories.value
+	categories = _categories.value,
+	suggested = blok.suggested
 ---
 
 <div>
@@ -31,11 +33,11 @@ const { blok } = Astro.props,
 	<Wrapper class:list={[_sectionPadding('bottom'), 'relative z-30']}>
 		<Grid class:list={[_gridGap('y')]}>
 			<div
-				class='col-span-full lg:[grid-area:1/1/2/4] self-start lg:sticky z-10 lg:-top-px lg:pt-8 order-2 lg:order-1'
+				class='col-span-full lg:[grid-area:1/1/2/4] self-start lg:sticky z-10 lg:-top-px lg:pt-8 order-2 lg:order-1 lg:h-screen lg:pb-4 lg:overflow-auto'
 				data-pin-top>
 				<div class='flex flex-col gap-8 lg:gap-12'>
 					<div class='flex flex-col gap-4'>
-						<HeadingStretch tag='h2' text='Authors' />
+						<HeadingStretch tag='h3' text='Authors' />
 						{
 							authors.map((i) => (
 								<CardCapsule
@@ -54,7 +56,7 @@ const { blok } = Astro.props,
 						}
 					</div>
 					<div class='flex flex-col gap-4'>
-						<HeadingStretch tag='h2' text='Expertise' />
+						<HeadingStretch tag='h3' text='Expertise' />
 						{
 							expertise.map((i) => (
 								<CardCapsule
@@ -126,13 +128,23 @@ const { blok } = Astro.props,
 						_spaceY(),
 						'px-3 sm:px-4 md:px-6 ml:pr-8 py-6 sm:py-8 ml:py-10',
 					]}>
-                    <Newsletter topics={categories}/>
+					<Newsletter topics={categories} />
 				</div>
 			</div>
 			<div
 				class='col-span-full ml:[grid-area:1/5/2/9] lg:[grid-area:1/6/2/13]'>
-				Lorem ipsum dolor, sit amet consectetur adipisicing elit. Modi
-				quod doloremque explicabo praesentium, vero atque,
+				<SectionLatest
+					altHeading='Related Insights'
+					altComponent='related-insights'
+					altOverlap
+					altLabel='All Insights'
+					altLink='/insights'
+					altInsights={suggested}
+					isCollection={false}
+					controls
+					altCollection={suggested}
+					bleed
+				/>
 			</div>
 		</Grid>
 	</Wrapper>
