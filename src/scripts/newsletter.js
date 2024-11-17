@@ -3,14 +3,15 @@ import { _q, _ql } from './snips'
 import Botpoison from '@botpoison/browser'
 
 
-export default function _submit() {
+export default function _newsletterSubmit() {
     if (!_q('[data-form-submit]')) return
 
     const
         button = _q('[data-form-submit]'),
-        form = button.parentNode,
-        successMsg = _q('[data-form-success-message]').textContent,
-        endpoint = form.getAttribute('form-id')
+        form = button.closest('form'),
+        endpoint = form.getAttribute('form-id'),
+        buttonContent = _q('.will-swap', form),
+        spinner = _q('.to-swap', form)
 
     form.addEventListener('submit', submit)
 
@@ -21,10 +22,12 @@ export default function _submit() {
             form = e.target,
             data = new FormData(form),
             botpoison = new Botpoison({
-                publicKey: 'pk_91403b5a-e3db-4abd-a2af-2b1cc2056536'
+                publicKey: 'pk_8276f265-d7ed-4f62-bf80-ef7f0088a1b9'
             })
 
         button.classList.add('disabled')
+        buttonContent.style.opacity = 0
+        spinner.style.opacity = 1
         const { solution } = await botpoison.challenge()
 
         await fetch(`https://submit-form.com/${endpoint}`, {
@@ -40,11 +43,15 @@ export default function _submit() {
         }).then(res => {
             if (res.status === 200) {
                 form.reset()
-                window.scrollTo({ top: 0, left: 0 })
-                _toast.display(successMsg)
                 button.classList.remove('disabled')
+                buttonContent.style.opacity = 1
+                spinner.style.opacity = 0
+                // swap form for success message
             } else {
-                _toast.display(`Aw, snap, something broke. Please refresh page and try again.`)
+                button.classList.remove('disabled')
+                buttonContent.style.opacity = 1
+                spinner.style.opacity = 0
+                // swap form for error message
             }
         })
     }

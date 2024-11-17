@@ -27,6 +27,7 @@
         --color-bg-neutral-gray: #F4F3F2;
 
         --color-text-title: #211B1B;
+        --color-text-title-inverted: var(--color-lightest);
         --color-text-body: #333333;
         --color-text-caption: #454545;
         --color-text-muted: var(--color-gray-400);
@@ -67,6 +68,9 @@
     svg, button span {
         @apply flex-shrink-0 pointer-events-none fill-current;
     }
+    svg.spinner { @apply !fill-none; }
+    svg.spinner circle { @apply opacity-25; }
+    svg.spinner path { @apply opacity-75 }
     br[key] {
         display: none;
     }

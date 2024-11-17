@@ -24,7 +24,7 @@ const {
 		classes,
 	]}
 	{...props}>
-	<div class='flex items-center space-x-3'>
+	<div class='flex w-full items-center space-x-3 will-swap'>
 		<Text
 			text={label}
 			size='button'
@@ -36,8 +36,15 @@ const {
 		/>
 		{iconRight && <Icon name={icon} class='size-5 text-inherit' />}
 	</div>
+	<div
+		class='to-swap absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0'>
+		<Icon
+			name='spinner'
+			class='spinner text-[var(--color-text-title-inverted)] animate-spin size-5'
+		/>
+	</div>
 	<Icon
 		name='highlight'
-		class='fix-svg-stroke w-6 lg:w-7 text-[var(--color-main-inverted)] opacity-0 translate-y-1.5 group-hover:opacity-100 group-hover:-translate-y-1 absolute bottom-0'
+		class='fix-svg-stroke w-6 lg:w-7 text-[var(--color-main-inverted)] opacity-0 translate-y-1.5 group-hover:opacity-100 group-hover:-translate-y-1.5 group-[.disabled]:opacity-0 absolute bottom-0'
 	/>
 </Tag>
