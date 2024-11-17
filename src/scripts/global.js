@@ -10,6 +10,7 @@ import _swiperAll from './swiper-all'
 import _isSticky from './pin-top'
 import _scrollspy from './scrollspy'
 import _moreOrLess from './more-less'
+import _prefilters from './prefilters'
 
 const swup = new Swup({
     animationSelector: '[class*="swup-"]',
@@ -44,5 +45,5 @@ function init() {
 }
 
 function once() {
-
+    _prefilters()
 }
