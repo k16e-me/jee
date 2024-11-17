@@ -8,10 +8,40 @@ export default function _newsletterSubmit() {
 
     const
         button = _q('[data-form-submit]'),
-        form = button.closest('form'),
+        formWrapper = button.closest('.newsletter-form'),
+        form = _q('form', formWrapper),
         endpoint = form.getAttribute('form-id'),
         buttonContent = _q('.will-swap', form),
-        spinner = _q('.to-swap', form)
+        spinner = _q('.to-swap', form),
+        submitted = _q('.form-submitted', formWrapper),
+        success = _q('.on-success', submitted),
+        error = _q('.on-error', submitted),
+        onSubmit = () => {
+            form.reset()
+            button.classList.remove('disabled')
+            buttonContent.style.opacity = 1
+            spinner.style.opacity = 0
+            form.style.cssText = `
+                transform: translateY(-1rem);
+                opacity: 0;
+                display: none;
+            `
+            submitted.style.display = 'block'
+        },
+        onSubmitSuccess = () => {
+            success.style.cssText = `
+                transform: translateY(0);
+                opacity: 1;
+            `
+            error.style.display = 'none'
+        },
+        onSubmitError = () => {
+            error.style.cssText = `
+                transform: translateY(0);
+                opacity: 1;
+            `
+            success.style.display = 'none'
+        }
 
     form.addEventListener('submit', submit)
 
@@ -42,16 +72,11 @@ export default function _newsletterSubmit() {
             })
         }).then(res => {
             if (res.status === 200) {
-                form.reset()
-                button.classList.remove('disabled')
-                buttonContent.style.opacity = 1
-                spinner.style.opacity = 0
-                // swap form for success message
+                onSubmit()
+                onSubmitSuccess()
             } else {
-                button.classList.remove('disabled')
-                buttonContent.style.opacity = 1
-                spinner.style.opacity = 0
-                // swap form for error message
+                onSubmit()
+                onSubmitError()
             }
         })
     }

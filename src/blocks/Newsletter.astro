@@ -3,6 +3,7 @@ import ButtonLink from '@atoms/ButtonLink.astro'
 import Icon from '@atoms/Icon.astro'
 import InputCheck from '@atoms/InputCheck.astro'
 import InputText from '@atoms/InputText.astro'
+import Text from '@atoms/Text.astro'
 import HeadingSection from '@blocks/HeadingSection.astro'
 import HeadingStretch from '@blocks/HeadingStretch.astro'
 import _slugify from '@scripts/slugify'
@@ -17,70 +18,102 @@ const { topics, formId, formAction, class: classes, ...props } = Astro.props,
 	source = newsletter.message_source
 ---
 
-<HeadingStretch tag='h2' text={title} />
-<form
-	id={id}
-	form-id='D3RkCfHwg'
-	data-form-success={success}
-	data-form-error={error}
-	data-message-source={source}>
-	<div class='grid grid-cols-1 md:grid-cols-2 gap-x-3 gap-y-5'>
-		<InputText
-			label='Name'
-			id='name'
-			name='Name'
-			placeholder='Your Full Name'
-			required
-			useShadow
-			hideLabel={false}
-			class='w-full md:col-span-1'
-		/>
-		<InputText
-			label='Email'
-			id='email'
-			name='Email'
-			placeholder='Email Address'
-			required
-			useShadow
-			hideLabel={false}
-			class='w-full md:col-span-1'
-		/>
-		<InputText
-			label='Organization'
-			id='org'
-			name='Organization'
-			placeholder='Your Organization'
-			required
-			useShadow
-			hideLabel={false}
-			class='w-full md:col-span-2'
-		/>
-		<div class='col-span-full space-y-3 my-4'>
-			<HeadingSection
-				text={'Topics of Interest'}
-				level='h4'
-				size='6'
-				padding='small'
+<div class:list={['newsletter-form space-y-6', classes]} {...props}>
+	<HeadingStretch tag='h2' text={title} />
+	<div
+		class='border-y-2 border-[var(--color-border-muted)] py-5 ml:py-6 hidden form-submitted'>
+		<div class='space-y-4 on-success -translate-y-4 opacity-0'>
+			<Text
+				tag='p'
+				text={success}
+				size='1hx'
+				family='display'
+				weight='semi'
+				color='caption'
 			/>
-			{
-				topics.map((i) => (
-					<InputCheck
-						label={i.content.title}
-						id={_slugify(i.content.title)}
-						name={i.content.title}
-						checked
-					/>
-				))
-			}
+			<Text
+				tag='p'
+				text={`~ ${source}`}
+				size='copy'
+				family='display'
+				weight='medium'
+				color='caption'
+			/>
 		</div>
-		<ButtonLink
-			tag='button'
-			label='Subscribe'
-			type='submit'
-			iconRight
-			icon='paper-plane'
-			data-form-submit
-		/>
+		<div class='on-error -translate-y-4 opacity-0'>
+			<Text
+				tag='p'
+				text={error}
+				size='1hx'
+				family='display'
+				weight='semi'
+				color='caption'
+			/>
+		</div>
 	</div>
-</form>
-
+	<form
+		id={id}
+		form-id='D3RkCfHwg'
+		data-form-success={success}
+		data-form-error={error}
+		data-message-source={source}>
+		<div class='grid grid-cols-1 md:grid-cols-2 gap-x-3 gap-y-5'>
+			<InputText
+				label='Name'
+				id='name'
+				name='Name'
+				placeholder='Your Full Name'
+				required
+				useShadow
+				hideLabel={false}
+				class='w-full md:col-span-1'
+			/>
+			<InputText
+				label='Email'
+				id='email'
+				name='Email'
+				placeholder='Email Address'
+				required
+				useShadow
+				hideLabel={false}
+				class='w-full md:col-span-1'
+			/>
+			<InputText
+				label='Organization'
+				id='org'
+				name='Organization'
+				placeholder='Your Organization'
+				required
+				useShadow
+				hideLabel={false}
+				class='w-full md:col-span-2'
+			/>
+			<div class='col-span-full space-y-3 my-4'>
+				<HeadingSection
+					text={'Topics of Interest'}
+					level='h4'
+					size='6'
+					padding='small'
+				/>
+				{
+					topics.map((i) => (
+						<InputCheck
+							label={i.content.title}
+							id={_slugify(i.content.title)}
+							name={i.content.title}
+							checked
+						/>
+					))
+				}
+			</div>
+			<ButtonLink
+				tag='button'
+				label='Subscribe'
+				type='submit'
+				iconRight
+				icon='paper-plane'
+				data-form-submit
+			/>
+		</div>
+	</form>
+</div>
