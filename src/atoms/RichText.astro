@@ -3,7 +3,15 @@ import { renderRichText } from '@storyblok/astro'
 import Prose from '@atoms/Prose.astro'
 import { _fontSize } from '@scripts/font-size'
 
-const { text, pType, post, weight, color = 'body', class: classes, ...props } = Astro.props
+const {
+	text,
+	pType,
+	post,
+	weight,
+	color = 'body',
+	class: classes,
+	...props
+} = Astro.props
 ---
 
 <Prose
@@ -18,7 +26,8 @@ const { text, pType, post, weight, color = 'body', class: classes, ...props } = 
 		weight === 'medium' && 'font-medium',
 		color === 'body' && 'text-[var(--color-text-body)]',
 		color === 'title' && 'text-[var(--color-text-title)]',
-        post && '',
+		post &&
+			'prose-blockquote:border-l-0 prose-blockquote:border-y-2 prose-blockquote:py-2 prose-blockquote:my-8 ml:prose-blockquote:my-10 lg:prose-blockquote:my-12 prose-blockquote:border-[var(--color-border-muted)] prose-blockquote:text-center [&>blockquote>p:first-of-type]:text-2xl prose-h3:text-2xl prose-h4:text-xl',
 		classes,
 	]}
 	{...props}>

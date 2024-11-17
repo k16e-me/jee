@@ -1,6 +1,7 @@
 ---
 import Image from '@atoms/Image.astro'
 import RichText from '@atoms/RichText.astro'
+import Text from '@atoms/Text.astro'
 import HeaderInsight from '@composites/headers/HeaderInsight.astro'
 import Grid from '@layouts/Grid.astro'
 import Wrapper from '@layouts/Wrapper.astro'
@@ -22,19 +23,43 @@ const { blok } = Astro.props
 				data-pin-top>
 				A
 			</div>
-			<div
-				class:list={[
-					'col-span-full lg:[grid-area:1/4/2/12]',
-					_spaceY(),
-				]}>
-				<Image
-					filename={blok.image.filename}
-					alt={blok.image.alt}
+			<div class='col-span-full lg:[grid-area:1/4/2/13] grid grid-cols-6'>
+				<div class:list={[_sectionPadding('bottom'), 'col-span-full']}>
+					<Image
+						filename={blok.image.filename}
+						alt={blok.image.alt}
+						class:list={[
+							'h-[15rem] xs:h-[20rem] md:h-[25rem] ml:h-[30rem] rounded-[1.5rem] md:rounded-[2rem]',
+						]}
+					/>
+				</div>
+				<div
 					class:list={[
-						'h-[15rem] xs:h-[20rem] md:h-[25rem] ml:h-[30rem] rounded-[1.5rem] md:rounded-[2rem]',
-					]}
-				/>
-				<RichText text={blok.post} post />
+						'col-span-full md:col-span-4 md:col-start-2 lg:col-start-1',
+						_spaceY(),
+					]}>
+					<div
+						class='md:mx-[calc(-50vw+75%)] lg:ml-0 lg:mr-[calc(-50vw+75%)]'>
+						<Text
+							tag='p'
+							text={blok.excerpt}
+							color='body'
+							size='1hx'
+							weight='medium'
+							italic
+						/>
+					</div>
+					<RichText text={blok.post} post />
+					<div
+						class='mx-[calc(-50vw+50%)] md:mx-[calc(-50vw+75%)] lg:ml-0 lg:mr-[calc(-50vw+75%)] bg-[var(--color-bg-default-elevated)] px-3 py-4 border-t border-[var(--color-border-muted)]'>
+						<Text
+							tag='p'
+							text={blok.disclaimer}
+							color='body'
+							size='footnote'
+						/>
+					</div>
+				</div>
 			</div>
 		</Grid>
 	</Wrapper>

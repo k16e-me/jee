@@ -10,7 +10,7 @@ const
     copy = 'text-[1.0725rem] leading-[1.395rem] lg:text-[1.125rem] lg:leading-[1.55rem]',
     emphasis = 'text-[1.0625rem] lg:text-[1.0325rem] leading-[1.425rem]',
     blurb = 'text-[0.9375rem] leading-[1.125rem]',
-    footnote = 'text-[0.8975rem] leading-[1.0725rem]',
+    footnote = 'text-[0.8975rem] leading-[1.0925rem]',
 
     _fontSize = (s = 'body') => {
         if (s === 's3' || s === '3') return [...s3.split(' ')]
