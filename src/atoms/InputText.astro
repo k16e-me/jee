@@ -2,27 +2,60 @@
 import Icon from '@atoms/Icon.astro'
 import { _fontSize } from '@scripts/font-size'
 
-const { label, icon, id, name, type = 'text', style = 'default', hideLabel = true, placeholder = 'Search a JEE', class: classes, ...props } = Astro.props
+const {
+	label,
+	icon,
+	id,
+	name,
+	type = 'text',
+	required,
+	style = 'default',
+	hideLabel = true,
+	placeholder = 'Search a JEE',
+	isSearch,
+	useShadow,
+	class: classes,
+	...props
+} = Astro.props
 ---
 
 <div class:list={['relative', classes]} {...props}>
-	<label set:text={label} for={id} class={[hideLabel && 'sr-only']} />
-    <div
-        class='pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3'>
-        <Icon
-            name='search'
-            class='text-[var(--color-text-muted)] size-5'
-            aria-hidden='true'
-        />
-    </div>
-    <input
-        type={type}
-        name={name}
-        id={id}
-        class:list={[
-            'block w-full rounded-lg border-0 py-3 pl-10 text-[var(--color-text-body)] ring-1 ring-inset ring-[var(--color-border-subtle)] placeholder:text-[var(--color-text-muted)] focus:ring-2 focus:ring-inset focus:ring-[var(--color-emphasis)]',
-            _fontSize('body'),
-        ]}
-        placeholder={placeholder}
-    />
+	<label
+		for={id}
+		class:list={[
+			hideLabel ? 'sr-only' : 'font-medium mb-1 flex',
+			_fontSize('blurb'),
+		]}>
+		<span set:text={label} />
+		{
+			required && (
+				<span set:text='*' class='text-[var(--color-text-emphasis)]' />
+			)
+		}
+	</label>
+	{
+		isSearch && (
+			<div class='pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3'>
+				<Icon
+					name='search'
+					class='text-[var(--color-text-muted)] size-5'
+					aria-hidden='true'
+				/>
+			</div>
+		)
+	}
+	<input
+		type={type}
+		name={name}
+		id={id}
+		class:list={[
+			'flex items-center w-full h-[2.875rem] rounded-lg border-0 py-3 text-[var(--color-text-body)] placeholder:text-[var(--color-text-muted)] focus:ring-2 focus:ring-inset focus:ring-[var(--color-emphasis)]',
+			isSearch ? 'pl-10' : 'px-3',
+			useShadow
+				? 'shadow focus:shadow-none'
+				: 'ring-1 ring-inset ring-[var(--color-border-subtle)]',
+			_fontSize('blurb'),
+		]}
+		placeholder={placeholder}
+	/>
 </div>
