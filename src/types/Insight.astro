@@ -2,15 +2,17 @@
 import Image from '@atoms/Image.astro'
 import RichText from '@atoms/RichText.astro'
 import Text from '@atoms/Text.astro'
+import CardCapsule from '@blocks/CardCapsule.astro'
 import HeadingStretch from '@blocks/HeadingStretch.astro'
 import HeaderInsight from '@composites/headers/HeaderInsight.astro'
 import Grid from '@layouts/Grid.astro'
 import Wrapper from '@layouts/Wrapper.astro'
 import { _gridGap, _sectionPadding, _spaceY } from '@scripts/snips'
+import _titlelize from '@scripts/titlelize'
 
 const { blok } = Astro.props,
-	authors = blok.author,
-	expertise = blok.expertise
+	authors = blok.author.slice(0, 3),
+	expertise = blok.expertise.slice(0, 3)
 ---
 
 <div>
@@ -24,12 +26,43 @@ const { blok } = Astro.props,
 			<div
 				class='col-span-full lg:[grid-area:1/1/2/4] self-start lg:sticky z-10 lg:-top-px lg:pt-8 order-2 lg:order-1'
 				data-pin-top>
-				<div class="flex flex-col gap-8 lg:gap-14">
-					<div>
+				<div class='flex flex-col gap-8 lg:gap-12'>
+					<div class='flex flex-col gap-3'>
 						<HeadingStretch tag='h2' text='Authors' />
+						{
+							authors.map((i) => (
+								<CardCapsule
+									entry={i}
+									link={i.full_slug}
+									subtitle={`JEE ${_titlelize(
+										i.full_slug
+											.split('/')[0]
+											.replace(/-+/g, ' '),
+									)}`}
+									top
+									fill={false}
+									adjustWidth={false}
+								/>
+							))
+						}
 					</div>
-					<div>
+					<div class='flex flex-col gap-3'>
 						<HeadingStretch tag='h2' text='Expertise' />
+						{
+							expertise.map((i) => (
+								<CardCapsule
+									entry={i}
+									link={i.full_slug}
+									subtitle={`JEE ${_titlelize(
+										i.full_slug
+											.split('/')[0]
+											.replace(/-+/g, ' '),
+									)}`}
+									fill={false}
+									adjustWidth={false}
+								/>
+							))
+						}
 					</div>
 				</div>
 			</div>

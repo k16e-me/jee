@@ -7,6 +7,7 @@ import RichText from '@atoms/RichText.astro'
 import { _xPadding, _spaceY } from '@scripts/snips'
 import _slugify from '@scripts/slugify'
 import CardCapsule from '@blocks/CardCapsule.astro'
+import _titlelize from '@scripts/titlelize'
 
 const {
 	blok,
@@ -24,7 +25,8 @@ const {
 	id={typeof blok.heading != 'string'
 		? _slugify(blok.heading[0].heading)
 		: _slugify(blok.heading)}
-        class:list={[classes]} {...props}>
+	class:list={[classes]}
+	{...props}>
 	<Wrapper
 		margins={false}
 		class:list={[xPadding && _xPadding('both-lgdown-l')]}>
@@ -37,8 +39,20 @@ const {
 						: blok.heading[0].heading}
 					size='4'
 				/>
-				<div class="flex flex-wrap gap-4">
-					{list.map((i) => <CardCapsule entry={i} link={i.full_slug}/>)}
+				<div class='flex flex-wrap gap-4'>
+					{
+						list.map((i) => (
+							<CardCapsule
+								entry={i}
+								link={i.full_slug}
+								subtitle={`JEE ${_titlelize(
+									i.full_slug
+										.split('/')[0]
+										.replace(/-+/g, ' '),
+								)}`}
+							/>
+						))
+					}
 				</div>
 			</div>
 		</Grid>
