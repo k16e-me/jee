@@ -10,10 +10,16 @@ import Wrapper from '@layouts/Wrapper.astro'
 import { _gridGap, _sectionPadding, _spaceY, _xPadding } from '@scripts/snips'
 import _titlelize from '@scripts/titlelize'
 import InputText from '@atoms/InputText.astro'
+import HeadingSection from '@blocks/HeadingSection.astro'
+import { _categories } from '@scripts/store'
+import InputCheck from '@atoms/InputCheck.astro'
+import _slugify from '@scripts/slugify'
+import FormSubscribe from '@blocks/FormSubscribe.astro'
 
 const { blok } = Astro.props,
 	authors = blok.author.slice(0, 3),
-	expertise = blok.expertise.slice(0, 3)
+	expertise = blok.expertise.slice(0, 3),
+	categories = _categories.value
 ---
 
 <div>
@@ -120,49 +126,13 @@ const { blok } = Astro.props,
 						_spaceY(),
 						'px-3 sm:px-4 md:px-6 ml:pr-8 py-6 sm:py-8 ml:py-10',
 					]}>
-					<HeadingStretch tag='h2' text='Subscribe to JEE Insights' />
-					<form>
-						<div class='grid grid-cols-1 md:grid-cols-2 gap-x-3 gap-y-5'>
-							<InputText
-								label='Name'
-								id='name'
-								name='Name'
-								placeholder='Your Full Name'
-                                required
-                                useShadow
-                                hideLabel={false}
-								class='w-full md:col-span-1'
-							/>
-							<InputText
-								label='Email'
-								id='email'
-								name='Email'
-								placeholder='Email Address'
-                                required
-                                useShadow
-                                hideLabel={false}
-								class='w-full md:col-span-1'
-							/>
-							<InputText
-								label='Organization'
-								id='org'
-								name='Organization'
-								placeholder='Your Organization'
-                                required
-                                useShadow
-                                hideLabel={false}
-								class='w-full md:col-span-2'
-							/>
-						</div>
-					</form>
+                    <FormSubscribe topics={categories}/>
 				</div>
 			</div>
 			<div
 				class='col-span-full ml:[grid-area:1/5/2/9] lg:[grid-area:1/6/2/13]'>
 				Lorem ipsum dolor, sit amet consectetur adipisicing elit. Modi
-				quod doloremque explicabo praesentium, vero atque, assumenda
-				quisquam iure, ipsa officia dolore rerum aspernatur culpa odit
-				neque totam repudiandae animi perspiciatis!
+				quod doloremque explicabo praesentium, vero atque,
 			</div>
 		</Grid>
 	</Wrapper>
