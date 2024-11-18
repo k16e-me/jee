@@ -1,14 +1,22 @@
 ---
+import Image from '@atoms/Image.astro'
 import SectionSpy from '@blocks/SectionSpy.astro'
 import HeaderBasic from '@composites/headers/HeaderBasic.astro'
 import Grid from '@layouts/Grid.astro'
 import Section from '@layouts/Section.astro'
 import Wrapper from '@layouts/Wrapper.astro'
+import _empty from '@scripts/empty'
 import { _sectionPadding, _xPadding } from '@scripts/snips'
 import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro'
 
 const { blok } = Astro.props,
-headings = ['Watch', 'Summary', 'Description', 'Panelists', 'Sessions', 'RSVP']
+	headings = []
+
+!_empty(blok.video_id) && headings.push('Watch')
+headings.push(blok.description_label)
+headings.push(blok.panelists_label)
+headings.push(blok.sessions_label)
+headings.push(blok.rsvp_label)
 ---
 
 <HeaderBasic
@@ -23,21 +31,52 @@ headings = ['Watch', 'Summary', 'Description', 'Panelists', 'Sessions', 'RSVP']
 	title={'Event Details'}
 	overlap
 	spy
-	class='r-hide-overflow overflow-y-clip z-20 bg-[var(--color-bg-default)] rounded-t-[2rem] md:rounded-t-[3.5rem] lg:rounded-t-[4.5rem]'>
+	class='r-hide-overflow overflow-y-clip z-20 bg-[var(--color-bg-default)] lg:bg-transparent rounded-t-[2rem] md:rounded-t-[3.5rem] lg:rounded-t-0'>
 	<Wrapper margins={false} class:list={['overflow-x-clip']}>
 		<Grid
-			class='rounded-t-[2rem] md:rounded-t-[3.5rem] lg:rounded-t-[4.5rem] overflow-clip'>
+			class='rounded-t-[2rem] md:rounded-t-[3.5rem] lg:rounded-t-0 overflow-clip'>
 			<div
 				class:list={[
-					'col-span-full xl:[grid-area:1/1/2/3] self-start sticky bg-[var(--color-bg-default)] z-10 -top-px [&.is-pinned]:shadow xl:!shadow-none overflow-auto',
-					_sectionPadding('top-xl-up'),
+					'col-span-full lg:[grid-area:1/1/2/4] xl:[grid-area:1/1/2/3] self-start sticky bg-[var(--color-bg-default)] z-10 -top-px [&.is-pinned]:shadow lg:!shadow-none overflow-auto',
+					_sectionPadding('top-lg-up'),
 					_xPadding('both-lgdown'),
 				]}
 				data-pin-top>
-				<SectionSpy headings={headings} data-spy-sections />
+				<SectionSpy
+					headings={headings}
+					breakAt='lg'
+					data-spy-sections
+				/>
 			</div>
-			<div class='col-span-full xl:[grid-area:1/4/2/13]'>
-				Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolores minus mollitia facere excepturi exercitationem expedita magni fugit omnis officiis quia voluptatum dolor eveniet consequatur quos, minima quasi harum impedit. Itaque!
+			<div
+				class='col-span-full lg:[grid-area:1/4/2/13] xl:[grid-area:1/4/2/12]'>
+				<div
+					class:list={[
+						_sectionPadding('both-md-down'),
+						_xPadding('both-md-down-lg-r'),
+						'col-span-full',
+					]}>
+					{
+						_empty(blok.video_id) ? (
+							<Image
+								filename={blok.image.filename}
+								alt={blok.image.alt}
+								class:list={[
+									'h-[20rem] xs:h-[24.5rem] md:h-[30rem] ml:h-[32.5rem] rounded-[1.5rem] md:rounded-[2rem]',
+								]}
+							/>
+						) : (
+							<div>
+								Lorem ipsum dolor sit amet consectetur
+								adipisicing elit. Consectetur earum facere
+								nesciunt quisquam aliquid molestias quo
+								temporibus ab quam sed ut aliquam quibusdam
+								numquam accusantium, ad eligendi expedita.
+								Ratione, libero.
+							</div>
+						)
+					}
+				</div>
 			</div>
 		</Grid>
 	</Wrapper>

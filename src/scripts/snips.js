@@ -2,6 +2,7 @@ const
     topPadding = 'pt-8 md:pt-14 lg:pt-20',
     bottomPadding = 'pb-8 md:pb-14 lg:pb-20',
     bothPadding = 'py-8 md:py-14 lg:py-20',
+    bothPaddingMdDown = 'py-8 md:py-14 lg:py-0',
     topPaddingMdUp = 'md:pt-14 lg:pt-20',
     topPaddingLgUp = 'lg:pt-20',
     topPaddingXlUp = 'xl:pt-20',
@@ -19,6 +20,7 @@ const
     _sectionPadding = (direction = 'top') => {
         if (direction === 'top') return [...topPadding.split(' ')]
         if (direction === 'top-md-up') return [...topPaddingMdUp.split(' ')]
+        if (direction === 'both-md-down') return [...bothPaddingMdDown.split(' ')]
         if (direction === 'top-lg-up') return [...topPaddingLgUp.split(' ')]
         if (direction === 'top-xl-up') return [...topPaddingXlUp.split(' ')]
         if (direction === 'bottom') return [...bottomPadding.split(' ')]
@@ -33,6 +35,8 @@ const
         if (edges === 'both-mddown-lg-l') return ['px-3', 'md:px-8', 'lg:pl-0', 'lg:pr-16']
         if (edges === 'both-md-down-l') return ['px-3', 'md:px-8', 'lg:!pr-0', 'lg:pl-16']
         if (edges === 'both-ml-down') return ['px-3', 'md:px-8', 'lg:px-0']
+        if (edges === 'both-md-down') return ['px-3', 'md:px-8', 'lg:pr-0']
+        if (edges === 'both-md-down-lg-r') return ['px-3', 'md:px-8', 'lg:pl-0', 'lg:pr-16']
         if (edges === 'both-lgdown') return ['px-3', 'md:px-8', 'lg:px-16', 'xl:pr-0']
         if (edges === 'both-lgdown-l') return ['px-3', 'md:px-8', 'lg:px-16', 'xl:pl-0']
         if (edges === 'left-lgdown-l') return ['pl-3', 'md:pl-8', 'lg:pl-16', 'xl:pl-0']

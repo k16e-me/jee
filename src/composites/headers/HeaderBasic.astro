@@ -13,16 +13,16 @@ import _empty from '@scripts/empty'
 import _slugify from '@scripts/slugify'
 
 const {
-	blok,
-	altComponent,
-	breadcrumbLink,
-	breadcrumbLabel,
-	altTitle,
-	altCopy,
-	class: classes,
-	...props
-} = Astro.props,
-copy = altCopy ? altCopy : blok.copy
+		blok,
+		altComponent,
+		breadcrumbLink,
+		breadcrumbLabel,
+		altTitle,
+		altCopy,
+		class: classes,
+		...props
+	} = Astro.props,
+	copy = altCopy ? altCopy : blok.copy
 ---
 
 <Section
@@ -37,9 +37,12 @@ copy = altCopy ? altCopy : blok.copy
 	<Wrapper inset>
 		<Grid class='gap-y-5 md:gap-y-12 lg:gap-y-14'>
 			<div class='col-span-full md:col-span-6 lg:col-span-8'>
-				<div class='flex flex-col gap-2 sm:gap-3'>
+				<div
+					class='flex flex-col gap-2 sm:gap-3 pr-4 xs:pr-6 sm:pr-8 lg:pr-20 xl:pr-24'>
 					<Breadcrumb
-						altLink={breadcrumbLink ? breadcrumbLink : blok.link[0].link}
+						altLink={breadcrumbLink
+							? breadcrumbLink
+							: blok.link[0].link}
 						labelText={breadcrumbLabel
 							? breadcrumbLabel
 							: 'JEE Home'}
@@ -55,7 +58,7 @@ copy = altCopy ? altCopy : blok.copy
 						tighten
 					/>
 					{
-						(!_empty(copy) && (copy.length > 1)) && (
+						!_empty(copy) && copy.length > 1 && (
 							<Text
 								tag='p'
 								text={copy}
