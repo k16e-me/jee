@@ -15,6 +15,7 @@ import _moreOrLess from './more-less'
 import _prefilters from './prefilters'
 import { _newsletter } from './store'
 import _newsletterSubmit from './newsletter'
+import _figureImg from './figure-image'
 
 const swup = new Swup({
     animationSelector: '[class*="swup-"]',
@@ -49,8 +50,9 @@ function init() {
     _scrollspy()
     _moreOrLess()
     _newsletterSubmit()
+    _prefilters()
+    _figureImg()
 }
 
 function once() {
-    _prefilters()
 }
