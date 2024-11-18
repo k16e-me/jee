@@ -9,7 +9,7 @@ const
     copy = 'text-[1.0725rem] leading-[1.395rem] lg:text-[1.125rem] lg:leading-[1.55rem]',
     emphasis = 'text-[1.0625rem] lg:text-[1.0325rem] leading-[1.385rem]',
     body = 'text-[1.025rem] leading-[1.4975rem]',
-    blurb = 'text-[0.9375rem] leading-[1.125rem]',
+    blurb = 'text-[0.9325rem] leading-[1.125rem]',
     footnote = 'text-[0.8975rem] leading-[1.0925rem]',
 
     _fontSize = (s = 'body') => {

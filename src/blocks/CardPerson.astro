@@ -19,6 +19,8 @@ person.content.link ? (internal = false) : (internal = true)
 		size === 'default' &&
 			'rounded-[1.25rem] md:rounded-[1.5rem] w-[18.5rem] h-[24.5rem]',
 		size === 'mini' && 'rounded-2xl w-[14.5rem] h-[19.5rem]',
+		size === 'adaptive' &&
+			'w-[18.5rem] h-[24.5rem] md:w-[14.5rem] md:h-[19.5rem] rounded-[1.5rem] md:rounded-2xl',
 		classes,
 	]}
 	{...props}
@@ -32,6 +34,7 @@ person.content.link ? (internal = false) : (internal = true)
 			class:list={[
 				size === 'default' && 'h-[24rem]',
 				size === 'mini' && 'h-[18rem]',
+				size === 'adaptive' && 'h-[24rem] md:h-[18rem]',
 				'transition-transform duration-200 group-hover:scale-105',
 			]}
 		/>
@@ -51,6 +54,7 @@ person.content.link ? (internal = false) : (internal = true)
 				'relative z-10',
 				size === 'default' && 'p-4',
 				size === 'mini' && 'p-3',
+                size === 'adaptive' && 'p-4 md:p-3'
 			]}>
 			<Byline
 				title={person.name}
