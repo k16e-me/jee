@@ -13,6 +13,7 @@ import _empty from '@scripts/empty'
 import _slugify from '@scripts/slugify'
 import { _spaceY, _sectionPadding, _xPadding } from '@scripts/snips'
 import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro'
+import { YouTube } from 'astro-embed'
 
 const { blok } = Astro.props,
 	headings = []
@@ -73,7 +74,20 @@ headings.push(blok.rsvp_label)
 								/>
 							</div>
 						) : (
-							<div>Video here...</div>
+							<div
+								class:list={[
+									_spaceY(),
+									'col-span-full _section',
+								]}
+								id={'watch'}>
+								<div class='overflow-clip rounded-[2rem]'>
+									<YouTube
+										id={blok.video_id}
+										playlabel={blok.video_link_label ? blok.video_link_label : 'Watch Full Sessions'}
+										class:list={['max-w-none']}
+									/>
+								</div>
+							</div>
 						)
 					}
 					<div
@@ -114,11 +128,15 @@ headings.push(blok.rsvp_label)
 							text={blok.panelists_label}
 							size='4'
 						/>
-						<ul class="flex flex-wrap gap-3 sm:gap-4 justify-center sm:justify-start ">
+						<ul
+							class='flex flex-wrap gap-3 sm:gap-4 justify-center sm:justify-start'>
 							{
 								blok.panelists.map((i) => (
 									<li class='!w-auto shrink-0'>
-										<CardPerson person={i.person} size='adaptive' />
+										<CardPerson
+											person={i.person}
+											size='adaptive'
+										/>
 									</li>
 								))
 							}
