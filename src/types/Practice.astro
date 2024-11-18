@@ -3,14 +3,19 @@ import HeaderExpertise from '@composites/headers/HeaderExpertise.astro'
 import Grid from '@layouts/Grid.astro'
 import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro'
 
-const { blok } = Astro.props
+const { blok } = Astro.props,
+	url = Astro.url,
+	pathname = url.pathname,
+	parent = pathname.split('/')[1]
 ---
 
 <HeaderExpertise
 	item={blok}
 	heads={blok.contacts[0]}
-	breadcrumbLink='/practices'
-	breadcrumbLabel='JEE Practices'
+	breadcrumbLink={`/${parent}`}
+	breadcrumbLabel={parent === 'africa-expertise'
+		? 'JEE Africa Expertise'
+		: 'JEE Practices'}
 	class='col-span-full'
 	flipped
 />
