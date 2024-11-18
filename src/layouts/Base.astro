@@ -25,8 +25,8 @@ import {
 	_addCategories,
 	_addEvents,
 	_events,
-    _newsletter,
-    _addNewsletter
+	_newsletter,
+	_addNewsletter,
 } from '@scripts/store'
 
 const currentYear = new Date().getFullYear(),
@@ -47,7 +47,7 @@ const currentYear = new Date().getFullYear(),
 	{ data: dataNewsletter } = await api.get('cdn/stories/global/newsletter', {
 		version: import.meta.env.DEV ? 'draft' : 'published',
 	}),
-    newsletter = dataNewsletter.story.content
+	newsletter = dataNewsletter.story.content
 
 let { data: awards } = await api.get('cdn/stories', {
 		starts_with: 'awards/',
@@ -156,12 +156,12 @@ _addNewsletter(newsletter)
 	/>
 	<body
 		class='max-w-screen-3xl mx-auto flex flex-col min-h-screen overflow-x-hidden'>
-		<TitleHidden tag='h2' title={pageTitle} />
+		<TitleHidden tag='h1' title={pageTitle} data-swup-morph='title-hidden' id='title-hidden' />
 		<Header nav={site.nav} tools={site.tools} />
 		<main class='mb-auto swup-in' id='swup'>
 			<slot />
 		</main>
-		<Footer site={site} />
+		<Footer site={site} data-swup-morph='footer' id='footer' />
 		<script src='@scripts/global.js'></script>
 	</body>
 </html>

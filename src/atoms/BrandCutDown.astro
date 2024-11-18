@@ -9,16 +9,18 @@ const { top, specialCase, flipped, class: classes, ...props } = Astro.props
 		'absolute top-[15%] xs:top-[18%] sm:top-[13.5%] ml:top-[12%] lg:top-[13.5%] 2xl:top-[12%]',
 		top &&
 			'-left-1 md:-left-[19.75rem] lg:-left-[22.5rem] xl:-left-[18.5rem] 2xl:-left-[15rem] top-[28%] xs:top-[30%] sm:top-[26.5%] md:top-[32%] lg:top-[20%]',
-		specialCase & !flipped &&
+		specialCase &&
+			!flipped &&
 			'-left-1 ml:-left-[16rem] lg:-left-[14.25rem]',
 		flipped && 'ml:-right-[12rem] lg:-right-[14.25rem]',
+		specialCase && 'lg:top-[20%] 2xl:top-[14.5%] ',
 		classes,
 	]}
 	{...props}>
 	<Icon
 		name='cutout-down'
 		class:list={[
-			'w-[40rem] md:w-[45rem] lg:w-[58rem] scale-110 sm:scale-[1.4] h-auto text-[var(--color-main)]',
+			'w-[40rem] md:w-[45rem] lg:w-[56rem] scale-110 sm:scale-[1.4] h-auto text-[var(--color-main)]',
 			top && 'md:scale-100',
 			specialCase && 'sm:scale-x-[1.5] sm:scale-y-[1.045] lg:scale-100',
 			flipped && 'ml:![transform:rotateY(180deg)]',

@@ -41,7 +41,7 @@ const {
 				]}>
 				<div
 					class:list={[
-						'h-[22.5rem] xs:h-[30rem] lg:h-[32rem] rounded-t-[1.5rem] md:rounded-t-[3.5rem] overflow-clip',
+						'h-[22.5rem] xs:h-[30rem] sm:h-[32.5rem] lg:h-[35rem] rounded-t-[1.5rem] md:rounded-t-[3.5rem] overflow-clip',
 						flipped
 							? 'rounded-bl-[1.5rem] lg:rounded-bl-[18rem] rounded-br-[12.5rem] lg:rounded-br-[3.5rem]'
 							: 'rounded-br-[12.5rem] md:rounded-br-[18rem] rounded-bl-[1.5rem] md:rounded-bl-[3.5rem]',
@@ -72,7 +72,8 @@ const {
 							altLink={breadcrumbLink}
 							labelText={breadcrumbLabel}
 						/>
-						<div class='flex flex-col gap-3 lg:gap-4'>
+						<div
+							class='flex flex-col gap-3 lg:gap-4 pr-3 xs:pr-6 sm:pr-8 lg:pr-20'>
 							<Text
 								tag='h2'
 								text={item.title}
@@ -87,7 +88,7 @@ const {
 								color='caption'
 								size='1hx'
 								family='display'
-								class='pr-3 xs:pr-6 sm:pr-8 lg:pr-10'
+								class=''
 							/>
 						</div>
 					</div>
@@ -95,9 +96,7 @@ const {
 						class:list={[
 							'pt-6 ml:pt-8 lg:pt-14 xl:pt-16',
 							_spaceY(),
-							flipped
-								? 'lg:mr-[calc(-50vw+50%)]'
-								: '',
+							flipped ? 'lg:mr-[calc(-50vw+50%)]' : '',
 						]}>
 						<HeadingSection
 							level='h2'
