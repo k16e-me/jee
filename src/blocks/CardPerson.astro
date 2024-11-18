@@ -5,17 +5,11 @@ import Text from '@atoms/Text.astro'
 import _slug from '@scripts/slug'
 import Byline from '@blocks/Byline.astro'
 
-const {
-	person,
-	tag,
-	size = 'default',
-	class: classes,
-	...props
-} = Astro.props
+const { person, tag, size = 'default', class: classes, ...props } = Astro.props
 
 let internal = false
 
-person.content.link ? internal = false : internal = true
+person.content.link ? (internal = false) : (internal = true)
 ---
 
 <a
@@ -28,7 +22,7 @@ person.content.link ? internal = false : internal = true
 		classes,
 	]}
 	{...props}
-    target={!internal && '_blank'}>
+	target={!internal && '_blank'}>
 	<div class='[grid-area:1/1/2/2] z-0'>
 		<Image
 			filename={person.content.headshot.filename}
@@ -42,7 +36,7 @@ person.content.link ? internal = false : internal = true
 			]}
 		/>
 	</div>
-	<div class:list={['[grid-area:1/1/2/2] z-10']}>
+	<div class:list={['[grid-area:1/1/2/2] z-[1]']}>
 		<Icon
 			name='cutout-down'
 			class:list={[
@@ -60,7 +54,9 @@ person.content.link ? internal = false : internal = true
 			]}>
 			<Byline
 				title={person.name}
-				designation={person?.content?.byline[0]?.content?.title}
+				designation={internal
+					? person?.content?.byline[0]?.content?.title
+					: person?.content?.byline[0]?.designation}
 				size={size}
 			/>
 		</div>
