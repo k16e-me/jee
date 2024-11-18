@@ -62,6 +62,8 @@ headings.push(blok.rsvp_label)
 						_xPadding('both-md-down-lg-r'),
 						'col-span-full grid grid-cols-12',
 					]}>
+
+					<!-- Video || Image -->
 					{
 						_empty(blok.video_id) ? (
 							<div class='col-span-full'>
@@ -83,13 +85,19 @@ headings.push(blok.rsvp_label)
 								<div class='overflow-clip rounded-[2rem]'>
 									<YouTube
 										id={blok.video_id}
-										playlabel={blok.video_link_label ? blok.video_link_label : 'Watch Full Sessions'}
+										playlabel={
+											blok.video_link_label
+												? blok.video_link_label
+												: 'Watch Full Sessions'
+										}
 										class:list={['max-w-none']}
 									/>
 								</div>
 							</div>
 						)
 					}
+
+					<!-- Excerpt || Summary -->
 					<div
 						class:list={[
 							_sectionPadding('top'),
@@ -99,9 +107,12 @@ headings.push(blok.rsvp_label)
 							tag='p'
 							text={blok.summary}
 							color='body'
-							size='1hx'
+							size='2hx'
+                            italic
 						/>
 					</div>
+
+					<!-- Description -->
 					<div
 						class:list={[
 							_sectionPadding('top'),
@@ -116,6 +127,8 @@ headings.push(blok.rsvp_label)
 						/>
 						<RichText text={blok.description} pType='body' />
 					</div>
+
+					<!-- Panelists -->
 					<div
 						class:list={[
 							_sectionPadding('top'),
@@ -139,8 +152,27 @@ headings.push(blok.rsvp_label)
 										/>
 									</li>
 								))
-							} 
+							}
 						</ul>
+					</div>
+
+					<!-- Sessions -->
+					<div
+						class:list={[
+							_sectionPadding('top'),
+							_spaceY(),
+							'col-span-full md:col-start-2 md:col-end-11 lg:col-start-1 _section',
+						]}
+						id={_slugify(blok.sessions_label)}>
+						<HeadingSection
+							level='h3'
+							text={blok.sessions_label}
+							size='4'
+						/>
+						Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+						Sequi maiores voluptatum a, quasi aut numquam animi ab tenetur
+						alias, explicabo vitae omnis incidunt maxime. Laborum repellat
+						voluptatem tempore obcaecati veritatis!
 					</div>
 				</div>
 			</div>
