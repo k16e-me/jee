@@ -1,7 +1,17 @@
 ---
+import HeaderBasic from '@composites/headers/HeaderBasic.astro'
+import Grid from '@layouts/Grid.astro'
+import Section from '@layouts/Section.astro'
+import Wrapper from '@layouts/Wrapper.astro'
 import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro'
 
 const { blok } = Astro.props
 ---
 
-Event...
+<HeaderBasic
+	altComponent={blok.component}
+	breadcrumbLink='/events'
+	breadcrumbLabel='JEE Events'
+	altTitle={blok.title}
+    altCopy="."
+/>

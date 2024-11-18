@@ -1,8 +1,9 @@
-export default function _empty(value) {
+export default function _empty(v) {
+    if (v.length === 0) return true
     return (
-        value === undefined ||
-        value === null ||
-        (typeof value === "object" && Object.keys(value).length === 0) ||
-        (typeof value === "string" && value.trim().length === 0)
+        v === undefined ||
+        v === null ||
+        (typeof v === "object" && Object.keys(v).length === 0) ||
+        (typeof v === "string" && v.trim().length === 0)
     )
 }

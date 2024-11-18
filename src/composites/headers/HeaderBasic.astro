@@ -10,39 +10,59 @@ import BrandCutout from '@atoms/BrandCutout.astro'
 import ButtonMore from '@atoms/ButtonMore.astro'
 import Breadcrumb from '@blocks/Breadcrumb.astro'
 import _empty from '@scripts/empty'
+import _slugify from '@scripts/slugify'
 
-const { blok, class: classes, ...props } = Astro.props
+const {
+	blok,
+	altComponent,
+	breadcrumbLink,
+	breadcrumbLabel,
+	altTitle,
+	altCopy,
+	class: classes,
+	...props
+} = Astro.props,
+copy = altCopy ? altCopy : blok.copy
 ---
 
 <Section
-	component={blok.component}
+	component={altComponent ? altComponent : blok.component}
 	header
 	section={false}
-	class='r-hide-overflow min-h-[19.5rem] xs:min-h-[17rem] sm:min-h-[16rem] md:min-h-[19rem] lg:min-h-[20rem]'>
+	class:list={[
+		'r-hide-overflow min-h-[19.5rem] xs:min-h-[17rem] sm:min-h-[16rem] md:min-h-[19rem] lg:min-h-[20rem]',
+		classes,
+	]}
+	{...props}>
 	<Wrapper inset>
 		<Grid class='gap-y-5 md:gap-y-12 lg:gap-y-14'>
 			<div class='col-span-full md:col-span-6 lg:col-span-8'>
 				<div class='flex flex-col gap-2 sm:gap-3'>
-					<Breadcrumb link={blok.link} page={blok.title} />
+					<Breadcrumb
+						altLink={breadcrumbLink ? breadcrumbLink : blok.link[0].link}
+						labelText={breadcrumbLabel
+							? breadcrumbLabel
+							: 'JEE Home'}
+						page={altTitle ? altTitle : blok.title}
+					/>
 					<Text
 						tag='h2'
-						text={blok.headline}
+						text={altTitle ? altTitle : blok.headline}
 						color='title'
 						size='3'
 						family='display'
 						weight='extra'
 						tighten
-						class=''
 					/>
 					{
-						!_empty(blok.copy) && (
+						(!_empty(copy) && (copy.length < 1)) && (
 							<Text
 								tag='p'
-								text={blok.copy}
+								text={copy}
 								color='body'
 								size='copy'
 								family='display'
-                                class='max-w-screen-sm pr-6 mt-1.5 sm:mt-2.5 lg:mt-2'
+								class='max-w-screen-sm pr-6 mt-1.5 sm:mt-2.5 lg:mt-2'
 							/>
 						)
 					}
