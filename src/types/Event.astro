@@ -1,12 +1,17 @@
 ---
 import Image from '@atoms/Image.astro'
+import RichText from '@atoms/RichText.astro'
+import Text from '@atoms/Text.astro'
+import CardPerson from '@blocks/CardPerson.astro'
+import HeadingSection from '@blocks/HeadingSection.astro'
 import SectionSpy from '@blocks/SectionSpy.astro'
 import HeaderBasic from '@composites/headers/HeaderBasic.astro'
 import Grid from '@layouts/Grid.astro'
 import Section from '@layouts/Section.astro'
 import Wrapper from '@layouts/Wrapper.astro'
 import _empty from '@scripts/empty'
-import { _sectionPadding, _xPadding } from '@scripts/snips'
+import _slugify from '@scripts/slugify'
+import { _spaceY, _sectionPadding, _xPadding } from '@scripts/snips'
 import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro'
 
 const { blok } = Astro.props,
@@ -54,28 +59,71 @@ headings.push(blok.rsvp_label)
 					class:list={[
 						_sectionPadding('both-md-down'),
 						_xPadding('both-md-down-lg-r'),
-						'col-span-full',
+						'col-span-full grid grid-cols-12',
 					]}>
 					{
 						_empty(blok.video_id) ? (
-							<Image
-								filename={blok.image.filename}
-								alt={blok.image.alt}
-								class:list={[
-									'h-[20rem] xs:h-[24.5rem] md:h-[30rem] ml:h-[32.5rem] rounded-[1.5rem] md:rounded-[2rem]',
-								]}
-							/>
-						) : (
-							<div>
-								Lorem ipsum dolor sit amet consectetur
-								adipisicing elit. Consectetur earum facere
-								nesciunt quisquam aliquid molestias quo
-								temporibus ab quam sed ut aliquam quibusdam
-								numquam accusantium, ad eligendi expedita.
-								Ratione, libero.
+							<div class='col-span-full'>
+								<Image
+									filename={blok.image.filename}
+									alt={blok.image.alt}
+									class:list={[
+										'h-[20rem] xs:h-[24.5rem] md:h-[30rem] ml:h-[32.5rem] rounded-[1.5rem] md:rounded-[2rem]',
+									]}
+								/>
 							</div>
+						) : (
+							<div>Video here...</div>
 						)
 					}
+					<div
+						class:list={[
+							_sectionPadding('top'),
+							'col-span-full md:col-start-2 md:col-end-11 lg:col-start-1',
+						]}>
+						<Text
+							tag='p'
+							text={blok.summary}
+							color='body'
+							size='1hx'
+						/>
+					</div>
+					<div
+						class:list={[
+							_sectionPadding('top'),
+							_spaceY(),
+							'col-span-full md:col-start-2 md:col-end-11 lg:col-start-1 _section',
+						]}
+						id={_slugify(blok.description_label)}>
+						<HeadingSection
+							level='h3'
+							text={blok.description_label}
+							size='4'
+						/>
+						<RichText text={blok.description} pType='body' />
+					</div>
+					<div
+						class:list={[
+							_sectionPadding('top'),
+							_spaceY(),
+							'col-span-full md:col-start-2 md:col-end-11 lg:col-start-1 _section',
+						]}
+						id={_slugify(blok.panelists_label)}>
+						<HeadingSection
+							level='h3'
+							text={blok.panelists_label}
+							size='4'
+						/>
+						<ul class="flex flex-wrap gap-3 sm:gap-4">
+							{
+								blok.panelists.map((i) => (
+									<li class='!w-auto shrink-0'>
+										<CardPerson person={i.person} size='mini' />
+									</li>
+								))
+							}
+						</ul>
+					</div>
 				</div>
 			</div>
 		</Grid>

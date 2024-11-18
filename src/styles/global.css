@@ -34,6 +34,7 @@
         --color-text-emphasis: var(--color-main);
 
         --color-emphasis: var(--color-main);
+        --color-backdrop: var(--color-dark);
         --color-accent: var(--color-secondary);
 
         --color-border-muted: var(--color-gray-200);

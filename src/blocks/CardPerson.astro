@@ -12,10 +12,14 @@ const {
 	class: classes,
 	...props
 } = Astro.props
+
+let internal = false
+
+person.content.link ? internal = false : internal = true
 ---
 
 <a
-	href={`/${person.full_slug}`}
+	href={internal ? `/${person.full_slug}` : person.content.link.cached_url}
 	class:list={[
 		'grid grid-cols-1 items-end bg-[var(--color-bg-default-elevated)] group relative overflow-clip',
 		size === 'default' &&
@@ -23,7 +27,8 @@ const {
 		size === 'mini' && 'rounded-2xl w-[14.5rem] h-[19.5rem]',
 		classes,
 	]}
-	{...props}>
+	{...props}
+    target={!internal && '_blank'}>
 	<div class='[grid-area:1/1/2/2] z-0'>
 		<Image
 			filename={person.content.headshot.filename}
@@ -40,7 +45,12 @@ const {
 	<div class:list={['[grid-area:1/1/2/2] z-10']}>
 		<Icon
 			name='cutout-down'
-			class='text-[var(--color-main)] h-[18rem] transition-transform duration-200 scale-105 group-hover:scale-110 absolute top-[75%] inset-x-0 z-0'
+			class:list={[
+				'h-[18rem] transition-transform duration-200 scale-105 group-hover:scale-110 absolute top-[75%] inset-x-0 z-0',
+				internal
+					? 'text-[var(--color-emphasis)]'
+					: 'text-[var(--color-backdrop)]',
+			]}
 		/>
 		<div
 			class:list={[

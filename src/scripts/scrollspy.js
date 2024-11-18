@@ -22,7 +22,7 @@ export default function _scrollspy() {
             })
             _q(`[data-spy-sections] a[href='#${activeId}']`).classList.add('is-in-view')
         }, { threshold: [0.33, 0.66, 1] }),
-        sections = _ql('[data-spy] section')
+        sections = _ql('[data-spy] ._section')
 
     sections.forEach(section => {
         observer.observe(section)

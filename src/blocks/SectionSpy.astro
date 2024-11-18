@@ -25,6 +25,8 @@ const { headings, breakAt = 'xl', class: classes, ...props } = Astro.props
 					'group translate-y-[0.1rem] whitespace-nowrap r-transition',
 					breakAt === 'md' &&
 						'md:translate-x-[0.1rem] md:whitespace-normal',
+					breakAt === 'lg' &&
+						'lg:translate-x-[0.1rem] lg:whitespace-normal',
 					breakAt === 'xl' &&
 						'xl:translate-x-[0.1rem] xl:whitespace-normal',
 				]}>
@@ -35,6 +37,8 @@ const { headings, breakAt = 'xl', class: classes, ...props } = Astro.props
 						'flex text-right font-semibold font-display p-4 [&.is-in-view]:border-b-[3px] [&.is-in-view]:border-[var(--color-emphasis)] group-hover:text-[var(--color-emphasis)] [&.is-in-view]:text-[var(--color-emphasis)]',
 						breakAt === 'md' &&
 							'md:pl-0 md:!border-b-0 [&.is-in-view]:md:border-r-[3px]',
+						breakAt === 'lg' &&
+							'lg:pl-0 lg:!border-b-0 [&.is-in-view]:lg:border-r-[3px]',
 						breakAt === 'xl' &&
 							'xl:pl-0 xl:!border-b-0 [&.is-in-view]:xl:border-r-[3px]',
 					]}
