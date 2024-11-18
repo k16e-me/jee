@@ -4,6 +4,7 @@ import RichText from '@atoms/RichText.astro'
 import Text from '@atoms/Text.astro'
 import CardPerson from '@blocks/CardPerson.astro'
 import HeadingSection from '@blocks/HeadingSection.astro'
+import ListSession from '@blocks/ListSession.astro'
 import SectionSpy from '@blocks/SectionSpy.astro'
 import HeaderBasic from '@composites/headers/HeaderBasic.astro'
 import Grid from '@layouts/Grid.astro'
@@ -169,10 +170,13 @@ headings.push(blok.rsvp_label)
 							text={blok.sessions_label}
 							size='4'
 						/>
-						Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-						Sequi maiores voluptatum a, quasi aut numquam animi ab tenetur
-						alias, explicabo vitae omnis incidunt maxime. Laborum repellat
-						voluptatem tempore obcaecati veritatis!
+						<ul class="flex flex-col gap-8 sm:gap-10 md:gap-12">
+                            {
+                                blok.sessions.map(i => (
+                                    <ListSession heading={i.title} duration={i.duration} person={i.host}/>
+                                ))
+                            }
+                        </ul>
 					</div>
 				</div>
 			</div>

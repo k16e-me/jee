@@ -13,7 +13,7 @@ const {
 		subtitleColor = 'caption',
 		adjustWidth = true,
 		fill = true,
-        top,
+		top,
 		contain,
 		class: classes,
 		...props
@@ -24,9 +24,10 @@ const {
 <Tag
 	{...link ? { href: `/${_slug(link)}` } : {}}
 	class:list={[
-		'flex items-center w-full h-[6.0775rem] rounded-xl group r-hide-overflow overflow-y-clip hover:bg-[var(--color-bg-default-elevated)]',
+		'flex items-center w-full h-[6.0775rem] rounded-xl group r-hide-overflow overflow-y-clip',
 		adjustWidth ? 'sm:w-[calc(50%-1rem)]' : 'max-w-[23rem]',
 		fill && 'bg-[var(--color-bg-default-elevated)] p-1',
+        link && 'hover:bg-[var(--color-bg-default-elevated)]',
 		classes,
 	]}
 	{...props}>
@@ -40,10 +41,12 @@ const {
 				? entry.content?.image.alt
 				: entry.content.headshot.alt}
 			filter
-            top={top}
+			top={top}
 			contain={contain}
 			class:list={[
-				'size-full group-hover:scale-105 transition-transform duration-200',
+				'size-full',
+				link &&
+					'group-hover:scale-105 transition-transform duration-200',
 			]}
 		/>
 	</div>
@@ -51,9 +54,11 @@ const {
 		<Text
 			text={entry.content.title
 				? entry.content.title
-				: entry.content.name}
+				: entry.content.name
+					? entry.content.name
+					: entry.name}
 			color='title'
-			size='emphasis'
+			size='1hx'
 			family='display'
 			weight='bold'
 			class='line-clamp-3'
@@ -70,15 +75,18 @@ const {
 			)
 		}
 	</div>
-	<div
-		class='fixed bottom-0 right-0 translate-y-4 opacity-0 transition duration-200 group-hover:translate-y-0 group-hover:opacity-100'>
-		<Icon
-			name='cutout-up'
-			class='w-[10rem] text-[var(--color-emphasis)] absolute -right-[4.5rem] -bottom-[2.8rem]'
-		/>
-		<Icon
-			name='arrow-right'
-			class='size-5 text-white absolute right-3 bottom-2 z-10'
-		/>
-	</div>
+	{
+		link && (
+			<div class='fixed bottom-0 right-0 translate-y-4 opacity-0 transition duration-200 group-hover:translate-y-0 group-hover:opacity-100'>
+				<Icon
+					name='cutout-up'
+					class='w-[10rem] text-[var(--color-emphasis)] absolute -right-[4.5rem] -bottom-[2.8rem]'
+				/>
+				<Icon
+					name='arrow-right'
+					class='size-5 text-white absolute right-3 bottom-2 z-10'
+				/>
+			</div>
+		)
+	}
 </Tag>
