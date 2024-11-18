@@ -73,7 +73,12 @@ const {
 							labelText={breadcrumbLabel}
 						/>
 						<div
-							class='flex flex-col gap-3 lg:gap-4 pr-3 xs:pr-6 sm:pr-8 lg:pr-20'>
+							class:list={[
+								'flex flex-col gap-3 lg:gap-4',
+								flipped
+									? 'pr-4 xs:pr-6 sm:pr-8'
+									: 'pr-4 xs:pr-6 sm:pr-8 lg:pr-20 xl:pr-24',
+							]}>
 							<Text
 								tag='h2'
 								text={item.title}
@@ -119,5 +124,5 @@ const {
 			</div>
 		</Grid>
 	</Wrapper>
-	<BrandCutDown class='z-[-1]' specialCase flipped={flipped} />
+	<BrandCutDown class='z-[-1] lg:!top-[19%]' specialCase flipped={flipped} />
 </Section>
