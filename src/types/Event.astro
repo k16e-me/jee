@@ -5,12 +5,14 @@ import Text from '@atoms/Text.astro'
 import CardPerson from '@blocks/CardPerson.astro'
 import HeadingSection from '@blocks/HeadingSection.astro'
 import ListSession from '@blocks/ListSession.astro'
+import ListStat from '@blocks/ListStat.astro'
 import SectionSpy from '@blocks/SectionSpy.astro'
 import HeaderBasic from '@composites/headers/HeaderBasic.astro'
 import Grid from '@layouts/Grid.astro'
 import Section from '@layouts/Section.astro'
 import Wrapper from '@layouts/Wrapper.astro'
 import _empty from '@scripts/empty'
+import _formatDate from '@scripts/format-date'
 import _slugify from '@scripts/slugify'
 import { _spaceY, _sectionPadding, _xPadding } from '@scripts/snips'
 import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro'
@@ -63,7 +65,6 @@ headings.push(blok.rsvp_label)
 						_xPadding('both-md-down-lg-r'),
 						'col-span-full grid grid-cols-12',
 					]}>
-
 					<!-- Video || Image -->
 					{
 						_empty(blok.video_id) ? (
@@ -109,7 +110,7 @@ headings.push(blok.rsvp_label)
 							text={blok.summary}
 							color='body'
 							size='2hx'
-                            italic
+							italic
 						/>
 					</div>
 
@@ -170,13 +171,38 @@ headings.push(blok.rsvp_label)
 							text={blok.sessions_label}
 							size='4'
 						/>
-						<ul class="flex flex-col gap-8 sm:gap-10 md:gap-12">
-                            {
-                                blok.sessions.map(i => (
-                                    <ListSession heading={i.title} duration={i.duration} person={i.host}/>
-                                ))
-                            }
-                        </ul>
+						<ul class='flex flex-col gap-8 sm:gap-10 md:gap-12'>
+							{
+								blok.sessions.map((i) => (
+									<ListSession
+										heading={i.title}
+										duration={i.duration}
+										person={i.host}
+									/>
+								))
+							}
+						</ul>
+					</div>
+
+					<!-- RSVP -->
+					<div
+						class:list={[
+							_sectionPadding('top'),
+							_spaceY(),
+							'col-span-full md:col-start-2 md:col-end-11 lg:col-start-1 _section',
+						]}
+						id={_slugify(blok.rsvp_label)}>
+						<HeadingSection
+							level='h3'
+							text={blok.rsvp_label}
+							size='4'
+						/>
+						<div
+							class='flex flex-wrap [&>*]:max-w-[12rem] gap-4 sm:gap-6 md:gap-10'>
+							<ListStat heading={'Venue'} body={blok.venue} />
+							<ListStat heading={'Date'} body={_formatDate(blok.start_date)} />
+							<ListStat heading={'Time'} body={blok.time} />
+						</div>
 					</div>
 				</div>
 			</div>

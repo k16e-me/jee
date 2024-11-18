@@ -10,6 +10,7 @@ const {
 		theme = 'dark',
 		icon,
 		iconRight,
+		iconLeft,
 		class: classes,
 		...props
 	} = Astro.props,
@@ -25,6 +26,7 @@ const {
 	]}
 	{...props}>
 	<div class='flex w-full items-center space-x-3 will-swap'>
+		{iconLeft && <Icon name={icon} class='size-5 text-inherit' />}
 		<Text
 			text={label}
 			size='button'

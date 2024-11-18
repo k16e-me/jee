@@ -34,10 +34,10 @@ const {
 	<div
 		class='rounded-tl-lg rounded-bl-lg rounded-tr-2xl rounded-br-[3rem] overflow-clip w-[5.65rem] h-full shrink-0 bg-[var(--color-bg-default-elevated)]'>
 		<Image
-			filename={entry.content.image
+			filename={entry.content?.image
 				? entry.content?.image.filename
 				: entry.content.headshot.filename}
-			alt={entry.content.image
+			alt={entry.content?.image
 				? entry.content?.image.alt
 				: entry.content.headshot.alt}
 			filter

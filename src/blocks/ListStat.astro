@@ -1,0 +1,24 @@
+---
+import Text from '@atoms/Text.astro'
+
+const { heading, body, class: classes, ...props } = Astro.props
+---
+
+<div class:list={['flex flex-col gap-1', classes]} {...props}>
+	<Text
+		tag='p'
+		text={heading}
+		size='h6'
+		weight='semi'
+		color='body'
+		uppercase
+		loosen
+	/>
+	<Text
+		tag='p'
+		text={body}
+		size='blurb'
+		weight='medium'
+		color='caption'
+	/>
+</div>
