@@ -1,15 +1,64 @@
 ---
-const { blok, class: classes, ...props } = Astro.props
+import Section from '@layouts/Section.astro'
+import Wrapper from '@layouts/Wrapper.astro'
+import Grid from '@layouts/Grid.astro'
+import Text from '@atoms/Text.astro'
+import ButtonLink from '@atoms/ButtonLink.astro'
+import { _sectionPadding, _xPadding, _spaceY, _gridGap } from '@scripts/snips'
+import Icon from '@atoms/Icon.astro'
+import BrandCutFull from '@atoms/BrandCutFull.astro'
+import ButtonMore from '@atoms/ButtonMore.astro'
+import Breadcrumb from '@blocks/Breadcrumb.astro'
+import _empty from '@scripts/empty'
+import _slugify from '@scripts/slugify'
+import Image from '@atoms/Image.astro'
+
+const {
+		blok,
+		altComponent,
+		breadcrumbLink,
+		breadcrumbLabel,
+		altTitle,
+		altCopy,
+		class: classes,
+		...props
+	} = Astro.props,
+	copy = altCopy ? altCopy : blok.copy
 ---
 
-<section
-	{...props}
+<Section
+	component={altComponent ? altComponent : blok.component}
+	header
+	section={false}
 	class:list={[
-		// Default Classes
-		'',
-
-		// Classes can be passed in when called
+		'r-hide-overflow min-h-[19.5rem] xs:min-h-[17rem] sm:min-h-[16rem] md:min-h-[19rem] lg:min-h-[20rem]',
 		classes,
-	]}>
-	Header Image Expressive...
-</section>
+	]}
+	{...props}>
+	<Wrapper margins={false}>
+		<Grid grid='4-12-12' class='items-start'>
+			<div
+				class:list={[
+					'[grid-area:1/1/2/5] ml:[grid-area:1/1/2/6] order-2 ml:order-1 mt-[18rem] ml:mt-0 rounded-tr-[2rem] rounded-br-[3.5rem] lg:rounded-tr-[3.5rem] lg:rounded-br-[6rem] bg-[var(--color-bg-default)] relative z-[2]',
+					_xPadding('both-lg-l'),
+				]}>
+				<div class="h-[46rem] ml:h-[40rem] lg:h-[45rem]">
+					Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+					Consequatur odio obcaecati, id necessitatibus tempora
+					quibusdam quaerat ea, ab quis quos amet voluptate iure.
+					Animi voluptates maiores dolorum quibusdam inventore rem!
+				</div>
+			</div>
+			<div
+				class='[grid-area:1/1/2/5] ml:[grid-area:1/5/2/13] order-1 ml:order-2 h-[24.5rem] ml:h-[32.5rem] lg:h-[39rem] rounded-t-[1.5rem] ml:rounded-[2rem] ml:!rounded-br-[14rem] lg:rounded-[3.5rem] lg:!rounded-br-[18.5rem] ml:-mt-[2.5rem] lg:-mt-[3rem] z-[1] relative overflow-clip'>
+				<Image
+					filename={blok.image.filename}
+					alt={blok.image.alt}
+					filter
+					class='h-full'
+				/>
+			</div>
+		</Grid>
+	</Wrapper>
+	<BrandCutFull />
+</Section>

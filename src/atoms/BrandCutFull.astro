@@ -1,8 +1,11 @@
 ---
 import Icon from '@atoms/Icon.astro'
+
+const { placement = 'default', class: classes, ...props } = Astro.props
 ---
 
 <div
-	class='absolute inset-0 w-full scale-105 z-[-1] h-[20rem] sm:h-[35rem] md:h-[50rem] lg:h-[52rem]'>
+	class:list={['absolute w-full scale-105 z-[-1] h-[20rem] sm:h-[35rem] md:h-[50rem] lg:h-[52rem]',
+    placement === 'default' && placement !== 'expression' && 'inset-0', classes]} {...props}>
 	<Icon name='largelight' class='text-[var(--color-main)] size-full' />
 </div>

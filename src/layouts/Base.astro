@@ -23,15 +23,15 @@ import {
 	_addInsights,
 	_categories,
 	_addCategories,
-	_addEvents,
 	_events,
+	_addEvents,
 	_newsletter,
 	_addNewsletter,
 } from '@scripts/store'
 
 const currentYear = new Date().getFullYear(),
 	lastYear = currentYear - 1,
-	{ pageTitle, pageDescription, pageThumbnail, showNav, isError } =
+	{ pageTitle, pageDescription, pageThumbnail } =
 		Astro.props,
 	api = useStoryblokApi(),
 	{ data: settings } = await api.get('cdn/stories/settings', {

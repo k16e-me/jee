@@ -8,6 +8,7 @@ const
     topPaddingXlUp = 'xl:pt-20',
     edgePaddingXlUpR = 'xl:pr-16',
     edgePaddingXlUpL = 'xl:pl-16',
+    edgePaddingLgL = 'px-3 md:px-8 lg:pl-16 lg:pr-0',
     headerAndBlockSpacing = 'space-y-4 md:space-y-6 lg:space-y-7',
     gapY = 'gap-y-7 xs:gap-y-8 md:gap-y-10 ml:gap-y-14 lg:gap-y-20',
 
@@ -40,6 +41,7 @@ const
         if (edges === 'both-lgdown') return ['px-3', 'md:px-8', 'lg:px-16', 'xl:pr-0']
         if (edges === 'both-lgdown-l') return ['px-3', 'md:px-8', 'lg:px-16', 'xl:pl-0']
         if (edges === 'left-lgdown-l') return ['pl-3', 'md:pl-8', 'lg:pl-16', 'xl:pl-0']
+        if (edges === 'both-lg-l') return [...edgePaddingLgL.split(' ')]
         if (edges === 'both-xlup-r') return [...edgePaddingXlUpR.split(' ')]
         if (edges === 'both-xlup-l') return [...edgePaddingXlUpL.split(' ')]
     },
