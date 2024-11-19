@@ -1,5 +1,43 @@
 ---
+import Section from '@layouts/Section.astro'
+import Wrapper from '@layouts/Wrapper.astro'
+import Grid from '@layouts/Grid.astro'
+import Text from '@atoms/Text.astro'
+import { _sectionPadding } from '@scripts/snips'
+import Icon from '@atoms/Icon.astro'
+import _empty from '@scripts/empty'
+import Image from '@atoms/Image.astro'
+import SwiperQuotes from '@blocks/SwiperQuotes.astro'
 
+const { blok, class: classes, ...props } = Astro.props,
+	quotes = blok.quotes
 ---
 
-ImageGridQuotes
+<Section component={blok.component}>
+	<Wrapper margins={false}>
+		<Grid>
+			<div
+				class:list={[
+					'col-span-full md:[grid-area:1/1/2/5] lg:[grid-area:1/1/2/7]',
+				]}>
+			</div>
+			<div
+				class='col-span-full md:[grid-area:1/5/2/9] lg:[grid-area:1/7/2/13] r-hide-overflow'>
+				<div
+					class:list={[
+						_sectionPadding('top'),
+						'px-5 sm:px-8 lg:px-10 xl:px-18 h-full',
+					]}>
+					<div
+						class='absolute -top-2 -left-4 md:-top-6 md:-left-6 lg:-top-8'>
+						<Icon
+							name='quote-open'
+							class='size-28 md:size-48 lg:size-52 text-[var(--color-text-title)] opacity-10'
+						/>
+					</div>
+					<SwiperQuotes quotes={quotes} />
+				</div>
+			</div>
+		</Grid>
+	</Wrapper>
+</Section>
