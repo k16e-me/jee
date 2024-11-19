@@ -19,7 +19,7 @@ import _figureImg from './figure-image'
 
 const swup = new Swup({
     animationSelector: '[class*="swup-"]',
-    containers: ['#swup'],
+    containers: ['#swup', '#footer'],
     animateHistoryBrowsing: true,
     plugins: [
         new SwupPreloadPlugin(),

@@ -31,8 +31,7 @@ import {
 
 const currentYear = new Date().getFullYear(),
 	lastYear = currentYear - 1,
-	{ pageTitle, pageDescription, pageThumbnail } =
-		Astro.props,
+	{ pageTitle, pageDescription, pageThumbnail } = Astro.props,
 	api = useStoryblokApi(),
 	{ data: settings } = await api.get('cdn/stories/settings', {
 		version: import.meta.env.DEV ? 'draft' : 'published',
@@ -156,12 +155,17 @@ _addNewsletter(newsletter)
 	/>
 	<body
 		class='max-w-screen-3xl mx-auto flex flex-col min-h-screen overflow-x-hidden'>
-		<TitleHidden tag='h1' title={pageTitle} data-swup-morph='title-hidden' id='title-hidden' />
+		<TitleHidden
+			tag='h1'
+			title={pageTitle}
+			data-swup-morph='title-hidden'
+			id='title-hidden'
+		/>
 		<Header nav={site.nav} tools={site.tools} />
 		<main class='mb-auto swup-in' id='swup'>
 			<slot />
 		</main>
-		<Footer site={site} data-swup-morph='footer' id='footer' />
+		<Footer site={site} id='footer' />
 		<script src='@scripts/global.js'></script>
 	</body>
 </html>
