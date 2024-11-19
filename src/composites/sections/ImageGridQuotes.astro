@@ -10,19 +10,20 @@ import _slugify from '@scripts/slugify'
 
 const { blok, class: classes, ...props } = Astro.props,
 	quotes = blok.quotes,
-	images = blok.images.slice(0,5)
+	images = blok.images.slice(0, 5)
 ---
 
 <Section
 	component={blok.component}
 	title={blok.heading}
-    overlap={blok.overlap}
+	overlap={blok.overlap}
 	id={_slugify(blok.heading)}>
 	<Grid>
 		<div
 			class:list={[
-				'col-span-full lg:[grid-area:1/1/2/9] grid grid-cols-2 grid-rows-3 md:grid-cols-8 md:grid-rows-2 gap-4 md:gap-6 lg:gap-8',
-				_xPadding('both-md-up-lg-l')
+				'col-span-full lg:[grid-area:1/1/2/9] grid grid-cols-2 md:grid-cols-8 gap-4 md:gap-6 auto-rows-min',
+				_xPadding('both-md-up-lg-l'),
+				_sectionPadding('bottom-md-down'),
 			]}>
 			{
 				images.map((i, x) => (
