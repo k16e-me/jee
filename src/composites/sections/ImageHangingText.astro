@@ -10,11 +10,15 @@ import RichText from '@atoms/RichText.astro'
 import HeadingSection from '@blocks/HeadingSection.astro'
 import _empty from '@scripts/empty'
 import Image from '@atoms/Image.astro'
+import _slugify from '@scripts/slugify'
 
 const { blok, class: classes, ...props } = Astro.props
 ---
 
-<Section component={blok.component} overlap={blok.overlap}>
+<Section
+	component={blok.component}
+	overlap={blok.overlap}
+	id={blok.is_hashed ? _slugify(blok.heading) : _slugify(blok.component)}>
 	<Wrapper margins={false}>
 		<Grid
 			class:list={[
@@ -51,7 +55,7 @@ const { blok, class: classes, ...props } = Astro.props
 				<div
 					class='bg-[var(--color-bg-default-elevated)] rounded-2xl md:rounded-[32px] p-4 md:p-8 lg:p-12 flex flex-col gap-y-4 lg:gap-y-6'>
 					<HeadingSection text={blok.heading} level='h2' size='5' />
-					<RichText text={blok.text} pType='copy' color='title'/>
+					<RichText text={blok.text} pType='copy' color='title' />
 					{
 						!_empty(blok.action) && (
 							<ButtonLink

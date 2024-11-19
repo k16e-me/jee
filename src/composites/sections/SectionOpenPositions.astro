@@ -1,5 +1,26 @@
 ---
+import Section from '@layouts/Section.astro'
+import Wrapper from '@layouts/Wrapper.astro'
+import Grid from '@layouts/Grid.astro'
+import HeadingSection from '@blocks/HeadingSection.astro'
+import { _odd, _xPadding } from '@scripts/snips'
+import CardValue from '@blocks/CardValue.astro'
+import { _odd, _spaceY } from '@scripts/snips'
+import _slugify from '@scripts/slugify'
 
+const { blok, class: classes, ...props } = Astro.props,
+	values = blok.values
 ---
 
-SectionOpenPositions
+<Section
+	component={blok.component}
+	overlap={blok.overlap}
+	id={_slugify(blok.heading)}>
+	<Wrapper margins={false}>
+		<Grid>
+			<div class:list={['col-span-full', _spaceY()]}>
+				... Open ...
+			</div>
+		</Grid>
+	</Wrapper>
+</Section>
