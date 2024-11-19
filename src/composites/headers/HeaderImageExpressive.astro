@@ -42,11 +42,38 @@ const {
 					'[grid-area:1/1/2/5] ml:[grid-area:1/1/2/6] order-2 ml:order-1 mt-[20rem] ml:mt-0 rounded-tr-[2rem] rounded-br-[3.5rem] lg:rounded-tr-[3.5rem] lg:rounded-br-[6rem] bg-[var(--color-bg-default)] relative z-[2]',
 					_xPadding('both-lg-l'),
 				]}>
-				<div class='py-4 sm:py-6 ml:py-8 lg:pt-4 lg:pb-12 ml:pr-6 lg:pr-12'>
-					Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-					Consequatur odio obcaecati, id necessitatibus tempora
-					quibusdam quaerat ea, ab quis quos amet voluptate iure.
-					Animi voluptates maiores dolorum quibusdam inventore rem!
+				<div
+					class='py-4 sm:py-6 ml:py-8 lg:pt-4 lg:pb-12 ml:pr-6 lg:pr-12 flex flex-col gap-2 sm:gap-3'>
+					<Breadcrumb
+						altLink={breadcrumbLink
+							? breadcrumbLink
+							: blok.link[0].link}
+						labelText={breadcrumbLabel
+							? breadcrumbLabel
+							: 'JEE Home'}
+						page={altTitle ? altTitle : blok.title}
+					/>
+					<Text
+						tag='h2'
+						text={altTitle ? altTitle : blok.headline}
+						color='title'
+						size='3'
+						family='display'
+						weight='extra'
+						tighten
+					/>
+					{
+						!_empty(copy) && copy.length > 1 && (
+							<Text
+								tag='p'
+								text={copy}
+								color='body'
+								size='copy'
+								family='display'
+								class='max-w-screen-sm pr-6 mt-1.5 sm:mt-2.5 lg:mt-2'
+							/>
+						)
+					}
 				</div>
 			</div>
 			<div
