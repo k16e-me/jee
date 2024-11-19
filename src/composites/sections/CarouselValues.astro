@@ -19,7 +19,12 @@ const { blok, class: classes, ...props } = Astro.props,
 	<Wrapper margins={false}>
 		<Grid>
 			<div class:list={['col-span-full', _spaceY()]}>
-				<div class:list={[_xPadding('both-lgdown-l')]}>
+				<div
+					class:list={[
+						blok.is_standalone
+							? _xPadding('both')
+							: _xPadding('both-lgdown-l'),
+					]}>
 					<HeadingSection
 						level='h3'
 						text={blok.heading}
@@ -27,7 +32,12 @@ const { blok, class: classes, ...props } = Astro.props,
 						hasCarouselControls
 					/>
 				</div>
-				<div class:list={[_xPadding('left-lgdown-l')]}>
+				<div
+					class:list={[
+						blok.is_standalone
+							? _xPadding('left')
+							: _xPadding('left-lgdown-l'),
+					]}>
 					<div class:list={['swiper swiper-all']}>
 						<ul class='swiper-wrapper'>
 							{
