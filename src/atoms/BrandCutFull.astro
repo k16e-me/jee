@@ -6,9 +6,12 @@ const { placement = 'default', class: classes, ...props } = Astro.props
 
 <div
 	class:list={[
-		'absolute w-full scale-105 z-[-1] h-[20rem] sm:h-[35rem] md:h-[50rem] lg:h-[52rem]',
-		placement === 'default' && placement !== 'expression' && 'inset-0',
-		placement === 'expression' && 'top-[80%] sm:top-[60%] md:top-[40%] ml:top-[22.5%] lg:top-[27.5%]',
+		'absolute w-full z-[-1] h-[20rem] sm:h-[35rem] md:h-[50rem] lg:h-[52rem]',
+		placement === 'default' &&
+			placement !== 'expression' &&
+			'inset-0 scale-105',
+		placement === 'expression' &&
+			'top-[85%] sm:top-[60%] md:top-[40%] ml:top-[22.5%] lg:top-[27.5%] scale-[1.35] ml:scale-110 lg:scale-105',
 		classes,
 	]}
 	{...props}>

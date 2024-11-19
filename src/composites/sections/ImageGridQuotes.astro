@@ -3,30 +3,56 @@ import Section from '@layouts/Section.astro'
 import Wrapper from '@layouts/Wrapper.astro'
 import Grid from '@layouts/Grid.astro'
 import Text from '@atoms/Text.astro'
-import { _sectionPadding } from '@scripts/snips'
+import { _gridGap, _sectionPadding, _xPadding } from '@scripts/snips'
 import Icon from '@atoms/Icon.astro'
 import _empty from '@scripts/empty'
 import Image from '@atoms/Image.astro'
 import SwiperQuotes from '@blocks/SwiperQuotes.astro'
 
 const { blok, class: classes, ...props } = Astro.props,
-	quotes = blok.quotes
+	quotes = blok.quotes,
+	images = blok.images
 ---
 
-<Section component={blok.component}>
+<Section component={blok.component} title={blok.heading}>
 	<Wrapper margins={false}>
 		<Grid>
 			<div
 				class:list={[
-					'col-span-full md:[grid-area:1/1/2/5] lg:[grid-area:1/1/2/7]',
+					'col-span-full lg:[grid-area:1/1/2/9] grid grid-cols-2 grid-rows-3 md:grid-cols-8 md:grid-rows-2 gap-4 md:gap-6 lg:gap-8',
+					_xPadding('both-md-up-lg-l'),
 				]}>
+				{
+					images.map((i, x) => (
+						<div
+							class:list={[
+								'relative overflow-clip',
+								x == 0 &&
+									'[grid-area:1/1/2/3] md:[grid-area:1/1/3/5] h-[30rem] md:h-[40rem] rounded-t-2xl md:rounded-2xl lg:rounded-[1.5rem]',
+								x == 1 &&
+									'[grid-area:2/1/3/3] md:[grid-area:1/5/2/9] h-[14rem] md:h-[20rem] md:rounded-2xl lg:rounded-[1.5rem]',
+								x == 2 &&
+									'[grid-area:3/1/4/2] md:[grid-area:2/5/3/7] h-[12rem] md:h-[18.5rem] lg:h-[18rem] rounded-bl-2xl md:rounded-2xl lg:rounded-[1.5rem]',
+								x == 3 &&
+									'[grid-area:3/2/4/3] md:[grid-area:2/7/3/9] h-[12rem] md:h-[18.5rem] lg:h-[18rem] rounded-br-2xl md:rounded-2xl lg:rounded-[1.5rem]',
+							]}>
+							<Image
+								filename={i.file.filename}
+								alt={i.file.alt}
+								loading='lazy'
+								filter={false}
+								class='h-full'
+							/>
+						</div>
+					))
+				}
 			</div>
 			<div
-				class='col-span-full md:[grid-area:1/5/2/9] lg:[grid-area:1/7/2/13] r-hide-overflow'>
+				class='col-span-full lg:[grid-area:1/9/2/13] grid grid-cols-7 r-hide-overflow'>
 				<div
 					class:list={[
 						_sectionPadding('top'),
-						'px-5 sm:px-8 lg:px-10 xl:px-18 h-full',
+						'px-5 sm:px-8 lg:px-10 xl:px-18 h-full col-span-full sm:[grid-area:1/2/2/7] lg:col-span-full',
 					]}>
 					<div
 						class='absolute -top-2 -left-4 md:-top-6 md:-left-6 lg:-top-8'>

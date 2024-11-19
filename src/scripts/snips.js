@@ -33,6 +33,8 @@ const
         if (edges === 'left') return ['pl-3', 'md:pl-8', 'lg:pl-16']
         if (edges === 'left-md-down') return ['pl-3', 'md:pl-8', 'lg:pl-0']
         if (edges === 'both-mdup') return ['md:px-8', 'lg:px-16']
+        if (edges === 'both-md-up-lg-l') return ['md:px-8', 'lg:pl-16', 'lg:pr-0']
+        if (edges === 'left-md-up') return ['md:pl-8', 'lg:pl-16']
         if (edges === 'both-mddown-lg-l') return ['px-3', 'md:px-8', 'lg:pl-0', 'lg:pr-16']
         if (edges === 'both-md-down-l') return ['px-3', 'md:px-8', 'lg:!pr-0', 'lg:pl-16']
         if (edges === 'both-ml-down') return ['px-3', 'md:px-8', 'lg:px-0']
