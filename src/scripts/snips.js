@@ -9,7 +9,7 @@ const
     topPaddingXlUp = 'xl:pt-20',
     edgePaddingXlUpR = 'xl:pr-16',
     edgePaddingXlUpL = 'xl:pl-16',
-    edgePaddingLgL = 'px-3 md:px-8 lg:pl-16 lg:pr-0',
+    edgePaddingLgL = 'px-4 md:px-8 lg:pl-16 lg:pr-0',
     headerAndBlockSpacing = 'space-y-4 md:space-y-6 lg:space-y-7',
     gapY = 'gap-y-7 xs:gap-y-8 md:gap-y-10 ml:gap-y-14 lg:gap-y-20',
 
@@ -30,20 +30,20 @@ const
         if (direction === 'both') return [...bothPadding.split(' ')]
     },
     _xPadding = (edges = 'both') => {
-        if (edges === 'both') return ['px-3', 'md:px-8', 'lg:px-16']
+        if (edges === 'both') return ['px-4', 'md:px-8', 'lg:px-16']
         if (edges === 'right') return ['pr-3', 'md:pr-8', 'lg:pr-16']
         if (edges === 'left') return ['pl-3', 'md:pl-8', 'lg:pl-16']
         if (edges === 'left-md-down') return ['pl-3', 'md:pl-8', 'lg:pl-0']
         if (edges === 'both-mdup') return ['md:px-8', 'lg:px-16']
         if (edges === 'both-md-up-lg-l') return ['md:px-8', 'lg:pl-16', 'lg:pr-0']
         if (edges === 'left-md-up') return ['md:pl-8', 'lg:pl-16']
-        if (edges === 'both-mddown-lg-l') return ['px-3', 'md:px-8', 'lg:pl-0', 'lg:pr-16']
-        if (edges === 'both-md-down-l') return ['px-3', 'md:px-8', 'lg:!pr-0', 'lg:pl-16']
-        if (edges === 'both-ml-down') return ['px-3', 'md:px-8', 'lg:px-0']
-        if (edges === 'both-md-down') return ['px-3', 'md:px-8', 'lg:pr-0']
-        if (edges === 'both-md-down-lg-r') return ['px-3', 'md:px-8', 'lg:pl-0', 'lg:pr-16']
-        if (edges === 'both-lgdown') return ['px-3', 'md:px-8', 'lg:px-16', 'xl:pr-0']
-        if (edges === 'both-lgdown-l') return ['px-3', 'md:px-8', 'lg:px-16', 'xl:pl-0']
+        if (edges === 'both-mddown-lg-l') return ['px-4', 'md:px-8', 'lg:pl-0', 'lg:pr-16']
+        if (edges === 'both-md-down-l') return ['px-4', 'md:px-8', 'lg:!pr-0', 'lg:pl-16']
+        if (edges === 'both-ml-down') return ['px-4', 'md:px-8', 'lg:px-0']
+        if (edges === 'both-md-down') return ['px-4', 'md:px-8', 'lg:pr-0']
+        if (edges === 'both-md-down-lg-r') return ['px-4', 'md:px-8', 'lg:pl-0', 'lg:pr-16']
+        if (edges === 'both-lgdown') return ['px-4', 'md:px-8', 'lg:px-16', 'xl:pr-0']
+        if (edges === 'both-lgdown-l') return ['px-4', 'md:px-8', 'lg:px-16', 'xl:pl-0']
         if (edges === 'left-lgdown-l') return ['pl-3', 'md:pl-8', 'lg:pl-16', 'xl:pl-0']
         if (edges === 'both-lg-l') return [...edgePaddingLgL.split(' ')]
         if (edges === 'both-xlup-r') return [...edgePaddingXlUpR.split(' ')]
