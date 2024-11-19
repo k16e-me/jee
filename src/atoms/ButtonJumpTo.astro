@@ -1,0 +1,25 @@
+---
+import Icon from '@atoms/Icon.astro'
+import Text from '@atoms/Text.astro'
+import _slug from '@scripts/slug'
+import ButtonFab from './ButtonFab.astro'
+
+const { hash, label, icon, class: classes, ...props } = Astro.props
+---
+
+<a
+	href={`#${hash}`}
+	class:list={[
+		'w-full h-[3.5rem] flex items-center gap-3 sm:gap-4 px-2 rounded-[0.75rem] bg-transparent hover:bg-[var(--color-bg-default-elevated)] group',
+		classes,
+	]}
+	{...props}>
+    <ButtonFab
+        label={`Scroll page to ${label}`}
+        icon={icon}
+        style='brand'
+        bounceIcon
+        class="shrink-0"
+    />
+    <Text text={label} size='copy' family='display' weight='semi' />
+</a>

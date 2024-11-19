@@ -7,7 +7,7 @@ const {
 	text,
 	pType,
 	post,
-	weight,
+	weight = 'regular',
 	color = 'body',
 	class: classes,
 	...props
@@ -23,6 +23,7 @@ const {
 		pType === 'emphasis' && _fontSize('emphasis'),
 		pType === 'body' && _fontSize('body'),
 		pType === 'blurb' && _fontSize('blurb'),
+		weight === 'regular' && 'font-normal',
 		weight === 'medium' && 'font-medium',
 		color === 'body' && 'text-[var(--color-text-body)]',
 		color === 'title' && 'text-[var(--color-text-title)]',

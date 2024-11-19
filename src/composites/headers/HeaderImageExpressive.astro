@@ -3,15 +3,13 @@ import Section from '@layouts/Section.astro'
 import Wrapper from '@layouts/Wrapper.astro'
 import Grid from '@layouts/Grid.astro'
 import Text from '@atoms/Text.astro'
-import ButtonLink from '@atoms/ButtonLink.astro'
 import { _sectionPadding, _xPadding, _spaceY, _gridGap } from '@scripts/snips'
-import Icon from '@atoms/Icon.astro'
 import BrandCutFull from '@atoms/BrandCutFull.astro'
-import ButtonMore from '@atoms/ButtonMore.astro'
 import Breadcrumb from '@blocks/Breadcrumb.astro'
 import _empty from '@scripts/empty'
-import _slugify from '@scripts/slugify'
 import Image from '@atoms/Image.astro'
+import ButtonJumpTo from '@atoms/ButtonJumpTo.astro'
+import RichText from '@atoms/RichText.astro'
 
 const {
 		blok,
@@ -23,12 +21,13 @@ const {
 		class: classes,
 		...props
 	} = Astro.props,
-	copy = altCopy ? altCopy : blok.copy
+	copy = altCopy ? altCopy : blok.copy,
+	links = blok.jump_links
 ---
 
 <Section
 	component={altComponent ? altComponent : blok.component}
-	header
+	image
 	section={false}
 	class:list={[
 		'r-hide-overflow min-h-[19.5rem] xs:min-h-[17rem] sm:min-h-[16rem] md:min-h-[19rem] lg:min-h-[20rem]',
@@ -43,7 +42,7 @@ const {
 					_xPadding('both-lg-l'),
 				]}>
 				<div
-					class='py-4 sm:py-6 ml:py-8 lg:pt-4 lg:pb-12 ml:pr-6 lg:pr-12 flex flex-col gap-2 sm:gap-3'>
+					class='py-6 ml:py-10 lg:pt-2 lg:pb-12 ml:pr-6 lg:pr-12 flex flex-col gap-2 sm:gap-3'>
 					<Breadcrumb
 						altLink={breadcrumbLink
 							? breadcrumbLink
@@ -74,6 +73,18 @@ const {
 							/>
 						)
 					}
+					<div class="flex flex-col gap-1 py-4">
+						{
+							links.map((i) => (
+								<ButtonJumpTo
+									label={i.label}
+									hash={i.link_hash}
+                                    icon="arrow-down"
+								/>
+							))
+						}
+					</div>
+                    <RichText text={blok.expression} pType="body"/>
 				</div>
 			</div>
 			<div

@@ -3,11 +3,11 @@ import Icon from '@atoms/Icon.astro'
 
 const {
 		tag = 'button',
-		link,
 		label,
 		icon,
 		style = 'default',
 		flipIcon,
+		bounceIcon,
 		class: classes,
 		...props
 	} = Astro.props,
@@ -32,8 +32,9 @@ const {
 	<Icon
 		name={icon}
 		class:list={[
-			'w-[23px] text-inherit group-hover:scale-[1.15] group-hover/link:scale-[1.15] block',
+			'w-[1.4375rem] text-inherit group-hover:scale-[1.15] group-hover/link:scale-[1.15] block',
 			flipIcon && 'rotate-90',
+			bounceIcon && 'group-hover:animate-bounce [animation-fill-mode:both] duration-300',
 		]}
 	/>
 </Tag>
