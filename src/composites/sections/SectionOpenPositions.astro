@@ -16,11 +16,9 @@ const { blok, class: classes, ...props } = Astro.props,
 	component={blok.component}
 	overlap={blok.overlap}
 	id={_slugify(blok.heading)}>
-	<Wrapper margins={false}>
-		<Grid>
-			<div class:list={['col-span-full', _spaceY()]}>
-				... Open ...
-			</div>
-		</Grid>
+	<Wrapper>
+		<div class="bg-[var(--color-bg-default-elevated)] rounded-2xl md:rounded-[2rem] px-4 sm:px-6 md:px-12 py-6 sm:py-8 md:py-10 lg:py-[4.5rem]">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam, rerum architecto cupiditate rem hic molestias et, possimus ullam similique maxime voluptatum veritatis officia velit corporis odio adipisci voluptates tenetur in?
+        </div>
 	</Wrapper>
 </Section>
