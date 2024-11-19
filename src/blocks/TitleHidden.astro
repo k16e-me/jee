@@ -1,11 +1,12 @@
 ---
 const
-    { title, tag = 'h1' }
+    { title, tag = 'h1', ...props }
     = Astro.props,
     Tag = tag
 ---
 <Tag
     class='sr-only'
-    aria-label={ title }>
+    aria-label={ title }
+    {...props}>
 	{ title }
 </Tag>
