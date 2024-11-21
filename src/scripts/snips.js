@@ -31,9 +31,9 @@ const
     },
     _xPadding = (edges = 'both') => {
         if (edges === 'both') return ['px-4', 'md:px-8', 'lg:px-16']
-        if (edges === 'right') return ['pr-3', 'md:pr-8', 'lg:pr-16']
-        if (edges === 'left') return ['pl-3', 'md:pl-8', 'lg:pl-16']
-        if (edges === 'left-md-down') return ['pl-3', 'md:pl-8', 'lg:pl-0']
+        if (edges === 'right') return ['pr-4', 'md:pr-8', 'lg:pr-16']
+        if (edges === 'left') return ['pl-4', 'md:pl-8', 'lg:pl-16']
+        if (edges === 'left-md-down') return ['pl-4', 'md:pl-8', 'lg:pl-0']
         if (edges === 'both-mdup') return ['md:px-8', 'lg:px-16']
         if (edges === 'both-md-up-lg-l') return ['md:px-8', 'lg:pl-16', 'lg:pr-0']
         if (edges === 'left-md-up') return ['md:pl-8', 'lg:pl-16']
@@ -44,7 +44,7 @@ const
         if (edges === 'both-md-down-lg-r') return ['px-4', 'md:px-8', 'lg:pl-0', 'lg:pr-16']
         if (edges === 'both-lgdown') return ['px-4', 'md:px-8', 'lg:px-16', 'xl:pr-0']
         if (edges === 'both-lgdown-l') return ['px-4', 'md:px-8', 'lg:px-16', 'xl:pl-0']
-        if (edges === 'left-lgdown-l') return ['pl-3', 'md:pl-8', 'lg:pl-16', 'xl:pl-0']
+        if (edges === 'left-lgdown-l') return ['pl-4', 'md:pl-8', 'lg:pl-16', 'xl:pl-0']
         if (edges === 'both-lg-l') return [...edgePaddingLgL.split(' ')]
         if (edges === 'both-xlup-r') return [...edgePaddingXlUpR.split(' ')]
         if (edges === 'both-xlup-l') return [...edgePaddingXlUpL.split(' ')]
