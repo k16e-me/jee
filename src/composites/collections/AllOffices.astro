@@ -7,6 +7,8 @@ import _slugify from '@scripts/slugify'
 import HeadingSection from '@blocks/HeadingSection.astro'
 import { _offices } from '@scripts/store'
 import ListStat from '@blocks/ListStat.astro'
+import _empty from '@scripts/empty'
+import CardContactPerson from '@blocks/CardContactPerson.astro'
 
 const { blok } = Astro.props,
 	offices = _offices.value
@@ -30,6 +32,13 @@ const { blok } = Astro.props,
 							richtext
 							uppercase={false}
 						/>
+                        {
+                            !_empty(i.content.contacts) && (
+                                i.content.contacts.map(j => (
+                                    <CardContactPerson link={j.full_slug} image={j.content.headshot}/>
+                                ))
+                            )
+                        }
 					</li>
 				))
 			}

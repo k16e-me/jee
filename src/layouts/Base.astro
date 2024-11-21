@@ -69,7 +69,8 @@ let { data: awards } = await api.get('cdn/stories', {
 		starts_with: 'offices/',
 		version: import.meta.env.DEV ? 'draft' : 'published',
 		is_startpage: 0,
-        sort_by: 'content.order:asc'
+		sort_by: 'content.order:asc',
+		resolve_relations: ['office.contacts'],
 	}),
 	{ data: dataPeople } = await api.get('cdn/stories', {
 		starts_with: 'people/',

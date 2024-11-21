@@ -1,0 +1,34 @@
+---
+import Icon from '@atoms/Icon.astro'
+import Image from '@atoms/Image.astro'
+import Text from '@atoms/Text.astro'
+import _slug from '@scripts/slug'
+import { _capitalize } from '@scripts/snips'
+
+const { link, image, class: classes, ...props } = Astro.props
+---
+
+<div class='relative group flex gap-3'>
+	<a
+		href={`${link}`}
+		target='_self'
+		rel='follow'
+		tabindex='-1'
+		class='absolute inset-0 size-full z-[3]'></a>
+	<div
+		class='rounded-tl-[0.75rem] rounded-tr-2xl rounded-br-[2.5rem] rounded-bl-2xl overflow-clip size-[4.5rem] shrink-0 bg-[var(--color-bg-default-elevated)]'>
+		<Image
+			filename={image.filename}
+			alt={image.alt}
+			top
+			contain
+			class:list={[
+				'h-full scale-95 group-hover:scale-105 transition-transform duration-200',
+			]}
+		/>
+	</div>
+	<div class='flex flex-col gap-0.5 [&>*] relative'>
+		<a href='/people' set:text='Line 1' class="relative z-[4]"/>
+		<a href='/contact' set:text='Line 2' class="relative z-[4]"/>
+	</div>
+</div>
