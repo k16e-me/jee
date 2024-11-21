@@ -1,24 +1,31 @@
 ---
+import RichText from '@atoms/RichText.astro'
 import Text from '@atoms/Text.astro'
 
-const { heading, body, class: classes, ...props } = Astro.props
+const { heading, uppercase = true, size = 'h6', body, richtext, color = 'body', class: classes, ...props } = Astro.props
 ---
 
 <div class:list={['flex flex-col gap-1', classes]} {...props}>
 	<Text
 		tag='p'
 		text={heading}
-		size='h6'
+		size={size}
 		weight='semi'
-		color='body'
-		uppercase
-		loosen
+		color={color}
+		uppercase={uppercase}
+		loosen={uppercase}
 	/>
-	<Text
-		tag='p'
-		text={body}
-		size='blurb'
-		weight='medium'
-		color='caption'
-	/>
+	{
+        richtext ? (
+            <RichText text={body} pType='blurb' />
+        ) : (
+            <Text
+                tag='p'
+                text={body}
+                size='blurb'
+                weight='medium'
+                color='caption'
+            />
+        )
+    }
 </div>

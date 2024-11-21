@@ -2,30 +2,37 @@
 import Section from '@layouts/Section.astro'
 import Wrapper from '@layouts/Wrapper.astro'
 import Grid from '@layouts/Grid.astro'
-import { _sectionPadding, _xPadding } from '@scripts/snips'
+import { _gridGap, _sectionPadding, _spaceY, _xPadding } from '@scripts/snips'
 import _slugify from '@scripts/slugify'
 import HeadingSection from '@blocks/HeadingSection.astro'
 import { _offices } from '@scripts/store'
+import ListStat from '@blocks/ListStat.astro'
 
 const { blok } = Astro.props,
-offices = _offices.value
+	offices = _offices.value
 ---
 
 <Section
 	component={blok.component}
 	overlap={blok.overlap}
 	id={_slugify(blok.title)}>
-	<Wrapper>
+	<Wrapper class:list={[_spaceY()]}>
 		<HeadingSection text={blok.title} level='h2' size='4' />
-        <Grid grid="1-2-3" tag="ul" class="">
-            {
-                offices.map(i => (
-                    <li>
-                        {i.content.tag}
-                    </li>
-                ))
-            }
-        </Grid>
+		<Grid grid='1-2-3' tag='ul' class={[_gridGap('y')]}>
+			{
+				offices.map((i) => (
+					<li class="space-y-1.5">
+						<ListStat
+							heading={i.content.tag}
+                            color='title'
+                            size='1hx'
+							body={i.content.address}
+							richtext
+							uppercase={false}
+						/>
+					</li>
+				))
+			}
+		</Grid>
 	</Wrapper>
 </Section>
- 
