@@ -1,5 +1,30 @@
 ---
+import Section from '@layouts/Section.astro'
+import Wrapper from '@layouts/Wrapper.astro'
+import Grid from '@layouts/Grid.astro'
+import { _sectionPadding, _xPadding } from '@scripts/snips'
+import _slugify from '@scripts/slugify'
+import HeadingSection from '@blocks/HeadingSection.astro'
+import { _offices } from '@scripts/store'
 
+const { blok } = Astro.props,
+offices = _offices.value
 ---
 
-All Offices...
+<Section
+	component={blok.component}
+	overlap={blok.overlap}
+	id={_slugify(blok.title)}>
+	<Wrapper>
+		<HeadingSection text={blok.title} level='h2' size='4' />
+        <Grid grid="1-2-3" tag="ul" class="">
+            {
+                offices.map(i => (
+                    <li>
+                        {i.content.tag}
+                    </li>
+                ))
+            }
+        </Grid>
+	</Wrapper>
+</Section>
