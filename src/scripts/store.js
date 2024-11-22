@@ -12,7 +12,8 @@ export const
     _practices = atom([]),
     _africaPractices = atom([]),
     _categories = atom([]),
-    _newsletter = persistentAtom('newsletter', '')
+    _newsletter = persistentAtom('newsletter', ''),
+    _overlay = atom(false)
 
 
 export function _addAwards(item) { _awards.set(item) }
@@ -26,3 +27,6 @@ export function _addPractices(item) { _practices.set(item) }
 export function _addAfricaPractices(item) { _africaPractices.set(item) }
 export function _addCategories(item) { _categories.set(item) }
 export function _addNewsletter(item) { _newsletter.set(item) }
+
+export function _setOverlay() { _overlay.set(true) }
+export function _unsetOverlay() { _overlay.set(false) }
