@@ -10,12 +10,12 @@ export default function _modal() {
         slots = _ql('[data-modal-display]'),
         close = _q('[data-modal-close]', modal),
         on = () => {
-            modal.classList.remove('translate-y-full', 'opacity-0', 'invisible')
+            modal.classList.remove('translate-y-full', 'opacity-0', 'invisible', 'scale-90')
             modal.classList.add('translate-y-0', 'opacity-100')
         },
         off = () => {
             modal.classList.remove('translate-y-0', 'opacity-100')
-            modal.classList.add('translate-y-full', 'opacity-0')
+            modal.classList.add('translate-y-full', 'opacity-0', 'scale-90')
             setTimeout(() => modal.classList.add('invisible'), 300)
             slots.map(el => el.classList.add('sr-only'))
             _unsetOverlay()
