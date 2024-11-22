@@ -9,9 +9,10 @@ export default function _newsletterSubmit() {
     const submitButtons = _ql('[data-form-submit]')
 
     submitButtons.forEach(b => {
+        console.log(b.closest('[data-newsletter]'))
         const
             button = b,
-            formWrapper = button.closest('.newsletter-form'),
+            formWrapper = button.closest('[data-newsletter]'),
             form = _q('form', formWrapper),
             endpoint = form.getAttribute('form-id'),
             buttonContent = _q('.will-swap', form),

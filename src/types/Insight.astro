@@ -11,7 +11,6 @@ import { _gridGap, _sectionPadding, _spaceY, _xPadding } from '@scripts/snips'
 import _titlelize from '@scripts/titlelize'
 import InputText from '@atoms/InputText.astro'
 import HeadingSection from '@blocks/HeadingSection.astro'
-import { _categories } from '@scripts/store'
 import InputCheck from '@atoms/InputCheck.astro'
 import _slugify from '@scripts/slugify'
 import Newsletter from '@blocks/Newsletter.astro'
@@ -20,7 +19,6 @@ import SectionLatest from '@composites/sections/SectionLatest.astro'
 const { blok } = Astro.props,
 	authors = blok.author.slice(0, 3),
 	expertise = blok.expertise.slice(0, 3),
-	categories = _categories.value,
 	suggested = blok.suggested
 ---
 
@@ -127,7 +125,7 @@ const { blok } = Astro.props,
                     _spaceY(),
                     'px-4 sm:px-4 md:px-6 ml:pr-8 py-6 sm:py-8 ml:py-10',
                 ]}>
-                <Newsletter topics={categories} />
+                <Newsletter/>
             </div>
         </div>
         <div

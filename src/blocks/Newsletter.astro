@@ -7,19 +7,36 @@ import Text from '@atoms/Text.astro'
 import HeadingSection from '@blocks/HeadingSection.astro'
 import HeadingStretch from '@blocks/HeadingStretch.astro'
 import _slugify from '@scripts/slugify'
-import { _newsletter } from '@scripts/store'
+import { _newsletter, _categories } from '@scripts/store'
 
-const { topics, formId, formAction, class: classes, ...props } = Astro.props,
+const {
+		formId,
+		formAction,
+		modal,
+		headingType = 'stretch',
+		class: classes,
+		...props
+	} = Astro.props,
 	newsletter = _newsletter.value.global[0],
 	title = newsletter.title,
-	id = newsletter.component,
+	id = formId ?? newsletter.component,
 	success = newsletter.success_message,
 	error = newsletter.error_message,
-	source = newsletter.message_source
+	source = newsletter.message_source,
+	topics = _categories.value
 ---
 
-<div class:list={['newsletter-form space-y-6', classes]} {...props}>
-	<HeadingStretch tag='h3' text={title} />
+<div
+	class:list={['space-y-6', classes]}
+	{...props}
+	data-newsletter>
+	{
+		headingType === 'stretch' ? (
+			<HeadingStretch tag='h3' text={title} />
+		) : (
+			<HeadingSection text={title} level='h2' size='5' />
+		)
+	}
 	<div
 		class='border-y-2 border-[var(--color-border-muted)] py-5 ml:py-6 hidden form-submitted'>
 		<div class='space-y-4 on-success -translate-y-4 opacity-0'>
@@ -60,8 +77,8 @@ const { topics, formId, formAction, class: classes, ...props } = Astro.props,
 		<div class='grid grid-cols-1 md:grid-cols-2 gap-x-3 gap-y-5'>
 			<InputText
 				label='Name'
-				id='name'
-				name='Name'
+				id={modal ? 'modal-name' : 'name'}
+				name={modal ? 'Name (Modal)' : 'Name'}
 				placeholder='Your Full Name'
 				required
 				useShadow
@@ -70,8 +87,8 @@ const { topics, formId, formAction, class: classes, ...props } = Astro.props,
 			/>
 			<InputText
 				label='Email'
-				id='email'
-				name='Email'
+				id={modal ? 'modal-email' : 'email'}
+				name={modal ? 'Email (Modal)' : 'Email'}
 				placeholder='Email Address'
 				required
 				useShadow
@@ -80,8 +97,8 @@ const { topics, formId, formAction, class: classes, ...props } = Astro.props,
 			/>
 			<InputText
 				label='Organization'
-				id='org'
-				name='Organization'
+				id={modal ? 'modal-org' : 'org'}
+				name={modal ? 'Organization (Modal)' : 'Organization'}
 				placeholder='Your Organization'
 				required
 				useShadow
@@ -99,7 +116,11 @@ const { topics, formId, formAction, class: classes, ...props } = Astro.props,
 					topics.map((i) => (
 						<InputCheck
 							label={i.content.title}
-							id={_slugify(i.content.title)}
+							id={
+								modal
+									? `modal-${_slugify(i.content.title)}`
+									: _slugify(i.content.title)
+							}
 							name={i.content.title}
 							checked
 						/>
