@@ -1,11 +1,15 @@
+---
+const { class: classes, ...props } = Astro.props
+---
+
 <div
 	class:list={[
 		`
         fixed inset-0 bg-black z-[100]
         cursor-pointer transition duration-500 ease-in-out
-        opacity-40 
+        opacity-0 invisible
     `,
+    classes
 	]}
-	data-shim>
+	{...props}>
 </div>
-<!-- opacity-0 invisible -->

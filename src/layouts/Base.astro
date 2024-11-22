@@ -30,6 +30,7 @@ import {
 } from '@scripts/store'
 import OverlayShim from '@blocks/OverlayShim.astro'
 import Modal from '@blocks/Modal.astro'
+import ModalNewsletter from '@blocks/ModalNewsletter.astro'
 
 const currentYear = new Date().getFullYear(),
 	lastYear = currentYear - 1,
@@ -170,10 +171,13 @@ _addNewsletter(newsletter)
 			<slot />
 		</main>
 		<Footer site={site} id='footer' />
-        <Modal>
-            
-        </Modal>
-        <OverlayShim/>
+		<Modal data-modal class='opacity-0 translate-y-full invisible'>
+			<ModalNewsletter
+				class='opacity-0 translate-y-full'
+				data-modal-display='newsletter'
+			/>
+		</Modal>
+		<OverlayShim data-shim />
 		<script src='@scripts/global.js'></script>
 	</body>
 </html>

@@ -14,9 +14,7 @@ const year = new Date().getFullYear(),
 	{ site, class: classes, ...props } = Astro.props
 ---
 
-<footer
-	class:list={['z-20 relative r-hide-overflow', classes]}
-	{...props}>
+<footer class:list={['z-20 relative r-hide-overflow', classes]} {...props}>
 	<div
 		class='bg-[var(--color-dark)] md:mx-6 lg:mx-4 md:mb-6 lg:mb-4 rounded-tr-[2rem] md:rounded-[2rem]'>
 		<Wrapper class='pt-6 md:pt-10 lg:pt-12 xl:pt-16 pb-4 md:pb-8 lg:-mx-4'>
@@ -41,6 +39,8 @@ const year = new Date().getFullYear(),
 						theme='on-dark'
 						label={'Subscribe to JEE Insights'}
 						class='my-3'
+						data-modal-trigger='newsletter'
+						data-display='newsletter'
 					/>
 				</div>
 				<div

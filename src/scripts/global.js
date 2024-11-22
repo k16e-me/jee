@@ -16,6 +16,8 @@ import _prefilters from './prefilters'
 import { _newsletter } from './store'
 import _newsletterSubmit from './newsletter'
 import _figureImg from './figure-image'
+import _shim from './shim'
+import _modal from './modal'
 
 const swup = new Swup({
     animationSelector: '[class*="swup-"]',
@@ -52,6 +54,8 @@ function init() {
     _newsletterSubmit()
     _prefilters()
     _figureImg()
+    _shim()
+    _modal()
 }
 
 function once() {
