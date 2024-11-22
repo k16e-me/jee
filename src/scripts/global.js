@@ -1,8 +1,6 @@
 import Swup from 'swup'
-import SwupPreloadPlugin from '@swup/preload-plugin'
 import SwupProgressPlugin from '@swup/progress-plugin'
 import SwupHeadPlugin from '@swup/head-plugin'
-import SwupMorphPlugin from 'swup-morph-plugin'
 import _active from './active'
 import _accordion from './accordion'
 import _swiperAwards from './swiper-awards'
@@ -21,17 +19,15 @@ import _modal from './modal'
 
 const swup = new Swup({
     animationSelector: '[class*="swup-"]',
-    containers: ['#swup', '#footer'],
+    containers: ['#swup', '#footer', '#title-hidden'],
     animateHistoryBrowsing: true,
     plugins: [
-        new SwupPreloadPlugin(),
         new SwupProgressPlugin({
             className: 'swup-progress-bar',
             delay: 150,
             finishAnimation: false,
         }),
-        new SwupHeadPlugin(),
-        new SwupMorphPlugin()
+        new SwupHeadPlugin()
     ],
 })
 

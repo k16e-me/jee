@@ -1,0 +1,6 @@
+[[redirects]]
+  from = "/f/302089/*"
+  to = "https://a.storyblok.com/f/302089/:splat"
+  status = 200
+  force = true
+  headers = {X-From = "Netlify"}
