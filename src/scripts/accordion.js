@@ -14,7 +14,6 @@ export default function _accordion() {
             content = _q('.accordion__content', menu)
 
         trigger.addEventListener('click', e => {
-            console.log(menu)
             if (!menu.classList.contains('is-active')) {
                 expand(menu, trigger, content, icon)
                 let actives = _siblings(menu).filter(el => el.classList.contains('is-active'))
