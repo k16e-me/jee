@@ -2,13 +2,25 @@
 import Icon from '@atoms/Icon.astro'
 import Image from '@atoms/Image.astro'
 import Text from '@atoms/Text.astro'
+import { _fontSize } from '@scripts/font-size'
 import _slug from '@scripts/slug'
 import { _capitalize } from '@scripts/snips'
 
-const { link, image, class: classes, ...props } = Astro.props
+const {
+		link,
+		image,
+		tag = 'li',
+		name,
+		designation,
+		email,
+		phone,
+		class: classes,
+		...props
+	} = Astro.props,
+	Tag = tag
 ---
 
-<div class='relative group flex gap-3'>
+<Tag class='relative group flex gap-3'>
 	<a
 		href={`${link}`}
 		target='_self'
@@ -16,19 +28,46 @@ const { link, image, class: classes, ...props } = Astro.props
 		tabindex='-1'
 		class='absolute inset-0 size-full z-[3]'></a>
 	<div
-		class='rounded-tl-[0.75rem] rounded-tr-2xl rounded-br-[2.5rem] rounded-bl-2xl overflow-clip size-[4.5rem] shrink-0 bg-[var(--color-bg-default-elevated)]'>
+		class='rounded-tl-[0.75rem] rounded-tr-2xl rounded-br-[2.5rem] rounded-bl-2xl overflow-clip size-[4.5rem] shrink-0 bg-[var(--color-bg-default-elevated)] border-2 border-transparent group-hover:border-[var(--color-emphasis)] r-transition'>
 		<Image
 			filename={image.filename}
 			alt={image.alt}
 			top
 			contain
 			class:list={[
-				'h-full scale-95 group-hover:scale-105 transition-transform duration-200',
+				'h-full scale-110 translate-y-2 group-hover:scale-125 r-transition',
 			]}
 		/>
 	</div>
-	<div class='flex flex-col gap-0.5 [&>*] relative'>
-		<a href='/people' set:text='Line 1' class="relative z-[4]"/>
-		<a href='/contact' set:text='Line 2' class="relative z-[4]"/>
+	<div class='flex flex-col gap-0.5'>
+		<div class='flex flex-col gap-0.5'>
+			<Text
+				text={name}
+				color='title'
+				size='1hx'
+				family='display'
+				weight='semi'
+			/>
+			<Text
+				text={designation}
+				color='caption'
+				size='footnote'
+				family='display'
+				weight='medium'
+			/>
+		</div>
+		<div
+			class='flex flex-col gap-1 [&>*]:text-[var(--color-text-caption)] hover:[&>*]:text-[var(--color-text-emphasis)] relative [&>*]:font-medium underline underline-offset-1'>
+			<a
+				href={email.link.url}
+				set:text={email.label}
+				class:list={['relative z-[4]', _fontSize('footnote')]}
+			/>
+			<a
+				href={phone.link.url}
+				set:text={phone.label}
+				class:list={['relative z-[4]', _fontSize('footnote')]}
+			/>
+		</div>
 	</div>
-</div>
+</Tag>

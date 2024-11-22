@@ -23,22 +23,29 @@ const { blok } = Astro.props,
 		<Grid grid='1-2-3' tag='ul' class={[_gridGap('y')]}>
 			{
 				offices.map((i) => (
-					<li class="space-y-1.5">
+					<li class='space-y-6 md:space-y-8'>
 						<ListStat
 							heading={i.content.tag}
-                            color='title'
-                            size='1hx'
+							color='title'
+							size='1hx'
 							body={i.content.address}
 							richtext
 							uppercase={false}
 						/>
-                        {
-                            !_empty(i.content.contacts) && (
-                                i.content.contacts.map(j => (
-                                    <CardContactPerson link={j.full_slug} image={j.content.headshot}/>
-                                ))
-                            )
-                        }
+						{!_empty(i.content.contacts) && (
+							<ul class='flex flex-col gap-4'>
+								{i.content.contacts.map((j) => (
+									<CardContactPerson
+										link={j.full_slug}
+										image={j.content.headshot}
+										name={j.content.name}
+										designation={j.content.byline[0]?.designation}
+										email={j.content.links[0].email[0]}
+										phone={j.content.links[0].phone[0]}
+									/>
+								))}
+							</ul>
+						)}
 					</li>
 				))
 			}
