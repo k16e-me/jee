@@ -12,6 +12,8 @@ import CardContactPerson from '@blocks/CardContactPerson.astro'
 
 const { blok } = Astro.props,
 	offices = _offices.value
+
+    console.log(offices[0].content.contacts[0].content.byline[0])
 ---
 
 <Section
@@ -39,7 +41,7 @@ const { blok } = Astro.props,
 										link={j.full_slug}
 										image={j.content.headshot}
 										name={j.content.name}
-										designation={j.content.byline[0]?.designation}
+										designation={j.content.byline[0]?.content?.title}
 										email={j.content.links[0].email[0]}
 										phone={j.content.links[0].phone[0]}
 									/>
