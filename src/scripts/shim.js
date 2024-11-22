@@ -11,12 +11,13 @@ export default function _shim() {
         shim = _q('[data-shim]'),
         on = () => {
             shim.classList.remove('opacity-0', 'invisible')
-            shim.classList.add('opacity-40')
+            shim.classList.add('opacity-50')
             body.style.overflow = 'hidden'
         },
         off = () => {
             shim.classList.add('opacity-0')
-            shim.classList.remove('opacity-40')
+            shim.classList.remove('opacity-50')
+            setTimeout(() => shim.classList.add('invisible'), 500)
             body.style.overflow = ''
             _unsetOverlay()
         }

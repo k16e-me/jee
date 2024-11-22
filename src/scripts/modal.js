@@ -10,15 +10,13 @@ export default function _modal() {
         slots = _ql('[data-modal-display]'),
         shim = _q('[data-shim]'),
         on = () => {
-            modal.classList.remove('translate-y-full', 'opacity-0')
+            modal.classList.remove('translate-y-full', 'opacity-0', 'invisible')
             modal.classList.add('translate-y-0', 'opacity-100')
-            setTimeout(() => {
-                modal.classList.remove('invisible')
-            }, 300)
         },
         off = () => {
             modal.classList.remove('translate-y-0', 'opacity-100')
             modal.classList.add('translate-y-full', 'opacity-0')
+            setTimeout(() => modal.classList.add('invisible'), 300)
             slots.map(el => el.classList.add('sr-only'))
             _unsetOverlay()
         },
@@ -31,6 +29,7 @@ export default function _modal() {
                 slot = slots.find(el => (el.dataset.modalDisplay === attr))
 
             slot.scrollTop = 0
+            // slot.classList.remove('translate-y-8', 'opacity-0')
             slot.classList.remove('sr-only')
             _overlay.value ? _unsetOverlay() : _setOverlay()
         }

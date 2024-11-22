@@ -3,20 +3,16 @@ const { class: classes, ...props } = Astro.props
 ---
 
 <div
-	class:list={['fixed z-[150]', classes]}
+	class:list={[
+		'fixed w-full md:w-auto r-hide-overflow bottom-0 z-[150] p-4 md:p-0 md:bottom-auto left-1/2 -translate-x-1/2 md:top-24 transition duration-300 ease-in-out translate-y-full opacity-0 invisible',
+		classes,
+	]}
 	aria-labelledby='modal-title'
 	role='dialog'
 	aria-modal='true'
-    {...props}>
-	<div class='fixed inset-0 w-screen'>
-		<div
-			class='flex min-h-full items-end justify-center text-center sm:items-center p-4 r-hide-overflow'>
-			<div
-				class='overflow-auto rounded-2xl md:rounded-[2rem] bg-[var(--color-bg-default)] px-4 pt-6 md:pt-8 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-screen-sm sm:p-10 h-full max-h-[32.5rem] md:max-h-[42.5rem]'>
-				<div data-modal-content class="pb-6 md:pb-8">
-					<slot/>
-				</div>
-			</div>
-		</div>
+	{...props}>
+	<div
+		class='overflow-auto rounded-2xl md:rounded-[2rem] bg-[var(--color-bg-default)] shadow-xl transition-all w-full sm:w-[36rem] h-[32.5rem] md:h-[36rem] px-4 py-6 md:py-8 sm:p-10'>
+		<slot />
 	</div>
 </div>

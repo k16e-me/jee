@@ -28,7 +28,7 @@ import {
 	_newsletter,
 	_addNewsletter,
 } from '@scripts/store'
-import OverlayShim from '@blocks/OverlayShim.astro'
+import Shim from '@blocks/Shim.astro'
 import Modal from '@blocks/Modal.astro'
 import ModalNewsletter from '@blocks/ModalNewsletter.astro'
 
@@ -171,13 +171,12 @@ _addNewsletter(newsletter)
 			<slot />
 		</main>
 		<Footer site={site} id='footer' />
-		<Modal data-modal class='opacity-0 translate-y-full invisible'>
+		<Modal data-modal>
 			<ModalNewsletter
-				class='opacity-0 translate-y-full'
 				data-modal-display='newsletter'
 			/>
 		</Modal>
-		<OverlayShim data-shim />
+		<Shim data-shim />
 		<script src='@scripts/global.js'></script>
 	</body>
 </html>
