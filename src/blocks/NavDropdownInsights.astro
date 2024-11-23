@@ -1,5 +1,30 @@
 ---
+import NavItem from '@atoms/NavItem.astro'
+import NavLink from '@atoms/NavLink.astro'
+import HeadingStretch from '@blocks/HeadingStretch.astro'
+import _slug from '@scripts/slug'
+import _slugify from '@scripts/slugify'
+import HeadingSection from '@blocks/HeadingSection.astro'
+import NavDropdownLink from '@atoms/NavDropdownLink.astro'
+
 const { links, class: classes, ...props } = Astro.props
 ---
 
-<div class:list={['', classes]} {...props}>Insights...</div>
+<li
+	class:list={['', classes]}
+	{...props}>
+	<ul class='flex flex-col'>
+		{
+			links.map((i) => (
+                <li class='group/list'>
+                    <NavDropdownLink
+                        href={_slug(i.link)}
+                        data-anchor={_slugify(i.link.cached_url)}
+                        aria-label={`${i.label} Page`}
+                        label={i.label}
+                    />
+                </li>
+			))
+		}
+	</ul>
+</li>
