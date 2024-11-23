@@ -5,18 +5,23 @@ import _slug from '@scripts/slug'
 import _slugify from '@scripts/slugify'
 import _empty from '@scripts/empty'
 import ButtonFab from '@atoms/ButtonFab.astro'
+import NavDropdownLink from '@atoms/NavDropdownLink.astro'
+import NavDropdown from '@blocks/NavDropdown.astro'
 
 const { links, class: classes, ...props } = Astro.props
 ---
 
-<div
+<ul
 	class:list={[
 		classes,
 		'flex items-center lg:items-start justify-end lg:pt-4 gap-2 sm:gap-3 translate-x-1 sm:translate-x-2 lg:translate-x-0',
 	]}
 	{...props}>
-	<ButtonFlat link={links[2]} class='hidden lg:flex' />
-	<div
+	<li class='hidden lg:flex group/li'>
+		<ButtonFlat link={links[2]} />
+		<NavDropdown child='client-hub' links={links[2].children} />
+	</li>
+	<li
 		class='flex lg:flex-col items-center lg:items-start gap-2 sm:gap-3 lg:gap-0.5'>
 		<ButtonFab link={links[1]} icon='africa' class='order-2 lg:order-1' />
 		<ButtonFab
@@ -27,12 +32,12 @@ const { links, class: classes, ...props } = Astro.props
 			flipIcon
 			class='order-1 lg:order-2'
 		/>
-	</div>
-	<div class='h-full flex lg:hidden items-center'>
+	</li>
+	<li class='h-full flex lg:hidden items-center'>
 		<ButtonFab
 			style='blank-brand'
 			label='Trigger Mobile Menu'
 			icon='menu'
 		/>
-	</div>
-</div>
+	</li>
+</ul>

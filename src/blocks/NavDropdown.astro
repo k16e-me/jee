@@ -5,6 +5,7 @@ import _slugify from '@scripts/slugify'
 import _empty from '@scripts/empty'
 import NavDropdownExpertise from '@blocks/NavDropdownExpertise.astro'
 import NavDropdownInsights from '@blocks/NavDropdownInsights.astro'
+import NavDropdownClienthub from '@blocks/NavDropdownClienthub.astro'
 
 const { child, links, class: classes, ...props } = Astro.props
 ---
@@ -17,4 +18,5 @@ const { child, links, class: classes, ...props } = Astro.props
 	{...props}>
 	{child === 'expertise' && <NavDropdownExpertise links={links} />}
 	{child === 'insights-innovation' && <NavDropdownInsights links={links} />}
+    {child === 'client-hub' && <NavDropdownClienthub links={links}/> }
 </ul>
