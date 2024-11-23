@@ -25,10 +25,7 @@ const { links, class: classes, ...props } = Astro.props
 							children={!_empty(link.children)}
 						/>
 					</NavItem>
-                    <NavDropdown
-                        child={_slugify(link.label)}
-                        class='invisible opacity-0 translate-y-4 group-hover/li:visible group-hover/li:opacity-100 group-hover/li:translate-y-0 duration-[250ms] ease-in-out group-hover/li:transition group-hover/li:duration-[250ms] group-hover/li:ease-in-out'
-                    />
+                    <NavDropdown child={_slugify(link.label)} />
 				) : (
 					<NavItem
 						href={_slug(link.link)}
