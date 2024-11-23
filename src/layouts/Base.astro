@@ -6,27 +6,16 @@ import { useStoryblokApi } from '@storyblok/astro'
 import TitleHidden from '@blocks/TitleHidden.astro'
 import {
 	_addAwards,
-	_awards,
-	_people,
 	_addPeople,
-	_designtions,
 	_addDesignations,
-	_offices,
 	_addOffices,
-	_sectors,
 	_addSectors,
-	_practices,
 	_addPractices,
-	_africaPractices,
 	_addAfricaPractices,
-	_insights,
 	_addInsights,
-	_categories,
 	_addCategories,
-	_events,
 	_addEvents,
-	_newsletter,
-	_addNewsletter,
+	_addNewsletter
 } from '@scripts/store'
 import Shim from '@blocks/Shim.astro'
 import Modal from '@blocks/Modal.astro'
@@ -162,7 +151,7 @@ _addNewsletter(newsletter)
 		class='max-w-screen-3xl mx-auto flex flex-col min-h-screen overflow-x-hidden'>
 		<TitleHidden
 			tag='h1'
-			title={pageTitle} 
+			title={pageTitle}
 			id='title-hidden'
 		/>
 		<Header nav={site.nav} tools={site.tools} />

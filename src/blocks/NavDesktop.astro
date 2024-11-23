@@ -6,8 +6,21 @@ import _slug from '@scripts/slug'
 import _slugify from '@scripts/slugify'
 import _empty from '@scripts/empty'
 import NavDropdown from '@blocks/NavDropdown.astro'
+import { _africaPractices, _practices, _sectors } from '@scripts/store'
 
-const { links, class: classes, ...props } = Astro.props
+const { links, class: classes, ...props } = Astro.props,
+	sectors = _sectors.value.map(({ name, full_slug }) => ({
+		name,
+		full_slug,
+	})),
+	practices = _practices.value.map(({ name, full_slug }) => ({
+		name,
+		full_slug,
+	})),
+	africaPractices = _africaPractices.value.map(({ name, full_slug }) => ({
+		name,
+		full_slug,
+	}))
 ---
 
 <ul class:list={[classes, 'items-center h-full']} {...props}>
@@ -15,19 +28,19 @@ const { links, class: classes, ...props } = Astro.props
 		links.map((link) => (
 			<li class='group/li relative'>
 				{_empty(link.link.cached_url) ? (
-                    <NavItem
-                        tag='button'
-                        aria-label={`${link.label} Pages Dropdown`}>
-                        <NavLink
-                            link={link}
-                            children={!_empty(link.children)}
-                        />
-                    </NavItem>
-                    // <NavDropdown>
-                    //     <Expertise links={link.children} />
-                    //     <Insights class='hidden' />
-                    // </NavDropdown>
+					<NavItem
+						tag='button'
+						aria-label={`${link.label} Pages Dropdown`}>
+						<NavLink
+							link={link}
+							children={!_empty(link.children)}
+						/>
+					</NavItem>
 				) : (
+					// <NavDropdown>
+					//     <Expertise links={link.children} />
+					//     <Insights class='hidden' />
+					// </NavDropdown>
 					<NavItem
 						href={_slug(link.link)}
 						data-anchor={_slugify(link.link.story.full_slug)}
