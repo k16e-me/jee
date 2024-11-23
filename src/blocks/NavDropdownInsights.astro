@@ -22,6 +22,8 @@ const { links, class: classes, ...props } = Astro.props
                         data-anchor={_slugify(i.link.cached_url)}
                         aria-label={`${i.label} Page`}
                         label={i.label}
+                        target={i.link.target}
+                        external={i.link.linktype === 'url'} 
                     />
                 </li>
 			))

@@ -1,16 +1,18 @@
 ---
 import { _fontSize } from '@scripts/font-size'
+import Icon from '@atoms/Icon.astro'
 
-const { tag = 'a', label, class: classes, ...props } = Astro.props,
+const { tag = 'a', label, external, class: classes, ...props } = Astro.props,
 	Tag = tag
 ---
 
 <Tag
 	class:list={[
-		'block py-1.5 text-[var(--color-text-body)] group-hover/list:text-[var(--color-text-emphasis)] [&.active]:text-[var(--color-text-emphasis)] opacity-80 group-hover/list:opacity-100 [&.active]:opacity-100 font-medium',
+		'flex items-center gap-1 py-2 text-[var(--color-text-body)] group-hover/list:text-[var(--color-text-emphasis)] [&.active]:text-[var(--color-text-emphasis)] opacity-80 group-hover/list:opacity-100 [&.active]:opacity-100 font-medium',
 		_fontSize('blurb'),
 		classes,
 	]}
 	{...props}>
-	<span set:text={label} class='block' />
+	<span set:text={label} class='block pointer-events-none' />
+	{external && <Icon name='xlink' class='w-4 text-inherit opacity-60' />}
 </Tag>
