@@ -2,11 +2,21 @@
 const { links, class: classes, ...props } = Astro.props
 ---
 
-<div
-	class:list={[
-		'',
-		classes,
-	]}
-	{...props}>
-	Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorum veritatis reiciendis asperiores fuga quidem doloremque, reprehenderit laboriosam? Ipsam, assumenda minima aliquid aliquam quam corrupti reiciendis! Provident repudiandae totam omnis non.
+<div class:list={['grid grid-cols-3 gap-4 max-w-screen-md', classes]} {...props}>
+	<div>
+		Dolorum
+		veritatis reiciendis asperiores fuga quidem doloremque, reprehenderit
+		laboriosam? Ipsam, assumenda minima aliquid aliquam quam corrupti
+		reiciendis! Provident repudiandae totam omnis non.
+	</div>
+	<div>
+		Ipsam, assumenda minima aliquid aliquam quam corrupti
+		reiciendis! Provident repudiandae totam omnis non.
+	</div>
+	<div>
+		Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorum
+		veritatis reiciendis asperiores fuga quidem doloremque, reprehenderit
+		laboriosam? Ipsam, assumenda minima aliquid aliquam quam corrupti
+		reiciendis! Provident repudiandae totam omnis non.
+	</div>
 </div>
