@@ -7,7 +7,7 @@ const { tag = 'a', label, class: classes, ...props } = Astro.props,
 
 <Tag
 	class:list={[
-		'block py-1.5 text-[var(--color-text-body)] font-medium',
+		'block py-1.5 text-[var(--color-text-body)] group-hover/list:text-[var(--color-text-emphasis)] opacity-80 group-hover/list:opacity-100 font-medium',
 		_fontSize('blurb'),
 		classes,
 	]}

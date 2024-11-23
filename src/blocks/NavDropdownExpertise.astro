@@ -10,7 +10,7 @@ import NavDropdownLink from '@atoms/NavDropdownLink.astro'
 const { links, class: classes, ...props } = Astro.props
 ---
 
-<li class:list={['grid grid-cols-3 gap-8 max-w-screen-md', classes]} {...props}>
+<li class:list={['grid grid-cols-3 gap-10 max-w-screen-md', classes]} {...props}>
 	{
 		links.map((i) => (
 			<ul>
@@ -18,7 +18,7 @@ const { links, class: classes, ...props } = Astro.props
 					<HeadingSection text={i.label} size='2hx' padding='small' />
 					<ul class="flex flex-col">
 						{i.children.map((j) => (
-							<li class="group/li">
+							<li class="group/list">
 								<NavDropdownLink
 									href={_slug(j.link)}
 									data-anchor={_slugify(j.link.cached_url)}
