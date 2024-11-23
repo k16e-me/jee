@@ -1,5 +1,6 @@
 const
-    s3 = 'text-[1.775rem] leading-[2rem] md:text-[2.75rem] md:leading-[2.875rem] lg:text-[3.25rem] lg:leading-[3.4375rem]',
+    s2 = 'text-[1.875rem] leading-[1.975rem] md:text-[3.775rem] md:leading-[4.09375rem] lg:text-[4.25rem] lg:leading-[4.515rem]',
+    s3 = 'text-[1.775rem] leading-[2rem] md:text-[2.75rem] md:leading-[2.875rem] lg:text-[3.25rem] lg:leading-[3.5375rem]',
     s4 = 'text-[1.55625rem] leading-[1.75rem] md:text-[1.795rem] md:leading-[1.875rem] lg:text-[1.9rem] lg:leading-[2.05rem]',
     s5 = 'text-[1.3125rem] leading-[1.45rem] md:text-[1.4625rem] md:leading-[1.75rem] lg:text-[1.5275rem] lg:leading-[1.7375rem]',
     s6 = 'text-[1.1975rem] leading-[1.3725rem]',
@@ -13,6 +14,7 @@ const
     footnote = 'text-[0.8975rem] leading-[1.0925rem]',
 
     _fontSize = (s = 'body') => {
+        if (s === 's2' || s === '2') return [...s2.split(' ')]
         if (s === 's3' || s === '3') return [...s3.split(' ')]
         if (s === 's4' || s === '4') return [...s4.split(' ')]
         if (s === 's5' || s === '5') return [...s5.split(' ')]

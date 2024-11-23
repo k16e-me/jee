@@ -23,6 +23,9 @@ export default defineConfig({
             accessToken: env.STORYBLOK_TOKEN,
             livePreview: false,
             bridge: false,
+            apiOptions: {
+                cache: { clear: 'auto', type: 'memory' },
+            },
             components: {
                 // Types/Templates
                 page: 'types/Page',
