@@ -3,18 +3,18 @@ import Icon from '@atoms/Icon.astro'
 import _slug from '@scripts/slug'
 import _slugify from '@scripts/slugify'
 import _empty from '@scripts/empty'
+import NavDropdownExpertise from '@blocks/NavDropdownExpertise.astro'
+import NavDropdownInsights from '@blocks/NavDropdownInsights.astro'
 
-const { links, class: classes, ...props } = Astro.props
+const { child, links, class: classes, ...props } = Astro.props
 ---
 
-<div
+<ul
 	class:list={[
 		classes,
-		'absolute left-1/2 z-10 min-w-[224px] w-auto max-w-max -translate-x-1/2 px-4',
+		'absolute left-1/2 z-50 min-w-[224px] w-auto max-w-max -translate-x-1/2 px-4 flex-auto overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-gray-900/5 py-6',
 	]}
 	{...props}>
-	<div
-		class='w-full flex-auto overflow-hidden rounded-3xl bg-white text-sm leading-6 shadow-lg ring-1 ring-gray-900/5 py-6'>
-		<slot />
-	</div>
-</div>
+    {child === 'expertise' && <NavDropdownExpertise class='' />}
+    {child === 'insights-innovation' && <NavDropdownInsights class='' />}
+</ul>

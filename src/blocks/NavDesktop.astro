@@ -6,27 +6,16 @@ import _slug from '@scripts/slug'
 import _slugify from '@scripts/slugify'
 import _empty from '@scripts/empty'
 import NavDropdown from '@blocks/NavDropdown.astro'
-import { _africaPractices, _practices, _sectors } from '@scripts/store'
+import NavDropdownExpertise from '@blocks/NavDropdownExpertise.astro'
+import NavDropdownInsights from '@blocks/NavDropdownInsights.astro'
 
-const { links, class: classes, ...props } = Astro.props,
-	sectors = _sectors.value.map(({ name, full_slug }) => ({
-		name,
-		full_slug,
-	})),
-	practices = _practices.value.map(({ name, full_slug }) => ({
-		name,
-		full_slug,
-	})),
-	africaPractices = _africaPractices.value.map(({ name, full_slug }) => ({
-		name,
-		full_slug,
-	}))
+const { links, class: classes, ...props } = Astro.props
 ---
 
 <ul class:list={[classes, 'items-center h-full']} {...props}>
 	{
 		links.map((link) => (
-			<li class='group/li relative'>
+			<li class="group/li relative">
 				{_empty(link.link.cached_url) ? (
 					<NavItem
 						tag='button'
@@ -36,11 +25,11 @@ const { links, class: classes, ...props } = Astro.props,
 							children={!_empty(link.children)}
 						/>
 					</NavItem>
+                    <NavDropdown
+                        child={_slugify(link.label)}
+                        class='invisible opacity-0 translate-y-4 group-hover/li:visible group-hover/li:opacity-100 group-hover/li:-translate-y-1 transition duration-[250ms] ease-in-out'
+                    />
 				) : (
-					// <NavDropdown>
-					//     <Expertise links={link.children} />
-					//     <Insights class='hidden' />
-					// </NavDropdown>
 					<NavItem
 						href={_slug(link.link)}
 						data-anchor={_slugify(link.link.story.full_slug)}
