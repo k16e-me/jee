@@ -4,6 +4,8 @@ import NavLink from '@atoms/NavLink.astro'
 import HeadingStretch from '@blocks/HeadingStretch.astro'
 import _slug from '@scripts/slug'
 import _slugify from '@scripts/slugify'
+import HeadingSection from '@blocks/HeadingSection.astro'
+import NavDropdownLink from '@atoms/NavDropdownLink.astro'
 
 const { links, class: classes, ...props } = Astro.props
 ---
@@ -12,18 +14,18 @@ const { links, class: classes, ...props } = Astro.props
 	{
 		links.map((i) => (
 			<ul>
-				<li class=''>
-					<HeadingStretch text={i.label} />
-					<ul>
+				<li class='space-y-4'>
+					<HeadingSection text={i.label} size='2hx' padding='small' />
+					<ul class="flex flex-col">
 						{i.children.map((j) => (
-							<NavItem
-								href={_slug(j.link)}
-								data-anchor={_slugify(
-									j.link.cached_url,
-								)}
-								aria-label={`${j.label} Page`}>
-								<NavLink link={j} />
-							</NavItem>
+							<li class="group/li">
+								<NavDropdownLink
+									href={_slug(j.link)}
+									data-anchor={_slugify(j.link.cached_url)}
+									aria-label={`${j.label} Page`}
+									label={j.label}
+								/>
+							</li>
 						))}
 					</ul>
 				</li>

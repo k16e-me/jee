@@ -1,0 +1,16 @@
+---
+import { _fontSize } from '@scripts/font-size'
+
+const { tag = 'a', label, class: classes, ...props } = Astro.props,
+	Tag = tag
+---
+
+<Tag
+	class:list={[
+		'block py-1.5 text-[var(--color-text-body)] font-medium',
+		_fontSize('blurb'),
+		classes,
+	]}
+	{...props}>
+	<span set:text={label} class='block' />
+</Tag>
