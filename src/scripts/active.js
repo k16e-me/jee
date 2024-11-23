@@ -1,7 +1,7 @@
-import { _ql, _q } from './snips'
-import _slugify from './slugify'
-import _siblings from './siblings'
-import _empty from './empty'
+import { _ql, _q } from '@scripts/snips'
+import _slugify from '@scripts/slugify'
+import _siblings from '@scripts/siblings'
+import _empty from '@scripts/empty'
 
 export default function _active() {
     if (!_q('[data-anchor]')) return
@@ -10,8 +10,8 @@ export default function _active() {
         navA = _ql('[data-anchor]'),
         currLoc = _slugify(location.pathname),
         parent = location.pathname.split('/')[1],
-        activeA = navA.filter(a => (a.dataset.anchor === currLoc || parent.includes(a.dataset.anchor)))
-
+        activeA = navA.filter(a => (a.dataset.anchor === currLoc || parent.startsWith(a.dataset.anchor)))
+console.log(location.pathname, currLoc, parent)
     if (!_empty(activeA)) {
         navA.map(a => a.classList.remove('active'))
         activeA.map(a => a.classList.add('active'))

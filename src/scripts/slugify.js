@@ -7,4 +7,5 @@ export default function _slugify(s) {
         .replace(/\s+/g, '-')
         .replace(/-+/g, '-')
         .replace(/-+$/g, '')
+        .replace(/^-+/g, '')
 }
