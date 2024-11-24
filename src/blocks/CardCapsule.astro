@@ -24,7 +24,7 @@ const {
 <Tag
 	{...link ? { href: `/${_slug(link)}` } : {}}
 	class:list={[
-		'flex items-center w-full h-[6.0775rem] rounded-xl group r-hide-overflow overflow-y-clip',
+		'flex items-center w-full h-[4.75rem] rounded-xl group r-hide-overflow overflow-y-clip',
 		adjustWidth ? 'sm:w-[calc(50%-1rem)]' : 'max-w-[23rem]',
 		fill && 'bg-[var(--color-bg-default-elevated)] p-1',
         link && 'hover:bg-[var(--color-bg-default-elevated)]',
@@ -32,7 +32,7 @@ const {
 	]}
 	{...props}>
 	<div
-		class='rounded-tl-lg rounded-bl-lg rounded-tr-2xl rounded-br-[3rem] overflow-clip w-[5.65rem] h-full shrink-0 bg-[var(--color-bg-default-elevated)]'>
+		class='rounded-tl-lg rounded-bl-lg rounded-tr-2xl rounded-br-[3rem] overflow-clip w-20 h-full shrink-0 bg-[var(--color-bg-default-elevated)]'>
 		<Image
 			filename={entry.content?.image
 				? entry.content?.image.filename
@@ -60,7 +60,7 @@ const {
 			color='title'
 			size='1hx'
 			family='display'
-			weight='bold'
+			weight='semi'
 			class='line-clamp-3'
 		/>
 		{

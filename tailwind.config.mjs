@@ -6,10 +6,6 @@ export default {
 	content: ['./src/**/*.{astro,html,js,md,mdx,ts}'],
 	theme: {
         extend: {
-            fontFamily: {
-                sans: ['Instrument Sans Variable, sans-serif', ...defaultTheme.fontFamily.sans],
-                display: 'Lexend Variable, sans-serif'
-            },
             spacing: {
                 18: '4.5rem',
                 26: '6.5rem'
