@@ -5,6 +5,7 @@ import Footer from '@layouts/Footer.astro'
 import { useStoryblokApi } from '@storyblok/astro'
 import TitleHidden from '@blocks/TitleHidden.astro'
 import {
+	_addSettings,
 	_addAwards,
 	_addPeople,
 	_addDesignations,
@@ -16,6 +17,7 @@ import {
 	_addCategories,
 	_addEvents,
 	_addNewsletter,
+	_settings,
 } from '@scripts/store'
 import Shim from '@blocks/Shim.astro'
 import Modal from '@blocks/Modal.astro'
@@ -26,21 +28,7 @@ import Drapery from '@blocks/Drapery.astro'
 const currentYear = new Date().getFullYear(),
 	lastYear = currentYear - 1,
 	{ pageTitle, pageDescription, pageThumbnail } = Astro.props,
-	api = useStoryblokApi(),
-	{ data: settings } = await api.get('cdn/stories/settings', {
-		version: import.meta.env.DEV ? 'draft' : 'published',
-		resolve_links: 'url',
-		resolve_relations: [
-			'settings.awards',
-			'settings.links',
-			'settings.socials',
-		],
-	}),
-	site = settings.story.content,
-	{ data: dataNewsletter } = await api.get('cdn/stories/global/newsletter', {
-		version: import.meta.env.DEV ? 'draft' : 'published',
-	}),
-	newsletter = dataNewsletter.story.content
+	api = useStoryblokApi()
 
 let fixHeader = true,
 	currPath = Astro.url.pathname,
@@ -52,29 +40,44 @@ else currPath = currPath.replace(/^\//, '').replace(/\.html$/, '')
 
 _startsWith(currPath, unfixHeader) ? (fixHeader = false) : (fixHeader = true)
 
-const calls = [
+const calls = []
 
-]
-
-// const t0 = performance.now()
-let { data: awards } = await api.get('cdn/stories', {
+calls.push(
+	api.get('cdn/stories/settings', {
+		version: import.meta.env.DEV ? 'draft' : 'published',
+		resolve_links: 'url',
+		resolve_relations: [
+			'settings.awards',
+			'settings.links',
+			'settings.socials',
+		],
+	}),
+)
+calls.push(
+	api.get('cdn/stories', {
 		starts_with: 'awards/',
 		version: import.meta.env.DEV ? 'draft' : 'published',
 		by_slugs: [`awards/${currentYear}/*`, `awards/${lastYear}/*`],
 		level: 3,
 		is_startpage: false,
 	}),
-	{ data: dataDesignations } = await api.get('cdn/stories', {
+)
+calls.push(
+	api.get('cdn/stories', {
 		starts_with: 'designations/',
 		version: import.meta.env.DEV ? 'draft' : 'published',
 		is_startpage: false,
 	}),
-	{ data: dataCategories } = await api.get('cdn/stories', {
+)
+calls.push(
+	api.get('cdn/stories', {
 		starts_with: 'category/',
 		version: import.meta.env.DEV ? 'draft' : 'published',
 		is_startpage: false,
 	}),
-	{ data: dataOffices } = await api.get('cdn/stories', {
+)
+calls.push(
+	api.get('cdn/stories', {
 		starts_with: 'offices/',
 		version: import.meta.env.DEV ? 'draft' : 'published',
 		is_startpage: false,
@@ -82,7 +85,9 @@ let { data: awards } = await api.get('cdn/stories', {
 		resolve_links: 'url',
 		resolve_relations: ['office.contacts'],
 	}),
-	{ data: dataPeople } = await api.get('cdn/stories', {
+)
+calls.push(
+	api.get('cdn/stories', {
 		starts_with: 'people/',
 		version: import.meta.env.DEV ? 'draft' : 'published',
 		is_startpage: false,
@@ -93,28 +98,36 @@ let { data: awards } = await api.get('cdn/stories', {
 			'collection.collection',
 		],
 	}),
-	{ data: dataSectors } = await api.get('cdn/stories', {
+)
+calls.push(
+	api.get('cdn/stories', {
 		starts_with: 'sectors/',
 		version: import.meta.env.DEV ? 'draft' : 'published',
 		is_startpage: false,
 		resolve_links: 'url',
 		sort_by: 'content.title:asc',
 	}),
-	{ data: dataPractices } = await api.get('cdn/stories', {
+)
+calls.push(
+	api.get('cdn/stories', {
 		starts_with: 'practices/',
 		version: import.meta.env.DEV ? 'draft' : 'published',
 		is_startpage: false,
 		resolve_links: 'url',
 		sort_by: 'content.title:asc',
 	}),
-	{ data: dataAfricaPractices } = await api.get('cdn/stories', {
+)
+calls.push(
+	api.get('cdn/stories', {
 		starts_with: 'africa-expertise/',
 		version: import.meta.env.DEV ? 'draft' : 'published',
 		is_startpage: false,
 		resolve_links: 'url',
 		sort_by: 'content.title:asc',
 	}),
-	{ data: dataInsights } = await api.get('cdn/stories', {
+)
+calls.push(
+	api.get('cdn/stories', {
 		starts_with: 'insights/',
 		version: import.meta.env.DEV ? 'draft' : 'published',
 		is_startpage: false,
@@ -126,54 +139,67 @@ let { data: awards } = await api.get('cdn/stories', {
 			'insight.expertise',
 		],
 	}),
-	{ data: dataEvents } = await api.get('cdn/stories', {
+)
+calls.push(
+	api.get('cdn/stories', {
 		starts_with: 'events/',
 		version: import.meta.env.DEV ? 'draft' : 'published',
 		is_startpage: false,
 		sort_by: 'content.start_date:desc',
 		resolve_links: 'url',
 		resolve_relations: ['session.host', 'panelist.person'],
-	})
+	}),
+)
+calls.push(
+	api.get('cdn/stories/global/newsletter', {
+		version: import.meta.env.DEV ? 'draft' : 'published',
+	}),
+)
 
-let people = dataPeople.stories,
-	designations = dataDesignations.stories,
-	offices = dataOffices.stories,
-	sectors = dataSectors.stories,
-	practices = dataPractices.stories,
-	africaPractices = dataAfricaPractices.stories,
-	insights = dataInsights.stories,
-	categories = dataCategories.stories,
-	events = dataEvents.stories
+const [
+	settings,
+	awards,
+	designations,
+	categories,
+	offices,
+	people,
+	sectors,
+	practices,
+	africaPractices,
+	insights,
+	events,
+	newsletter,
+] = await Promise.all(calls)
 
-_addAwards(awards)
-_addPeople(people)
-_addDesignations(designations)
-_addOffices(offices)
-_addSectors(sectors)
-_addPractices(practices)
-_addAfricaPractices(africaPractices)
-_addInsights(insights)
-_addCategories(categories)
-_addEvents(events)
-_addNewsletter(newsletter)
-// const t1 = performance.now()
+_addAwards(awards.data.stories)
+_addPeople(people.data.stories)
+_addDesignations(designations.data.stories)
+_addOffices(offices.data.stories)
+_addSectors(sectors.data.stories)
+_addPractices(practices.data.stories)
+_addAfricaPractices(africaPractices.data.stories)
+_addInsights(insights.data.stories)
+_addCategories(categories.data.stories)
+_addEvents(events.data.stories)
+_addNewsletter(newsletter.data.story.content)
+_addSettings(settings.data.story.content)
 
-// console.log('t1 - t0 = ', t1 - t0)
+const siteData = _settings.value
 ---
 
 <!doctype html>
 <html lang='en' class='scroll-smooth bg-[var(--color-bg-default)]'>
 	<Head
-		title={`${pageTitle} | ${site.title}`}
-		description={pageDescription || site.description}
+		title={`${pageTitle} | ${siteData.title}`}
+		description={pageDescription || siteData.description}
 		image={pageThumbnail || '/thumbnail.png'}
 	/>
 	<body
 		class='max-w-screen-3xl mx-auto flex flex-col min-h-screen overflow-x-hidden'>
 		<TitleHidden tag='h1' title={pageTitle} id='title-hidden' />
 		<Header
-			nav={site.nav}
-			tools={site.tools}
+			nav={siteData.nav}
+			tools={siteData.tools}
 			class:list={[fixHeader && 'fixed inset-x-0 top-0']}
 			id='header'
 		/>
@@ -186,10 +212,8 @@ _addNewsletter(newsletter)
 			id='swup'>
 			<slot />
 		</main>
-		<Footer site={site} id='footer' />
-        <Drapery data-drapery>
-
-        </Drapery>
+		<Footer site={siteData} id='footer' />
+		<Drapery data-drapery />
 		<Modal data-modal>
 			<ModalNewsletter data-modal-display='newsletter' />
 		</Modal>
