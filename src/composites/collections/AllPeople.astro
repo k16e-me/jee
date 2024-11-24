@@ -39,11 +39,11 @@ const { blok } = Astro.props,
 		<Grid split='sidebar' class=''>
 			<div
 				class:list={[
-					'self-start sticky -top-px z-20 bg-[var(--color-bg-default)] xl:bg-transparent xl:pt-8 flex flex-col group [&.is-pinned]:shadow xl:!shadow-none',
+					'self-start sticky -top-px z-20 bg-[var(--color-bg-default)] xl:bg-transparent flex flex-col group [&.is-pinned]:shadow xl:!shadow-none pt-[var(--spacing-1)] md:pt-[var(--spacing-2)] lg:pt-[var(--spacing-3)]',
 					_xPadding('both-lgdown'),
 				]}
 				data-pin-top>
-				<form class='space-y-1.5'>
+				<form class='space-y-1.5 mt-1.5'>
 					<div
 						class='flex items-center justify-between pt-3 group-[&.is-pinned]:pb-3 xl:!pb-0 gap-3'>
 						<InputText
@@ -76,7 +76,7 @@ const { blok } = Astro.props,
 				]}>
 				{
 					sortedPeople.map((person, idx) => (
-						<CardPerson person={person} tag='h3' size="default"/>
+						<CardPerson person={person} tag='h3' size='default' />
 					))
 				}
 			</div>

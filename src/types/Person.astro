@@ -25,10 +25,10 @@ const { blok } = Astro.props,
 		blok.bio[0].heading[0].heading,
 		blok.sectors[0].heading[0].heading,
 		blok.practices[0].heading[0].heading,
-		...blok.registers.map((i) => i.title)
+		...blok.registers.map((i) => i.title),
 	]
 
-    !_empty(relatedPeople) && headings.push('Related People')
+!_empty(relatedPeople) && headings.push('Related People')
 ---
 
 <HeaderPerson person={blok} />
@@ -41,7 +41,7 @@ const { blok } = Astro.props,
 		<Grid>
 			<div
 				class:list={[
-					'col-span-full md:[grid-area:1/1/1/3] lg:[grid-area:1/1/1/4] self-start sticky bg-[var(--color-bg-default)] z-10 -top-px [&.is-pinned]:shadow md:!shadow-none overflow-auto',
+					'col-span-full md:[grid-area:1/1/1/3] lg:[grid-area:1/1/1/4] self-start sticky bg-[var(--color-bg-default)] z-10 -top-px [&.is-pinned]:shadow md:!shadow-none overflow-auto pt-[var(--spacing-1)] md:pt-[var(--spacing-2)] lg:pt-[var(--spacing-3)]',
 					_xPadding('both-lgdown'),
 					_sectionPadding('top-md-up'),
 				]}
@@ -50,6 +50,7 @@ const { blok } = Astro.props,
 					headings={headings}
 					breakAt='md'
 					data-spy-sections
+					class='mt-1.5'
 				/>
 			</div>
 			<div

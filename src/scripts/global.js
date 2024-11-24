@@ -16,6 +16,7 @@ import _newsletterSubmit from './newsletter'
 import _figureImg from './figure-image'
 import _shim from './shim'
 import _modal from './modal'
+import _headerFx from './header-fx'
 
 const swup = new Swup({
     animationSelector: '[class*="swup-"]',
@@ -52,6 +53,7 @@ function init() {
     _figureImg()
     _shim()
     _modal()
+    _headerFx()
 }
 
 function once() {

@@ -152,7 +152,9 @@ _addNewsletter(newsletter)
 		class='max-w-screen-3xl mx-auto flex flex-col min-h-screen overflow-x-hidden'>
 		<TitleHidden tag='h1' title={pageTitle} id='title-hidden' />
 		<Header nav={site.nav} tools={site.tools} />
-		<main class='mb-auto swup-in' id='swup'>
+		<main
+			class='mb-auto swup-in pt-[var(--spacing-1)] md:pt-[var(--spacing-2)] lg:pt-[var(--spacing-3)]'
+			id='swup'>
 			<slot />
 		</main>
 		<Footer site={site} id='footer' />

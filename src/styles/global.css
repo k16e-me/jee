@@ -43,6 +43,11 @@
         --color-border-accent: var(--color-accent);
         --color-border-subtle: var(--color-gray-300);
 
+        /* Spacing */
+        --spacing-1: theme('spacing.14');
+        --spacing-2: 4.5rem;
+        --spacing-3: theme('spacing.24');
+
         @media (prefers-color-scheme: dark) {
 
         }

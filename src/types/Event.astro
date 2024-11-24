@@ -47,8 +47,7 @@ headings.push(blok.rsvp_label)
 			class='rounded-t-[2rem] md:rounded-t-[3.5rem] lg:rounded-t-0 overflow-clip'>
 			<div
 				class:list={[
-					'col-span-full lg:[grid-area:1/1/2/4] xl:[grid-area:1/1/2/3] self-start sticky bg-[var(--color-bg-default)] z-10 -top-px [&.is-pinned]:shadow lg:!shadow-none overflow-auto',
-					_sectionPadding('top-lg-up'),
+					'col-span-full lg:[grid-area:1/1/2/4] xl:[grid-area:1/1/2/3] self-start sticky bg-[var(--color-bg-default)] z-10 -top-px [&.is-pinned]:shadow lg:!shadow-none overflow-auto pt-[var(--spacing-1)] md:pt-[var(--spacing-2)] lg:pt-[var(--spacing-3)]',
 					_xPadding('both-lgdown'),
 				]}
 				data-pin-top>
@@ -56,6 +55,7 @@ headings.push(blok.rsvp_label)
 					headings={headings}
 					breakAt='lg'
 					data-spy-sections
+					class='mt-1.5'
 				/>
 			</div>
 			<div
