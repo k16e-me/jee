@@ -104,7 +104,8 @@
     .fix-svg-stroke path {
         stroke: currentColor;
     }
-    .r-dead-center {
+    .r-absolute-center { @apply absolute; }
+    .r-dead-center, .r-absolute-center {
         @apply left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2;
     }
     .r-hide-overflow {

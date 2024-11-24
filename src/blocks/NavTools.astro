@@ -21,8 +21,7 @@ const { links, class: classes, ...props } = Astro.props
 		<ButtonFlat link={links[2]} />
 		<NavDropdown child='client-hub' links={links[2].children} />
 	</li>
-	<li
-		class='flex items-center lg:items-start gap-2 sm:gap-3 lg:gap-1'>
+	<li class='flex items-center lg:items-start gap-2 sm:gap-3 lg:gap-1'>
 		<ButtonFab link={links[1]} icon='africa' class='order-2 lg:order-1' />
 		<ButtonFab
 			style='blank'
@@ -32,11 +31,12 @@ const { links, class: classes, ...props } = Astro.props
 			class='order-1 lg:order-2'
 		/>
 	</li>
-	<li class='h-full flex lg:hidden items-center'>
+	<li class='h-full w-11 flex lg:hidden items-center justify-center relative'>
 		<ButtonFab
 			style='blank-brand'
-			label='Trigger Mobile Menu'
+			label='Open Mobile Menu'
 			icon='menu'
+			data-open-menu
 		/>
 	</li>
 </ul>

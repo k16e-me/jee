@@ -8,7 +8,7 @@ export default {
         extend: {
             fontFamily: {
                 sans: ['Instrument Sans Variable, sans-serif', ...defaultTheme.fontFamily.sans],
-                display: 'Urbanist Variable, sans-serif'
+                display: 'Lexend Variable, sans-serif'
             },
             spacing: {
                 18: '4.5rem',
