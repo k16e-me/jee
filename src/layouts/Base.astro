@@ -20,6 +20,7 @@ import {
 import Shim from '@blocks/Shim.astro'
 import Modal from '@blocks/Modal.astro'
 import ModalNewsletter from '@blocks/ModalNewsletter.astro'
+import _startsWith from '@scripts/starts-with'
 
 const currentYear = new Date().getFullYear(),
 	lastYear = currentYear - 1,
@@ -39,6 +40,16 @@ const currentYear = new Date().getFullYear(),
 		version: import.meta.env.DEV ? 'draft' : 'published',
 	}),
 	newsletter = dataNewsletter.story.content
+
+let fixHeader = true,
+	currPath = Astro.url.pathname,
+	unfixHeader = ['about', 'people', 'insights', 'events']
+
+if (currPath == '/')
+	currPath = currPath.replace(/^\//, 'home').replace(/\.html$/, '')
+else currPath = currPath.replace(/^\//, '').replace(/\.html$/, '')
+
+_startsWith(currPath, unfixHeader) ? (fixHeader = false) : (fixHeader = true)
 
 let { data: awards } = await api.get('cdn/stories', {
 		starts_with: 'awards/',
@@ -151,9 +162,18 @@ _addNewsletter(newsletter)
 	<body
 		class='max-w-screen-3xl mx-auto flex flex-col min-h-screen overflow-x-hidden'>
 		<TitleHidden tag='h1' title={pageTitle} id='title-hidden' />
-		<Header nav={site.nav} tools={site.tools} />
+		<Header
+			nav={site.nav}
+			tools={site.tools}
+			class:list={[fixHeader && 'fixed inset-x-0 top-0']}
+			id='header'
+		/>
 		<main
-			class='mb-auto swup-in pt-[var(--spacing-1)] md:pt-[var(--spacing-2)] lg:pt-[var(--spacing-3)]'
+			class:list={[
+				'mb-auto swup-in',
+				fixHeader &&
+					'pt-[var(--spacing-1)] md:pt-[var(--spacing-2)] lg:pt-[var(--spacing-3)]',
+			]}
 			id='swup'>
 			<slot />
 		</main>

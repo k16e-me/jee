@@ -20,7 +20,7 @@ import _headerFx from './header-fx'
 
 const swup = new Swup({
     animationSelector: '[class*="swup-"]',
-    containers: ['#swup', '#footer', '#title-hidden'],
+    containers: ['#swup', '#footer', '#title-hidden', '#header'],
     animateHistoryBrowsing: true,
     plugins: [
         new SwupProgressPlugin({

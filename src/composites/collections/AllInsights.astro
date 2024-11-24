@@ -35,11 +35,11 @@ const { blok } = Astro.props,
 		<Grid class='overflow-clip'>
 			<div
 				class:list={[
-					'col-span-full lg:[grid-area:1/1/2/4] self-start sticky bg-[var(--color-bg-default)] z-10 -top-px [&.is-pinned]:shadow lg:!shadow-none h-18 place-content-center pt-[var(--spacing-1)] md:pt-[var(--spacing-2)] lg:pt-[var(--spacing-3)]',
+					'col-span-full lg:[grid-area:1/1/2/4] self-start sticky bg-[var(--color-bg-default)] z-10 -top-px [&.is-pinned]:shadow lg:!shadow-none h-18 place-content-center lg:pt-8',
 					_xPadding('both-md-down-l'),
 				]}
 				data-pin-top>
-				<form class='space-y-1.5 mt-1.5'>
+				<form class='space-y-1.5'>
 					<div
 						class='flex items-center justify-between group-[&.is-pinned]:pb-3 lg:!pb-0 gap-3'>
 						<InputText

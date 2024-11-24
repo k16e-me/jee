@@ -14,7 +14,7 @@ const { links, class: classes, ...props } = Astro.props
 <ul
 	class:list={[
 		classes,
-		'flex items-center lg:items-start justify-end lg:pt-[.75rem] gap-2 sm:gap-3 translate-x-1 sm:translate-x-2 lg:translate-x-0',
+		'flex items-center justify-end gap-2 sm:gap-3 translate-x-1 sm:translate-x-2 lg:translate-x-0',
 	]}
 	{...props}>
 	<li class='hidden lg:flex group/li relative'>
@@ -22,14 +22,13 @@ const { links, class: classes, ...props } = Astro.props
 		<NavDropdown child='client-hub' links={links[2].children} />
 	</li>
 	<li
-		class='flex lg:flex-col items-center lg:items-start gap-2 sm:gap-3 lg:gap-0'>
+		class='flex items-center lg:items-start gap-2 sm:gap-3 lg:gap-1'>
 		<ButtonFab link={links[1]} icon='africa' class='order-2 lg:order-1' />
 		<ButtonFab
 			style='blank'
 			link={links[0]}
 			label={links[0].label}
 			icon='search'
-			flipIcon
 			class='order-1 lg:order-2'
 		/>
 	</li>
