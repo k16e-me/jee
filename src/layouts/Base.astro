@@ -16,7 +16,7 @@ import {
 	_addCategories,
 	_addEvents,
 	_addNewsletter,
-	_settings
+	_settings,
 } from '@scripts/store'
 import Shim from '@blocks/Shim.astro'
 import Modal from '@blocks/Modal.astro'
@@ -26,6 +26,7 @@ import Drapery from '@blocks/Drapery.astro'
 import NavMobile from '@blocks/NavMobile.astro'
 import { _getAllAPIs } from '@scripts/api'
 import Drawer from '@blocks/Drawer.astro'
+import Locations from '@blocks/Locations.astro'
 
 const { pageTitle, pageDescription, pageThumbnail } = Astro.props
 
@@ -104,9 +105,9 @@ const siteData = _settings.value
 		<Modal data-modal>
 			<ModalNewsletter data-modal-display='newsletter' />
 		</Modal>
-        <Drawer data-drawer>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi nulla vero distinctio natus minima, nisi, ipsam sint quo veritatis possimus, fugiat magnam aut ad deserunt numquam quod. Eaque, corporis facilis.
-        </Drawer>
+		<Drawer data-drawer>
+			<Locations data-drawer-display='locations' />
+		</Drawer>
 		<Shim data-shim />
 		<script src='@scripts/global.js'></script>
 	</body>

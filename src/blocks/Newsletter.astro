@@ -26,10 +26,7 @@ const {
 	topics = _categories.value
 ---
 
-<div
-	class:list={['space-y-6', classes]}
-	{...props}
-	data-newsletter>
+<div class:list={['space-y-6', classes]} data-newsletter {...props}>
 	{
 		headingType === 'stretch' ? (
 			<HeadingStretch tag='h3' text={title} />

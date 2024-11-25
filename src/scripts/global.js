@@ -19,6 +19,7 @@ import _modal from './modal'
 import _headerFx from './header-fx'
 import _mobileMenu from './mobile-menu'
 import { _q } from './snips'
+import _drawer from './drawer'
 
 const swup = new Swup({
     animationSelector: '[class*="swup-"]',
@@ -55,6 +56,7 @@ function init() {
     _figureImg()
     _shim()
     _modal()
+    _drawer()
     _headerFx()
     _mobileMenu()
 }
