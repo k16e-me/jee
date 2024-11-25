@@ -1,9 +1,6 @@
-import { _ql, _q } from '@scripts/snips'
-
+import { _ql } from '@scripts/snips'
 
 export default function _isPinned() {
-    if (!_q('[data-pin-top]')) return
-
     const
         stickies = _ql('[data-pin-top]'),
         observer = new IntersectionObserver(

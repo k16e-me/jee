@@ -47,7 +47,7 @@ function init() {
     _swiperQuotes()
     _swiperAll()
     _playVideo()
-    _isSticky()
+    if (_q('[data-pin-top]')) _isSticky()
     if (_q('[data-spy]')) _scrollspy()
     _moreOrLess()
     _newsletterSubmit()
