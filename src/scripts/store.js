@@ -14,7 +14,7 @@ export const
     _categories = atom([]),
     _newsletter = persistentAtom('newsletter', ''),
     _settings = persistentAtom('settings', ''),
-    _overlay = atom(false)
+    _shim = atom(false)
 
 
 export function _addAwards(item) { _awards.set(item) }
@@ -30,5 +30,5 @@ export function _addCategories(item) { _categories.set(item) }
 export function _addNewsletter(item) { _newsletter.set(item) }
 export function _addSettings(item) { _settings.set(item) }
 
-export function _setOverlay() { _overlay.set(true) }
-export function _unsetOverlay() { _overlay.set(false) }
+export function _setShim() { _shim.set(true) }
+export function _unsetShim() { _shim.set(false) }

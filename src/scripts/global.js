@@ -14,7 +14,7 @@ import _prefilters from './prefilters'
 import { _newsletter } from './store'
 import _newsletterSubmit from './newsletter'
 import _figureImg from './figure-image'
-import _shim from './shim'
+import _shimFx from './shim'
 import _modal from './modal'
 import _headerFx from './header-fx'
 import _mobileMenu from './mobile-menu'
@@ -54,7 +54,7 @@ function init() {
     _newsletterSubmit()
     _prefilters()
     _figureImg()
-    _shim()
+    _shimFx()
     _modal()
     _drawer()
     _headerFx()
