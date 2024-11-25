@@ -9,6 +9,8 @@ import Icon from '@atoms/Icon.astro'
 import NavMobileLink from '@atoms/NavMobileLink.astro'
 import _empty from '@scripts/empty'
 import _slug from '@scripts/slug'
+import _slugify from '@scripts/slugify'
+import _unslash from '@scripts/unslash'
 
 const { class: classes, ...props } = Astro.props,
 	nav = _settings.value.nav,
@@ -41,9 +43,9 @@ const { class: classes, ...props } = Astro.props,
 							<div
 								class='group/button accordion__button r-transition flex items-center justify-between px-4 py-[1.25rem] cursor-pointer'
 								aria-expanded='false'
-								aria-controls={`${hub.label} Links`}>
+								aria-controls={`${i.label} Links`}>
 								<Text
-									text={hub.label}
+									text={i.label}
 									size='5'
 									color='title-light'
 									weight='bold'
@@ -57,9 +59,19 @@ const { class: classes, ...props } = Astro.props,
 							</div>
 							<div class='accordion__content max-h-0 lg:max-h-full overflow-hidden lg:overflow-auto transition-all ease-in-out'>
 								<ul class='px-4 flex flex-col max-w-full transition-[height] duration-[250ms]'>
-									{hub.children.map((i) => (
-										<li class='group/link flex items-center p-4 w-full'>
-											<NavMobileLink link={i} />
+									{i.children.map((j) => (
+										<li class='group/link flex items-center'>
+											<NavMobileLink
+												altLink={
+													j.link.linktype === 'story'
+														? _slugify(i.label).includes('expertise')
+															? `/${j.children[0].link.cached_url.split('/')[0]}`
+															: `/${_unslash(j.link.cached_url)}`
+														: _unslash(j.link.cached_url)
+												}
+												label={j.label}
+												target={j.link.target}
+											/>
 										</li>
 									))}
 								</ul>
@@ -93,7 +105,7 @@ const { class: classes, ...props } = Astro.props,
 						class='px-4 flex flex-col max-w-full transition-[height] duration-[250ms]'>
 						{
 							hub.children.map((i) => (
-								<li class='group/link flex items-center p-4 w-full'>
+								<li class='group/link flex items-center'>
 									<NavMobileLink link={i} />
 								</li>
 							))

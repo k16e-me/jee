@@ -2,15 +2,15 @@
 import Text from '@atoms/Text.astro'
 import _slug from '@scripts/slug'
 
-const { link, class: classes, ...props } = Astro.props
+const { link, altLink, label, class: classes, ...props } = Astro.props
 ---
 
-<a href={_slug(link.link)} class='size-full'>
-    <Text
-        size='1hx'
-        text={link.label}
-        color='title-light'
-        weight="semi"
-        class='opacity-100 group-hover/link:opacity-80'
-    />
+<a href={link ? _slug(link.link) : altLink} class='flex items-center size-full p-4' {...props}>
+	<Text
+		size='1hx'
+		text={label ? label : link.label}
+		color='title-light'
+		weight='semi'
+		class='opacity-100 group-hover/link:opacity-80'
+	/>
 </a>
