@@ -22,7 +22,13 @@ const { links, class: classes, ...props } = Astro.props
 		<NavDropdown child='client-hub' links={links[2].children} />
 	</li>
 	<li class='flex items-center lg:items-start gap-2 sm:gap-3 lg:gap-1'>
-		<ButtonFab link={links[1]} icon='africa' class='order-2 lg:order-1' />
+		<ButtonFab
+			link={links[1]}
+			icon='africa'
+			class='order-2 lg:order-1'
+			data-drawer-trigger='regional-offices'
+			data-display='regional-offices'
+		/>
 		<ButtonFab
 			style='blank'
 			link={links[0]}

@@ -1,0 +1,16 @@
+---
+import ButtonFab from '@atoms/ButtonFab.astro'
+
+const { class: classes, ...props } = Astro.props
+---
+
+<div
+	class:list={['fixed inset-y-0 right-0 md:right-4 lg:right-14 z-[150] flex flex-col justify-center items-center', classes]}
+	aria-labelledby='modal-title'
+	role='dialog'
+	aria-modal='true'
+	{...props}>
+	<div class='relative overflow-auto rounded-2xl sm:rounded-[1.5rem] h-[calc(100vh-2rem)] bg-white w-[calc(100%-2rem)] sm:max-w-[30rem]'>
+		<slot />
+	</div>
+</div>
