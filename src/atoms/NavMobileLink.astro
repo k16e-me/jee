@@ -5,12 +5,12 @@ import _slug from '@scripts/slug'
 const { link, class: classes, ...props } = Astro.props
 ---
 
-<a href={_slug(link.link)} class='p-4'>
+<a href={_slug(link.link)} class='size-full'>
     <Text
         size='1hx'
         text={link.label}
         color='body-light'
         weight="semi"
-        class='opacity-70 group-hover/link:opacity-100'
+        class='opacity-80 group-hover/link:opacity-100'
     />
 </a>

@@ -30,7 +30,7 @@ const { class: classes, ...props } = Astro.props,
 				))
 			}
 			<li
-				class='accordion group border-t border-[var(--color-muted-dark)]'>
+				class='accordion group border-t border-[var(--color-muted-dark)] px-4 [&.is-active]:bg-[var(--color-elevation-1-inverted)]'>
 				<div
 					class='group/button accordion__button r-transition flex items-center justify-between h-14 lg:h-10 cursor-pointer lg:cursor-default'
 					aria-expanded='false'
@@ -52,7 +52,13 @@ const { class: classes, ...props } = Astro.props,
 					class='accordion__content max-h-0 lg:max-h-full overflow-hidden lg:overflow-auto transition-all ease-in-out'>
 					<ul
 						class='px-4 flex flex-col max-w-full transition-[height] duration-[250ms]'>
-						{hub.children.map((i) => <NavMobileLink link={i} />)}
+						{
+							hub.children.map((i) => (
+								<li class='group/link flex items-center p-4 w-full'>
+									<NavMobileLink link={i} />
+								</li>
+							))
+						}
 					</ul>
 				</div>
 			</li>

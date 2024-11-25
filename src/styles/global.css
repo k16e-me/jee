@@ -19,6 +19,8 @@
         --color-gray-300: #B0B0B0;
         --color-gray-400: #888888;
         --color-red-500: #FF2626;
+        --color-brown-100: #E4E0DD;
+        --color-brown-900: #2D2525;
 
         /* Variable Colors Light/Dark */
         --color-surface-dark: var(--color-dark);
@@ -26,6 +28,7 @@
         --color-bg-default: var(--color-lightest);
         --color-bg-default-elevated: var(--color-lightest-elevated);
         --color-bg-neutral-gray: #F4F3F2;
+        --color-elevation-1-inverted: var(--color-brown-900);
 
         --color-text-title: #211B1B;
         --color-text-title-inverted: var(--color-lightest);
