@@ -24,8 +24,8 @@ export default function _drawer() {
             _setShim()
         },
         off = () => {
-            drawer.classList.remove('translate-x-0', 'opacity-100')
             drawer.classList.add('translate-x-full', 'opacity-0', 'scale-90')
+            drawer.classList.remove('translate-x-0', 'opacity-100')
             // setTimeout(() => drawer.classList.add('invisible'), 250)
             slots.map(el => el.classList.add('sr-only'))
 
