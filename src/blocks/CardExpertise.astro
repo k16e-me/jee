@@ -14,7 +14,7 @@ const { item, class: classes, ...props } = Astro.props
 	{...props}>
 	<div class='relative overflow-clip grid grid-cols-1'>
 		<div
-			class='rounded-tl-[2rem] rounded-tr-[3.5rem] rounded-bl-[2rem] rounded-br-[9rem] relative overflow-clip [grid-area:1/1/2/2] h-[20rem] sm:h-[23rem] md:h-[20rem]'>
+			class='rounded-tl-[2rem] rounded-tr-[3.5rem] rounded-bl-[2rem] rounded-br-[9rem] relative overflow-clip [grid-area:1/1/2/2] h-72'>
 			<Image
 				filename={item.content.image.filename}
 				alt={item.content.image.alt}
@@ -27,7 +27,7 @@ const { item, class: classes, ...props } = Astro.props
 		<div
 			class='[grid-area:1/1/2/2] mt-[12.5rem] ml-4 mr-4 sm:ml-5 sm:mr-7 lg:mr-8 z-10'>
 			<div
-				class='bg-[var(--color-bg-default)] rounded-[1.5rem] min-h-[12.5rem] p-4 sm:p-5 space-y-1.5'>
+				class='bg-[var(--color-bg-default)] rounded-[1.5rem] min-h-44 p-4 sm:p-5 space-y-1.5'>
 				<div>
 					<Text
                         tag="h3"
@@ -35,7 +35,6 @@ const { item, class: classes, ...props } = Astro.props
 						text={item.content.title}
 						color='title'
 						weight='bold'
-						family='display'
 					/>
 					<Icon
 						name='highlight'
@@ -48,7 +47,6 @@ const { item, class: classes, ...props } = Astro.props
 						size='blurb'
 						text={item.content.excerpt}
 						color='body'
-						family='display'
 						class='line-clamp-4'
 					/>
 				</div>
