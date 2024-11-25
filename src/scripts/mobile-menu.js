@@ -1,4 +1,4 @@
-import { _q } from '@scripts/snips'
+import { _q, _ql } from '@scripts/snips'
 
 export default function _mobileMenu() {
     const
@@ -6,6 +6,7 @@ export default function _mobileMenu() {
         close = _q('[data-close-menu]'),
         drapery = _q('[data-drapery]'),
         body = document.body,
+        links = _ql('a', drapery),
         on = () => {
             drapery.classList.remove('-translate-y-full', 'opacity-0', 'invisible', 'scale-95')
             drapery.classList.add('translate-y-0', 'opacity-100')
@@ -20,4 +21,5 @@ export default function _mobileMenu() {
 
     open.addEventListener('click', e => on(e))
     close.addEventListener('click', e => off(e))
+    links.forEach(i => i.addEventListener('click', e => off(e)))
 }
