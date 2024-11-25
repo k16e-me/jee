@@ -15,7 +15,7 @@ const { class: classes, ...props } = Astro.props,
 	hub = _settings.value.tools[2]
 ---
 
-<Wrapper tag='nav' class="py-4 sm:py-8">
+<Wrapper tag='nav' margins={false} class="py-4 sm:py-8">
 	<TitleHidden tag='h2' title={'Mobile Navigation'} />
 	<Grid grid='4-12-12'>
 		<ul
