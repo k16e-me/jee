@@ -81,7 +81,7 @@ export default defineConfig({
                 allOffices: 'composites/collections/AllOffices',
                 allSectors: 'composites/collections/AllSectors',
                 allPractices: 'composites/collections/AllPractices',
-                allAfricaPractices: 'composites/collections/AllAfricaPractices',
+                allAfricaExpertise: 'composites/collections/AllAfricaExpertise',
             }
         })
     ],

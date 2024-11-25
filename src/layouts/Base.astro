@@ -32,28 +32,28 @@ let fixHeader = true,
 	currPath = Astro.url.pathname,
 	unfixHeader = ['about', 'people', 'insights', 'events']
 
-if (currPath == '/') currPath = currPath.replace(/^\//, 'home').replace(/\.html$/, '')
+if (currPath == '/')
+	currPath = currPath.replace(/^\//, 'home').replace(/\.html$/, '')
 else currPath = currPath.replace(/^\//, '').replace(/\.html$/, '')
 
 _startsWith(currPath, unfixHeader) ? (fixHeader = false) : (fixHeader = true)
 
-const apis = _getAllAPIs()
-const results = await Promise.all(apis.map((fn) => fn()))
-
-const [
-	settings,
-	awards,
-	designations,
-	categories,
-	offices,
-	people,
-	sectors,
-	practices,
-	africaExpertise,
-	insights,
-	events,
-	newsletter,
-] = results
+const apis = _getAllAPIs(),
+	results = await Promise.all(apis.map((fn) => fn())),
+	[
+		settings,
+		awards,
+		designations,
+		categories,
+		offices,
+		people,
+		sectors,
+		practices,
+		africaExpertise,
+		insights,
+		events,
+		newsletter,
+	] = results
 
 _addAwards(awards.data.stories)
 _addPeople(people.data.stories)
