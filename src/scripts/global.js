@@ -18,6 +18,7 @@ import _shim from './shim'
 import _modal from './modal'
 import _headerFx from './header-fx'
 import _mobileMenu from './mobile-menu'
+import { _q } from './snips'
 
 const swup = new Swup({
     animationSelector: '[class*="swup-"]',
@@ -47,7 +48,7 @@ function init() {
     _swiperAll()
     _playVideo()
     _isSticky()
-    _scrollspy()
+    if (_q('[data-spy]')) _scrollspy()
     _moreOrLess()
     _newsletterSubmit()
     _prefilters()
