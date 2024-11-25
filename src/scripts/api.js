@@ -24,7 +24,7 @@ export const getAwards = async () => {
 export const getDesignations = async () => {
     return await api.get('cdn/stories', {
         starts_with: 'designations/',
-        version: import.meta.env.DEV ? 'draft' : 'published',
+        version: 'published',
         is_startpage: false,
     })
 }
@@ -48,7 +48,7 @@ export const getOffices = async () => {
 export const getPeople = async () => {
     return await api.get('cdn/stories', {
         starts_with: 'people/',
-        version: import.meta.env.DEV ? 'draft' : 'published',
+        version: 'published',
         is_startpage: false,
         resolve_links: 'url',
         resolve_relations: ['person.byline', 'person_links.location', 'collection.collection'],

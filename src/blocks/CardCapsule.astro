@@ -24,7 +24,7 @@ const {
 <Tag
 	{...link ? { href: `/${_slug(link)}` } : {}}
 	class:list={[
-		'flex items-center w-full h-[4.75rem] rounded-xl group r-hide-overflow overflow-y-clip',
+		'flex items-center w-full h-[5.3125rem] rounded-xl group r-hide-overflow overflow-y-clip',
 		adjustWidth ? 'sm:w-[calc(50%-1rem)]' : 'max-w-[23rem]',
 		fill && 'bg-[var(--color-bg-default-elevated)] p-1',
         link && 'hover:bg-[var(--color-bg-default-elevated)]',
@@ -59,7 +59,6 @@ const {
 					: entry.name}
 			color='title'
 			size='1hx'
-			family='display'
 			weight='semi'
 			class='line-clamp-3'
 		/>
@@ -69,8 +68,7 @@ const {
 					text={subtitle}
 					color={subtitleColor}
 					size='footnote'
-					family='display'
-					weight='semi'
+					weight='medium'
 				/>
 			)
 		}
