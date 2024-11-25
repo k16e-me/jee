@@ -1,6 +1,6 @@
 const
-    s2 = 'text-[1.875rem] leading-[1.975rem] md:text-[3.775rem] md:leading-[4.09375rem] lg:text-[4.25rem] lg:leading-[4.515rem]',
-    s3 = 'text-[1.775rem] leading-[2rem] md:text-[2.75rem] md:leading-[2.875rem] lg:text-[3.25rem] lg:leading-[3.5375rem]',
+    s2 = 'text-3xl md:text-[3.675rem] md:leading-[3.925rem] lg:text-[4.15rem] lg:leading-[4.15rem]',
+    s3 = 'text-[1.775rem] leading-[2rem] md:text-4xl lg:text-5xl',
     s4 = 'text-[1.55625rem] leading-[1.75rem] md:text-[1.795rem] md:leading-[1.875rem] lg:text-[1.9rem] lg:leading-[2.05rem]',
     s5 = 'text-[1.3125rem] leading-[1.45rem] md:text-[1.4625rem] md:leading-[1.75rem] lg:text-[1.5275rem] lg:leading-[1.7375rem]',
     s6 = 'text-[1.0875rem] leading-[1.3725rem]',
@@ -8,7 +8,7 @@ const
     sx1 = 'text-[1.075rem] leading-[1.495rem] md:text-[1.0975rem]',
     sx2 = 'text-[1.25rem] leading-[1.45rem] md:text-[1.3rem] md:leading-[1.65rem]',
     copy = 'text-[1.0725rem] leading-[1.395rem] lg:text-[1.125rem] lg:leading-[1.55rem]',
-    emphasis = 'text-[1.0125rem] lg:text-[1.0225rem] leading-[1.425rem]',
+    emphasis = 'text-[1.0525rem] leading-[1.475rem]',
     emphasisUpper = 'text-[0.875rem] leading-[1rem]',
     button = 'text-[0.935rem] leading-[1.175rem]',
     body = 'text-[1.025rem] leading-[1.4975rem]',
