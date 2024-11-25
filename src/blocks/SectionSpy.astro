@@ -22,7 +22,7 @@ const { headings, breakAt = 'xl', class: classes, ...props } = Astro.props
 			<li
 				class:list={[
 					_fontSize('1hx'),
-					'group translate-y-[0.1rem] whitespace-nowrap r-transition',
+					'group whitespace-nowrap r-transition',
 					breakAt === 'md' &&
 						'md:translate-x-[0.1rem] md:whitespace-normal',
 					breakAt === 'lg' &&
@@ -34,7 +34,7 @@ const { headings, breakAt = 'xl', class: classes, ...props } = Astro.props
 					href={`#${_slugify(h)}`}
 					set:text={h}
 					class:list={[
-						'flex text-right font-semibold font-display p-4 [&.is-in-view]:border-b-[3px] [&.is-in-view]:border-[var(--color-emphasis)] group-hover:text-[var(--color-emphasis)] [&.is-in-view]:text-[var(--color-emphasis)]',
+						'flex text-right font-semibold font-display p-3 [&.is-in-view]:border-b-[3px] [&.is-in-view]:border-[var(--color-emphasis)] group-hover:text-[var(--color-emphasis)] [&.is-in-view]:text-[var(--color-emphasis)]',
 						breakAt === 'md' &&
 							'md:pl-0 md:!border-b-0 [&.is-in-view]:md:border-r-[3px]',
 						breakAt === 'lg' &&
