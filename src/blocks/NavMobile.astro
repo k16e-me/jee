@@ -15,7 +15,7 @@ const { class: classes, ...props } = Astro.props,
 	hub = _settings.value.tools[2]
 ---
 
-<Wrapper tag='nav' margins={false} class="py-4 sm:py-8">
+<Wrapper tag='nav' margins={false} class='py-4 sm:py-8'>
 	<TitleHidden tag='h2' title={'Mobile Navigation'} />
 	<Grid grid='4-12-12'>
 		<ul
@@ -34,16 +34,44 @@ const { class: classes, ...props } = Astro.props,
 							/>
 						</li>
 					) : (
-						<li class:list={['group/li relative']}>
-							<NavItemMobile label={i.label} />
+						<li
+							class:list={[
+								'group/li relative accordion group [&.is-active]:bg-[var(--color-elevation-1-inverted)]',
+							]}>
+							<div
+								class='group/button accordion__button r-transition flex items-center justify-between px-4 py-[1.25rem] cursor-pointer'
+								aria-expanded='false'
+								aria-controls={`${hub.label} Links`}>
+								<Text
+									text={hub.label}
+									size='5'
+									color='title-light'
+									weight='bold'
+									class='opacity-100 group-hover/button:opacity-70 group-[.is-active]:opacity-100 pointer-events-none'
+								/>
+								<Icon
+									name='caret-down'
+									aria-hidden='true'
+									class='accordion__icon block w-5 text-[var(--color-lightest)] opacity-50 group-hover/button:opacity-100 shrink-0 transition-all group-[.is-active]:opacity-100'
+								/>
+							</div>
+							<div class='accordion__content max-h-0 lg:max-h-full overflow-hidden lg:overflow-auto transition-all ease-in-out'>
+								<ul class='px-4 flex flex-col max-w-full transition-[height] duration-[250ms]'>
+									{hub.children.map((i) => (
+										<li class='group/link flex items-center p-4 w-full'>
+											<NavMobileLink link={i} />
+										</li>
+									))}
+								</ul>
+							</div>
 						</li>
 					),
 				)
 			}
 			<li
-				class='accordion group px-4 [&.is-active]:bg-[var(--color-elevation-1-inverted)]'>
+				class='accordion group [&.is-active]:bg-[var(--color-elevation-1-inverted)]'>
 				<div
-					class='group/button accordion__button r-transition flex items-center justify-between h-14 cursor-pointer'
+					class='group/button accordion__button r-transition flex items-center justify-between px-4 py-[1.25rem] cursor-pointer'
 					aria-expanded='false'
 					aria-controls={`${hub.label} Links`}>
 					<Text
