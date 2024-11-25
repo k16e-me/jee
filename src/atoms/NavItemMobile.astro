@@ -6,7 +6,7 @@ const { tag = 'a', label, class: classes, ...props } = Astro.props,
 ---
 
 <Tag
-	class:list={['block px-4 py-[1.25rem] font-medium group/anchor', classes]}
+	class:list={['block px-4 py-[1.25rem] font-medium group-hover/li:opacity-70', classes]}
 	{...props}>
 	<Text text={label} size='5' color='title-light' weight='bold' />
 </Tag>
