@@ -52,7 +52,6 @@ calls.push(
 			'settings.links',
 			'settings.socials',
 		],
-
 	}),
 )
 calls.push(
@@ -215,9 +214,9 @@ const siteData = _settings.value
 			<slot />
 		</main>
 		<Footer site={siteData} id='footer' />
-		<Drapery data-drapery>
-            <NavMobile />
-        </Drapery>
+		<Drapery data-drapery id='drapery'>
+			<NavMobile />
+		</Drapery>
 		<Modal data-modal>
 			<ModalNewsletter data-modal-display='newsletter' />
 		</Modal>

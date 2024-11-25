@@ -21,7 +21,7 @@ import _mobileMenu from './mobile-menu'
 
 const swup = new Swup({
     animationSelector: '[class*="swup-"]',
-    containers: ['#swup', '#footer', '#title-hidden', '#header'],
+    containers: ['#swup', '#footer', '#title-hidden', '#header', '#drapery'],
     animateHistoryBrowsing: true,
     plugins: [
         new SwupProgressPlugin({
