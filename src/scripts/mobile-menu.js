@@ -5,13 +5,16 @@ export default function _mobileMenu() {
         open = _q('[data-open-menu]'),
         close = _q('[data-close-menu]'),
         drapery = _q('[data-drapery]'),
+        body = document.body,
         on = () => {
             drapery.classList.remove('-translate-y-full', 'opacity-0', 'invisible', 'scale-95')
             drapery.classList.add('translate-y-0', 'opacity-100')
+            body.style.overflow = 'hidden'
         },
         off = () => {
             drapery.classList.remove('translate-y-0', 'opacity-100')
             drapery.classList.add('-translate-y-full', 'opacity-0', 'scale-95')
+            body.style.overflow = ''
             setTimeout(() => drapery.classList.add('invisible'), 300)
         }
 
