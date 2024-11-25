@@ -22,7 +22,7 @@ const { class: classes, ...props } = Astro.props,
 	<Grid grid='4-12-12'>
 		<ul
 			class:list={[
-				'col-span-full sm:[grid-area:1/3/2/11] items-center h-full [&>*]:border-t [&>*]:border-[var(--color-muted-dark)] [&>*:first-child]:border-t-0',
+				'col-span-full ml:[grid-area:1/3/2/11] items-center h-full [&>*]:border-t [&>*]:border-[var(--color-muted-dark)] [&>*:first-child]:border-t-0',
 				classes,
 			]}
 			{...props}>
@@ -64,10 +64,17 @@ const { class: classes, ...props } = Astro.props,
 											<NavMobileLink
 												altLink={
 													j.link.linktype === 'story'
-														? _slugify(i.label).includes('expertise')
+														? _slugify(
+																i.label,
+															).includes(
+																'expertise',
+															)
 															? `/${j.children[0].link.cached_url.split('/')[0]}`
 															: `/${_unslash(j.link.cached_url)}`
-														: _unslash(j.link.cached_url)
+														: _unslash(
+																j.link
+																	.cached_url,
+															)
 												}
 												label={j.label}
 												target={j.link.target}
