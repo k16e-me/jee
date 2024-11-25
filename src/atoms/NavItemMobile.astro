@@ -1,0 +1,12 @@
+---
+import Text from './Text.astro'
+
+const { tag = 'a', label, class: classes, ...props } = Astro.props,
+	Tag = tag
+---
+
+<Tag
+	class:list={['block py-[1.25rem] font-medium group/anchor', classes]}
+	{...props}>
+	<Text text={label} size='5' color='title-light' weight='bold' />
+</Tag>

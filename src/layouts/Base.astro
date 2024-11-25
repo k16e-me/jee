@@ -24,6 +24,7 @@ import Modal from '@blocks/Modal.astro'
 import ModalNewsletter from '@blocks/ModalNewsletter.astro'
 import _startsWith from '@scripts/starts-with'
 import Drapery from '@blocks/Drapery.astro'
+import NavMobile from '@blocks/NavMobile.astro'
 
 const currentYear = new Date().getFullYear(),
 	lastYear = currentYear - 1,
@@ -51,7 +52,7 @@ calls.push(
 			'settings.links',
 			'settings.socials',
 		],
-        
+
 	}),
 )
 calls.push(
@@ -214,7 +215,9 @@ const siteData = _settings.value
 			<slot />
 		</main>
 		<Footer site={siteData} id='footer' />
-		<Drapery data-drapery />
+		<Drapery data-drapery>
+            <NavMobile />
+        </Drapery>
 		<Modal data-modal>
 			<ModalNewsletter data-modal-display='newsletter' />
 		</Modal>
