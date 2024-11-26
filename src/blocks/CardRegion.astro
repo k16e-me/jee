@@ -3,6 +3,7 @@ import Icon from '@atoms/Icon.astro'
 import Text from '@atoms/Text.astro'
 import ListStat from '@blocks/ListStat.astro'
 import CardContactPerson from '@blocks/CardContactPerson.astro'
+import ButtonMore from '@atoms/ButtonMore.astro'
 
 const {
 		tag = 'li',
@@ -22,7 +23,7 @@ const {
 ---
 
 <Tag
-	class:list={['rounded-lg overflow-clip relative accordion group', classes]}
+	class:list={['rounded-lg overflow-clip relative accordion', classes]}
 	style=`background-color: #${pastel[flag]};`
 	{...props}>
 	<div
@@ -66,6 +67,7 @@ const {
 				email={contact.content.links[0].email[0]}
 				phone={contact.content.links[0].phone[0]}
 			/>
+			<ButtonMore label={'All JEE Offices'} link={'/contact'} />
 		</div>
 	</div>
 </Tag>

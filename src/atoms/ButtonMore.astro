@@ -20,10 +20,9 @@ const {
 	{...props}>
 	<Text
 		text={label}
-		size='emphasis'
-		family='display'
+        weight="medium"
 		class={[
-			'flex items-center justify-center font-semibold whitespace-nowrap',
+			'flex items-center justify-center whitespace-nowrap',
 			theme === 'default' &&
 				'text-[var(--color-text-title)] group-hover:text-[var(--color-text-emphasis)]',
 			theme === 'on-dark' &&
