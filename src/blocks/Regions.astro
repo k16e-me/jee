@@ -13,7 +13,7 @@ const { class: classes, ...props } = Astro.props
 		size='5'
 		padding='small'
 	/>
-	<ul class='py-4 flex flex-col gap-4'>
+	<ul class='py-5 flex flex-col gap-4'>
 		{
             _regions.value.map(i => (
                 <CardRegion name={i.content.name} flag={i.content.flag}/>
