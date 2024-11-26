@@ -2,17 +2,20 @@
 import Icon from '@atoms/Icon.astro'
 import Text from '@atoms/Text.astro'
 
-const { tag = 'li', name, class: classes, ...props } = Astro.props,
-    Tag = tag,
+const { tag = 'li', name, flag, class: classes, ...props } = Astro.props,
+	Tag = tag,
 	pastel = {
-		ng: '#EEF8DD',
-		zw: '#F5E7B2',
-		cm: '#D2E0FB',
+		ng: 'EEF8DD',
+		zw: 'F5E7B2',
+		cm: 'D2E0FB',
 	}
 ---
 
-<Tag>
-	<div>
+<Tag
+	class:list={['', classes]}
+	style=`background-color: #${pastel[flag]};`
+	{...props}>
+	<div class='flex items-center justify-between h-[4.5rem]'>
 		<Text tag={'h3'} text={name} color='title' size={'6'} weight='semi' />
 	</div>
 </Tag>
