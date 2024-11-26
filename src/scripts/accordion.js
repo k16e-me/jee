@@ -49,6 +49,6 @@ export default function _accordion() {
         icon.classList.remove('rotate-180')
         setTimeout(() => {
             content.classList.add('hidden')
-        }, 250)
+        }, 350)
     }
 }
