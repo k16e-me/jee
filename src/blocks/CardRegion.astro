@@ -1,8 +1,9 @@
 ---
 import Icon from '@atoms/Icon.astro'
 import Text from '@atoms/Text.astro'
+import ListStat from '@blocks/ListStat.astro'
 
-const { tag = 'li', name, flag, class: classes, ...props } = Astro.props,
+const { tag = 'li', name, flag, office, class: classes, ...props } = Astro.props,
 	Tag = tag,
 	pastel = {
 		ng: 'EEF8DD',
@@ -39,10 +40,14 @@ const { tag = 'li', name, flag, class: classes, ...props } = Astro.props,
 		class='accordion__content max-h-0 transition-all ease-in-out overflow-hidden'>
 		<div
 			class='pb-4 px-4 flex flex-col max-w-full transition-[height] duration-300'>
-			Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, eos nam
-			excepturi maiores aliquid voluptas sunt sed culpa at optio
-			praesentium suscipit corrupti sit perspiciatis nemo tempora!
-			Veritatis, fugit itaque.
+			<ListStat
+				heading={office.content.tag}
+				color='title'
+				size='1hx'
+				body={office.content.address}
+				richtext
+				uppercase={false}
+			/>
 		</div>
 	</div>
 </Tag>
