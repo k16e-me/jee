@@ -12,12 +12,15 @@ const { tag = 'li', name, flag, class: classes, ...props } = Astro.props,
 ---
 
 <Tag
-	class:list={['rounded-lg overflow-clip relative', classes]}
+	class:list={['rounded-lg overflow-clip relative accordion group', classes]}
 	style=`background-color: #${pastel[flag]};`
 	{...props}>
-	<div class='flex items-center justify-between h-[4.5rem] px-4'>
-		<div class="flex items-center gap-3">
-            <Icon name={flag} class='size-10 shrink-0'/>
+	<div
+		class='group/button accordion__button cursor-pointer r-transition flex items-center justify-between h-[4.25rem] px-4'
+		aria-expanded='false'
+		aria-controls={`JEE ${name} Offices`}>
+		<div class='flex items-center gap-3'>
+			<Icon name={flag} class='size-10 shrink-0' />
 			<Text
 				tag='h3'
 				text={name}
@@ -31,5 +34,15 @@ const { tag = 'li', name, flag, class: classes, ...props } = Astro.props,
 			aria-hidden='true'
 			class='accordion__icon block w-4 text-[var(--color-text-body)] opacity-50 group-hover/button:opacity-100 shrink-0 transition-all group-[.is-active]:opacity-100'
 		/>
+	</div>
+	<div
+		class='accordion__content max-h-0 transition-all ease-in-out overflow-hidden'>
+		<div
+			class='pb-4 flex flex-col max-w-full transition-[height] duration-[250ms]'>
+			Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, eos nam
+			excepturi maiores aliquid voluptas sunt sed culpa at optio
+			praesentium suscipit corrupti sit perspiciatis nemo tempora!
+			Veritatis, fugit itaque.
+		</div>
 	</div>
 </Tag>
