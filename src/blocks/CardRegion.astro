@@ -12,7 +12,7 @@ const { tag = 'li', name, flag, class: classes, ...props } = Astro.props,
 ---
 
 <Tag
-	class:list={['rounded-xl overflow-clip relative', classes]}
+	class:list={['rounded-lg overflow-clip relative', classes]}
 	style=`background-color: #${pastel[flag]};`
 	{...props}>
 	<div class='flex items-center justify-between h-[4.5rem] px-4'>
