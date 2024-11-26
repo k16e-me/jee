@@ -9,6 +9,7 @@ export default function _drawer() {
         drawer = _q('[data-drawer]'),
         slots = _ql('[data-drawer-display]'),
         close = _q('[data-drawer-close]', drawer),
+        links = _ql('a', drawer),
         on = e => {
             const
                 target = e.target,
@@ -35,6 +36,7 @@ export default function _drawer() {
     slots.map(el => el.classList.add('sr-only'))
     trigger.map(el => el.addEventListener('click', e => on(e)))
     close.addEventListener('click', off)
+    links.forEach(i => i.addEventListener('click', off))
 
     _shim.subscribe(v => v ? null : off())
 }

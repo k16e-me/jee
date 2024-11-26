@@ -23,7 +23,7 @@ import _drawer from './drawer'
 
 const swup = new Swup({
     animationSelector: '[class*="swup-"]',
-    containers: ['#swup', '#footer', '#title-hidden', '#header', '#drapery'],
+    containers: ['#swup', '#footer', '#title-hidden', '#header', '#drapery', '#drawer', '#modal'],
     animateHistoryBrowsing: true,
     plugins: [
         new SwupProgressPlugin({

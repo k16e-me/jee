@@ -9,6 +9,7 @@ export default function _modal() {
         modal = _q('[data-modal]'),
         slots = _ql('[data-modal-display]'),
         close = _q('[data-modal-close]', modal),
+        links = _ql('a', modal),
         on = e => {
             const
                 target = e.target,
@@ -35,6 +36,7 @@ export default function _modal() {
     slots.map(el => el.classList.add('sr-only'))
     trigger.map(el => el.addEventListener('click', e => on(e)))
     close.addEventListener('click', off)
-    
+    links.forEach(i => i.addEventListener('click', off))
+
     _shim.subscribe(v => v ? null : off())
 }
