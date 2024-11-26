@@ -16,6 +16,7 @@ import {
 	_addCategories,
 	_addEvents,
 	_addNewsletter,
+    _addRegions,
 	_settings,
 } from '@scripts/store'
 import Shim from '@blocks/Shim.astro'
@@ -26,7 +27,7 @@ import Drapery from '@blocks/Drapery.astro'
 import NavMobile from '@blocks/NavMobile.astro'
 import { _getAllAPIs } from '@scripts/api'
 import Drawer from '@blocks/Drawer.astro'
-import Locations from '@blocks/Locations.astro'
+import Regions from '@blocks/Regions.astro'
 
 const { pageTitle, pageDescription, pageThumbnail } = Astro.props
 
@@ -55,6 +56,7 @@ const apis = _getAllAPIs(),
 		insights,
 		events,
 		newsletter,
+        regions
 	] = results
 
 _addAwards(awards.data.stories)
@@ -68,6 +70,7 @@ _addInsights(insights.data.stories)
 _addCategories(categories.data.stories)
 _addEvents(events.data.stories)
 _addNewsletter(newsletter.data.story.content)
+_addRegions(regions.data.stories)
 _addSettings(settings.data.story.content)
 
 const siteData = _settings.value
@@ -106,7 +109,7 @@ const siteData = _settings.value
 			<ModalNewsletter data-modal-display='newsletter' />
 		</Modal>
 		<Drawer data-drawer>
-			<Locations data-drawer-display='locations' />
+			<Regions data-drawer-display='regions' />
 		</Drawer>
 		<Shim data-shim />
 		<script src='@scripts/global.js'></script>
