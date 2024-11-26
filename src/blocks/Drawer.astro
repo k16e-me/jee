@@ -6,14 +6,14 @@ const { class: classes, ...props } = Astro.props
 
 <div
 	class:list={[
-		'fixed inset-y-0 right-0 md:right-4 lg:right-12 z-[150] flex flex-col justify-center items-center r-hide-overflow translate-x-full opacity-0 invisible transition duration-300 ease-in-out',
+		'fixed inset-y-0 right-0 md:right-4 lg:right-12 z-[150] flex flex-col justify-center items-center r-hide-overflow translate-x-full opacity-0 invisible transition-all duration-300 ease-in-out',
 		classes,
 	]}
 	role='dialog'
 	aria-modal='true'
 	{...props}>
 	<div
-		class='relative r-hide-overflow rounded-2xl sm:rounded-[1.5rem] h-[calc(100vh-2rem)] bg-white w-[calc(100%-2rem)] sm:max-w-[30rem] px-4 py-6 sm:px-6'>
+		class='relative r-hide-overflow rounded-2xl sm:rounded-[1.5rem] h-[calc(100vh-2rem)] bg-white w-[calc(100%-2rem)] sm:w-[30rem] px-4 py-6 sm:px-6'>
 		<ButtonFab
 			data-drawer-close
 			class='fixed top-1 right-1'

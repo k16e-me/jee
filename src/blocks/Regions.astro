@@ -1,16 +1,23 @@
 ---
 import { _regions } from '@scripts/store'
 import HeadingSection from '@blocks/HeadingSection.astro'
+import CardRegion from '@blocks/CardRegion.astro'
 
 const { class: classes, ...props } = Astro.props
 ---
 
 <div class:list={['', classes]} data-regions {...props}>
-	<HeadingSection text={'JEE Africa Regions'} size='5' padding='small' />
-	<div class="py-4">
-		Locations Lorem ipsum dolor sit amet consectetur adipisicing elit.
-		Animi, debitis cupiditate sit, architecto laborum aliquam eveniet
-		consectetur placeat adipisci dolorem ut pariatur qui excepturi culpa
-		nemo, numquam aperiam quisquam unde!
-	</div>
+	<HeadingSection
+		level='h2'
+		text={'JEE Africa Regions'}
+		size='5'
+		padding='small'
+	/>
+	<ul class='py-4'>
+		{
+            _regions.value.map(i => (
+                <CardRegion name={i.content.name} />
+            ))
+        }
+	</ul>
 </div>

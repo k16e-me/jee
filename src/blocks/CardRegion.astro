@@ -1,8 +1,18 @@
 ---
-const { class: classes, ...props } = Astro.props,
+import Icon from '@atoms/Icon.astro'
+import Text from '@atoms/Text.astro'
+
+const { tag = 'li', name, class: classes, ...props } = Astro.props,
+    Tag = tag,
 	pastel = {
 		ng: '#EEF8DD',
 		zw: '#F5E7B2',
 		cm: '#D2E0FB',
 	}
 ---
+
+<Tag>
+	<div>
+		<Text tag={'h3'} text={name} color='title' size={'6'} weight='semi' />
+	</div>
+</Tag>
