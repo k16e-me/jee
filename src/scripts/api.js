@@ -111,6 +111,7 @@ export const getRegions = async () => {
         starts_with: 'regions/',
         version: 'published',
         is_startpage: false,
+        sort_by: 'content.position:asc',
         resolve_links: 'url',
         resolve_relations: ['region.offices', 'region.contacts'],
     })

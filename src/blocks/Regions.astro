@@ -1,10 +1,16 @@
 ---
+import { _regions } from '@scripts/store'
+import HeadingSection from '@blocks/HeadingSection.astro'
+
 const { class: classes, ...props } = Astro.props
 ---
 
 <div class:list={['', classes]} data-regions {...props}>
-	Locations Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi,
-	debitis cupiditate sit, architecto laborum aliquam eveniet consectetur
-	placeat adipisci dolorem ut pariatur qui excepturi culpa nemo, numquam
-	aperiam quisquam unde!
+	<HeadingSection text={'JEE Africa Regions'} size='5' padding='small' />
+	<div class="py-4">
+		Locations Lorem ipsum dolor sit amet consectetur adipisicing elit.
+		Animi, debitis cupiditate sit, architecto laborum aliquam eveniet
+		consectetur placeat adipisci dolorem ut pariatur qui excepturi culpa
+		nemo, numquam aperiam quisquam unde!
+	</div>
 </div>

@@ -15,7 +15,7 @@ export default function _drawer() {
                 attr = target.getAttribute('data-display'),
                 slot = slots.find(el => (el.dataset.drawerDisplay === attr))
 
-            drawer.classList.remove('translate-x-full', 'opacity-0', 'scale-90')
+            drawer.classList.remove('translate-x-full', 'opacity-0', 'invisible')
             drawer.classList.add('translate-x-0', 'opacity-100')
 
             slot.scrollTop = 0
@@ -24,9 +24,9 @@ export default function _drawer() {
             _setShim()
         },
         off = () => {
-            drawer.classList.add('translate-x-full', 'opacity-0', 'scale-90')
+            drawer.classList.add('translate-x-full', 'opacity-0')
             drawer.classList.remove('translate-x-0', 'opacity-100')
-            // setTimeout(() => drawer.classList.add('invisible'), 250)
+            setTimeout(() => drawer.classList.add('invisible'), 500)
             slots.map(el => el.classList.add('sr-only'))
 
             _unsetShim()

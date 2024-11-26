@@ -14,12 +14,14 @@ const { class: classes, ...props } = Astro.props
 	aria-modal='true'
 	{...props}>
 	<div
-		class='relative overflow-auto rounded-2xl md:rounded-[2rem] bg-[var(--color-bg-default)] shadow-xl transition-all w-full sm:w-[36rem] h-[32.5rem] md:h-[36rem] px-4 py-6 md:py-8 sm:p-10'>
-		<div class="sr-only md:not-sr-only">
+		class='relative overflow-auto rounded-2xl sm:rounded-[1.5rem] bg-[var(--color-bg-default)] shadow-xl transition-all w-full sm:w-[36rem] h-[32.5rem] md:h-[36rem] p-4 sm:py-6 sm:p-8'>
+		<div class='sr-only md:not-sr-only'>
 			<ButtonFab
 				data-modal-close
-				class='fixed top-3 right-3'
+				class='fixed top-1 right-1'
 				icon='close-x'
+				style='neutral-dark'
+                size="mini"
 			/>
 		</div>
 		<slot />

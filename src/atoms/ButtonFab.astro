@@ -6,6 +6,7 @@ const {
 		label,
 		icon,
 		style = 'default',
+		size = 'default',
 		flipIcon,
 		bounceIcon,
 		class: classes,
@@ -16,27 +17,33 @@ const {
 
 <Tag
 	class:list={[
-		'w-11 h-11 flex items-center justify-center group rounded-full',
+		'flex items-center justify-center group rounded-full',
 		classes,
 		style === 'default' &&
 			'bg-[var(--color-bg-default-elevated)] text-[var(--color-text-emphasis)]',
 		style === 'blank' && 'bg-transparent text-[var(--color-text-body)]',
 		style === 'blank-brand' &&
 			'bg-transparent text-[var(--color-text-emphasis)]',
-		style === 'neutral' &&
-			'bg-transparent text-white',
+		style === 'neutral' && 'bg-transparent text-white',
+		style === 'neutral-dark' &&
+			'bg-transparent text-[var(--color-text-caption)]',
 		style === 'brand' && 'bg-[var(--color-emphasis)] text-white',
 		style === 'brand-inverted' &&
 			'bg-[var(--color-main-inverted)] text-white',
+		size === 'default' && 'w-11 h-11',
+		size === 'mini' && 'w-10 h-10',
 	]}
 	{...props}
 	aria-label={label}>
 	<Icon
 		name={icon}
 		class:list={[
-			'w-[1.4375rem] text-inherit group-hover:scale-[1.15] group-hover/link:scale-[1.15] block',
+			'text-inherit group-hover:scale-[1.15] group-hover/link:scale-[1.15] block',
 			flipIcon && 'rotate-90',
-			bounceIcon && 'group-hover:animate-bounce [animation-fill-mode:both] duration-300',
+			bounceIcon &&
+				'group-hover:animate-bounce [animation-fill-mode:both] duration-300',
+			size === 'default' && 'w-[1.4375rem]',
+			size === 'mini' && 'w-5',
 		]}
 	/>
 </Tag>
