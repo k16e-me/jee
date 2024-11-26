@@ -12,10 +12,24 @@ const { tag = 'li', name, flag, class: classes, ...props } = Astro.props,
 ---
 
 <Tag
-	class:list={['', classes]}
+	class:list={['rounded-xl overflow-clip relative', classes]}
 	style=`background-color: #${pastel[flag]};`
 	{...props}>
-	<div class='flex items-center justify-between h-[4.5rem]'>
-		<Text tag={'h3'} text={name} color='title' size={'6'} weight='semi' />
+	<div class='flex items-center justify-between h-[4.5rem] px-4'>
+		<div class="flex items-center gap-3">
+            <Icon name={flag} class='size-10 shrink-0'/>
+			<Text
+				tag='h3'
+				text={name}
+				color='title'
+				size='copy'
+				weight='medium'
+			/>
+		</div>
+		<Icon
+			name='chevron-down'
+			aria-hidden='true'
+			class='accordion__icon block w-4 text-[var(--color-text-body)] opacity-50 group-hover/button:opacity-100 shrink-0 transition-all group-[.is-active]:opacity-100'
+		/>
 	</div>
 </Tag>
