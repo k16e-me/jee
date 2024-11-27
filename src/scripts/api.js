@@ -70,6 +70,7 @@ export const getPractices = async () => {
         version: import.meta.env.DEV ? 'draft' : 'published',
         is_startpage: false,
         resolve_links: 'url',
+        per_page: 50,
         sort_by: 'content.title:asc',
     })
 }
@@ -89,6 +90,7 @@ export const getInsights = async () => {
         is_startpage: false,
         sort_by: 'content.published_date:desc',
         resolve_links: 'url',
+        per_page: 100,
         resolve_relations: ['insight.category', 'insight.author', 'insight.expertise'],
     })
 }
@@ -99,6 +101,7 @@ export const getEvents = async () => {
         is_startpage: false,
         sort_by: 'content.start_date:desc',
         resolve_links: 'url',
+        per_page: 100,
         resolve_relations: ['session.host', 'panelist.person'],
     })
 }
