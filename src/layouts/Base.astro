@@ -16,7 +16,7 @@ import {
 	_addCategories,
 	_addEvents,
 	_addNewsletter,
-    _addRegions,
+	_addRegions,
 	_settings,
 } from '@scripts/store'
 import Shim from '@blocks/Shim.astro'
@@ -28,6 +28,7 @@ import NavMobile from '@blocks/NavMobile.astro'
 import { _getAllAPIs } from '@scripts/api'
 import Drawer from '@blocks/Drawer.astro'
 import Regions from '@blocks/Regions.astro'
+import SearchGlobal from '@blocks/SearchGlobal.astro'
 
 const { pageTitle, pageDescription, pageThumbnail } = Astro.props
 
@@ -56,7 +57,7 @@ const apis = _getAllAPIs(),
 		insights,
 		events,
 		newsletter,
-        regions
+		regions,
 	] = results
 
 _addAwards(awards.data.stories)
@@ -110,6 +111,7 @@ const siteData = _settings.value
 		</Modal>
 		<Drawer data-drawer>
 			<Regions data-drawer-display='regions' />
+			<SearchGlobal data-drawer-display='search' />
 		</Drawer>
 		<Shim data-shim />
 		<script src='@scripts/global.js'></script>
