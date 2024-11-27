@@ -1,4 +1,0 @@
-[[redirects]]
-  from = "/assets/*"
-  to = "https://a.storyblok.com/f/302089/:splat"
-  status = 200
