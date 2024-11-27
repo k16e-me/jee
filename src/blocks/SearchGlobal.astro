@@ -1,9 +1,30 @@
 ---
+import InputText from '@atoms/InputText.astro'
+import HeadingSection from '@blocks/HeadingSection.astro'
+
 const { class: classes, ...props } = Astro.props
 ---
 
 <div class:list={['', classes]} data-search {...props}>
-    <form>
-        Search ipsum dolor sit amet consectetur, adipisicing elit. Sit quia aliquid ad obcaecati corrupti, saepe ullam voluptas, voluptatibus velit consequuntur maxime dignissimos explicabo deleniti quibusdam dicta quidem in hic autem.
-    </form>
+	<HeadingSection
+		level='h2'
+		text={'Search JEE.Africa'}
+		size='5'
+		padding='small'
+	/>
+	<form class='py-5 flex flex-col gap-2'>
+		<InputText
+			label='Search JEE Africa'
+			id='global-search'
+			name='Search JEE Africa'
+			class='w-full'
+			isSearch
+		/>
+		<div>
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi,
+			praesentium sint sapiente autem ullam et qui quaerat, vero ipsum
+			maiores assumenda consequatur! Eligendi nemo, laborum distinctio
+			quae delectus odio provident.
+		</div>
+	</form>
 </div>
