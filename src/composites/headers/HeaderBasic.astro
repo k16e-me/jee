@@ -37,8 +37,7 @@ const {
 	<Wrapper inset>
 		<Grid class='gap-y-5 md:gap-y-12 lg:gap-y-14'>
 			<div class='col-span-full md:col-span-6 lg:col-span-8'>
-				<div
-					class='flex flex-col gap-2 sm:gap-3 pr-4 xs:pr-6 sm:pr-8 lg:pr-16'>
+				<div class='flex flex-col gap-2 sm:gap-3 sm:pr-8 lg:pr-16'>
 					<Breadcrumb
 						altLink={breadcrumbLink
 							? breadcrumbLink
@@ -55,7 +54,6 @@ const {
 						size='3'
 						weight='extra'
 						tighten
-						class='pb-[0.375rem]'
 					/>
 					{
 						!_empty(copy) && copy.length > 1 && (
@@ -64,8 +62,7 @@ const {
 								text={copy}
 								color='body'
 								size='copy'
-								family='display'
-								class='max-w-screen-sm pr-6 mt-1.5 sm:mt-2.5 lg:mt-2'
+								class='max-w-screen-sm sm:max-w-screen-md'
 							/>
 						)
 					}
@@ -73,5 +70,5 @@ const {
 			</div>
 		</Grid>
 	</Wrapper>
-	<BrandCutout top />
+	<BrandCutout top bottom={false} />
 </Section>
