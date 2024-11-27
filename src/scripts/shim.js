@@ -9,12 +9,12 @@ export default function _shimFx() {
         shim = _q('[data-shim]'),
         on = () => {
             shim.classList.remove('opacity-0', 'invisible')
-            shim.classList.add('opacity-50')
+            shim.classList.add('opacity-60')
             body.style.overflow = 'hidden'
         },
         off = () => {
             shim.classList.add('opacity-0')
-            shim.classList.remove('opacity-50')
+            shim.classList.remove('opacity-60')
             setTimeout(() => shim.classList.add('invisible'), 500)
             body.style.overflow = ''
             _unsetShim()
