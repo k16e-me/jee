@@ -51,6 +51,7 @@ export const getPeople = async () => {
         version: 'published',
         is_startpage: false,
         resolve_links: 'url',
+        per_page: 100,
         resolve_relations: ['person.byline', 'person_links.location', 'collection.collection'],
     })
 }
