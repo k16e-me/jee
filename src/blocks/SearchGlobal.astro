@@ -8,7 +8,7 @@ import { _insights } from '@scripts/store'
 import ButtonMore from '@atoms/ButtonMore.astro'
 
 const { class: classes, ...props } = Astro.props,
-	results = _insights.value.splice(0, 12)
+	results = _insights.value.splice(0, 9)
 ---
 
 <form class:list={['flex flex-col h-full', classes]} data-search {...props}>

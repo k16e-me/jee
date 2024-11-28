@@ -86,7 +86,7 @@ export const getAfricaExpertise = async () => {
 export const getInsights = async () => {
     return await api.get('cdn/stories', {
         starts_with: 'insights/',
-        version: 'published',
+        version: 'draft',
         is_startpage: false,
         sort_by: 'content.published_date:desc',
         resolve_links: 'url',

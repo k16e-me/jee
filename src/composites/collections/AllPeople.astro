@@ -28,6 +28,8 @@ const { blok } = Astro.props,
 	offices = _offices.value.map((o) => o.content.tag),
 	sectors = _sectors.value.map((o) => o.content.title),
 	practices = _practices.value.map((o) => o.content.title)
+
+    console.log(sortedPeople)
 ---
 
 <Section
@@ -75,8 +77,8 @@ const { blok } = Astro.props,
 					_xPadding('both-lgdown-l'),
 				]}>
 				{
-					sortedPeople.map((person, idx) => (
-						<CardPerson person={person} tag='h3' size="default"/>
+					sortedPeople.map((i, x) => (
+						<CardPerson person={i} tag='h3' size="default"/>
 					))
 				}
 			</div>
