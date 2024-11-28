@@ -12,10 +12,11 @@ import ButtonFab from '@atoms/ButtonFab.astro'
 import FiltersInsights from '@blocks/FiltersInsights.astro'
 
 const { blok } = Astro.props,
+    insights = _insights.value,
 	categories = _categories.value.map((i) => i.content.title),
 	sectors = _sectors.value.map((i) => i.content.title),
 	practices = _practices.value.map((i) => i.content.title),
-	authors = _insights.value
+	authors = insights
 		.map((i) => i.content.author)
 		.flat()
 		.map((i) => i.name),
@@ -72,8 +73,8 @@ const { blok } = Astro.props,
 					_xPadding('both-mddown-lg-l'),
 				]}>
 				{
-					_insights.value.map((item, idx) => (
-						<CardInsight piece={item} landscape profile={false} />
+					insights.map((i, x) => (
+						<CardInsight piece={i} landscape profile={false} />
 					))
 				}
 			</div>

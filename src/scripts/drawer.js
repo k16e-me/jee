@@ -45,6 +45,4 @@ export default function _drawer() {
     window.addEventListener('keydown', e => { _esc(e, off) })
 
     _shim.subscribe(v => v ? null : off())
-
-    console.log(search)
 }
