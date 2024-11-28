@@ -12,7 +12,9 @@ const {
 		subtitle,
 		subtitleColor = 'caption',
 		adjustWidth = true,
+		bleed,
 		fill = true,
+		height = 'default',
 		top,
 		contain,
 		class: classes,
@@ -24,15 +26,22 @@ const {
 <Tag
 	{...link ? { href: `/${_slug(link)}` } : {}}
 	class:list={[
-		'flex items-center w-full h-[5.3125rem] rounded-xl group r-hide-overflow overflow-y-clip',
+		'flex items-center w-full rounded-xl group r-hide-overflow overflow-y-clip',
+		height === 'default' && 'h-[5.6225rem]',
+		height === 'tall' && 'h-[6.25rem]',
 		adjustWidth ? 'sm:w-[calc(50%-1rem)]' : 'max-w-[23rem]',
+		bleed && 'max-w-none',
 		fill && 'bg-[var(--color-bg-default-elevated)] p-1',
-        link && 'hover:bg-[var(--color-bg-default-elevated)]',
+		link && 'hover:bg-[var(--color-bg-default-elevated)]',
 		classes,
 	]}
 	{...props}>
 	<div
-		class='rounded-tl-lg rounded-bl-lg rounded-tr-2xl rounded-br-[3rem] overflow-clip w-20 h-full shrink-0 bg-[var(--color-bg-default-elevated)]'>
+		class:list={[
+			'rounded-tl-lg rounded-bl-lg rounded-tr-2xl rounded-br-[3rem] overflow-clip h-full shrink-0 bg-[var(--color-bg-default-elevated)]',
+			height === 'default' && 'w-[5.6225rem]',
+			height === 'tall' && 'w-[6.25rem]',
+		]}>
 		<Image
 			filename={entry.content?.image
 				? entry.content?.image.filename
@@ -50,7 +59,7 @@ const {
 			]}
 		/>
 	</div>
-	<div class='px-4 flex flex-col gap-1'>
+	<div class='px-4 flex flex-col gap-2 h-full justify-around py-3'>
 		<Text
 			text={entry.content.title
 				? entry.content.title
