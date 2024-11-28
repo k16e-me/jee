@@ -5,6 +5,7 @@ import HeadingStretch from '@blocks/HeadingStretch.astro'
 import CardCapsule from '@blocks/CardCapsule.astro'
 import _titlelize from '@scripts/titlelize'
 import { _insights } from '@scripts/store'
+import ButtonMore from '@atoms/ButtonMore.astro'
 
 const { class: classes, ...props } = Astro.props,
 	results = _insights.value.splice(0, 12)
@@ -27,24 +28,32 @@ const { class: classes, ...props } = Astro.props,
 		/>
 		<HeadingStretch tag='h3' text={`15 results for "dre"`} />
 	</div>
-	<ul class='pt-1 pb-4 flex flex-col gap-4 flex-1 overflow-auto'>
-		{
-			results.map((i) => (
-				<li>
-					<CardCapsule
-						entry={i}
-						link={i.full_slug}
-						subtitle={`JEE ${_titlelize(
-							i.full_slug.split('/')[0].replace(/-+/g, ' '),
-						)}`}
-						top
-						fill={false}
-						adjustWidth={false}
-						bleed
-						height='tall'
-					/>
-				</li>
-			))
-		}
-	</ul>
+	<div class='pt-1 pb-4 flex flex-col gap-6 flex-1 overflow-auto'>
+		<ul class='pb-4 flex flex-col gap-4'>
+			{
+				results.map((i) => (
+					<li>
+						<CardCapsule
+							entry={i}
+							link={i.full_slug}
+							subtitle={`JEE ${_titlelize(
+								i.full_slug.split('/')[0].replace(/-+/g, ' '),
+							)}`}
+							top
+							fill={false}
+							adjustWidth={false}
+							bleed
+							height='tall'
+						/>
+					</li>
+				))
+			}
+		</ul>
+		<ButtonMore
+			tag='button'
+			type='button'
+			label={'Load more results...'}
+			class='px-3 py-2.5 r-focus'
+		/>
+	</div>
 </form>
