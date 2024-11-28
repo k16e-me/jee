@@ -10,6 +10,7 @@ export default function _drawer() {
         slots = _ql('[data-drawer-display]'),
         close = _q('[data-drawer-close]', drawer),
         links = _ql('a', drawer),
+        search = _q('#global-search') ?? null,
         on = e => {
             const
                 target = e.target,
@@ -18,6 +19,7 @@ export default function _drawer() {
 
             drawer.classList.remove('translate-x-full', 'opacity-0', 'invisible')
             drawer.classList.add('translate-x-0', 'opacity-100')
+            search?.focus()
 
             slot.scrollTop = 0
             slot.classList.remove('sr-only')
@@ -39,4 +41,6 @@ export default function _drawer() {
     links.forEach(i => i.addEventListener('click', off))
 
     _shim.subscribe(v => v ? null : off())
+
+    console.log(search)
 }

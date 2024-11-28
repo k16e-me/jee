@@ -5,14 +5,14 @@ import HeadingSection from '@blocks/HeadingSection.astro'
 const { class: classes, ...props } = Astro.props
 ---
 
-<div class:list={['', classes]} data-search {...props}>
-	<HeadingSection
-		level='h2'
-		text={'Search JEE.Africa'}
-		size='5'
-		padding='small'
-	/>
-	<form class='py-5 flex flex-col gap-2'>
+<form class:list={['flex flex-col h-full', classes]} data-search {...props}>
+	<div class="flex flex-col gap-3">
+		<HeadingSection
+			level='h2'
+			text={'Search JEE.Africa'}
+			size='5'
+			padding='small'
+		/>
 		<InputText
 			label='Search JEE Africa'
 			id='global-search'
@@ -20,11 +20,8 @@ const { class: classes, ...props } = Astro.props
 			class='w-full'
 			isSearch
 		/>
-		<div>
-			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi,
-			praesentium sint sapiente autem ullam et qui quaerat, vero ipsum
-			maiores assumenda consequatur! Eligendi nemo, laborum distinctio
-			quae delectus odio provident.
-		</div>
-	</form>
-</div>
+	</div>
+	<div class='py-4 flex flex-col gap-2 flex-1 overflow-auto'>
+		Search ipsum dolor sit amet consectetur adipisicing elit. Optio reiciendis sapiente dolore unde illo, culpa perspiciatis, numquam et doSearch qui tenetur amet ea quod beatae officiis, consequatur alias doloribus dignissimos. Search ipsum dolor sit amet consectetur adipisicing elit. Delectus excepturi, vitae quis nulla fugiat eligendi minima voluptatum repellat, dignissimos possimus, molestias odio tempore aperiam neque nam! Ea est doloribus nobis! Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae iure sed id laudantium vero officia autem eveniet impedit alias cumque nisi at recusandae suscipit aut, eius ipsam. Quo, corporis saepe.
+	</div>
+</form>
