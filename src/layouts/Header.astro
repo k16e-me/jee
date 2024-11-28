@@ -18,7 +18,7 @@ const { nav, tools, class: classes, ...props } = Astro.props
 		<TitleHidden tag='h2' title={'Navigation (Desktop View)'} />
 		<a
 			href='/'
-			class='col-span-2 justify-self-start w-full h-full flex items-center -translate-x-px'>
+			class='col-span-2 justify-self-start w-full h-full flex items-center translate-y-[0.125rem] -translate-x-[0.15625rem]'>
 			<Icon name='logo' class='h-10 xl:h-[2.8rem]' />
 		</a>
 		<NavDesktop
@@ -26,7 +26,7 @@ const { nav, tools, class: classes, ...props } = Astro.props
 			class='hidden lg:flex lg:col-span-7 lg:col-start-3 w-full justify-end'
 		/>
 		<NavTools
-			class='col-span-2 md:col-span-6 lg:col-span-3 lg:col-start-10 w-full justify-self-end'
+			class='col-span-2 md:col-span-6 lg:col-span-3 lg:col-start-10 w-full justify-self-end translate-x-3'
 			links={tools}
 		/>
 	</Grid>
