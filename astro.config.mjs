@@ -34,6 +34,7 @@ export default defineConfig({
                 insight: 'types/Insight',
                 practice: 'types/Practice',
                 sector: 'types/Sector',
+                ip: 'types/Ip',
 
                 // Posters
                 feature: 'composites/posters/Feature',

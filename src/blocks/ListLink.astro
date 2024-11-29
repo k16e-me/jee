@@ -2,13 +2,16 @@
 import Icon from '@atoms/Icon.astro'
 import Text from '@atoms/Text.astro'
 import _slug from '@scripts/slug'
+import _slugify from '@scripts/slugify'
 import _unslash from '@scripts/unslash'
 
 const { link, class: classes, ...props } = Astro.props
 ---
 
 <li class='group/link'>
-	<a href={_slug(link.link)} class='flex flex-col gap-0.5 py-1'>
+	<a
+		href={_slug(link.link)}
+		class='flex flex-col gap-0.5 py-1'>
 		<Text
 			size='footnote'
 			text={link.label}

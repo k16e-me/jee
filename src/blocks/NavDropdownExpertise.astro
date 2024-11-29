@@ -27,7 +27,7 @@ const { links, class: classes, ...props } = Astro.props
 								)}
 								aria-label={`JEE ${i.label}`}
 								label={`All ${i.label}`}
-                                class="font-semibold !text-base"
+								class='font-semibold !text-base'
 							/>
 						</li>
 						{i.children.map((j) => (
@@ -41,6 +41,14 @@ const { links, class: classes, ...props } = Astro.props
 							</li>
 						))}
 					</ul>
+				</li>
+				<li class='group/list'>
+					<NavDropdownLink
+						href={`/ip`}
+						data-anchor={`ip`}
+						aria-label={`JEE Africa IP Practice`}
+						label={`Africa IP Practice`}
+					/>
 				</li>
 			</ul>
 		))
