@@ -2,6 +2,23 @@
 import { useStoryblokApi } from '@storyblok/astro'
 import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro'
 import Base from '@layouts/Base.astro'
+import {
+	_addSettings,
+	_addAwards,
+	_addPeople,
+	_addDesignations,
+	_addOffices,
+	_addSectors,
+	_addPractices,
+	_addAfricaExpertise,
+	_addInsights,
+	_addCategories,
+	_addEvents,
+	_addNewsletter,
+	_addRegions,
+	_settings,
+} from '@scripts/store'
+import { _getAllAPIs } from '@scripts/api'
 
 export async function getStaticPaths() {
 	const storyblokApi = useStoryblokApi()
@@ -64,6 +81,38 @@ const { slug } = Astro.params,
 	page = data.story,
 	content = page.content,
 	seo = content.seo[0]
+
+const apis = _getAllAPIs(),
+	results = await Promise.all(apis.map((fn) => fn())),
+	[
+		settings,
+		awards,
+		designations,
+		categories,
+		offices,
+		people,
+		sectors,
+		practices,
+		africaExpertise,
+		insights,
+		events,
+		newsletter,
+		regions,
+	] = results
+
+_addAwards(awards.data.stories)
+_addPeople(people.data.stories)
+_addDesignations(designations.data.stories)
+_addOffices(offices.data.stories)
+_addSectors(sectors.data.stories)
+_addPractices(practices.data.stories)
+_addAfricaExpertise(africaExpertise.data.stories)
+_addInsights(insights.data.stories)
+_addCategories(categories.data.stories)
+_addEvents(events.data.stories)
+_addNewsletter(newsletter.data.story.content)
+_addRegions(regions.data.stories)
+_addSettings(settings.data.story.content)
 ---
 
 <Base
