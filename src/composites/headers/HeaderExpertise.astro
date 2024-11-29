@@ -30,8 +30,8 @@ const {
 	section={false}
 	class:list={['r-hide-overflow', classes]}
 	{...props}>
-	<Wrapper>
-		<Grid grid='4-12-12' class:list={[_gridGap('y')]}>
+	<Wrapper class=''>
+		<Grid grid='4-12-12' class:list={[_gridGap('y'), 'lg:min-h-[42rem]']}>
 			<div
 				class:list={[
 					'col-span-full',
@@ -61,7 +61,7 @@ const {
 						? 'lg:[grid-area:1/1/2/8]'
 						: 'lg:[grid-area:1/6/2/13]',
 				]}>
-				<div class:list={['flex flex-col gap-2 sm:gap-3']}>
+				<div class:list={['flex flex-col justify-between h-full gap-2 sm:gap-3']}>
 					<div
 						class:list={[
 							flipped && _xPadding('both-xlup-l'),
