@@ -2,7 +2,6 @@ import { defineConfig } from 'astro/config'
 import { loadEnv } from 'vite'
 import storyblok from '@storyblok/astro'
 import tailwind from '@astrojs/tailwind'
-import vue from '@astrojs/vue'
 
 const env = loadEnv('', process.cwd(), 'STORYBLOK')
 
@@ -84,8 +83,7 @@ export default defineConfig({
                 allPractices: 'composites/collections/AllPractices',
                 allAfricaExpertise: 'composites/collections/AllAfricaExpertise',
             }
-        }),
-        vue()
+        })
     ],
     image: {
         domains: ['a.storyblok.com']
