@@ -3,9 +3,7 @@ import Head from '@layouts/Head.astro'
 import Header from '@layouts/Header.astro'
 import Footer from '@layouts/Footer.astro'
 import TitleHidden from '@blocks/TitleHidden.astro'
-import {
-	_settings,
-} from '@scripts/store'
+import { _settings } from '@scripts/store'
 import Shim from '@blocks/Shim.astro'
 import Modal from '@blocks/Modal.astro'
 import ModalNewsletter from '@blocks/ModalNewsletter.astro'
@@ -16,7 +14,8 @@ import Drawer from '@blocks/Drawer.astro'
 import Regions from '@blocks/Regions.astro'
 import SearchGlobal from '@blocks/SearchGlobal.astro'
 
-const { pageTitle, pageDescription, pageThumbnail } = Astro.props
+const { pageTitle, pageDescription, pageThumbnail } = Astro.props,
+	site = _settings.value
 
 let fixHeader = true,
 	currPath = Astro.url.pathname,
@@ -27,23 +26,21 @@ if (currPath == '/')
 else currPath = currPath.replace(/^\//, '').replace(/\.html$/, '')
 
 _startsWith(currPath, unfixHeader) ? (fixHeader = false) : (fixHeader = true)
-
-const siteData = _settings.value
 ---
 
 <!doctype html>
 <html lang='en' class='scroll-smooth bg-[var(--color-bg-default)]'>
 	<Head
-		title={`${pageTitle} | ${siteData.title}`}
-		description={pageDescription || siteData.description}
+		title={`${pageTitle} | ${site.title}`}
+		description={pageDescription || site.description}
 		image={pageThumbnail || '/thumbnail.png'}
 	/>
 	<body
 		class='max-w-screen-3xl mx-auto flex flex-col min-h-screen overflow-x-hidden'>
 		<TitleHidden tag='h1' title={pageTitle} id='title-hidden' />
 		<Header
-			nav={siteData.nav}
-			tools={siteData.tools}
+			nav={site.nav}
+			tools={site.tools}
 			class:list={[fixHeader && 'fixed inset-x-0 top-0']}
 			id='header'
 		/>
@@ -56,7 +53,7 @@ const siteData = _settings.value
 			id='swup'>
 			<slot />
 		</main>
-		<Footer site={siteData} id='footer' />
+		<Footer site={site} id='footer' />
 		<Drapery data-drapery id='drapery'>
 			<NavMobile />
 		</Drapery>
