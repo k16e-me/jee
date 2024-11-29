@@ -12,9 +12,6 @@ export default defineConfig({
         defaultStrategy: 'viewport',
         ignoreSlowConnection: true
     },
-    experimental: {
-        contentCollectionCache: true,
-    },
     integrations: [
         tailwind({
             nesting: true
