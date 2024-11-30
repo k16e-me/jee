@@ -37,18 +37,11 @@ const { class: classes, ...props } = Astro.props
 	</div>
 	<div class='pt-1 pb-4 flex flex-col gap-6 flex-1 overflow-auto'>
 		<ul id='results-list' class='pb-4 flex flex-col gap-4'></ul>
-		<!-- <ButtonMore
-			tag='button'
-			type='button'
-			label={'Load more results...'}
-			class='px-3 py-2.5 r-focus'
-			data-show-more
-		/> -->
 	</div>
 </form>
 
 <script>
-	const maxResults = 50
+	const maxResults = 150
 	const perPage = 10
 	let count = perPage
 	let total = 0
@@ -98,7 +91,7 @@ const { class: classes, ...props } = Astro.props
 		if (searchInput.value) {
 			searchStatus.style.display = 'flex'
 			searchStatus.querySelector('h3').textContent =
-				`${total} results for ${searchInput.value}`
+				`${total} results for "${searchInput.value}"`
 		} else {
 			searchStatus.style.display = 'none'
 		}
@@ -116,7 +109,7 @@ const { class: classes, ...props } = Astro.props
                     </div>
                     <div class="px-4 flex flex-col gap-2 h-full justify-around py-2">
                         <span class="text-[1.015rem] leading-[1.325rem] md:text-[1.0625rem] font-sans font-semibold text-[var(--color-text-title)] line-clamp-2">${r.meta.title}</span>
-                        <span class="text-[0.8975rem] leading-[1.0975rem] font-sans font-medium text-[var(--color-text-caption)] line-clamp-1 max-w-32 normal-case">${r.excerpt}</span>
+                        <span class="text-[0.8975rem] leading-[1.0975rem] font-sans font-medium text-[var(--color-text-caption)] line-clamp-1 max-w-32 capitalize">${r.excerpt}</span>
                     </div>
                     <div class="fixed bottom-0 right-0 translate-y-4 opacity-0 transition duration-200 group-hover:translate-y-0 group-hover:opacity-100">
                         <svg viewBox="0 0 960 560" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-[10rem] text-[var(--color-emphasis)] absolute -right-[4.5rem] -bottom-[2.8rem]">
@@ -136,15 +129,6 @@ const { class: classes, ...props } = Astro.props
             `
 			resultsList.appendChild(li)
 		})
-
-		// Add "Show more" button if needed
-		// if (count < total) {
-		// 	const showMore = document.querySelector('[data-show-more]')
-		// 	showMore.onclick = () => {
-		// 		count += perPage
-		// 		updateUI()
-		// 	}
-		// }
 	}
 
 	// Initialize
