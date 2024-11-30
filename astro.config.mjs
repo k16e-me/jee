@@ -2,6 +2,7 @@ import { defineConfig } from 'astro/config'
 import { loadEnv } from 'vite'
 import storyblok from '@storyblok/astro'
 import tailwind from '@astrojs/tailwind'
+import pagefind from 'astro-pagefind'
 
 const env = loadEnv('', process.cwd(), 'STORYBLOK')
 
@@ -13,6 +14,7 @@ export default defineConfig({
         ignoreSlowConnection: true
     },
     integrations: [
+        pagefind(),
         tailwind({
             nesting: true
         }),
@@ -91,5 +93,22 @@ export default defineConfig({
     },
     devToolbar: {
         enabled: false
+    },
+    vite: {
+        build: {
+            rollupOptions: {
+                external: ['/pagefind/pagefind.js']
+            }
+        },
+        server: {
+            fs: {
+                strict: false,
+                allow: ['.']  // Allow serving files from root
+            }
+        },
+        optimizeDeps: {
+            exclude: ['pagefind']
+        }
     }
+
 })
