@@ -18,8 +18,9 @@ import _shimFx from './shim'
 import _modal from './modal'
 import _headerFx from './header-fx'
 import _mobileMenu from './mobile-menu'
-import { _q } from './snips'
+import { _q, _ql } from './snips'
 import _drawer from './drawer'
+import _search from './search'
 
 const swup = new Swup({
     animationSelector: '[class*="swup-"]',
@@ -40,6 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
     init()
 })
 swup.hooks.on('page:view', () => init())
+swup.hooks.on('link:click', () => _unsetShim())
 
 function init() {
     _active()
@@ -60,6 +62,7 @@ function init() {
     _headerFx()
     _mobileMenu()
     _unsetShim()
+    _search()
 }
 
 function once() {
