@@ -56,17 +56,18 @@ const {
 							? _xPadding('left-md-down')
 							: _xPadding('left-lgdown-l'),
 					]}>
-					<div class:list={['swiper swiper-all']}>
-						<ul class='swiper-wrapper'>
-							{
-								people.map((person, idx) => (
-									<li class='swiper-slide !w-auto'>
-										<CardPerson person={person} size="default"/>
-									</li>
-								))
-							}
-						</ul>
-					</div>
+					<ul class='flex gap-4 overflow-auto snap-x pr-4'>
+						{
+							people.map((person, idx) => (
+								<li class='shrink-0 !w-auto snap-start'>
+									<CardPerson
+										person={person}
+										size='default'
+									/>
+								</li>
+							))
+						}
+					</ul>
 				</div>
 			</div>
 		</Grid>
