@@ -10,7 +10,7 @@ import _slugify from '@scripts/slugify'
 
 const {
 		blok,
-        bleed,
+		bleed,
 		altComponent,
 		altOverlap,
 		altHeading,
@@ -18,8 +18,8 @@ const {
 		altLink,
 		altInsights,
 		altCollection,
-        isCollection = true,
-        controls,
+		isCollection = true,
+		controls,
 		class: classes,
 		...props
 	} = Astro.props,
@@ -36,7 +36,7 @@ const {
 			<div class:list={['col-span-full', _spaceY()]}>
 				<div
 					class:list={[
-						(bleed || blok.bleed)
+						bleed || blok.bleed
 							? _xPadding('both-lgdown-l')
 							: _xPadding('both'),
 					]}>
@@ -45,28 +45,26 @@ const {
 						text={altHeading ? altHeading : blok.heading}
 						size='4'
 						isFromCollection={isCollection}
-                        hasCarouselControls={controls}
+						hasCarouselControls={controls}
 						label={altLabel ? altLabel : collection.label}
 						link={altLink ? altLink : collection.link}
 					/>
 				</div>
 				<div
 					class:list={[
-						(bleed || blok.bleed)
+						bleed || blok.bleed
 							? _xPadding('left-lgdown-l')
 							: _xPadding('left'),
 					]}>
-					<div class:list={['swiper swiper-all']}>
-						<ul class='swiper-wrapper'>
-							{
-								insights.map((item, idx) => (
-									<li class='swiper-slide !w-[20rem] !h-[24.5rem] group relative overflow-clip rounded-tl-[1.5rem] rounded-tr-[2rem]'>
-										<CardInsight piece={item} />
-									</li>
-								))
-							}
-						</ul>
-					</div>
+					<ul class='flex gap-4 overflow-auto snap-x pr-4'>
+						{
+							insights.map((item, idx) => (
+								<li class='shrink-0 !w-[20rem] !h-[24.5rem] group relative overflow-clip rounded-tl-[1.5rem] rounded-tr-[2rem] snap-start'>
+									<CardInsight piece={item} />
+								</li>
+							))
+						}
+					</ul>
 				</div>
 			</div>
 		</Grid>
