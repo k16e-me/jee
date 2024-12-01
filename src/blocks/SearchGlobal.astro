@@ -40,7 +40,7 @@ const { class: classes, ...props } = Astro.props
 	</div>
 </form>
 
-<script>
+<script is:inline>
 	const maxResults = 150
 	const perPage = 10
 	let count = perPage
@@ -51,9 +51,7 @@ const { class: classes, ...props } = Astro.props
 	// Initialize Pagefind
 	async function initPagefind() {
 		if (typeof window !== 'undefined') {
-			const baseUrl = import.meta.env.DEV
-				? 'http://localhost:4321'
-				: window.location.origin
+			const baseUrl = window.location.origin
 			pagefind = await import(
 				/* @vite-ignore */
 				baseUrl + '/pagefind/pagefind.js'
@@ -62,7 +60,7 @@ const { class: classes, ...props } = Astro.props
 			if (pagefind) {
 				pagefind.init({
 					element: '#global-search',
-					excerptLength: 15,
+					excerptLength: 10,
 				})
 			}
 		}
@@ -91,14 +89,14 @@ const { class: classes, ...props } = Astro.props
 		if (searchInput.value) {
 			searchStatus.style.display = 'flex'
 			searchStatus.querySelector('h3').textContent =
-				`${total} results for "${searchInput.value}"`
+				`Showing ${total} results for "${searchInput.value}"`.trim()
 		} else {
 			searchStatus.style.display = 'none'
 		}
 
 		// Update results
 		resultsList.innerHTML = ''
-		const displayedResults = results.slice(0, count)
+		const displayedResults = results.slice(0, maxResults)
 
 		displayedResults.forEach((r) => {
 			const li = document.createElement('li')

@@ -21,7 +21,8 @@ export default function _drawer() {
 
             drawer.classList.remove('translate-x-full', 'opacity-0', 'invisible')
             drawer.classList.add('translate-x-0', 'opacity-100')
-            search?.focus()
+
+            setTimeout(() => search?.focus(), 150)
 
             slot.scrollTop = 0
             slot.classList.remove('sr-only')
