@@ -1,7 +1,7 @@
-import { _shim, _setShim, _unsetShim } from './store'
-import { _q, _ql } from './snips'
-import _trapFocus from './trap-focus'
-import _esc from './esc'
+import { _shim, _setShim, _unsetShim } from '@scripts/store'
+import { _q, _ql } from '@scripts/snips'
+import _trapFocus from '@scripts/trap-focus'
+import _esc from '@scripts/esc'
 
 export default function _drawer() {
     if (!_q('[data-drawer-trigger]')) return
@@ -11,7 +11,6 @@ export default function _drawer() {
         drawer = _q('[data-drawer]'),
         slots = _ql('[data-drawer-display]'),
         close = _q('[data-drawer-close]', drawer),
-        links = _ql('a', drawer),
         search = _q('#global-search') ?? null,
         on = e => {
             const
@@ -42,7 +41,6 @@ export default function _drawer() {
     slots.map(el => el.classList.add('sr-only'))
     trigger.map(el => el.addEventListener('click', e => on(e)))
     close.addEventListener('click', off)
-    links.forEach(i => i.addEventListener('click', off))
     window.addEventListener('keydown', e => { _esc(e, off) })
 
     _shim.subscribe(v => v ? null : off())

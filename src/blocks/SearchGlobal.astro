@@ -40,7 +40,10 @@ const { class: classes, ...props } = Astro.props
 	</div>
 </form>
 
-<script is:inline>
+<script>
+	import { _ql } from '@scripts/snips'
+	import { _shim, _setShim, _unsetShim } from '@scripts/store'
+
 	const maxResults = 150
 	const perPage = 10
 	let count = perPage
@@ -60,7 +63,7 @@ const { class: classes, ...props } = Astro.props
 			if (pagefind) {
 				pagefind.init({
 					element: '#global-search',
-					excerptLength: 10,
+					excerptLength: 15,
 				})
 			}
 		}

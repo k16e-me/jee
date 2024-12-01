@@ -11,7 +11,7 @@ import _isSticky from './pin-top'
 import _scrollspy from './scrollspy'
 import _moreOrLess from './more-less'
 import _prefilters from './prefilters'
-import { _newsletter } from './store'
+import { _newsletter, _unsetShim } from './store'
 import _newsletterSubmit from './newsletter'
 import _figureImg from './figure-image'
 import _shimFx from './shim'
@@ -59,6 +59,7 @@ function init() {
     _drawer()
     _headerFx()
     _mobileMenu()
+    _unsetShim()
 }
 
 function once() {
