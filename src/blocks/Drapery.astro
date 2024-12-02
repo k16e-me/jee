@@ -14,18 +14,18 @@ const { class: classes, ...props } = Astro.props
 	role='dialog'
 	aria-modal='true'
 	{...props}>
-	<Wrapper class='relative overflow-auto'>
-		<ul
+	<Wrapper class='relative'>
+		<div
 			class='h-[var(--spacing-1)] md:h-[var(--spacing-2)] w-full lg:h-[var(--spacing-3)] flex items-center justify-end translate-x-1 sm:translate-x-2 lg:translate-x-0'>
-			<li class='h-full w-11 flex items-center justify-center relative'>
+			<div class='h-full w-11 flex items-center justify-center relative'>
 				<ButtonFab
 					style='neutral'
 					label='Close Mobile Menu'
 					icon='close-x'
 					data-close-menu
 				/>
-			</li>
-		</ul>
+			</div>
+		</div>
 		<slot />
 	</Wrapper>
 </div>
