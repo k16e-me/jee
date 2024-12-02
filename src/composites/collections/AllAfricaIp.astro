@@ -1,0 +1,44 @@
+---
+import Section from '@layouts/Section.astro'
+import Wrapper from '@layouts/Wrapper.astro'
+import Grid from '@layouts/Grid.astro'
+import { _sectionPadding, _xPadding } from '@scripts/snips'
+import { _africaIp } from '@scripts/store'
+import CardCountry from '@blocks/CardCountry.astro'
+import HeadingStretch from '@blocks/HeadingStretch.astro'
+
+const { blok } = Astro.props,
+	ip = _africaIp.value,
+	regionalGroups = ip.filter((i) => i.content.country === 'rg'),
+	other = ip.filter((i) => i.content.country !== 'rg')
+---
+
+<Section
+	component={blok.component}
+	title={blok.title}
+	overlap
+	class='r-hide-overflow overflow-y-clip z-20'>
+	<Wrapper
+		class='bg-[var(--color-bg-default)] rounded-t-[2rem] md:rounded-t-[3.5rem] lg:rounded-t-[4.5rem] ml:max-w-[64rem] flex flex-col gap-8 ml:gap-12'>
+		<Grid grid='4-12-12'>
+			<HeadingStretch
+				tag='h2'
+				text={'Regional Groups'}
+				class='min-w-[12rem] max-w-[13rem] col-span-full ml:[grid-area:1/1/2/4]'
+			/>
+			<ul class='col-span-full ml:[grid-area:1/4/2/13] flex flex-wrap [&>*]:w-28 gap-4'>
+				{regionalGroups.map((i) => <CardCountry entry={i} />)}
+			</ul>
+		</Grid>
+		<Grid grid='4-12-12'>
+			<HeadingStretch
+				tag='h2'
+				text={'All Countries'}
+				class='min-w-[12rem] max-w-[13rem]'
+			/>
+			<ul class='col-span-full ml:[grid-area:1/4/2/13] flex flex-wrap [&>*]:w-28 gap-4'>
+				{other.map((i) => <CardCountry entry={i} />)}
+			</ul>
+		</Grid>
+	</Wrapper>
+</Section>

@@ -11,6 +11,7 @@ export const
     _sectors = atom([]),
     _practices = atom([]),
     _africaExpertise = atom([]),
+    _africaIp = atom([]),
     _categories = atom([]),
     _newsletter = persistentAtom('newsletter', ''),
     _regions = persistentAtom('regions', ''),
@@ -27,6 +28,7 @@ export function _addOffices(item) { _offices.set(item) }
 export function _addSectors(item) { _sectors.set(item) }
 export function _addPractices(item) { _practices.set(item) }
 export function _addAfricaExpertise(item) { _africaExpertise.set(item) }
+export function _addAfricaIp(item) { _africaIp.set(item) }
 export function _addCategories(item) { _categories.set(item) }
 export function _addNewsletter(item) { _newsletter.set(item) }
 export function _addRegions(item) { _regions.set(item) }
