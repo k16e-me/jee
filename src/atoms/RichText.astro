@@ -16,15 +16,17 @@ const {
 
 <Prose
 	class:list={[
-		(pType === 'copy' || pType === 'emphasis' || pType === '1hx') &&
-			'font-display',
 		pType === '1hx' && _fontSize('1hx'),
+		pType === '2hx' && _fontSize('2hx'),
 		pType === 'copy' && _fontSize('copy'),
 		pType === 'emphasis' && _fontSize('emphasis'),
 		pType === 'body' && _fontSize('body'),
 		pType === 'blurb' && _fontSize('blurb'),
 		weight === 'regular' && 'font-normal',
 		weight === 'medium' && 'font-medium',
+		weight === 'semi' && 'font-semibold',
+		weight === 'bold' && 'font-bold',
+		weight === 'extra' && 'font-extrabold',
 		color === 'body' && 'text-[var(--color-text-body)]',
 		color === 'title' && 'text-[var(--color-text-title)]',
 		post &&

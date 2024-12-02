@@ -52,7 +52,6 @@ const { person, class: classes, ...props } = Astro.props
 							text={person.name}
 							color='title'
 							size='3'
-							family='display'
 							weight='extra'
 							tighten
 						/>
@@ -60,7 +59,6 @@ const { person, class: classes, ...props } = Astro.props
 							text={person.byline[0]?.content.title}
 							color='caption'
 							size='1hx'
-							family='display'
 							weight='medium'
 						/>
 					</div>
@@ -89,7 +87,7 @@ const { person, class: classes, ...props } = Astro.props
 						/>
 					</ul>
 					<div class='max-w-screen-sm'>
-						<RichText text={person.excerpt} pType='1hx' />
+						<RichText text={person.excerpt} pType='2hx' />
 					</div>
 				</div>
 			</div>
