@@ -1,8 +1,11 @@
 ---
-import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro'
+import HeaderIp from '@composites/headers/HeaderIp.astro'
 
-const { blok } = Astro.props,
-	{ pathname } = Astro.url,
-	pathArr = pathname.split('/')
+const { blok } = Astro.props
 ---
-Africa IP...
+
+<HeaderIp
+	item={blok}
+	breadcrumbLink='/ip'
+	breadcrumbLabel='Africa IP Practice'
+/>

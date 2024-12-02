@@ -1,0 +1,46 @@
+---
+import Section from '@layouts/Section.astro'
+import Wrapper from '@layouts/Wrapper.astro'
+import Grid from '@layouts/Grid.astro'
+import Text from '@atoms/Text.astro'
+import { _gridGap, _sectionPadding, _spaceY, _xPadding } from '@scripts/snips'
+import BrandCutDown from '@atoms/BrandCutDown.astro'
+import ButtonMore from '@atoms/ButtonMore.astro'
+import Breadcrumb from '@blocks/Breadcrumb.astro'
+import _empty from '@scripts/empty'
+import _slug from '@scripts/slug'
+import Image from '@atoms/Image.astro'
+import HeadingSection from '@blocks/HeadingSection.astro'
+import CardPerson from '@blocks/CardPerson.astro'
+
+const {
+	item,
+	heads,
+	breadcrumbLink,
+	breadcrumbLabel,
+	flipped,
+	class: classes,
+	...props
+} = Astro.props
+---
+
+<Section
+	component={item.component}
+	header
+	section={false}
+	class:list={['r-hide-overflow', classes]}
+	{...props}>
+	<Wrapper class=''>
+		<Grid grid='4-12-12' class:list={[_gridGap('y'), 'lg:min-h-[42rem]']}>
+			<div class:list={['col-span-full ml:[grid-area:1/1/2/6]']}>
+				Quam asperiores quibusdam in? Lorem ipsum dolor, sit amet
+				consectetur adipisicing elit. Aperiam commodi reprehenderit
+				modi, nobis animi quo placeat ratione, nulla mollitia fugiat
+				corrupti cum sed odit maiores quae.
+			</div>
+			<div class:list={['col-span-full lg:[grid-area:1/6/2/13]']}>
+				B...
+			</div>
+		</Grid>
+	</Wrapper>
+</Section>
