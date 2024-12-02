@@ -7,7 +7,7 @@ import _swiperAwards from './swiper-awards'
 import _playVideo from './play-video'
 import _swiperQuotes from './swiper-quotes'
 import _swiperAll from './swiper-all'
-import _isSticky from './pin-top'
+import _isPinned from './pin-top'
 import _scrollspy from './scrollspy'
 import _moreOrLess from './more-less'
 import _prefilters from './prefilters'
@@ -50,7 +50,7 @@ function init() {
     _swiperQuotes()
     _swiperAll()
     _playVideo()
-    if (_q('[data-pin-top]')) _isSticky()
+    if (_q('[data-pin-top]')) _isPinned()
     if (_q('[data-spy]')) _scrollspy()
     _moreOrLess()
     _newsletterSubmit()
