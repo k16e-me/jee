@@ -67,9 +67,9 @@ const {
 					? entry.content.name
 					: entry.name}
 			color='title'
-			size='1hx'
+			size={height === 'tall' ? '1hx' : 'body'}
 			weight='semi'
-			class='line-clamp-2'
+			class={['line-clamp-2', height === 'default' && '!leading-5']}
 		/>
 		{
 			link && (

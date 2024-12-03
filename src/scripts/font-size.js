@@ -13,7 +13,7 @@ const
     button = 'text-[0.935rem] leading-[1.175rem]',
     body = 'text-[1.025rem] leading-[1.4975rem]',
     blurb = 'text-[0.9325rem] leading-[1.165rem]',
-    footnote = 'text-[0.8975rem] leading-[1.0975rem]',
+    footnote = 'text-[0.8975rem] leading-[1.0995rem]',
 
     _fontSize = (s = 'body') => {
         if (s === 's2' || s === '2') return [...s2.split(' ')]
