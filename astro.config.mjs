@@ -95,6 +95,9 @@ export default defineConfig({
     devToolbar: {
         enabled: false
     },
+    experimental: {
+        responsiveImages: true
+    },
     vite: {
         build: {
             rollupOptions: {
@@ -111,5 +114,4 @@ export default defineConfig({
             exclude: ['pagefind']
         }
     }
-
 })

@@ -8,7 +8,7 @@ const {
 	loading = 'eager',
 	contain,
 	top,
-    bottom,
+	bottom,
 	class: classes,
 	...props
 } = Astro.props
@@ -17,12 +17,8 @@ const {
 <Image
 	src={filename}
 	alt={alt}
-	widths={[576, 768, 960, 1280, 1440]}
-	sizes={`(max-width: 475px) 576px,
-        (max-width: 640px) 768px,
-        (max-width: 768px) 960px,
-        (max-width: 1024px) 1280px,
-        (max-width: 1280px) 1440px`}
+	widths={[576, 768, 960, 1280]}
+	layout='responsive'
 	quality={'high'}
 	inferSize
 	draggable='false'
@@ -31,8 +27,8 @@ const {
 		'w-full max-w-full',
 		filter && 'saturate-[.8] sepia-[7%] grayscale-[5%]',
 		contain ? 'object-contain' : 'object-cover',
-		(top && !bottom) ? 'object-top' : 'object-center',
-        bottom && 'object-bottom',
+		top && !bottom ? 'object-top' : 'object-center',
+		bottom && 'object-bottom',
 		classes,
 	]}
 	{...props}

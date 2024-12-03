@@ -95,7 +95,7 @@ export const getAfricaIp = async () => {
 export const getInsights = async () => {
     return await api.get('cdn/stories', {
         starts_with: 'insights/',
-        version: 'draft',
+        version: 'published',
         is_startpage: false,
         sort_by: 'content.published_date:desc',
         resolve_links: 'url',

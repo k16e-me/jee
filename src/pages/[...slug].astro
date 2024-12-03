@@ -41,7 +41,7 @@ export async function getStaticPaths() {
 			!link.slug.startsWith('regions') &&
 			!link.slug.startsWith('legal'),
 	)
-
+console.log(links)
 	return links
 		.filter((link) => !link.is_folder)
 		.map((link) => {
