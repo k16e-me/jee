@@ -86,7 +86,7 @@ export const getAfricaExpertise = async () => {
 export const getAfricaIp = async () => {
     return await api.get('cdn/stories', {
         starts_with: 'ip/',
-        version: import.meta.env.DEV ? 'draft' : 'published',
+        version: 'published',
         is_startpage: false,
         resolve_links: 'url',
         sort_by: 'content.title:asc',
