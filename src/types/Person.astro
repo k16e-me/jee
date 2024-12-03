@@ -14,14 +14,14 @@ import { _insights, _people } from '@scripts/store'
 import _empty from '@scripts/empty'
 import CarouselPeople from '@composites/sections/CarouselPeople.astro'
 
-const { blok } = Astro.props,
-	personName = blok.name,
-	bylineRank = blok.byline[0].content.rank,
-	relatedPeople = _people.value
+const { blok } = Astro.props
+const personName = blok.name
+const bylineRank = blok.byline[0].content.rank
+const relatedPeople = _people.value
 		.filter((i) => i.content.byline[0].content.rank === bylineRank)
 		.filter((i) => i.name !== personName)
-		.slice(0, 9),
-	headings = [
+		.slice(0, 9)
+const headings = [
 		blok.bio[0].heading[0].heading,
 		blok.sectors[0].heading[0].heading,
 		blok.practices[0].heading[0].heading,
