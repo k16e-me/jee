@@ -112,6 +112,7 @@
     .r-dead-center, .r-absolute-center {
         @apply left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2;
     }
+    .r-flex-center { @apply flex items-center justify-center; }
     .r-hide-overflow {
         @apply [transform:translateZ(0)] overflow-x-clip;
     }

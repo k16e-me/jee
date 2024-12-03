@@ -12,6 +12,7 @@ import _slug from '@scripts/slug'
 import Image from '@atoms/Image.astro'
 import HeadingSection from '@blocks/HeadingSection.astro'
 import CardPerson from '@blocks/CardPerson.astro'
+import Icon from '@atoms/Icon.astro'
 
 const {
 	item,
@@ -30,16 +31,43 @@ const {
 	section={false}
 	class:list={['r-hide-overflow', classes]}
 	{...props}>
-	<Wrapper class=''>
+	<Wrapper inset>
 		<Grid grid='4-12-12' class:list={[_gridGap('y'), 'lg:min-h-[42rem]']}>
-			<div class:list={['col-span-full ml:[grid-area:1/1/2/6]']}>
+			<div class:list={['col-span-full lg:[grid-area:1/1/2/6]']}>
 				Quam asperiores quibusdam in? Lorem ipsum dolor, sit amet
 				consectetur adipisicing elit. Aperiam commodi reprehenderit
 				modi, nobis animi quo placeat ratione, nulla mollitia fugiat
 				corrupti cum sed odit maiores quae.
 			</div>
-			<div class:list={['col-span-full lg:[grid-area:1/6/2/13]']}>
-				B...
+			<div
+				class:list={[
+					'col-span-full lg:[grid-area:1/6/2/13] -translate-y-8',
+				]}>
+				<div class='grid grid-cols-4 grid-rows-4 h-full'>
+					<div class='[grid-area:1/1/5/5] z-0'>
+						<Icon
+							name='africa-map'
+							class='size-full saturate-[.1] opacity-30'
+						/>
+					</div>
+					<div
+						class:list={[
+							'z-[2] r-flex-center relative',
+							item.region === 'north' && '[grid-area:1/1/2/5]',
+							item.region === 'east' && '[grid-area:3/3/4/5]',
+							item.region === 'south' && '[grid-area:4/1/5/5] ',
+							item.region === 'central' && '[grid-area:2/1/3/5]',
+							item.region === 'west' && '[grid-area:3/1/4/3]',
+						]}>
+                        <div
+                            class='z-0 absolute size-24 rounded-full bg-[var(--color-bg-default-elevated)] animate-ping [animation-duration:2s]'>
+                        </div>
+						<Icon
+							name={item.country}
+							class='size-14 z-[1] absolute'
+						/>
+					</div>
+				</div>
 			</div>
 		</Grid>
 	</Wrapper>
