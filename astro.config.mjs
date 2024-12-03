@@ -96,7 +96,8 @@ export default defineConfig({
         enabled: false
     },
     experimental: {
-        responsiveImages: true
+        responsiveImages: true,
+        contentIntellisense: false
     },
     vite: {
         build: {
