@@ -6,6 +6,8 @@ import {
 	_addSettings,
 	_addAwards,
 	_addPeople,
+	_addInsights,
+	_addEvents,
 	_addDesignations,
 	_addOffices,
 	_addSectors,
@@ -13,9 +15,7 @@ import {
 	_addAfricaExpertise,
 	_addAfricaIp,
 	_africaIp,
-	_addInsights, 
 	_addCategories,
-	_addEvents,
 	_addNewsletter,
 	_addRegions,
 	_settings,
@@ -92,27 +92,27 @@ const apis = _getAllAPIs(),
 		categories,
 		offices,
 		people,
+		insights,
+		events,
 		sectors,
 		practices,
 		africaExpertise,
 		africaIp,
-		insights,
-		events,
 		newsletter,
 		regions,
 	] = results
 
 _addAwards(awards.data.stories)
 _addPeople(people.data.stories)
+_addInsights(insights.data.stories)
+_addEvents(events.data.stories)
 _addDesignations(designations.data.stories)
 _addOffices(offices.data.stories)
 _addSectors(sectors.data.stories)
 _addPractices(practices.data.stories)
 _addAfricaExpertise(africaExpertise.data.stories)
 _addAfricaIp(africaIp.data.stories)
-_addInsights(insights.data.stories)
 _addCategories(categories.data.stories)
-_addEvents(events.data.stories)
 _addNewsletter(newsletter.data.story.content)
 _addRegions(regions.data.stories)
 _addSettings(settings.data.story.content)

@@ -55,6 +55,28 @@ export const getPeople = async () => {
         resolve_relations: ['person.byline', 'person_links.location', 'collection.collection'],
     })
 }
+export const getEvents = async () => {
+    return await api.get('cdn/stories', {
+        starts_with: 'events/',
+        version: import.meta.env.DEV ? 'draft' : 'published',
+        is_startpage: false,
+        sort_by: 'content.start_date:desc',
+        resolve_links: 'url',
+        per_page: 100,
+        resolve_relations: ['session.host', 'panelist.person'],
+    })
+}
+export const getInsights = async () => {
+    return await api.get('cdn/stories', {
+        starts_with: 'insights/',
+        version: 'published',
+        is_startpage: false,
+        sort_by: 'content.published_date:desc',
+        resolve_links: 'url',
+        per_page: 100,
+        resolve_relations: ['insight.category', 'insight.author', 'insight.expertise'],
+    })
+}
 export const getSectors = async () => {
     return await api.get('cdn/stories', {
         starts_with: 'sectors/',
@@ -93,28 +115,6 @@ export const getAfricaIp = async () => {
         per_page: 100,
     })
 }
-export const getInsights = async () => {
-    return await api.get('cdn/stories', {
-        starts_with: 'insights/',
-        version: 'published',
-        is_startpage: false,
-        sort_by: 'content.published_date:desc',
-        resolve_links: 'url',
-        per_page: 100,
-        resolve_relations: ['insight.category', 'insight.author', 'insight.expertise'],
-    })
-}
-export const getEvents = async () => {
-    return await api.get('cdn/stories', {
-        starts_with: 'events/',
-        version: import.meta.env.DEV ? 'draft' : 'published',
-        is_startpage: false,
-        sort_by: 'content.start_date:desc',
-        resolve_links: 'url',
-        per_page: 100,
-        resolve_relations: ['session.host', 'panelist.person'],
-    })
-}
 export const getNewsletter = async () => {
     return await api.get('cdn/stories/global/newsletter', {
         version: import.meta.env.DEV ? 'draft' : 'published',
@@ -132,5 +132,5 @@ export const getRegions = async () => {
 }
 
 export const _getAllAPIs = () => {
-    return [getSettings, getAwards, getDesignations, getCategories, getOffices, getPeople, getSectors, getPractices, getAfricaExpertise, getAfricaIp, getInsights, getEvents, getNewsletter, getRegions]
+    return [getSettings, getAwards, getDesignations, getCategories, getOffices, getPeople, getInsights, getEvents, getSectors, getPractices, getAfricaExpertise, getAfricaIp, getNewsletter, getRegions]
 }

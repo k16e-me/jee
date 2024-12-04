@@ -29,8 +29,8 @@ export default defineConfig({
                 // Types/Templates
                 page: 'types/Page',
                 person: 'types/Person',
-                event: 'types/Event',
                 insight: 'types/Insight',
+                event: 'types/Event',
                 practice: 'types/Practice',
                 sector: 'types/Sector',
                 ip: 'types/Ip',
