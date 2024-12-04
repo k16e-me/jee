@@ -1,0 +1,41 @@
+---
+import Grid from '@layouts/Grid.astro'
+import HeadingStretch from '@blocks/HeadingStretch.astro'
+import RichText from '@atoms/RichText.astro'
+import { _gridGap, _spaceY } from '@scripts/snips'
+
+const {
+	blok,
+	heading,
+	body,
+	contain = true,
+	class: classes,
+	...props
+} = Astro.props
+---
+
+<Grid class:list={[classes, _gridGap()]} {...props}>
+	<div
+		class:list={[
+			'col-span-full md:[grid-area:1/1/2/4] lg:[grid-area:1/1/2/7] flex flex-col gap-8 md:flex-row md:flex-wrap md:gap-10 self-start h-full',
+			contain && 'xl:[grid-area:1/2/2/7]',
+		]}>
+		<HeadingStretch
+			tag='h2'
+			text={blok?.heading ?? heading}
+			class='capitalize'
+		/>
+	</div>
+	<div
+		class:list={[
+			'col-span-full md:[grid-area:1/4/2/9] lg:[grid-area:1/7/2/13] relative',
+            contain && 'xl:[grid-area:1/7/2/12]',
+			_spaceY(),
+		]}>
+		<RichText
+			text={blok?.body ?? body}
+			pType='body'
+			class='prose-li:list-image-[url(/graphics/marker.svg)]'
+		/>
+	</div>
+</Grid>

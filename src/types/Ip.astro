@@ -1,5 +1,11 @@
 ---
+import BlockDistribution from '@blocks/BlockDistribution.astro'
 import HeaderIp from '@composites/headers/HeaderIp.astro'
+import Section from '@layouts/Section.astro'
+import Wrapper from '@layouts/Wrapper.astro'
+import _empty from '@scripts/empty'
+import _slugify from '@scripts/slugify'
+import { _gridGap } from '@scripts/snips'
 
 const { blok } = Astro.props
 ---
@@ -9,3 +15,28 @@ const { blok } = Astro.props
 	breadcrumbLink='/ip'
 	breadcrumbLabel='Africa IP Practice'
 />
+
+<Section component={'description'} overlap id={_slugify('description')}>
+	<Wrapper inset>
+		<div
+			class:list={[
+				'bg-[var(--color-bg-default-elevated)] rounded-2xl md:rounded-[2rem] px-4 sm:px-6 md:px-12 py-6 sm:py-8 md:py-10 lg:py-[4.5rem] flex flex-col',
+				_gridGap('y'),
+			]}>
+			{
+				blok.description.content[0].content?.length && (
+					<BlockDistribution
+						heading='Description'
+						body={blok.description}
+                        contain={false}
+					/>
+				)
+			}
+			<div>
+				Rerum, rem? Dolores voluptatum enim, dicta earum et optio ad
+				provident voluptates! Voluptas ipsum dolore nam. Veritatis omnis
+				necessitatibus eos nostrum dolorum, harum earum!
+			</div>
+		</div>
+	</Wrapper>
+</Section>

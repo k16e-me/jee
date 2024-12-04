@@ -34,61 +34,60 @@ const {
 	{...props}>
 	<Wrapper inset>
 		<Grid grid='4-12-12' class:list={[_gridGap('y'), 'lg:min-h-[42rem]']}>
-			<div
-				class:list={[
-					'col-span-full lg:[grid-area:1/1/2/7] flex flex-col gap-2 sm:gap-3',
-				]}>
-				<Breadcrumb
-					page={pageData.title}
-					altLink={breadcrumbLink}
-					labelText={breadcrumbLabel}
-				/>
-				<div class:list={['flex flex-col gap-3 lg:gap-4 pr-4']}>
-					<Text
-						tag='h2'
-						text={pageData.title}
-						color='title'
-						size='3'
-						weight='extra'
-						tighten
+			<div class:list={['col-span-full lg:[grid-area:1/1/2/7]']}>
+				<div class:list={['flex flex-col gap-2 sm:gap-3']}>
+					<Breadcrumb
+						page={pageData.title}
+						altLink={breadcrumbLink}
+						labelText={breadcrumbLabel}
 					/>
-					{
-						!_empty(pageData.summary) && (
-							<RichText
-								text={pageData.summary}
-								color='caption'
-								pType='1hx'
-								class='mt-1 !leading-snug'
-							/>
-						)
-					}
-					{
-						!_empty(pageData.facts) && (
-							<ul
-								class:list={[
-									'flex flex-wrap [&>*]:max-w-[12rem] gap-6 md:gap-12 pt-5 sm:pt-6',
-								]}>
-								{pageData.facts.map((i) => (
-									<ListStat
-										heading={i.title}
-										body={i.description}
-										size='blurb'
-									/>
-								))}
-							</ul>
-						)
-					}
+					<div class:list={['flex flex-col gap-3 lg:gap-4 pr-4']}>
+						<Text
+							tag='h2'
+							text={pageData.title}
+							color='title'
+							size='3'
+							weight='extra'
+							tighten
+						/>
+						{
+							!_empty(pageData.summary) && (
+								<RichText
+									text={pageData.summary}
+									color='caption'
+									pType='1hx'
+									class='mt-1 !leading-snug'
+								/>
+							)
+						}
+					</div>
 				</div>
+				{
+					!_empty(pageData.facts) && (
+						<ul
+							class:list={[
+								'grid grid-cols-2 md:grid-cols-3 ml:grid-cols-4 lg:grid-cols-2 gap-8 md:gap-12 pt-8 sm:pt-10 md:pt-14',
+							]}>
+							{pageData.facts.map((i) => (
+								<ListStat
+									heading={i.title}
+									body={i.description}
+									size='blurb'
+								/>
+							))}
+						</ul>
+					)
+				}
 			</div>
 			<div
 				class:list={[
-					'col-span-full lg:[grid-area:1/7/2/13] size-full sm:size-[30rem] md:size-[40rem] lg:size-full justify-self-center',
+					'col-span-full lg:[grid-area:1/7/2/13] size-full sm:size-[30rem] md:size-[40rem] lg:size-full justify-self-center lg:justify-self-start self-start lg:-translate-y-10',
 				]}>
 				<div class='grid grid-cols-4 grid-rows-4 h-full'>
 					<div class='[grid-area:1/1/5/5] z-0'>
 						<Icon
 							name='africa-map'
-							class='size-full saturate-[.2] opacity-30'
+							class='size-full saturate-[.2] opacity-35'
 						/>
 					</div>
 					<div
