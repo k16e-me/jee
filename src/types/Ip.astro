@@ -1,4 +1,5 @@
 ---
+import BlockAccordion from '@blocks/BlockAccordion.astro'
 import BlockDistribution from '@blocks/BlockDistribution.astro'
 import HeaderIp from '@composites/headers/HeaderIp.astro'
 import Section from '@layouts/Section.astro'
@@ -28,15 +29,14 @@ const { blok } = Astro.props
 					<BlockDistribution
 						heading='Description'
 						body={blok.description}
-                        contain={false}
+						contain={false}
 					/>
 				)
 			}
-			<div>
-				Rerum, rem? Dolores voluptatum enim, dicta earum et optio ad
-				provident voluptates! Voluptas ipsum dolore nam. Veritatis omnis
-				necessitatibus eos nostrum dolorum, harum earum!
-			</div>
+			<BlockAccordion
+				heading={blok.registers_title ?? 'JEE Practice Details'}
+				registers={blok.registers}
+			/>
 		</div>
 	</Wrapper>
 </Section>
