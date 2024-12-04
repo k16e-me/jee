@@ -90,6 +90,7 @@ export const getAfricaIp = async () => {
         is_startpage: false,
         resolve_links: 'url',
         sort_by: 'content.title:asc',
+        per_page: 100,
     })
 }
 export const getInsights = async () => {
