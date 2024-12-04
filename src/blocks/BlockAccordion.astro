@@ -1,0 +1,65 @@
+---
+import Grid from '@layouts/Grid.astro'
+import { _xPadding, _gridGap, _spaceY } from '@scripts/snips'
+import _slugify from '@scripts/slugify'
+import HeadingStretch from '@blocks/HeadingStretch.astro'
+import RichText from '@atoms/RichText.astro'
+import Text from '@atoms/Text.astro'
+import Icon from '@atoms/Icon.astro'
+
+const { entry, heading, registers, class: classes, ...props } = Astro.props
+const accordions = entry?.accordion ?? registers
+---
+
+<Grid grid='4-12-12' class:list={[_gridGap()]}>
+    <div
+        class:list={[
+            'col-span-full ml:[grid-area:1/1/2/4] lg:[grid-area:1/2/2/6] flex flex-col gap-8 md:flex-row md:flex-wrap md:gap-10',
+        ]}>
+        <div class='flex flex-col gap-8 md:flex-row'>
+            <HeadingStretch
+                tag='h2'
+                text={entry?.heading ?? heading}
+                class='min-w-[12rem] max-w-[13rem]'
+            />
+        </div>
+    </div>
+    <div
+        class:list={[
+            'col-span-full ml:[grid-area:1/4/2/13] lg:[grid-area:1/6/2/12] relative',
+            _spaceY(),
+        ]}>
+        <ul>
+            {
+                accordions.map((i) => (
+                    <li class='accordion group border-t border-[var(--color-border-muted)] first:border-0 first:-mt-4'>
+                        <div
+                            class='accordion__button group/button r-transition flex items-center justify-between h-14 cursor-pointer'
+                            aria-expanded='false'
+                            aria-controls={`${i.heading}`}>
+                            <Text
+                                size='emphasis'
+                                text={i.heading}
+                                weight='semi'
+                                color='title'
+                                class='group-hover/button:opacity-100 group-[.is-active]:opacity-100 pointer-events-none'
+                            />
+                            <Icon
+                                name='caret-down'
+                                aria-hidden='true'
+                                class='accordion__icon block w-5 text-[var(--color-text-title)] opacity-60 group-hover/button:opacity-100 shrink-0 transition-all group-[.is-active]:opacity-100'
+                            />
+                        </div>
+                        <div class='accordion__content max-h-0 overflow-hidden transition-all ease-in-out'>
+                            <RichText
+                                text={i.body}
+                                pType='body'
+                                class='pb-5'
+                            />
+                        </div>
+                    </li>
+                ))
+            }
+        </ul>
+    </div>
+</Grid>
