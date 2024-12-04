@@ -58,7 +58,7 @@ const {
 								text={pageData.summary}
 								color='caption'
 								pType='1hx'
-								class='mt-1'
+								class='mt-1 !leading-snug'
 							/>
 						)
 					}
@@ -66,7 +66,7 @@ const {
 						!_empty(pageData.facts) && (
 							<ul
 								class:list={[
-									'flex flex-wrap [&>*]:max-w-[12rem] gap-6 md:gap-12 pt-4',
+									'flex flex-wrap [&>*]:max-w-[12rem] gap-6 md:gap-12 pt-5 sm:pt-6',
 								]}>
 								{pageData.facts.map((i) => (
 									<ListStat
@@ -88,7 +88,7 @@ const {
 					<div class='[grid-area:1/1/5/5] z-0'>
 						<Icon
 							name='africa-map'
-							class='size-full saturate-[.1] opacity-30'
+							class='size-full saturate-[.2] opacity-30'
 						/>
 					</div>
 					<div
