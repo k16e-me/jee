@@ -1,14 +1,21 @@
 ---
 import BlockAccordion from '@blocks/BlockAccordion.astro'
 import BlockDistribution from '@blocks/BlockDistribution.astro'
+import CardCountry from '@blocks/CardCountry.astro'
+import HeadingStretch from '@blocks/HeadingStretch.astro'
 import HeaderIp from '@composites/headers/HeaderIp.astro'
+import Grid from '@layouts/Grid.astro'
 import Section from '@layouts/Section.astro'
 import Wrapper from '@layouts/Wrapper.astro'
 import _empty from '@scripts/empty'
 import _slugify from '@scripts/slugify'
 import { _gridGap } from '@scripts/snips'
+import { _africaIp } from '@scripts/store'
 
 const { blok } = Astro.props
+const region = blok.region
+const ip = _africaIp.value
+const related = ip.filter((i) => i.content.region === region)
 ---
 
 <HeaderIp
@@ -38,5 +45,20 @@ const { blok } = Astro.props
 				registers={blok.registers}
 			/>
 		</div>
+	</Wrapper>
+</Section>
+<Section component={'related-ips'} overlap id={_slugify('related-ips')}>
+	<Wrapper inset>
+		<Grid grid='4-12-12' class:list={[_gridGap('y')]}>
+			<HeadingStretch
+				tag='h2'
+				text={'Related IPs'}
+				class='min-w-[12rem] max-w-[13rem]'
+			/>
+			<ul
+				class='col-span-full ml:[grid-area:1/4/2/13] grid grid-cols-2 sm:grid-cols-3 ml:grid-cols-4 gap-4'>
+				{related.map((i) => <CardCountry entry={i} />)}
+			</ul>
+		</Grid>
 	</Wrapper>
 </Section>
