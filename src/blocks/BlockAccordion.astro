@@ -7,14 +7,22 @@ import RichText from '@atoms/RichText.astro'
 import Text from '@atoms/Text.astro'
 import Icon from '@atoms/Icon.astro'
 
-const { entry, heading, registers, class: classes, ...props } = Astro.props
+const {
+	entry,
+	heading,
+	registers,
+	contain = true,
+	class: classes,
+	...props
+} = Astro.props
 const accordions = entry?.accordion ?? registers
 ---
 
 <Grid grid='4-12-12' class:list={[_gridGap(), classes]} {...props}>
 	<div
 		class:list={[
-			'col-span-full ml:[grid-area:1/1/2/4] lg:[grid-area:1/2/2/6] flex flex-col gap-8 md:flex-row md:flex-wrap md:gap-10',
+			'col-span-full ml:[grid-area:1/1/2/4] flex flex-col gap-8 md:flex-row md:flex-wrap md:gap-10',
+			contain ? 'lg:[grid-area:1/2/2/6]' : 'lg:[grid-area:1/1/2/7]',
 		]}>
 		<div class='flex flex-col gap-8 md:flex-row'>
 			<HeadingStretch
@@ -26,7 +34,8 @@ const accordions = entry?.accordion ?? registers
 	</div>
 	<div
 		class:list={[
-			'col-span-full ml:[grid-area:1/4/2/13] lg:[grid-area:1/6/2/12] relative',
+			'col-span-full ml:[grid-area:1/4/2/13] relative',
+			contain ? 'lg:[grid-area:1/6/2/12]' : 'lg:[grid-area:1/7/2/13]',
 			_spaceY(),
 		]}>
 		<ul>
@@ -51,7 +60,11 @@ const accordions = entry?.accordion ?? registers
 							/>
 						</div>
 						<div class='accordion__content max-h-0 overflow-hidden transition-all ease-in-out'>
-							<RichText text={i.body || i.details} pType='body' class='pb-5' />
+							<RichText
+								text={i.body || i.details}
+								pType='body'
+								class='pb-5'
+							/>
 						</div>
 					</li>
 				))
