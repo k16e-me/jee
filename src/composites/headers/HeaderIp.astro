@@ -14,6 +14,7 @@ import HeadingSection from '@blocks/HeadingSection.astro'
 import CardPerson from '@blocks/CardPerson.astro'
 import Icon from '@atoms/Icon.astro'
 import RichText from '@atoms/RichText.astro'
+import ListStat from '@blocks/ListStat.astro'
 
 const {
 	pageData,
@@ -35,7 +36,7 @@ const {
 		<Grid grid='4-12-12' class:list={[_gridGap('y'), 'lg:min-h-[42rem]']}>
 			<div
 				class:list={[
-					'col-span-full lg:[grid-area:1/1/2/6] flex flex-col gap-2 sm:gap-3',
+					'col-span-full lg:[grid-area:1/1/2/7] flex flex-col gap-2 sm:gap-3',
 				]}>
 				<Breadcrumb
 					page={pageData.title}
@@ -61,11 +62,27 @@ const {
 							/>
 						)
 					}
+					{
+						!_empty(pageData.facts) && (
+							<ul
+								class:list={[
+									'flex flex-wrap [&>*]:max-w-[12rem] gap-6 md:gap-12 pt-4',
+								]}>
+								{pageData.facts.map((i) => (
+									<ListStat
+										heading={i.title}
+										body={i.description}
+										size='blurb'
+									/>
+								))}
+							</ul>
+						)
+					}
 				</div>
 			</div>
 			<div
 				class:list={[
-					'col-span-full lg:[grid-area:1/6/2/13] -translate-y-4',
+					'col-span-full lg:[grid-area:1/7/2/13] size-full sm:size-[30rem] md:size-[40rem] lg:size-full justify-self-center',
 				]}>
 				<div class='grid grid-cols-4 grid-rows-4 h-full'>
 					<div class='[grid-area:1/1/5/5] z-0'>
@@ -77,16 +94,19 @@ const {
 					<div
 						class:list={[
 							'z-[2] r-flex-center relative w-full',
-							pageData.region === 'north' && '[grid-area:1/1/2/5]',
+							pageData.region === 'north' &&
+								'[grid-area:1/1/2/5]',
 							pageData.region === 'east' &&
 								'[grid-area:3/3/4/5] self-end justify-self-end',
-							pageData.region === 'south' && '[grid-area:4/1/5/5] ',
-							pageData.region === 'central' && '[grid-area:2/1/3/5]',
+							pageData.region === 'south' &&
+								'[grid-area:4/1/5/5] ',
+							pageData.region === 'central' &&
+								'[grid-area:2/1/3/5]',
 							pageData.region === 'west' &&
 								'[grid-area:3/1/4/3] self-start justify-self-start',
 						]}>
 						<div
-							class='z-0 absolute size-24 sm:size-36 rounded-full bg-[var(--color-emphasis)] animate-ping [animation-duration:3s]'>
+							class='z-0 absolute size-24 sm:size-36 rounded-full bg-[var(--color-emphasis)] animate-ping [animation-duration:5s]'>
 						</div>
 						<Icon
 							name={pageData.country}
