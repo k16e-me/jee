@@ -4,7 +4,7 @@ import storyblok from '@storyblok/astro'
 import tailwind from '@astrojs/tailwind'
 import pagefind from 'astro-pagefind'
 
-const env = loadEnv('', process.cwd(), 'STORYBLOK')
+const env = loadEnv('', process.cwd(), 'STORYBLOK_TOKEN')
 
 export default defineConfig({
     site: 'https://jee-v2.k16e.co',
