@@ -15,7 +15,10 @@ const { blok, spy, class: classes, ...props } = Astro.props
 const doc = blok.document[0]
 ---
 
-<Section component={blok.component} id={_slugify(blok.heading)}>
+<Section
+	component={blok.component}
+	overlap={blok.overlap}
+	id={_slugify(blok.heading)}>
 	<Wrapper
 		margins={false}
 		class:list={[
@@ -45,8 +48,7 @@ const doc = blok.document[0]
 					class:list={['h-[20rem] w-full max-w-full shrink-0']}
 					top={true}
 				/>
-				<div
-					class='flex gap-2 items-center justify-center p-3'>
+				<div class='flex gap-2 items-center justify-center p-3'>
 					<Icon
 						name='pdf'
 						class='size-6 shrink-0 text-[var(--color-emphasis)] group-hover:scale-105 r-transition'
