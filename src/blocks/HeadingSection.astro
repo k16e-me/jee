@@ -7,12 +7,12 @@ const {
 	text,
 	level,
 	underline = true,
-    padding = 'default',
+	padding = 'default',
 	hasCarouselControls,
 	isFromCollection,
-    hasResetButton,
-    link,
-    label,
+	hasResetButton,
+	link,
+	label,
 	size,
 	class: classes,
 	...props
@@ -22,11 +22,10 @@ const {
 <div
 	class:list={[
 		'flex items-center justify-between',
-		underline &&
-			'border-b border-[var(--color-border-accent)]',
-        padding === 'default' && 'pb-2 md:pb-3',
-        padding === 'small' && 'pb-[0.4125rem]',
-        padding === 'none' && 'pb-0',
+		underline && 'border-b border-[var(--color-border-accent)]',
+		padding === 'default' && 'pb-2 md:pb-3',
+		padding === 'small' && 'pb-[0.4125rem]',
+		padding === 'none' && 'pb-0',
 		classes,
 	]}
 	{...props}>
@@ -42,7 +41,7 @@ const {
 	/>
 	{
 		hasCarouselControls && (
-			<div class='flex items-center gap-2'>
+			<div class='items-center gap-2 hidden lg:flex'>
 				<ButtonFab
 					style='brand'
 					label='Control Carousel'
@@ -58,17 +57,10 @@ const {
 			</div>
 		)
 	}
+	{isFromCollection && <ButtonMore label={label} link={link} />}
 	{
-		isFromCollection && (
-			<ButtonMore
-				label={label}
-                link={link}
-			/>
+		hasResetButton && (
+			<Text tag='button' text='Reset' color='caption' data-reset-form />
 		)
 	}
-    {
-        hasResetButton && (
-            <Text tag="button" text="Reset" color="caption" data-reset-form/>
-        )
-    }
 </div>
