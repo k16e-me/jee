@@ -26,7 +26,7 @@ const {
 
 <Section
 	component={altComponent ? altComponent : blok.component}
-	overlap={altOverlap ? altHeading : blok.overlap}
+	overlap={altOverlap ? altOverlap : blok.overlap}
 	id={altHeading ? _slugify(altHeading) : _slugify(blok.heading)}>
 	<Wrapper margins={false}>
 		<Grid>

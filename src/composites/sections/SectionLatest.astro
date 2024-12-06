@@ -29,16 +29,19 @@ const {
 
 <Section
 	component={altComponent ? altComponent : blok.component}
-	overlap={altOverlap ? altHeading : blok.overlap}
+	overlap={altOverlap ? altOverlap : blok.overlap}
 	id={altHeading ? _slugify(altHeading) : _slugify(blok.heading)}>
 	<Wrapper margins={false}>
 		<Grid>
 			<div class:list={['col-span-full', _spaceY()]}>
 				<div
 					class:list={[
-						bleed || blok.bleed
-							? _xPadding('both-lgdown-l')
-							: _xPadding('both'),
+						altComponent
+							? [
+									_xPadding('both-mddown-lg-l'),
+									'lg:max-w-[48rem]',
+								]
+							: _xPadding('both-lgdown-l'),
 					]}>
 					<HeadingSection
 						level='h2'
@@ -52,9 +55,9 @@ const {
 				</div>
 				<div
 					class:list={[
-						bleed || blok.bleed
-							? _xPadding('left-lgdown-l')
-							: _xPadding('left'),
+						altComponent
+							? _xPadding('left-md-down')
+							: _xPadding('left-lgdown-l'),
 					]}>
 					<ul class='flex gap-4 overflow-auto snap-x pr-4'>
 						{

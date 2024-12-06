@@ -13,28 +13,35 @@ import Register from '@blocks/Register.astro'
 import { _insights, _people } from '@scripts/store'
 import _empty from '@scripts/empty'
 import CarouselPeople from '@composites/sections/CarouselPeople.astro'
+import SectionLatest from '@composites/sections/SectionLatest.astro'
 
 const { blok } = Astro.props
+const { slug } = Astro.params
 const personName = blok.name
+const personSlug = slug.split('/')[1]
 const bylineRank = blok.byline[0].content.rank
 const relatedPeople = _people.value
-		.filter((i) => i.content.byline[0].content.rank === bylineRank)
-		.filter((i) => i.name !== personName)
-		.slice(0, 9)
+	.filter((i) => i.content.byline[0].content.rank === bylineRank)
+	.filter((i) => i.name !== personName)
+	.slice(0, 7)
 const headings = [
-		blok.bio[0].heading[0].heading,
-		blok.sectors[0].heading[0].heading,
-		blok.practices[0].heading[0].heading,
-		...blok.registers.map((i) => i.title)
-	]
+	blok.bio[0].heading[0].heading,
+	blok.sectors[0].heading[0].heading,
+	blok.practices[0].heading[0].heading,
+	...blok.registers.map((i) => i.title),
+]
+const personInsights = _insights.value
+	.filter((i) => i.content.author.some((j) => j.slug === personSlug))
+	.slice(0, 7)
 
 !_empty(relatedPeople) && headings.push('Related People')
+!_empty(personInsights) && headings.push('Insights')
 ---
 
 <HeaderPerson person={blok} />
 <Section
 	tag='div'
-    component={'person-details'}
+	component={'person-details'}
 	overlap
 	spy
 	class='r-hide-overflow overflow-y-clip z-20 bg-[var(--color-bg-default)]'>
@@ -110,6 +117,20 @@ const headings = [
 							altPeople={relatedPeople}
 							isFromCollection
 							altCollection={relatedPeople}
+						/>
+					)
+				}
+				{
+					!_empty(personInsights) && (
+						<SectionLatest
+							altComponent='insights'
+							altHeading='Insights'
+							altOverlap={true}
+							altLabel='All Insights'
+							altLink='/insights'
+							altInsights={personInsights}
+							isFromCollection
+							altCollection={personInsights}
 						/>
 					)
 				}
