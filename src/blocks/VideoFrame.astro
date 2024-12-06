@@ -18,7 +18,8 @@ const { video, class: classes, ...props } = Astro.props
 		data-video={`https://www.youtube.com/embed/${video}`}></iframe>
 	<button
 		class='play-video absolute z-30 r-dead-center text-[var(--color-accent)] rounded-full'
-		r-autoplay-video-ctrl>
+		data-video-modal-play
+        data-video={video}>
 		<Icon name='play-circle' class='size-16 md:size-26' />
 	</button>
 	<Overlay opacity='opacity-20' class='z-20' />

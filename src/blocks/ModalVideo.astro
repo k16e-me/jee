@@ -1,12 +1,14 @@
 ---
 import ButtonFab from '@atoms/ButtonFab.astro'
+import { YouTube } from 'astro-embed'
+import Overlay from '@atoms/Overlay.astro'
 
-const { class: classes, ...props } = Astro.props
+const { video = 'EBHx2ds-LpQ', class: classes, ...props } = Astro.props
 ---
 
 <div
 	class:list={[
-		'fixed inset-0 size-full r-hide-overflow z-[150] bg-[var(--color-surface-dark)]',
+		'fixed inset-0 size-full r-hide-overflow z-[150] flex flex-col h-screen pb-18',
 		classes,
 	]}
 	aria-labelledby='modal-title'
@@ -14,16 +16,23 @@ const { class: classes, ...props } = Astro.props
 	aria-modal='true'
 	id='modal-video'
 	{...props}>
-	<div class="fixed inset-x-0 top-0 w-full flex items-center justify-end p-4">
+	<Overlay data-video-modal-shim class='z-10' />
+	<div class='w-full flex items-center justify-end px-8 h-18'>
 		<ButtonFab
 			style='neutral'
 			label='Close Video Modal'
 			icon='close-x'
-			data-close-modal
-            class="shrink-0"
+			data-video-modal-close
+			class='shrink-0 relative z-20'
 		/>
 	</div>
-	<div>
-		<!-- Video here... -->
+	<div class='flex-1 relative h-[calc(100vh-9rem)] z-30'>
+		<div class='w-full aspect-video'>
+			<iframe
+				src={`https://www.youtube.com/embed/${video}?&autoplay=1`}
+				frameborder='0'
+				allowfullscreen
+				class='absolute inset-0 size-full'></iframe>
+		</div>
 	</div>
 </div>
