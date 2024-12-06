@@ -5,6 +5,7 @@ const {
 	title,
 	description,
 	facing = 'west',
+    dim = true,
 	class: classes,
 	...props
 } = Astro.props
@@ -38,7 +39,7 @@ const {
             text={description}
             color='title-light'
             size={'sx1'}
-            class='min-h-20'
+            class:list={['min-h-20', dim && 'opacity-85']}
         />
 	</div>
 </div>
