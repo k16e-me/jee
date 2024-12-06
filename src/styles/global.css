@@ -75,7 +75,7 @@
         text-align: inherit;
     }
     a, button, .r-transition { @apply transition duration-[250ms] ease-out; }
-    .r-focus { @apply focus:ring-2 focus:ring-inset focus:ring-[var(--color-emphasis)] outline-none focus:rounded-lg; }
+    .r-focus { @apply focus:ring-2 focus:ring-inset focus:ring-[var(--color-emphasis)] outline-none; }
 
     svg, button span {
         @apply flex-shrink-0 pointer-events-none fill-current;

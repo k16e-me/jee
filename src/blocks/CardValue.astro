@@ -29,18 +29,16 @@ const {
 	</div>
 	<div
 		class:list={[
-			'bg-[var(--color-backdrop)] h-[70%] rounded-br-[1.5rem] p-3 flex flex-col justify-end',
-			facing === 'west' &&
-				'rounded-tl-[8.5rem] rounded-tr-[1.5rem]',
+			'bg-[var(--color-backdrop)] h-[70%] rounded-br-[1.5rem] p-3.5 flex flex-col justify-end',
+			facing === 'west' && 'rounded-tl-[8.5rem] rounded-tr-[1.5rem]',
 			facing === 'east' && 'rounded-tr-[8.5rem] rounded-tl-[1.5rem]',
 		]}>
-		<Text
-			tag={'p'}
-			text={description}
-			color='title-light'
-			size={'sx1'}
-			weight='bold'
-            class="min-h-20"
-		/>
+        <Text
+            tag={'p'}
+            text={description}
+            color='title-light'
+            size={'sx1'}
+            class='min-h-20'
+        />
 	</div>
 </div>

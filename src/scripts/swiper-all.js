@@ -2,13 +2,13 @@ import {
     _q,
 } from './snips'
 import Swiper from 'swiper'
-import { Navigation, Autoplay, Keyboard } from 'swiper/modules'
+import { Navigation, Autoplay, Keyboard, Mousewheel } from 'swiper/modules'
 
 export default function _swiperAll() {
     if (!_q('.swiper-all')) return
 
     const swiper = new Swiper('.swiper-all', {
-        modules: [Navigation, Autoplay],
+        modules: [Navigation, Autoplay, Mousewheel],
         slidesPerView: 'auto',
         spaceBetween: 16,
         freeMode: true,
@@ -19,11 +19,14 @@ export default function _swiperAll() {
             nextEl: '.swiper-next',
             prevEl: '.swiper-prev'
         },
-        mousewheel: true,
+        mousewheel: {
+            enabled: true,
+            forceToAxis: true
+        },
         loop: true,
         grabCursor: true,
         autoplay: {
-            delay: 4500,
+            delay: 7000,
             disableOnInteraction: false,
             pauseOnMouseEnter: true
         },
