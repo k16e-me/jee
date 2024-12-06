@@ -60,6 +60,7 @@ export default defineConfig({
                 fluidQuotes: 'composites/sections/FluidQuotes',
                 fluidImage: 'composites/sections/FluidImage',
                 wrapper: 'composites/sections/Wrapper',
+                stackDownload: 'composites/sections/StackDownload',
                 stackHighlights: 'composites/sections/StackHighlights',
                 carouselValues: 'composites/sections/CarouselValues',
                 carouselPeople: 'composites/sections/CarouselPeople',

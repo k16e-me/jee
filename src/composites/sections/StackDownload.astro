@@ -1,0 +1,65 @@
+---
+import Grid from '@layouts/Grid.astro'
+import Section from '@layouts/Section.astro'
+import Wrapper from '@layouts/Wrapper.astro'
+import { _xPadding, _gridGap, _spaceY } from '@scripts/snips'
+import HeadingSection from '@blocks/HeadingSection.astro'
+import RichText from '@atoms/RichText.astro'
+import Number from '@atoms/Number.astro'
+import _slugify from '@scripts/slugify'
+import Icon from '@atoms/Icon.astro'
+import Image from '@atoms/Image.astro'
+import Text from '@atoms/Text.astro'
+
+const { blok, spy, class: classes, ...props } = Astro.props
+const doc = blok.document[0]
+---
+
+<Section component={blok.component} id={_slugify(blok.heading)}>
+	<Wrapper
+		margins={false}
+		class:list={[
+			_xPadding('both-lgdown-l'),
+			_gridGap('x'),
+			_gridGap('y'),
+			'grid grid-cols-4 md:grid-cols-8 lg:grid-cols-9',
+		]}>
+		<div
+			class:list={[
+				'col-span-full md:[grid-area:1/1/2/5] lg:[grid-area:1/1/2/6] lg:pr-4',
+				_spaceY(),
+			]}>
+			<HeadingSection level='h3' text={blok.heading} size='4' />
+			<RichText text={blok.body} pType='body' />
+		</div>
+		<div
+			class='col-span-full md:[grid-area:1/5/2/9] lg:[grid-area:1/6/2/10] lg:justify-self-center sm:pl-8'>
+			<a
+				href={doc.file.filename}
+				aria-label={doc.file.title}
+				target='_blank'
+				class='flex flex-col gap-0 w-64 max-h-min rounded-2xl border-2 border-[var(--color-accent)] hover:border-[var(--color-emphasis)] overflow-clip group'>
+				<Image
+					filename={doc.cover.filename}
+					alt={doc.cover.alt}
+					class:list={['h-[20rem] w-full max-w-full shrink-0']}
+					top={true}
+				/>
+				<div
+					class='flex gap-2 items-center justify-center p-3'>
+					<Icon
+						name='pdf'
+						class='size-6 shrink-0 text-[var(--color-emphasis)] group-hover:scale-105 r-transition'
+					/>
+					<Text
+						text={doc.cta_text}
+						color='body'
+						size='blurb'
+						weight='medium'
+						class='group-hover:text-[var(--color-emphasis)] r-transition'
+					/>
+				</div>
+			</a>
+		</div>
+	</Wrapper>
+</Section>
