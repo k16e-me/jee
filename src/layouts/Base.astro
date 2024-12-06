@@ -13,6 +13,7 @@ import NavMobile from '@blocks/NavMobile.astro'
 import Drawer from '@blocks/Drawer.astro'
 import Regions from '@blocks/Regions.astro'
 import SearchGlobal from '@blocks/SearchGlobal.astro'
+import ModalVideo from '@blocks/ModalVideo.astro'
 
 const { pageTitle, pageDescription, pageThumbnail } = Astro.props,
 	site = _settings.value
@@ -64,6 +65,7 @@ _startsWith(currPath, unfixHeader) ? (fixHeader = false) : (fixHeader = true)
 		<Modal data-modal>
 			<ModalNewsletter data-modal-display='newsletter' />
 		</Modal>
+        <ModalVideo/>
 		<Drawer data-drawer>
 			<Regions data-drawer-display='regions' />
 			<SearchGlobal data-drawer-display='search' />

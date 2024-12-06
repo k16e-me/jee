@@ -1,0 +1,29 @@
+---
+import ButtonFab from '@atoms/ButtonFab.astro'
+
+const { class: classes, ...props } = Astro.props
+---
+
+<div
+	class:list={[
+		'fixed inset-0 size-full r-hide-overflow z-[150] bg-[var(--color-surface-dark)]',
+		classes,
+	]}
+	aria-labelledby='modal-title'
+	role='dialog'
+	aria-modal='true'
+	id='modal-video'
+	{...props}>
+	<div class="fixed inset-x-0 top-0 w-full flex items-center justify-end p-4">
+		<ButtonFab
+			style='neutral'
+			label='Close Video Modal'
+			icon='close-x'
+			data-close-modal
+            class="shrink-0"
+		/>
+	</div>
+	<div>
+		<!-- Video here... -->
+	</div>
+</div>

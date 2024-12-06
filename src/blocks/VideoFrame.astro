@@ -14,11 +14,12 @@ const { video, class: classes, ...props } = Astro.props
 	{...props}>
 	<iframe
 		src=`https://www.youtube.com/embed/${video}?controls=0&autoplay=1&mute=1&playsinline=1&loop=1`
-		class='absolute inset-0 size-full'></iframe>
+		class='absolute inset-0 size-full'
+		data-video={`https://www.youtube.com/embed/${video}`}></iframe>
 	<button
 		class='play-video absolute z-30 r-dead-center text-[var(--color-accent)] rounded-full'
 		r-autoplay-video-ctrl>
 		<Icon name='play-circle' class='size-16 md:size-26' />
 	</button>
-	<Overlay opacity='opacity-20' class="z-20"/>
+	<Overlay opacity='opacity-20' class='z-20' />
 </div>
