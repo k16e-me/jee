@@ -14,7 +14,7 @@ const state = import.meta.env.DEV ? 0 : 1
 	r-autoplay-video
 	{...props}>
 	<iframe
-		src=`https://www.youtube.com/embed/${video}?controls=0&autoplay=${state}&mute=1&playsinline=${state}&loop=${state}`
+		src=`https://www.youtube.com/embed/${video}?controls=0&showinfo=0&autoplay=${state}&mute=1&playsinline=${state}&loop=${state}`
 		class='absolute inset-0 size-full'></iframe>
 	<button
 		class='play-video absolute z-30 r-dead-center text-[var(--color-accent)] rounded-full'
