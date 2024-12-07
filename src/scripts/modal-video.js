@@ -4,14 +4,12 @@ import { _q, _ql } from './snips'
 export default function _modalVideo() {
     if (!_q('[data-modal-video-play]')) return
 
-    const trigger = _ql('[data-modal-video-play]')
+    const play = _ql('[data-modal-video-play]')
     const modal = _q('[data-modal-video]')
     const close = _q('[data-modal-close]', modal)
     const video = _q('iframe[src*="www.youtube.com"]', modal)
 
-    const on = e => {
-        const target = e.target
-
+    const on = () => {
         modal.classList.remove('translate-y-16', 'scale-50', 'opacity-0', 'invisible')
         modal.classList.add('translate-y-0', 'opacity-100')
 
@@ -30,7 +28,7 @@ export default function _modalVideo() {
         _unsetShim()
     }
 
-    trigger.map(el => el.addEventListener('click', e => on(e)))
+    play.map(el => el.addEventListener('click', on))
     close.addEventListener('click', off)
 
     _shim.subscribe(v => v ? null : off())
