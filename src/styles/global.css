@@ -117,7 +117,3 @@
         @apply [transform:translateZ(0)] overflow-x-clip;
     }
 }
-
-@layer utilities {
-
-}
