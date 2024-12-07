@@ -1,11 +1,11 @@
 ---
-import { useStoryblokApi } from '@storyblok/astro'
+import { _settings } from '@scripts/store'
 
-const
-    storyblokApi = useStoryblokApi(),
-    { data: settings } = await storyblokApi.get('cdn/stories/settings', {
-        version: import.meta.env.DEV ? 'draft' : 'published',
-        resolve_links: 'url'
-    })
+const error = _settings.value.error[0]
 ---
-Error...
+
+<div>
+    {
+        error.title
+    }
+</div>
