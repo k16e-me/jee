@@ -1,38 +1,38 @@
 ---
+import RichText from '@atoms/RichText.astro'
+import Text from '@atoms/Text.astro'
 import Grid from '@layouts/Grid.astro'
 import Section from '@layouts/Section.astro'
 import Wrapper from '@layouts/Wrapper.astro'
+import _empty from '@scripts/empty'
 import _slugify from '@scripts/slugify'
 import { _sectionPadding, _xPadding } from '@scripts/snips'
 
 const { blok, class: classes, ...props } = Astro.props
 const post = blok.literature
+const excerpt =
+	post.content[0].type === 'paragraph'
+		? post.content[0]?.content[0]?.text
+		: ''
 ---
 
 <Section
 	component={blok.component}
 	id={_slugify(blok.heading)}
 	title={blok.heading}
-	overlap
-	spy>
-	<Wrapper>
-		<Grid
-			grid='4-12-12'
-			class='r-hide-overflow overflow-y-clip z-20 bg-[var(--color-bg-default)] rounded-t-[2rem] md:rounded-t-[3.5rem] lg:rounded-t-[4.5rem]'>
+	overlap>
+	<Wrapper inset>
+		<Grid>
+			{
+				!_empty(excerpt) && (
+					<div class='col-span-full md:col-span-8 lg:col-span-9 mb-8'>
+						<Text tag='p' text={excerpt} color='body' size='2hx' />
+					</div>
+				)
+			}
 			<div
-				class:list={[
-					'col-span-full xl:[grid-area:1/1/2/3] self-start sticky bg-[var(--color-bg-default)] z-10 -top-px [&.is-pinned]:shadow xl:!shadow-none overflow-auto',
-					_sectionPadding('top-xl-up'),
-					_xPadding('both-lgdown'),
-				]}
-				data-pin-top>
-				<div>ABCDE...</div>
-			</div>
-			<div>
-				Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus,
-				ullam deleniti atque eaque quisquam illo id saepe vitae ex
-				maxime fugiat nam! Fugit odio consequuntur asperiores, cum quas
-				molestiae! Quisquam?
+				class='col-span-full md:col-span-7 lg:col-span-8'>
+				<RichText text={post} post />
 			</div>
 		</Grid>
 	</Wrapper>

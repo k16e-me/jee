@@ -83,7 +83,7 @@
     svg.spinner { @apply !fill-none; }
     svg.spinner circle { @apply opacity-25; }
     svg.spinner path { @apply opacity-75 }
-    br[key] {
+    br[key], * > br {
         display: none;
     }
     span, svg {

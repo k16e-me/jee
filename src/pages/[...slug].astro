@@ -31,6 +31,7 @@ export async function getStaticPaths() {
 	links = Object.values(links).filter(
 		(link) =>
 			!(link.slug === 'settings') &&
+			!(link.slug === 'legal') &&
 			!link.slug.startsWith('global') &&
 			!link.slug.startsWith('awards') &&
 			!link.slug.startsWith('designations') &&

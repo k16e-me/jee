@@ -31,7 +31,7 @@ const {
 		color === 'body' && 'text-[var(--color-text-body)]',
 		color === 'title' && 'text-[var(--color-text-title)]',
 		post &&
-			'prose-blockquote:border-l-0 prose-blockquote:border-y-2 prose-blockquote:py-2 prose-blockquote:my-8 ml:prose-blockquote:my-10 lg:prose-blockquote:my-12 prose-blockquote:border-[var(--color-border-muted)] prose-blockquote:text-center [&>blockquote>p:first-of-type]:text-2xl prose-h3:text-2xl prose-h4:text-xl',
+			'prose-blockquote:border-l-0 prose-blockquote:border-y-2 prose-blockquote:py-2 prose-blockquote:my-8 ml:prose-blockquote:my-10 lg:prose-blockquote:my-12 prose-blockquote:border-[var(--color-border-muted)] prose-blockquote:text-center [&>blockquote>p:first-of-type]:text-2xl prose-h3:text-2xl prose-h4:text-xl [&>*]:empty:hidden',
 		classes,
 	]}
 	{...props}>
