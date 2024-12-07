@@ -7,7 +7,7 @@ const
 
 export const getSettings = async () => {
     return await api.get('cdn/stories/settings', {
-        version: import.meta.env.DEV ? 'draft' : 'published',
+        version: 'published',
         resolve_links: 'url',
         resolve_relations: ['settings.awards', 'settings.links', 'settings.socials'],
     })
@@ -15,7 +15,7 @@ export const getSettings = async () => {
 export const getAwards = async () => {
     return await api.get('cdn/stories', {
         starts_with: 'awards/',
-        version: import.meta.env.DEV ? 'draft' : 'published',
+        version: 'published',
         by_slugs: [`awards/${currentYear}/*`, `awards/${lastYear}/*`],
         level: 3,
         is_startpage: false,
@@ -31,14 +31,14 @@ export const getDesignations = async () => {
 export const getCategories = async () => {
     return await api.get('cdn/stories', {
         starts_with: 'category/',
-        version: import.meta.env.DEV ? 'draft' : 'published',
+        version: 'published',
         is_startpage: false,
     })
 }
 export const getOffices = async () => {
     return await api.get('cdn/stories', {
         starts_with: 'offices/',
-        version: import.meta.env.DEV ? 'draft' : 'published',
+        version: 'published',
         is_startpage: false,
         sort_by: 'content.order:asc',
         resolve_links: 'url',
@@ -58,7 +58,7 @@ export const getPeople = async () => {
 export const getEvents = async () => {
     return await api.get('cdn/stories', {
         starts_with: 'events/',
-        version: import.meta.env.DEV ? 'draft' : 'published',
+        version: 'published',
         is_startpage: false,
         sort_by: 'content.start_date:desc',
         resolve_links: 'url',
@@ -80,7 +80,7 @@ export const getInsights = async () => {
 export const getSectors = async () => {
     return await api.get('cdn/stories', {
         starts_with: 'sectors/',
-        version: import.meta.env.DEV ? 'draft' : 'published',
+        version: 'published',
         is_startpage: false,
         resolve_links: 'url',
         sort_by: 'content.title:asc',
@@ -89,7 +89,7 @@ export const getSectors = async () => {
 export const getPractices = async () => {
     return await api.get('cdn/stories', {
         starts_with: 'practices/',
-        version: import.meta.env.DEV ? 'draft' : 'published',
+        version: 'published',
         is_startpage: false,
         resolve_links: 'url',
         per_page: 50,
@@ -99,7 +99,7 @@ export const getPractices = async () => {
 export const getAfricaExpertise = async () => {
     return await api.get('cdn/stories', {
         starts_with: 'africa-expertise/',
-        version: import.meta.env.DEV ? 'draft' : 'published',
+        version: 'published',
         is_startpage: false,
         resolve_links: 'url',
         sort_by: 'content.title:asc',
@@ -117,7 +117,7 @@ export const getAfricaIp = async () => {
 }
 export const getNewsletter = async () => {
     return await api.get('cdn/stories/global/newsletter', {
-        version: import.meta.env.DEV ? 'draft' : 'published',
+        version: 'published',
     })
 }
 export const getRegions = async () => {
