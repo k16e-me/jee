@@ -26,10 +26,10 @@ const { item, class: classes, ...props } = Astro.props
 		<div
 			class='[grid-area:1/1/2/2] mt-[12.5rem] ml-4 mr-4 sm:ml-5 sm:mr-7 lg:mr-8 z-10'>
 			<div
-				class='bg-[var(--color-bg-default)] rounded-[1.5rem] min-h-44 p-4 sm:p-5 space-y-1.5'>
+				class='bg-[var(--color-bg-default)] rounded-[1.5rem] min-h-44 lg:min-h-52 p-4 sm:p-5 space-y-1.5'>
 				<div>
 					<Text
-                        tag="h3"
+						tag='h3'
 						size='2hx'
 						text={item.content.title}
 						color='title'
