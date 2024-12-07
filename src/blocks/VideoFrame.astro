@@ -3,6 +3,7 @@ import Icon from '@atoms/Icon.astro'
 import Overlay from '@atoms/Overlay.astro'
 
 const { video, class: classes, ...props } = Astro.props
+const state = import.meta.env.DEV ? 0 : 1
 ---
 
 <div
@@ -13,13 +14,12 @@ const { video, class: classes, ...props } = Astro.props
 	r-autoplay-video
 	{...props}>
 	<iframe
-		src=`https://www.youtube.com/embed/${video}?controls=0&autoplay=1&mute=1&playsinline=1&loop=1`
-		class='absolute inset-0 size-full'
-		data-video={`https://www.youtube.com/embed/${video}`}></iframe>
+		src=`https://www.youtube.com/embed/${video}?controls=0&autoplay=${state}&mute=1&playsinline=${state}&loop=${state}`
+		class='absolute inset-0 size-full'></iframe>
 	<button
 		class='play-video absolute z-30 r-dead-center text-[var(--color-accent)] rounded-full'
-		data-video-modal-play
-        data-video={video}>
+		data-modal-video-play
+		data-video={video}>
 		<Icon name='play-circle' class='size-16 md:size-26' />
 	</button>
 	<Overlay opacity='opacity-20' class='z-20' />

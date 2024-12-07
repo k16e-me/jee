@@ -8,7 +8,8 @@ const { video = 'EBHx2ds-LpQ', class: classes, ...props } = Astro.props
 
 <div
 	class:list={[
-		'fixed inset-0 size-full r-hide-overflow z-[150] flex flex-col h-screen pb-18',
+		`fixed inset-0 size-full r-hide-overflow bg-black z-[150] flex flex-col h-screen pb-18
+        transition duration-300 ease-in-out translate-y-16 scale-50 opacity-0 invisible`,
 		classes,
 	]}
 	aria-labelledby='modal-title'
@@ -16,23 +17,20 @@ const { video = 'EBHx2ds-LpQ', class: classes, ...props } = Astro.props
 	aria-modal='true'
 	id='modal-video'
 	{...props}>
-	<Overlay data-video-modal-shim class='z-10' />
-	<div class='w-full flex items-center justify-end px-5 h-18'>
+	<div class='w-full flex items-center justify-end shrink-0 px-5 h-18'>
 		<ButtonFab
 			style='neutral'
 			label='Close Video Modal'
 			icon='close-x'
-			data-video-modal-close
-			class='shrink-0 relative z-20'
+			data-modal-close
+			class='shrink-0 relative z-[150]'
 		/>
 	</div>
-	<div class='flex-1 relative h-[calc(100vh-9rem)] z-30'>
-		<div class='w-full aspect-video'>
-			<iframe
-				src={`https://www.youtube.com/embed/${video}?&autoplay=1`}
-				frameborder='0'
-				allowfullscreen
-				class='absolute inset-0 size-full'></iframe>
-		</div>
+	<div class='flex-1 relative h-[calc(100vh-8rem)] z-[200]'>
+		<iframe
+			src={`https://www.youtube.com/embed/${video}?controls=0&autoplay=1`}
+			frameborder='0'
+			allowfullscreen
+			class='absolute inset-0 size-full'></iframe>
 	</div>
 </div>

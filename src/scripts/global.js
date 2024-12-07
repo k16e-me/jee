@@ -4,7 +4,6 @@ import SwupHeadPlugin from '@swup/head-plugin'
 import _active from './active'
 import _accordion from './accordion'
 import _swiperAwards from './swiper-awards'
-import _playVideo from './play-video'
 import _swiperQuotes from './swiper-quotes'
 import _swiperAll from './swiper-all'
 import _isPinned from './pin-top'
@@ -21,6 +20,7 @@ import _mobileMenu from './mobile-menu'
 import { _q, _ql } from './snips'
 import _drawer from './drawer'
 import _search from './search'
+import _modalVideo from './modal-video'
 
 const swup = new Swup({
     animationSelector: '[class*="swup-"]',
@@ -49,7 +49,7 @@ function init() {
     _swiperAwards()
     _swiperQuotes()
     _swiperAll()
-    _playVideo()
+    if (_q('[data-modal-video-play]')) _modalVideo()
     if (_q('[data-pin-top]')) _isPinned()
     if (_q('[data-spy]')) _scrollspy()
     _moreOrLess()
