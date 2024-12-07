@@ -15,7 +15,6 @@ const { video = 'EBHx2ds-LpQ', class: classes, ...props } = Astro.props
 	aria-labelledby='modal-title'
 	role='dialog'
 	aria-modal='true'
-	id='modal-video'
 	{...props}>
 	<div class='w-full flex items-center justify-end shrink-0 px-5 h-18'>
 		<ButtonFab
@@ -28,7 +27,7 @@ const { video = 'EBHx2ds-LpQ', class: classes, ...props } = Astro.props
 	</div>
 	<div class='flex-1 relative h-[calc(100vh-8rem)] z-[200]'>
 		<iframe
-			src={`https://www.youtube.com/embed/${video}?controls=0&autoplay=1`}
+			src={`https://www.youtube.com/embed/${video}?controls=0`}
 			frameborder='0'
 			allowfullscreen
 			class='absolute inset-0 size-full'></iframe>
