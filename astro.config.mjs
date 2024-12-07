@@ -9,9 +9,7 @@ const env = loadEnv('', process.cwd(), 'STORYBLOK_TOKEN')
 export default defineConfig({
     site: 'https://jee-v2.k16e.co',
     prefetch: {
-        prefetchAll: true,
-        defaultStrategy: 'viewport',
-        ignoreSlowConnection: true
+        prefetchAll: true
     },
     integrations: [
         pagefind(),
