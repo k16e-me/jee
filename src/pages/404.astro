@@ -1,9 +1,23 @@
 ---
-
+import ButtonLink from '@atoms/ButtonLink.astro'
+import HeaderImageExpressive from '@composites/headers/HeaderImageExpressive.astro'
+import Error from '@layouts/Error.astro'
 ---
 
-<div>
-	{
-		'404 - Not Found - The page you are looking for might have been removed, moved, or is temporarily unavailable. Kindly use other available links to navigate our site.'
-	}
-</div>
+<Error>
+	<HeaderImageExpressive
+		altComponent='404-not-found'
+		showBreadcrumbs={false}
+		altTitle='404 - Page Not Found!'
+		altCopy={`The page you are looking for might have been removed, moved, or is temporarily unavailable. Kindly use other available links to navigate our site.`}
+		slotIn
+		altImage='/graphics/404.jpg'
+		altImageAlt=''>
+		<div class='mt-6 md:mt-8'>
+			<ButtonLink
+				link={'/'}
+				label={'Back to JEE Home'}
+			/>
+		</div>
+	</HeaderImageExpressive>
+</Error>

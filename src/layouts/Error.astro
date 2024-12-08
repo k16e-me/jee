@@ -1,0 +1,32 @@
+---
+import Icon from '@atoms/Icon.astro'
+import TitleHidden from '@blocks/TitleHidden.astro'
+import Head from '@layouts/Head.astro'
+import { _settings } from '@scripts/store'
+import Wrapper from './Wrapper.astro'
+
+const { pageTitle, pageDescription, pageThumbnail } = Astro.props,
+	site = _settings.value
+---
+
+<!doctype html>
+<html lang='en' class:list={[`scroll-smooth bg-[var(--color-bg-default)]`]}>
+	<Head
+		title={`${pageTitle} | ${site.title}`}
+		description={pageDescription || site.description}
+		image={pageThumbnail || '/thumbnail.png'}
+	/>
+	<body
+		class='max-w-screen-3xl mx-auto flex flex-col min-h-screen overflow-clip'>
+		<TitleHidden tag='h1' title={'Error - 404 - Page Not Found)'} />
+		<Wrapper
+			class='h-26 lg:h-32 flex items-center'>
+			<a href='/'>
+				<Icon name='logo' class='h-12' />
+			</a>
+		</Wrapper>
+		<main class:list={['mb-auto']}>
+			<slot />
+		</main>
+	</body>
+</html>
