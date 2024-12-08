@@ -37,9 +37,9 @@ const fw = blok?.bleed || bleed
 			<div class:list={['col-span-full', _spaceY()]}>
 				<div
 					class:list={[
-						altComponent || fw == false
-							? [_xPadding('both-mddown-lg-l')]
-							: _xPadding('both'),
+						altComponent
+							? _xPadding('both-mddown-lg-l')
+							: _xPadding('both-lg-down-xl-r'),
 						altComponent && 'lg:max-w-[48rem]',
 					]}>
 					<HeadingSection
@@ -56,7 +56,7 @@ const fw = blok?.bleed || bleed
 					class:list={[
 						altComponent
 							? _xPadding('left-md-down')
-							: _xPadding('left-xldown-l'),
+							: _xPadding('left-lgdown-l'),
 					]}>
 					<ul class='flex gap-4 overflow-auto snap-x pr-4'>
 						{
