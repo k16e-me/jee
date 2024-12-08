@@ -26,6 +26,7 @@ const {
 const insights = altInsights ? altInsights : blok.insights
 const collection = altCollection ? altCollection : blok.collection[0]
 const fw = blok?.bleed || bleed
+const scrollbar = false
 ---
 
 <Section
@@ -59,7 +60,7 @@ const fw = blok?.bleed || bleed
 							: _xPadding('left-lgdown-l'),
 					]}>
 					<ul
-						class='flex gap-4 overflow-auto snap-x pr-4 no-scrollbar'>
+						class:list={['flex gap-4 overflow-auto snap-x pr-4', scrollbar ? 'scrollbar-thin scrollbar-track-inherit scrollbar-thumb-[#FF2626]' : 'no-scrollbar']}>
 						{
 							insights.map((item, idx) => (
 								<li class='shrink-0 !w-[20rem] !h-[24.5rem] group relative overflow-clip rounded-tl-[1.5rem] rounded-tr-[2rem] snap-start'>
