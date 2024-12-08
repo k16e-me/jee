@@ -13,7 +13,7 @@ const {
 } = Astro.props
 ---
 
-<div class='flex items-center gap-3'>
+<div class:list={['flex items-center gap-3', classes]} {...props}>
 	<ButtonMore
 		link={link ? link[0].link : _slug(altLink)}
 		label={link ? link[0].label : labelText}

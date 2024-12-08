@@ -15,6 +15,7 @@ import { _hideBrandcutout } from '@scripts/hide-brandcutout'
 
 const {
 	blok,
+	centered,
 	altComponent,
 	breadcrumbLink,
 	breadcrumbLabel,
@@ -26,6 +27,7 @@ const {
 const currentPath = Astro.url.pathname
 const isExcluded = _hideBrandcutout(currentPath)
 const copy = altCopy ? altCopy : blok.copy
+const isCentered = blok?.centered || centered
 ---
 
 <Section
@@ -39,9 +41,18 @@ const copy = altCopy ? altCopy : blok.copy
 	{...props}>
 	<Wrapper inset>
 		<Grid class='gap-y-5 md:gap-y-12 lg:gap-y-14'>
-			<div class='col-span-full md:col-span-8'>
+			<div
+				class:list={[
+					'col-span-full',
+					isCentered
+						? 'justify-self-center md:[grid-area:1/2/2/8] lg:[grid-area:1/3/2/11]'
+						: 'md:col-span-8',
+				]}>
 				<div
-					class='flex flex-col gap-2 sm:gap-3 sm:pr-8 lg:pr-16 max-w-screen-sm ml:max-w-screen-md lg:max-w-screen-lg'>
+					class:list={[
+						'flex flex-col gap-2 sm:gap-3 sm:pr-8 lg:pr-16 max-w-screen-sm ml:max-w-screen-md lg:max-w-screen-lg',
+						isCentered && 'text-center mx-auto',
+					]}>
 					<Breadcrumb
 						altLink={breadcrumbLink
 							? breadcrumbLink
@@ -50,6 +61,7 @@ const copy = altCopy ? altCopy : blok.copy
 							? breadcrumbLabel
 							: 'JEE Home'}
 						page={altTitle ? altTitle : blok.title}
+                        class:list={isCentered && 'justify-center'}
 					/>
 					<Text
 						tag='h2'
