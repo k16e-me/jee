@@ -30,7 +30,12 @@ _startsWith(currPath, unfixHeader) ? (fixHeader = false) : (fixHeader = true)
 ---
 
 <!doctype html>
-<html lang='en' class='scroll-smooth bg-[var(--color-bg-default)]'>
+<html
+	lang='en'
+	class:list={[
+		`scroll-smooth bg-[var(--color-bg-default)]
+        scrollbar-thin scrollbar-track-[#F2ECD3] scrollbar-thumb-[#FF2626]`,
+	]}>
 	<Head
 		title={`${pageTitle} | ${site.title}`}
 		description={pageDescription || site.description}
@@ -38,11 +43,7 @@ _startsWith(currPath, unfixHeader) ? (fixHeader = false) : (fixHeader = true)
 	/>
 	<body
 		class='max-w-screen-3xl mx-auto flex flex-col min-h-screen overflow-x-hidden'>
-		<TitleHidden
-			tag='h1'
-			title={pageTitle}
-			id='title-hidden'
-		/>
+		<TitleHidden tag='h1' title={pageTitle} id='title-hidden' />
 		<Header
 			nav={site.nav}
 			tools={site.tools}
@@ -65,7 +66,7 @@ _startsWith(currPath, unfixHeader) ? (fixHeader = false) : (fixHeader = true)
 		<Modal data-modal>
 			<ModalNewsletter data-modal-display='newsletter' />
 		</Modal>
-        <ModalVideo data-modal-video/>
+		<ModalVideo data-modal-video />
 		<Drawer data-drawer>
 			<Regions data-drawer-display='regions' />
 			<SearchGlobal data-drawer-display='search' />
