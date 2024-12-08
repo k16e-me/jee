@@ -26,7 +26,8 @@ const {
 const insights = altInsights ? altInsights : blok.insights
 const collection = altCollection ? altCollection : blok.collection[0]
 const scrollbar = false
-const isAbout = Astro.url.pathname === '/about'
+const isAbout =
+	Astro.url.pathname === '/about' || Astro.url.pathname === '/about/'
 ---
 
 <Section
