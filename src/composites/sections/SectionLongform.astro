@@ -22,16 +22,16 @@ const excerpt =
 	title={blok.heading}
 	overlap>
 	<Wrapper inset>
-		<Grid>
+		<Grid class='auto-rows-min'>
 			{
 				!_empty(excerpt) && (
-					<div class='col-span-full md:col-span-8 lg:col-span-9 mb-8'>
+					<div class='col-span-full md:[grid-area:1/2/2/8] lg:[grid-area:1/3/2/11] md:text-center mb-8'>
 						<Text tag='p' text={excerpt} color='body' size='2hx' />
 					</div>
 				)
 			}
 			<div
-				class='col-span-full md:col-span-7 lg:col-span-8'>
+				class='col-span-full md:[grid-area:2/2/3/8] lg:[grid-area:2/3/3/11]'>
 				<RichText text={post} post />
 			</div>
 		</Grid>
