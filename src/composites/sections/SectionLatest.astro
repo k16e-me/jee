@@ -9,22 +9,23 @@ import CardInsight from '@blocks/CardInsight.astro'
 import _slugify from '@scripts/slugify'
 
 const {
-		blok,
-		bleed,
-		altComponent,
-		altOverlap,
-		altHeading,
-		altLabel,
-		altLink,
-		altInsights,
-		altCollection,
-		isCollection = true,
-		controls,
-		class: classes,
-		...props
-	} = Astro.props,
-	insights = altInsights ? altInsights : blok.insights,
-	collection = altCollection ? altCollection : blok.collection[0]
+	blok,
+	bleed,
+	altComponent,
+	altOverlap,
+	altHeading,
+	altLabel,
+	altLink,
+	altInsights,
+	altCollection,
+	isCollection = true,
+	controls,
+	class: classes,
+	...props
+} = Astro.props
+const insights = altInsights ? altInsights : blok.insights
+const collection = altCollection ? altCollection : blok.collection[0]
+const fw = blok?.bleed || bleed
 ---
 
 <Section
@@ -36,12 +37,10 @@ const {
 			<div class:list={['col-span-full', _spaceY()]}>
 				<div
 					class:list={[
-						altComponent
-							? [
-									_xPadding('both-mddown-lg-l'),
-									'lg:max-w-[48rem]',
-								]
-							: _xPadding('both-lgdown-l'),
+						altComponent || fw == false
+							? [_xPadding('both-mddown-lg-l')]
+							: _xPadding('both'),
+						altComponent && 'lg:max-w-[48rem]',
 					]}>
 					<HeadingSection
 						level='h2'
@@ -57,7 +56,7 @@ const {
 					class:list={[
 						altComponent
 							? _xPadding('left-md-down')
-							: _xPadding('left-lgdown-l'),
+							: _xPadding('left-xldown-l'),
 					]}>
 					<ul class='flex gap-4 overflow-auto snap-x pr-4'>
 						{
