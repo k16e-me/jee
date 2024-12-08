@@ -10,7 +10,6 @@ import _slugify from '@scripts/slugify'
 
 const {
 	blok,
-	bleed,
 	altComponent,
 	altOverlap,
 	altHeading,
@@ -20,13 +19,16 @@ const {
 	altCollection,
 	isCollection = true,
 	controls,
+	defaultCase = true,
 	class: classes,
 	...props
 } = Astro.props
 const insights = altInsights ? altInsights : blok.insights
 const collection = altCollection ? altCollection : blok.collection[0]
-const fw = blok?.bleed || bleed
 const scrollbar = false
+const isAbout = Astro.url.pathname === '/about'
+
+console.log(isAbout)
 ---
 
 <Section
@@ -38,10 +40,11 @@ const scrollbar = false
 			<div class:list={['col-span-full', _spaceY()]}>
 				<div
 					class:list={[
-						altComponent
-							? _xPadding('both-mddown-lg-l')
-							: _xPadding('both-lg-down-xl-r'),
+						defaultCase && _xPadding('both'),
+						(altComponent || blok?.altComponent) &&
+							_xPadding('both-md-down-lg-r'),
 						altComponent && 'lg:max-w-[48rem]',
+						isAbout && _xPadding('both-lg-down-xl-r'),
 					]}>
 					<HeadingSection
 						level='h2'
@@ -55,12 +58,18 @@ const scrollbar = false
 				</div>
 				<div
 					class:list={[
-						altComponent
-							? _xPadding('left-md-down')
-							: _xPadding('left-lgdown-l'),
+						defaultCase && !blok?.altComponent && _xPadding('left'),
+						(altComponent || blok?.altComponent) &&
+							_xPadding('left-md-down'),
+						isAbout && _xPadding('left-lg-down'),
 					]}>
 					<ul
-						class:list={['flex gap-4 overflow-auto snap-x pr-4', scrollbar ? 'scrollbar-thin scrollbar-track-inherit scrollbar-thumb-[#FF2626]' : 'no-scrollbar']}>
+						class:list={[
+							'flex gap-4 overflow-auto snap-x pr-4',
+							scrollbar
+								? 'scrollbar-thin scrollbar-track-inherit scrollbar-thumb-[#FF2626]'
+								: 'no-scrollbar',
+						]}>
 						{
 							insights.map((item, idx) => (
 								<li class='shrink-0 !w-[20rem] !h-[24.5rem] group relative overflow-clip rounded-tl-[1.5rem] rounded-tr-[2rem] snap-start'>

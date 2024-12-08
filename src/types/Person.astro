@@ -50,7 +50,7 @@ const personInsights = _insights.value
 			<div
 				class:list={[
 					'col-span-full md:[grid-area:1/1/1/3] lg:[grid-area:1/1/1/4] self-start sticky bg-[var(--color-bg-default)] z-10 -top-px [&.is-pinned]:shadow md:!shadow-none overflow-auto',
-					_xPadding('both-lgdown'),
+					_xPadding('both-lg-down'),
 					_sectionPadding('top-md-up'),
 				]}
 				data-pin-top>
@@ -69,7 +69,7 @@ const personInsights = _insights.value
 					showLess
 					xPadding={false}
 					class:list={[
-						_xPadding('both-mddown-lg-l'),
+						_xPadding('both-md-down-lg-r'),
 						'lg:max-w-[48rem]',
 					]}
 				/>
@@ -79,7 +79,7 @@ const personInsights = _insights.value
 					xPadding={false}
 					overlap
 					class:list={[
-						_xPadding('both-mddown-lg-l'),
+						_xPadding('both-md-down-lg-r'),
 						'lg:max-w-[48rem]',
 					]}
 				/>
@@ -89,7 +89,7 @@ const personInsights = _insights.value
 					xPadding={false}
 					overlap
 					class:list={[
-						_xPadding('both-mddown-lg-l'),
+						_xPadding('both-md-down-lg-r'),
 						'lg:max-w-[48rem]',
 					]}
 				/>
@@ -100,7 +100,7 @@ const personInsights = _insights.value
 							overlap
 							xPadding={false}
 							class:list={[
-								_xPadding('both-mddown-lg-l'),
+								_xPadding('both-md-down-lg-r'),
 								'lg:max-w-[48rem]',
 							]}
 						/>
@@ -131,6 +131,7 @@ const personInsights = _insights.value
 							altInsights={personInsights}
 							isFromCollection
 							altCollection={personInsights}
+                            defaultCase={false}
 						/>
 					)
 				}

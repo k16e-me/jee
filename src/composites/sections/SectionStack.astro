@@ -17,7 +17,7 @@ const { blok, overlap, showLess, xPadding = true, class: classes, ...props } = A
 		? _slugify(blok.heading[0].heading)
 		: _slugify(blok.heading)}
     class:list={[classes]} {...props}>
-	<Wrapper margins={false} class:list={[xPadding && _xPadding('both-lgdown-l')]}>
+	<Wrapper margins={false} class:list={[xPadding && _xPadding('both-lg-down-l')]}>
 		<Grid>
 			<div class:list={['col-span-full', _spaceY()]}>
 				<HeadingSection
