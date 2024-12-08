@@ -12,15 +12,14 @@ const { pageTitle, pageDescription, pageThumbnail } = Astro.props,
 <!doctype html>
 <html lang='en' class:list={[`scroll-smooth bg-[var(--color-bg-default)]`]}>
 	<Head
-		title={`${pageTitle} | ${site.title}`}
-		description={pageDescription || site.description}
-		image={pageThumbnail || '/thumbnail.png'}
+		title={`Error - 404 - Page Not Found | ${site.title}`}
+		description={`The page you are looking for might have been removed, moved, or is temporarily unavailable. Kindly use other available links to navigate our site.`}
+		image={'/thumbnail.png'}
 	/>
 	<body
-		class='max-w-screen-3xl mx-auto flex flex-col min-h-screen overflow-clip'>
+		class='max-w-screen-3xl mx-auto flex flex-col min-h-screen overflow-x-clip'>
 		<TitleHidden tag='h1' title={'Error - 404 - Page Not Found)'} />
-		<Wrapper
-			class='h-26 lg:h-32 flex items-center'>
+		<Wrapper class='h-26 lg:h-32 flex items-center'>
 			<a href='/'>
 				<Icon name='logo' class='h-12' />
 			</a>
