@@ -13,11 +13,18 @@ import { MAXITEMS } from '@scripts/constants'
 import Pagination from '@blocks/Pagination.astro'
 
 const { blok } = Astro.props
-const events = _events.value
+const sorted = _events.value
 const maxItems = MAXITEMS
 
-const current = Number(Astro.url.searchParams.get('page')) || 1
-const visibleItems = events.slice((current - 1) * maxItems, current * maxItems)
+let current = 1
+if (Astro.url.searchParams.has('page')) {
+	const pageParam = Astro.url.searchParams.get('page')
+	current = parseInt(pageParam, 10) || 1
+}
+const visibleItems = sorted.slice(
+	(current - 1) * maxItems,
+	current * maxItems,
+)
 ---
 
 <Section
@@ -69,7 +76,7 @@ const visibleItems = events.slice((current - 1) * maxItems, current * maxItems)
 								<CardEvent entry={i} />
 							))}
 							<Pagination
-								total={events.length}
+								total={sorted.length}
 								size={maxItems}
 								current={current}
 							/>

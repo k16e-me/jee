@@ -14,19 +14,23 @@ import { MAXITEMS } from '@scripts/constants'
 import Pagination from '@blocks/Pagination.astro'
 
 const { blok } = Astro.props
-const insights = _insights.value
+const sorted = _insights.value
 const categories = _categories.value.map((i) => i.content.title)
 const sectors = _sectors.value.map((i) => i.content.title)
 const practices = _practices.value.map((i) => i.content.title)
-const authors = insights
+const authors = sorted
 	.map((i) => i.content.author)
 	.flat()
 	.map((i) => i.name)
 const uniqueAuthors = [...new Set(authors)]
 const maxItems = MAXITEMS
 
-const current = Number(Astro.url.searchParams.get('page')) || 1
-const visibleItems = insights.slice(
+let current = 1
+if (Astro.url.searchParams.has('page')) {
+	const pageParam = Astro.url.searchParams.get('page')
+	current = parseInt(pageParam, 10) || 1
+}
+const visibleItems = sorted.slice(
 	(current - 1) * maxItems,
 	current * maxItems,
 )
@@ -92,7 +96,7 @@ const visibleItems = insights.slice(
 								/>
 							))}
 							<Pagination
-								total={insights.length}
+								total={sorted.length}
 								size={maxItems}
 								current={current}
 							/>
