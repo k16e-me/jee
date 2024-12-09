@@ -10,17 +10,25 @@ import { _insights, _categories, _sectors, _practices } from '@scripts/store'
 import InputText from '@atoms/InputText.astro'
 import ButtonFab from '@atoms/ButtonFab.astro'
 import FiltersInsights from '@blocks/FiltersInsights.astro'
+import { maxItems } from '@scripts/constants'
+import Pagination from '@blocks/Pagination.astro'
 
-const { blok } = Astro.props,
-    insights = _insights.value,
-	categories = _categories.value.map((i) => i.content.title),
-	sectors = _sectors.value.map((i) => i.content.title),
-	practices = _practices.value.map((i) => i.content.title),
-	authors = insights
-		.map((i) => i.content.author)
-		.flat()
-		.map((i) => i.name),
-	uniqueAuthors = [...new Set(authors)]
+const { blok } = Astro.props
+const insights = _insights.value
+const categories = _categories.value.map((i) => i.content.title)
+const sectors = _sectors.value.map((i) => i.content.title)
+const practices = _practices.value.map((i) => i.content.title)
+const authors = insights
+	.map((i) => i.content.author)
+	.flat()
+	.map((i) => i.name)
+const uniqueAuthors = [...new Set(authors)]
+
+const current = Number(Astro.url.searchParams.get('page')) || 1
+const visibleItems = insights.slice(
+	(current - 1) * maxItems,
+	current * maxItems,
+)
 ---
 
 <Section
@@ -73,9 +81,24 @@ const { blok } = Astro.props,
 					_xPadding('both-md-down-lg-r'),
 				]}>
 				{
-					insights.map((i, x) => (
-						<CardInsight piece={i} landscape profile={false} />
-					))
+					visibleItems.length > 0 ? (
+						<>
+							{visibleItems.map((i, x) => (
+								<CardInsight
+									piece={i}
+									landscape
+									profile={false}
+								/>
+							))}
+							<Pagination
+								total={insights.length}
+								size={maxItems}
+								current={current}
+							/>
+						</>
+					) : (
+						<p class='text-2xl text-center'>No results found</p>
+					)
 				}
 			</div>
 		</Grid>

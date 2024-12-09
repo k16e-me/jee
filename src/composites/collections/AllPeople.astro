@@ -14,20 +14,28 @@ import CardPerson from '@blocks/CardPerson.astro'
 import ButtonFab from '@atoms/ButtonFab.astro'
 import InputText from '@atoms/InputText.astro'
 import FiltersPeople from '@blocks/FiltersPeople.astro'
+import { maxItems } from '@scripts/constants'
+import Pagination from '@blocks/Pagination.astro'
 
-const { blok } = Astro.props,
-	sortedPeople = _people.value.sort((a, b) =>
-		parseFloat(
-			a.content.byline[0].content.rank - b.content.byline[0].content.rank,
-		),
+const { blok } = Astro.props
+const sortedPeople = _people.value.sort((a, b) =>
+	parseFloat(
+		a.content.byline[0].content.rank - b.content.byline[0].content.rank,
 	),
-	designations = _designations.value
-		.sort((a, b) => parseInt(a.content.rank - b.content.rank))
-		.map((a) => a.content.title)
-		.slice(0, 4),
-	offices = _offices.value.map((o) => o.content.tag),
-	sectors = _sectors.value.map((o) => o.content.title),
-	practices = _practices.value.map((o) => o.content.title)
+)
+const designations = _designations.value
+	.sort((a, b) => parseInt(a.content.rank - b.content.rank))
+	.map((a) => a.content.title)
+	.slice(0, 4)
+const offices = _offices.value.map((o) => o.content.tag)
+const sectors = _sectors.value.map((o) => o.content.title)
+const practices = _practices.value.map((o) => o.content.title)
+
+const current = Number(Astro.url.searchParams.get('page')) || 1
+const visibleItems = sortedPeople.slice(
+	(current - 1) * maxItems,
+	current * maxItems,
+)
 ---
 
 <Section
@@ -75,9 +83,24 @@ const { blok } = Astro.props,
 					_xPadding('both-lg-down-l'),
 				]}>
 				{
-					sortedPeople.map((i, x) => (
-						<CardPerson person={i} tag='h3' size='default' />
-					))
+					visibleItems.length > 0 ? (
+						<>
+							{visibleItems.map((i, x) => (
+								<CardPerson
+									person={i}
+									tag='h3'
+									size='default'
+								/>
+							))}
+							<Pagination
+								total={sortedPeople.length}
+								size={maxItems}
+								current={current}
+							/>
+						</>
+					) : (
+						<p class='text-2xl text-center'>No results found</p>
+					)
 				}
 			</div>
 		</Grid>

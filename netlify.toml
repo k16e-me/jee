@@ -1,0 +1,9 @@
+[dev]
+   command = "npm run dev"
+   framework = "astro"
+
+[build.environment]
+    NETLIFY_IMAGE_CDN_DOMAINS="a.storyblok.com"
+
+[images]
+    remote_images = ["https://a.storyblok.com/.*", "https://jee-v2.k16e.co/.*"]

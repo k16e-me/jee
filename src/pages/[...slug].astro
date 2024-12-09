@@ -1,4 +1,6 @@
 ---
+export const prerender = false
+
 import { useStoryblokApi } from '@storyblok/astro'
 import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro'
 import Base from '@layouts/Base.astro'
@@ -39,7 +41,7 @@ export async function getStaticPaths() {
 			!link.slug.startsWith('category') &&
 			!link.slug.startsWith('successes') &&
 			!link.slug.startsWith('offices') &&
-			!link.slug.startsWith('regions')
+			!link.slug.startsWith('regions'),
 	)
 
 	return links

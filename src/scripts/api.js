@@ -51,7 +51,6 @@ export const getPeople = async () => {
         version: 'published',
         is_startpage: false,
         resolve_links: 'url',
-        per_page: 100,
         resolve_relations: ['person.byline', 'person_links.location', 'collection.collection'],
     })
 }
@@ -62,7 +61,6 @@ export const getEvents = async () => {
         is_startpage: false,
         sort_by: 'content.start_date:desc',
         resolve_links: 'url',
-        per_page: 100,
         resolve_relations: ['session.host', 'panelist.person'],
     })
 }
@@ -73,7 +71,6 @@ export const getInsights = async () => {
         is_startpage: false,
         sort_by: 'content.published_date:desc',
         resolve_links: 'url',
-        per_page: 100,
         resolve_relations: ['insight.category', 'insight.author', 'insight.expertise'],
     })
 }

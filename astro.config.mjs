@@ -1,4 +1,5 @@
 import { defineConfig } from 'astro/config'
+import netlify from '@astrojs/netlify'
 import { loadEnv } from 'vite'
 import storyblok from '@storyblok/astro'
 import tailwind from '@astrojs/tailwind'
@@ -8,6 +9,13 @@ const env = loadEnv('', process.cwd(), 'STORYBLOK_TOKEN')
 
 export default defineConfig({
     site: 'https://jee-v2.k16e.co',
+    adapter: netlify({
+        imageCDN: true,
+        functionPerRoute: true
+    }),
+    image: {
+        domains: ['a.storyblok.com']
+    },
     prefetch: {
         prefetchAll: true
     },
@@ -85,9 +93,6 @@ export default defineConfig({
             }
         })
     ],
-    image: {
-        domains: ['a.storyblok.com']
-    },
     build: {
         format: 'preserve'
     },
