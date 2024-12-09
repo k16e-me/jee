@@ -10,7 +10,7 @@ const env = loadEnv('', process.cwd(), 'STORYBLOK_TOKEN')
 export default defineConfig({
     site: 'https://jee-v2.k16e.co',
     adapter: netlify({
-        imageCDN: true,
+        imageCDN: false,
         functionPerRoute: true
     }),
     image: {
