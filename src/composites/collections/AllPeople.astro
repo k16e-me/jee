@@ -14,7 +14,7 @@ import CardPerson from '@blocks/CardPerson.astro'
 import ButtonFab from '@atoms/ButtonFab.astro'
 import InputText from '@atoms/InputText.astro'
 import FiltersPeople from '@blocks/FiltersPeople.astro'
-import { maxItems } from '@scripts/constants'
+import { MAXITEMS } from '@scripts/constants'
 import Pagination from '@blocks/Pagination.astro'
 
 const { blok } = Astro.props
@@ -30,12 +30,20 @@ const designations = _designations.value
 const offices = _offices.value.map((o) => o.content.tag)
 const sectors = _sectors.value.map((o) => o.content.title)
 const practices = _practices.value.map((o) => o.content.title)
+const maxItems = MAXITEMS
 
 const current = Number(Astro.url.searchParams.get('page')) || 1
 const visibleItems = sortedPeople.slice(
 	(current - 1) * maxItems,
 	current * maxItems,
 )
+
+// console.log(current)
+// console.log(visibleItems)
+// console.log(Astro.url.searchParams.get('page'))
+// console.log(Astro.url.searchParams.get('search'))
+// console.log(Astro.params)
+// console.log(Astro.url)
 ---
 
 <Section

@@ -9,11 +9,12 @@ import CardEvent from '@blocks/CardEvent.astro'
 import { _events } from '@scripts/store'
 import InputText from '@atoms/InputText.astro'
 import ButtonFab from '@atoms/ButtonFab.astro'
-import { maxItems } from '@scripts/constants'
+import { MAXITEMS } from '@scripts/constants'
 import Pagination from '@blocks/Pagination.astro'
 
 const { blok } = Astro.props
 const events = _events.value
+const maxItems = MAXITEMS
 
 const current = Number(Astro.url.searchParams.get('page')) || 1
 const visibleItems = events.slice((current - 1) * maxItems, current * maxItems)
@@ -65,7 +66,7 @@ const visibleItems = events.slice((current - 1) * maxItems, current * maxItems)
 					visibleItems.length > 0 ? (
 						<>
 							{visibleItems.map((i, x) => (
-								<CardEvent entry={i}/>
+								<CardEvent entry={i} />
 							))}
 							<Pagination
 								total={events.length}

@@ -1,33 +1,21 @@
-export function createFetchStoryblokData(storyblokApi) {
-    return async function fetchStoryblokData(endpoint, params = {}) {
-        const defaultParams = {
+import { useStoryblokApi } from '@storyblok/astro'
+import { RELATIONS } from '@scripts/constants'
+
+export async function _getPageData(slug) {
+    const storyblokApi = useStoryblokApi()
+
+    const { data } = await storyblokApi.get(
+        `cdn/stories/${slug === undefined ? 'home' : slug}`,
+        {
             version: 'published',
             resolve_links: 'url',
-            resolve_relations: [
-                'block_bento_plaques.plaques',
-                'image_hanging_insight.insight',
-                'carousel_people.people',
-                'person.byline',
-                'person_links.location',
-                'collection.collection',
-                'section_latest.insights',
-                'insight.category',
-                'insight.author',
-                'insight.expertise',
-                'insight.suggested',
-                'session.host',
-                'panelist.person',
-                'chairpersons.persons',
-                'practice.contacts',
-                'section_successes.list',
-                'office.contacts',
-            ],
+            resolve_relations: RELATIONS,
         }
+    )
 
-        const { data } = await storyblokApi.get(endpoint, {
-            ...defaultParams,
-            ...params,
-        })
-        return data
-    }
+    const page = data.story
+    const content = page.content
+    const seo = content.seo[0]
+
+    return { page, content, seo }
 }

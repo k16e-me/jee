@@ -10,7 +10,7 @@ import { _insights, _categories, _sectors, _practices } from '@scripts/store'
 import InputText from '@atoms/InputText.astro'
 import ButtonFab from '@atoms/ButtonFab.astro'
 import FiltersInsights from '@blocks/FiltersInsights.astro'
-import { maxItems } from '@scripts/constants'
+import { MAXITEMS } from '@scripts/constants'
 import Pagination from '@blocks/Pagination.astro'
 
 const { blok } = Astro.props
@@ -23,6 +23,7 @@ const authors = insights
 	.flat()
 	.map((i) => i.name)
 const uniqueAuthors = [...new Set(authors)]
+const maxItems = MAXITEMS
 
 const current = Number(Astro.url.searchParams.get('page')) || 1
 const visibleItems = insights.slice(
