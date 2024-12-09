@@ -7,21 +7,18 @@ const { video, class: classes, ...props } = Astro.props
 
 <div
 	class:list={[
-		'flex justify-center w-full aspect-video bg-[var(--color-bg-default-elevated)] rounded-2xl md:rounded-3xl relative overflow-clip [transform:translateZ(0)] group',
+		'flex justify-center w-full aspect-video bg-[var(--color-bg-default-elevated)] rounded-2xl md:rounded-3xl relative overflow-clip [transform:translateZ(0)] group cursor-pointer',
 		classes,
 	]}
+	data-modal-video-play
 	{...props}>
 	<iframe
 		src=`https://www.youtube.com/embed/${video}?controls=0&showinfo=0&autoplay=1&mute=1&playsinline=1&loop=1`
 		class='absolute inset-0 size-full'></iframe>
 	<button
-		class='play-video absolute z-30 r-dead-center text-[var(--color-accent)] rounded-full'
-		data-modal-video-play
+		class='play-video absolute z-30 r-dead-center text-[var(--color-accent)] rounded-full size-16 md:size-26 group-hover:scale-[2] ease-[cubic-bezier(0.76,0,0.24,1)] duration-[250ms]'
 		data-video={video}>
-		<Icon
-			name='play-circle'
-			class='size-16 md:size-26 group-hover:scale-150 ease-[cubic-bezier(0.76,0,0.24,1)] duration-[250ms]'
-		/>
+		<Icon name='play-circle' class='size-full' />
 	</button>
 	<Overlay opacity='opacity-20' class='z-20' />
 </div>

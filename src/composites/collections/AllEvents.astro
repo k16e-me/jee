@@ -16,15 +16,10 @@ const { blok } = Astro.props
 const sorted = _events.value
 const maxItems = MAXITEMS
 
-let current = 1
-if (Astro.url.searchParams.has('page')) {
-	const pageParam = Astro.url.searchParams.get('page')
-	current = parseInt(pageParam, 10) || 1
-}
-const visibleItems = sorted.slice(
-	(current - 1) * maxItems,
-	current * maxItems,
-)
+const url = new URL(Astro.request.url)
+const page = url.searchParams.get('page') || '1'
+const current = parseInt(page, 10)
+const visibleItems = sorted.slice((current - 1) * maxItems, current * maxItems)
 ---
 
 <Section

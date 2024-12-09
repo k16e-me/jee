@@ -9,6 +9,10 @@ export const pagefind = false
 
 const slug = Astro.url.pathname.slice(1)
 const { page, content, seo } = await _getPageData(slug)
+Astro.response.headers.set(
+	'Cache-Control',
+	'no-cache, no-store, must-revalidate',
+)
 ---
 
 <Base
