@@ -37,6 +37,8 @@ const visibleItems = sortedPeople.slice(
 	(current - 1) * maxItems,
 	current * maxItems,
 )
+
+console.log(Astro.url.searchParams.get('page'))
 ---
 
 <Section

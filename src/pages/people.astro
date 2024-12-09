@@ -9,8 +9,6 @@ export const pagefind = false
 
 const slug = Astro.url.pathname.slice(1)
 const { page, content, seo } = await _getPageData(slug)
-
-const currentPage = Astro.url.searchParams.get('page') || '1'
 ---
 
 <Base

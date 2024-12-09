@@ -9,6 +9,7 @@ const { ariaLabel = 'Pagination', ...attrs } = Astro.props
 const { total, size, current } = Astro.props,
 	numberOfPages = Math.ceil(total / size)
 const { pathname } = Astro.url
+const baseUrl = pathname.replace(/\/$/, '')
 ---
 
 {
@@ -19,7 +20,7 @@ const { pathname } = Astro.url
 				{current > 1 && (
 					<li class='prev rounded-full border border-white'>
 						<a
-							href={`${pathname}?page=${current - 1}`}
+							href={`${baseUrl}?page=${current - 1}`}
 							data-astro-prefetch
 							class='flex h-10 w-10 items-center justify-center'>
 							<svg
@@ -50,7 +51,7 @@ const { pathname } = Astro.url
 							.map((_, index) => (
 								<li class='page'>
 									<a
-										href={`${pathname}?page=${index + 1}`}
+										href={`${baseUrl}?page=${index + 1}`}
 										data-astro-prefetch
 										aria-current={
 											index + 1 === current
@@ -68,7 +69,7 @@ const { pathname } = Astro.url
 				{current < numberOfPages && (
 					<li class='next rounded-full border border-white'>
 						<a
-							href={`${pathname}?page=${current + 1}`}
+							href={`${baseUrl}?page=${current + 1}`}
 							data-astro-prefetch
 							class='flex h-10 w-10 items-center justify-center'>
 							<svg
