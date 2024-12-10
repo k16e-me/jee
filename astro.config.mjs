@@ -94,9 +94,9 @@ export default defineConfig({
             }
         })
     ],
-    // build: {
-    //     format: 'preserve'
-    // },
+    build: {
+        format: 'preserve'
+    },
     devToolbar: {
         enabled: false
     },
