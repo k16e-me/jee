@@ -9,17 +9,12 @@ const env = loadEnv('', process.cwd(), 'STORYBLOK_TOKEN')
 
 export default defineConfig({
     site: 'https://jee-v2.k16e.co',
-    // adapter: vercel(),
     adapter: netlify({
         imageCDN: false,
-        // functionPerRoute: true
     }),
     image: {
         domains: ['a.storyblok.com']
     },
-    // prefetch: {
-    //     prefetchAll: true
-    // },
     integrations: [
         pagefind(),
         tailwind({
