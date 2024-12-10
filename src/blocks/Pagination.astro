@@ -1,10 +1,14 @@
 ---
+import { _sectionPadding } from '@scripts/snips'
+import TitleHidden from './TitleHidden.astro'
+
 type Props = {
 	total: number
 	size: number
 	current: number
 	ariaLabel?: string
 }
+
 const { ariaLabel = 'Pagination', ...attrs } = Astro.props
 const { total, size, current } = Astro.props,
 	numberOfPages = Math.ceil(total / size)
@@ -15,17 +19,17 @@ const baseUrl = pathname
 
 {
 	numberOfPages > 1 && (
-		<nav aria-label={ariaLabel} {...attrs}>
+		<nav aria-label={ariaLabel} {...attrs} class:list={[_sectionPadding()]}>
+			<TitleHidden tag='h2' title={ariaLabel} />
 			<ul class='flex items-center gap-4'>
 				{/* L.Arrow */}
 				{current > 1 && (
 					<li class='prev rounded-full border border-white'>
 						<a
 							href={`${baseUrl}?page=${current - 1}`}
-							data-astro-prefetch
-							class='flex h-10 w-10 items-center justify-center'>
+							class='flex h-10 w-10 items-center justify-center'
+							aria-label={`Go to page ${current - 1} of ${numberOfPages}`}>
 							<svg
-								aria-label={`Go to page ${current - 1} of ${numberOfPages}`}
 								xmlns='http://www.w3.org/2000/svg'
 								width='32'
 								height='32'
@@ -71,10 +75,9 @@ const baseUrl = pathname
 					<li class='next rounded-full border border-white'>
 						<a
 							href={`${baseUrl}?page=${current + 1}`}
-							data-astro-prefetch
-							class='flex h-10 w-10 items-center justify-center'>
+							class='flex h-10 w-10 items-center justify-center'
+							aria-label={`Go to page ${current + 1} of ${numberOfPages}`}>
 							<svg
-								aria-label={`Go to page ${current + 1} of ${numberOfPages}`}
 								xmlns='http://www.w3.org/2000/svg'
 								width='32'
 								height='32'

@@ -2,17 +2,17 @@
 import Icon from '@atoms/Icon.astro'
 
 const {
-		tag = 'button',
-		label,
-		icon,
-		style = 'default',
-		size = 'default',
-		flipIcon,
-		bounceIcon,
-		class: classes,
-		...props
-	} = Astro.props,
-	Tag = tag
+    tag = 'button',
+    label,
+    icon,
+    style = 'default',
+    size = 'default',
+    flipIcon,
+    bounceIcon,
+    class: classes,
+    ...props
+} = Astro.props
+const Tag = tag
 ---
 
 <Tag

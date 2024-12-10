@@ -17,9 +17,9 @@ export default defineConfig({
     image: {
         domains: ['a.storyblok.com']
     },
-    prefetch: {
-        prefetchAll: true
-    },
+    // prefetch: {
+    //     prefetchAll: true
+    // },
     integrations: [
         pagefind(),
         tailwind({
