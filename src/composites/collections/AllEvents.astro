@@ -16,8 +16,7 @@ const { blok } = Astro.props
 const sorted = _events.value
 const maxItems = MAXITEMS
 
-const url = new URL(Astro.request.url)
-const page = url.searchParams.get('page') || '1'
+const page = Astro.url.searchParams.get('page') || '1'
 const current = parseInt(page, 10)
 const visibleItems = sorted.slice((current - 1) * maxItems, current * maxItems)
 ---

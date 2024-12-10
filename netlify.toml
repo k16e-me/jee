@@ -13,3 +13,8 @@
 
 [images]
     remote_images = ["https://a.storyblok.com/.*", "https://jee-v2.k16e.co/.*"]
+
+[[headers]]
+    for = "/*"
+    [headers.values]
+       Cache-Control = "no-store, max-age=0"
