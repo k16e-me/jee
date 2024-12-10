@@ -4,6 +4,7 @@ import { loadEnv } from 'vite'
 import storyblok from '@storyblok/astro'
 import tailwind from '@astrojs/tailwind'
 import pagefind from 'astro-pagefind'
+import lenis from 'astro-lenis'
 
 const env = loadEnv('', process.cwd(), 'STORYBLOK_TOKEN')
 
