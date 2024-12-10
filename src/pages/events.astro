@@ -1,11 +1,11 @@
 ---
+export const prerender = false
+export const pagefind = false
+
 import { useStoryblokApi } from '@storyblok/astro'
 import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro'
 import Base from '@layouts/Base.astro'
 import { _getPageData } from '@scripts/storyblok'
-
-export const prerender = false
-export const pagefind = false
 
 const slug = Astro.url.pathname.slice(1)
 const { page, content, seo } = await _getPageData(slug)
