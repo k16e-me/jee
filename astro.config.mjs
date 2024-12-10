@@ -4,16 +4,18 @@ import { loadEnv } from 'vite'
 import storyblok from '@storyblok/astro'
 import tailwind from '@astrojs/tailwind'
 import pagefind from 'astro-pagefind'
-import lenis from 'astro-lenis'
+// import lenis from 'astro-lenis'
+import vercel from '@astrojs/vercel'
 
 const env = loadEnv('', process.cwd(), 'STORYBLOK_TOKEN')
 
 export default defineConfig({
     site: 'https://jee-v2.k16e.co',
-    adapter: netlify({
-        imageCDN: false,
-        functionPerRoute: true
-    }),
+    adapter: vercel(),
+    // adapter: netlify({
+    //     imageCDN: false,
+    //     functionPerRoute: true
+    // }),
     image: {
         domains: ['a.storyblok.com']
     },
