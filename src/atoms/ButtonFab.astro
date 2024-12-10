@@ -30,6 +30,7 @@ const Tag = tag
 		style === 'brand' && 'bg-[var(--color-emphasis)] text-white',
 		style === 'brand-inverted' &&
 			'bg-[var(--color-main-inverted)] text-white',
+		size === 'large' && 'w-12 h-12',
 		size === 'default' && 'w-11 h-11',
 		size === 'mini' && 'w-10 h-10',
 	]}
@@ -42,6 +43,7 @@ const Tag = tag
 			flipIcon && 'rotate-90',
 			bounceIcon &&
 				'group-hover:animate-bounce [animation-fill-mode:both] duration-300',
+			size === 'large' && 'w-6',
 			size === 'default' && 'w-[1.4375rem]',
 			size === 'mini' && 'w-5',
 		]}
