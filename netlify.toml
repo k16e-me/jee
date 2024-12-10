@@ -3,10 +3,12 @@
    framework = "astro"
 
 [build]
-    command = "npm install --force && npm run build"
+    command = "npm cache clean --force && npm install --force && npm run build"
     publish = "dist"
 
 [build.environment]
+    NODE_VERSION = "16"
+    NPM_VERSION = "7"
     NETLIFY_IMAGE_CDN_DOMAINS="a.storyblok.com"
 
 [images]
