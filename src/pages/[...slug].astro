@@ -45,9 +45,11 @@ export async function getStaticPaths() {
 			!link.slug.startsWith('regions') &&
 			!ssrRoutes.includes(link.slug),
 	)
-
+console.log([...links.map(i => i.slug).slice(0,100)])
+console.log([...links.map(i => i.slug).slice(100,190)])
+console.log([...links.map(i => i.slug).slice(190,270)])
 	return links
-		.filter((link) => !link.is_folder && !ssrRoutes.includes(link.slug))
+		.filter((link) => !link.is_folder)
 		.map((link) => {
 			const slug = link.slug === 'home' ? undefined : link.slug
 			return {

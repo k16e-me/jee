@@ -2,6 +2,10 @@
    command = "npm run dev"
    framework = "astro"
 
+[build]
+    command = "npm run build"
+    publish = "dist"
+
 [build.environment]
     NETLIFY_IMAGE_CDN_DOMAINS="a.storyblok.com"
 
