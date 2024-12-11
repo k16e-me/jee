@@ -1,6 +1,6 @@
 ---
 import { _sectionPadding } from '@scripts/snips'
-import TitleHidden from './TitleHidden.astro'
+import TitleHidden from '@blocks/TitleHidden.astro'
 import ButtonFab from '@atoms/ButtonFab.astro'
 import { _paginateLink } from '@scripts/pagination'
 
@@ -22,9 +22,9 @@ const { href } = Astro.url
 		<nav
 			aria-label={ariaLabel}
 			{...attrs}
-			class:list={['flex items-center w-full pt-8 sm:pt-10']}>
+			class:list={['flex items-center w-full', _sectionPadding('top')]}>
 			<TitleHidden tag='h2' title={ariaLabel} />
-			<ul class='flex items-center w-full gap-4'>
+			<ul class='flex items-center w-full justify-center lg:justify-start gap-4'>
 				{current > 1 && (
 					<li>
 						<a
@@ -33,7 +33,6 @@ const { href } = Astro.url
 							<ButtonFab
 								tag='span'
 								size='large'
-								style='brand'
 								label={`Go to page ${current - 1} of ${numberOfPages}`}
 								icon='arrow-left'
 							/>
@@ -46,16 +45,15 @@ const { href } = Astro.url
 						{Array(numberOfPages)
 							.fill(0)
 							.map((_, index) => (
-								<li class='page'>
+								<li class='page [&>a[aria-current="page"]]:bg-[var(--color-emphasis)] [&>a]:rounded-full [&>a[aria-current="page"]]:text-white [&>a:not([aria-current="page"])]:hover:bg-[var(--color-bg-default-elevated)]'>
 									<a
 										href={_paginateLink(href, index + 1)}
-										data-astro-prefetch
 										aria-current={
 											index + 1 === current
 												? 'page'
 												: undefined
 										}
-										class='flex h-10 w-10 items-center justify-center relative'>
+										class='flex h-12 w-12 items-center justify-center relative'>
 										{index + 1}
 									</a>
 								</li>
@@ -71,7 +69,6 @@ const { href } = Astro.url
 							<ButtonFab
 								tag='span'
 								size='large'
-								style='brand'
 								label={`Go to page ${current + 1} of ${numberOfPages}`}
 								icon='arrow-right'
 							/>
@@ -82,18 +79,3 @@ const { href } = Astro.url
 		</nav>
 	)
 }
-
-<style>
-	.next:hover,
-	.prev:hover {
-		background: linear-gradient(
-			247.23deg,
-			rgba(74, 242, 200, 0.2) 0%,
-			rgba(47, 76, 179, 0.2) 100%
-		);
-	}
-	.page a[aria-current='page'] {
-		background-color: rgba(0, 0, 0, 0.1);
-		border-radius: 50%;
-	}
-</style>
