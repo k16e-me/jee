@@ -51,7 +51,7 @@ const truncatedPagination = _truncatesPagination(numberOfPages, current)
 									<a
 										href={_paginateLink(href, number)}
 										aria-current={
-											index + 1 === current
+											number === current
 												? 'page'
 												: undefined
 										}
