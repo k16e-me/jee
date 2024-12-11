@@ -15,7 +15,7 @@ import Pagination from '@blocks/Pagination.astro'
 import { _getVisibleItems } from '@scripts/get-visible-items'
 
 const { blok } = Astro.props
-const sorted = _insights.value
+const sorted = _insights.get()
 const categories = _categories.value.map((i) => i.content.title)
 const sectors = _sectors.value.map((i) => i.content.title)
 const practices = _practices.value.map((i) => i.content.title)

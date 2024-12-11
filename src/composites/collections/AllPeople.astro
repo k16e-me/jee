@@ -19,7 +19,7 @@ import Pagination from '@blocks/Pagination.astro'
 import { _getVisibleItems } from '@scripts/get-visible-items'
 
 const { blok } = Astro.props
-const sorted = _people.value.sort((a, b) =>
+const sorted = _people.get().sort((a, b) =>
 	parseFloat(
 		a.content.byline[0].content.rank - b.content.byline[0].content.rank,
 	),

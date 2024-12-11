@@ -14,7 +14,7 @@ import Pagination from '@blocks/Pagination.astro'
 import { _getVisibleItems } from '@scripts/get-visible-items'
 
 const { blok } = Astro.props
-const sorted = _events.value
+const sorted = _events.get()
 const maxItems = MAXITEMS
 
 const page = Astro.url.searchParams.get('page') || '1'

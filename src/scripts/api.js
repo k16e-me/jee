@@ -54,35 +54,32 @@ export const getOpenings = async () => {
     })
 }
 export const getPeople = async () => {
-    return await api.get('cdn/stories', {
+    return await api.getAll('cdn/stories', {
         starts_with: 'people/',
         version: 'published',
         is_startpage: false,
         resolve_links: 'url',
-        per_page: 100,
         resolve_relations: ['person.byline', 'person_links.location', 'collection.collection'],
     })
 }
-export const getEvents = async () => {
-    return await api.get('cdn/stories', {
-        starts_with: 'events/',
-        version: 'published',
-        is_startpage: false,
-        sort_by: 'content.start_date:desc',
-        resolve_links: 'url',
-        per_page: 100,
-        resolve_relations: ['session.host', 'panelist.person'],
-    })
-}
 export const getInsights = async () => {
-    return await api.get('cdn/stories', {
+    return await api.getAll('cdn/stories', {
         starts_with: 'insights/',
         version: 'published',
         is_startpage: false,
         sort_by: 'content.published_date:desc',
         resolve_links: 'url',
-        per_page: 100,
         resolve_relations: ['insight.category', 'insight.author', 'insight.expertise'],
+    })
+}
+export const getEvents = async () => {
+    return await api.getAll('cdn/stories', {
+        starts_with: 'events/',
+        version: 'published',
+        is_startpage: false,
+        sort_by: 'content.start_date:desc',
+        resolve_links: 'url',
+        resolve_relations: ['session.host', 'panelist.person'],
     })
 }
 export const getSectors = async () => {
