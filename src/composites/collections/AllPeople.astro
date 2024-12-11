@@ -19,11 +19,13 @@ import Pagination from '@blocks/Pagination.astro'
 import { _getVisibleItems } from '@scripts/get-visible-items'
 
 const { blok } = Astro.props
-const sorted = _people.get().sort((a, b) =>
-	parseFloat(
-		a.content.byline[0].content.rank - b.content.byline[0].content.rank,
-	),
-)
+const sorted = _people
+	.get()
+	.sort((a, b) =>
+		parseFloat(
+			a.content.byline[0].content.rank - b.content.byline[0].content.rank,
+		),
+	)
 const designations = _designations.value
 	.sort((a, b) => parseInt(a.content.rank - b.content.rank))
 	.map((a) => a.content.title)
@@ -42,6 +44,7 @@ const { filteredItems, visibleItems } = _getVisibleItems(
 	current,
 	maxItems,
 )
+console.log(Astro.url.searchParams.get('page'), Astro.url.searchParams.get('s'))
 ---
 
 <Section
@@ -62,7 +65,7 @@ const { filteredItems, visibleItems } = _getVisibleItems(
 						class='flex items-center justify-between pt-3 group-[&.is-pinned]:pb-3 xl:!pb-0 gap-3'>
 						<InputText
 							label='Search'
-                            value={search}
+							value={search}
 							id='text'
 							name='s'
 							class='w-full'
