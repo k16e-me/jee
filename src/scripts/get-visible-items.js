@@ -6,5 +6,6 @@ export function _getVisibleItems(totalItems, search, current, maxItems) {
         (current - 1) * maxItems,
         current * maxItems
     )
+    
     return { filteredItems, visibleItems }
 }
