@@ -1,0 +1,22 @@
+---
+import { _fontSize } from '@scripts/font-size'
+import Icon from '@atoms/Icon.astro'
+
+const { link, label, class: classes, ...props } = Astro.props
+---
+
+<a
+	href={link}
+	class:list={[
+		'flex items-center gap-1.5 text-[var(--color-text-title)] hover:text-[var(--color-text-emphasis)] font-medium group',
+		_fontSize('body'),
+		classes,
+	]}
+	target='_blank'
+	{...props}>
+	<span set:text={label} class='block pointer-events-none' />
+	<Icon
+		name='xlink'
+		class='w-5 text-inherit opacity-60 group-hover:opacity-100'
+	/>
+</a>

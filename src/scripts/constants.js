@@ -17,4 +17,5 @@ export const RELATIONS = [
     'practice.contacts',
     'section_successes.list',
     'office.contacts',
+    'section_open_positions.jobs'
 ]

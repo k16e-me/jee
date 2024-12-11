@@ -12,6 +12,7 @@ const
     edgePaddingLgL = 'px-4 md:px-8 lg:pl-16 lg:pr-0',
     headerAndBlockSpacing = 'space-y-4 md:space-y-6 lg:space-y-7',
     gapY = 'gap-y-8 md:gap-y-10 ml:gap-y-14 lg:gap-y-20',
+    spaceY = 'space-y-8 md:space-y-10 ml:space-y-14 lg:space-y-20',
 
     _body = () => document.body,
     _q = (selector, parent) => (parent ? parent : document).querySelector(selector),
@@ -57,8 +58,12 @@ const
     },
     _spaceY = () => {
         return [...headerAndBlockSpacing.split(' ')]
+    },
+    _blockGap = (direction = 'y') => {
+        if (direction === 'y') return [...spaceY.split(' ')]
+        if (direction === 'x') return ['space-x-3', 'md:space-x-6', 'lg:space-x-8']
     }
 
 export {
-    _body, _q, _ql, _even, _odd, _capitalize, _sectionPadding, _gridGap, _xPadding, _spaceY
+    _body, _q, _ql, _even, _odd, _capitalize, _sectionPadding, _gridGap, _xPadding, _spaceY, _blockGap
 }
