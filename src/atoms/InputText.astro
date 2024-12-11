@@ -8,6 +8,7 @@ const {
 	id,
 	name,
 	type = 'text',
+    value,
 	required,
 	style = 'default',
 	hideLabel = true,
@@ -56,6 +57,7 @@ const {
 				: 'ring-1 ring-inset ring-[var(--color-border-subtle)]',
 			_fontSize('blurb'),
 		]}
+        value={value}
 		placeholder={placeholder}
         required={required}
 	/>
