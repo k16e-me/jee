@@ -11,14 +11,21 @@ import InputText from '@atoms/InputText.astro'
 import ButtonFab from '@atoms/ButtonFab.astro'
 import { MAXITEMS } from '@scripts/constants'
 import Pagination from '@blocks/Pagination.astro'
+import { _getVisibleItems } from '@scripts/get-visible-items'
 
 const { blok } = Astro.props
 const sorted = _events.value
 const maxItems = MAXITEMS
 
 const page = Astro.url.searchParams.get('page') || '1'
+const search = Astro.url.searchParams.get('s')
 const current = parseInt(page, 10)
-const visibleItems = sorted.slice((current - 1) * maxItems, current * maxItems)
+const { filteredItems, visibleItems } = _getVisibleItems(
+	sorted,
+	search,
+	current,
+	maxItems,
+)
 ---
 
 <Section
@@ -45,7 +52,7 @@ const visibleItems = sorted.slice((current - 1) * maxItems, current * maxItems)
 							isSearch
 							label='Search'
 							id='text'
-							name='search-events'
+							name='s'
 							placeholder='Find a JEE Event'
 							class='w-full'
 						/>
@@ -65,24 +72,18 @@ const visibleItems = sorted.slice((current - 1) * maxItems, current * maxItems)
 				]}>
 				{
 					visibleItems.length > 0 ? (
-						<>
-							{visibleItems.map((i, x) => (
-								<CardEvent entry={i} />
-							))}
-						</>
+						visibleItems.map((i, x) => (
+                            <CardEvent entry={i} />
+                        ))
 					) : (
 						<p class='text-2xl text-center'>No results found</p>
 					)
 				}
-                {
-                    visibleItems.length > 0 && (
-                        <Pagination
-                            total={sorted.length}
-                            size={maxItems}
-                            current={current}
-                        />
-                    )
-                }
+                <Pagination
+                    total={filteredItems.length}
+                    size={maxItems}
+                    current={current}
+                />
 			</div>
 		</Grid>
 	</Wrapper>

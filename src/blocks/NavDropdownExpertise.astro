@@ -14,7 +14,7 @@ const { links, class: classes, ...props } = Astro.props
 	class:list={['grid grid-cols-3 gap-10 max-w-screen-md', classes]}
 	{...props}>
 	{
-		links.map((i) => (
+		links.slice(0,3).map((i) => (
 			<ul>
 				<li class='space-y-4'>
 					<HeadingSection text={i.label} size='2hx' padding='small' />

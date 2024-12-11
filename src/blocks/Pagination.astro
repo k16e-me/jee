@@ -2,6 +2,7 @@
 import { _sectionPadding } from '@scripts/snips'
 import TitleHidden from './TitleHidden.astro'
 import ButtonFab from '@atoms/ButtonFab.astro'
+import { _paginateLink } from '@scripts/pagination'
 
 type Props = {
 	total: number
@@ -13,9 +14,7 @@ type Props = {
 const { ariaLabel = 'Pagination', ...attrs } = Astro.props
 const { total, size, current } = Astro.props,
 	numberOfPages = Math.ceil(total / size)
-const { pathname } = Astro.url
-const baseUrl = pathname.replace(/\/$/, '')
-console.log('Pathname: ' + pathname, 'BaseURL: ' + baseUrl)
+const { href } = Astro.url
 ---
 
 {
@@ -29,7 +28,7 @@ console.log('Pathname: ' + pathname, 'BaseURL: ' + baseUrl)
 				{current > 1 && (
 					<li>
 						<a
-							href={`${baseUrl}?page=${current - 1}`}
+							href={_paginateLink(href, current - 1)}
 							aria-label={`Go to page ${current - 1} of ${numberOfPages}`}>
 							<ButtonFab
 								tag='span'
@@ -49,7 +48,7 @@ console.log('Pathname: ' + pathname, 'BaseURL: ' + baseUrl)
 							.map((_, index) => (
 								<li class='page'>
 									<a
-										href={`${baseUrl}?page=${index + 1}`}
+										href={_paginateLink(href, index + 1)}
 										data-astro-prefetch
 										aria-current={
 											index + 1 === current
@@ -67,7 +66,7 @@ console.log('Pathname: ' + pathname, 'BaseURL: ' + baseUrl)
 				{current < numberOfPages && (
 					<li>
 						<a
-							href={`${baseUrl}?page=${current + 1}`}
+							href={_paginateLink(href, current + 1)}
 							aria-label={`Go to page ${current + 1} of ${numberOfPages}`}>
 							<ButtonFab
 								tag='span'

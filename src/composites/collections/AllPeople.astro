@@ -16,6 +16,7 @@ import InputText from '@atoms/InputText.astro'
 import FiltersPeople from '@blocks/FiltersPeople.astro'
 import { MAXITEMS } from '@scripts/constants'
 import Pagination from '@blocks/Pagination.astro'
+import { _getVisibleItems } from '@scripts/get-visible-items'
 
 const { blok } = Astro.props
 const sorted = _people.value.sort((a, b) =>
@@ -33,8 +34,14 @@ const practices = _practices.value.map((o) => o.content.title)
 const maxItems = MAXITEMS
 
 const page = Astro.url.searchParams.get('page') || '1'
+const search = Astro.url.searchParams.get('s')
 const current = parseInt(page, 10)
-const visibleItems = sorted.slice((current - 1) * maxItems, current * maxItems)
+const { filteredItems, visibleItems } = _getVisibleItems(
+	sorted,
+	search,
+	current,
+	maxItems,
+)
 ---
 
 <Section
@@ -56,7 +63,7 @@ const visibleItems = sorted.slice((current - 1) * maxItems, current * maxItems)
 						<InputText
 							label='Search'
 							id='text'
-							name='search-people'
+							name='s'
 							class='w-full'
 							isSearch
 						/>
@@ -83,24 +90,18 @@ const visibleItems = sorted.slice((current - 1) * maxItems, current * maxItems)
 				]}>
 				{
 					visibleItems.length > 0 ? (
-						<>
-							{visibleItems.map((i, x) => (
-								<CardPerson
-									person={i}
-									tag='h3'
-									size='default'
-								/>
-							))}
-							<Pagination
-								total={sorted.length}
-								size={maxItems}
-								current={current}
-							/>
-						</>
+						visibleItems.map((i, x) => (
+							<CardPerson person={i} tag='h3' size='default' />
+						))
 					) : (
 						<p class='text-2xl text-center'>No results found</p>
 					)
 				}
+				<Pagination
+					total={filteredItems.length}
+					size={maxItems}
+					current={current}
+				/>
 			</div>
 		</Grid>
 	</Wrapper>
