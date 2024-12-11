@@ -8,6 +8,7 @@ export const
     _events = atom([]),
     _designations = atom([]),
     _offices = atom([]),
+    _openings = atom([]),
     _sectors = atom([]),
     _practices = atom([]),
     _africaExpertise = atom([]),
@@ -25,6 +26,7 @@ export function _addInsights(item) { _insights.set(item) }
 export function _addEvents(item) { _events.set(item) }
 export function _addDesignations(item) { _designations.set(item) }
 export function _addOffices(item) { _offices.set(item) }
+export function _addOpenings(item) { _openings.set(item) }
 export function _addSectors(item) { _sectors.set(item) }
 export function _addPractices(item) { _practices.set(item) }
 export function _addAfricaExpertise(item) { _africaExpertise.set(item) }

@@ -1,6 +1,4 @@
 ---
-// export const prerender = true
-// export const pagefind = true
 import { useStoryblokApi } from '@storyblok/astro'
 import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro'
 import Base from '@layouts/Base.astro'
@@ -12,6 +10,7 @@ import {
 	_addEvents,
 	_addDesignations,
 	_addOffices,
+	_addOpenings,
 	_addSectors,
 	_addPractices,
 	_addAfricaExpertise,
@@ -45,6 +44,7 @@ export async function getStaticPaths() {
 			!link.slug.startsWith('successes') &&
 			!link.slug.startsWith('offices') &&
 			!link.slug.startsWith('regions') &&
+			!link.slug.startsWith('openings') &&
 			!ssrRoutes.includes(link.slug),
 	)
 
@@ -69,6 +69,7 @@ const [
 	designations,
 	categories,
 	offices,
+	openings,
 	people,
 	insights,
 	events,
@@ -86,6 +87,7 @@ _addInsights(insights.data.stories)
 _addEvents(events.data.stories)
 _addDesignations(designations.data.stories)
 _addOffices(offices.data.stories)
+_addOpenings(openings.data.stories)
 _addSectors(sectors.data.stories)
 _addPractices(practices.data.stories)
 _addAfricaExpertise(africaExpertise.data.stories)
