@@ -105,12 +105,12 @@ export default defineConfig({
                 external: ['/pagefind/pagefind.js']
             }
         },
-        server: {
-            fs: {
-                strict: false,
-                allow: ['.']  // Allow serving files from root
-            }
-        },
+        // server: {
+        //     fs: {
+        //         strict: false,
+        //         allow: ['.']  // Allow serving files from root
+        //     }
+        // },
         optimizeDeps: {
             exclude: ['pagefind']
         }
