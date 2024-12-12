@@ -25,6 +25,7 @@ import {
 import { _getAllAPIs } from '@scripts/api'
 import _getSSRRoutes from '@scripts/ssr-routes'
 import { _getPageData } from '@scripts/storyblok'
+import { _setAllStores } from '@scripts/set-stores'
 
 export async function getStaticPaths() {
 	const storyblokApi = useStoryblokApi()
@@ -62,40 +63,7 @@ export async function getStaticPaths() {
 const { slug } = Astro.params
 const { page, content, seo } = await _getPageData(slug)
 
-const apis = _getAllAPIs()
-const results = await Promise.all(apis.map((fn) => fn()))
-const [
-	settings,
-	awards,
-	designations,
-	categories,
-	offices,
-	openings,
-	people,
-	insights,
-	events,
-	sectors,
-	practices,
-	africaExpertise,
-	africaIp,
-	newsletter,
-	regions,
-] = results
-_addAwards(awards.data.stories)
-_addPeople(people)
-_addInsights(insights)
-_addEvents(events)
-_addDesignations(designations.data.stories)
-_addOffices(offices.data.stories)
-_addOpenings(openings.data.stories)
-_addSectors(sectors.data.stories)
-_addPractices(practices.data.stories)
-_addAfricaExpertise(africaExpertise.data.stories)
-_addAfricaIp(africaIp.data.stories)
-_addCategories(categories.data.stories)
-_addNewsletter(newsletter.data.story.content)
-_addRegions(regions.data.stories)
-_addSettings(settings.data.story.content)
+_setAllStores()
 ---
 
 <Base
