@@ -2,13 +2,12 @@
 import { useStoryblokApi } from '@storyblok/astro'
 import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro'
 import Base from '@layouts/Base.astro'
-import _getSSRRoutes from '@scripts/ssr-routes'
 import { _getPageData } from '@scripts/storyblok'
 import { _setAllStores } from '@scripts/set-stores'
 
 export async function getStaticPaths() {
 	const storyblokApi = useStoryblokApi()
-	const ssrRoutes = _getSSRRoutes()
+	const ssrRoutes = ['people/', 'insights/', 'events/']
 
 	let links = await storyblokApi.getAll('cdn/links', {
 		version: 'published',
