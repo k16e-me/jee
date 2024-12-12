@@ -1,8 +1,9 @@
 ---
-import { renderRichText } from '@storyblok/astro'
+import { richTextResolver } from '@storyblok/richtext'
 import Prose from '@atoms/Prose.astro'
 import { _fontSize } from '@scripts/font-size'
 
+const { render } = richTextResolver()
 const {
 	text,
 	pType,
@@ -12,6 +13,7 @@ const {
 	class: classes,
 	...props
 } = Astro.props
+const html = render(text)
 ---
 
 <Prose
@@ -35,5 +37,5 @@ const {
 		classes,
 	]}
 	{...props}>
-	<Fragment set:html={renderRichText(text)} />
+	<Fragment html={html} />
 </Prose>
