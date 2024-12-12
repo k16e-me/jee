@@ -26,6 +26,7 @@ const {
 	class: classes,
 	...props
 } = Astro.props
+const label = blok?.link[0]?.label || breadcrumbLabel
 const copy = altCopy ? altCopy : blok?.copy
 const links = blok?.jump_links ?? null
 const frontpage = blok?.is_frontpage
@@ -58,11 +59,7 @@ const button = blok?.button
 										? breadcrumbLink
 										: blok.link[0].link
 								}
-								labelText={
-									breadcrumbLabel
-										? breadcrumbLabel
-										: 'JEE Home'
-								}
+								labelText={label ? label : 'JEE Home'}
 								page={altTitle ? altTitle : blok.title}
 							/>
 						)
@@ -109,10 +106,10 @@ const button = blok?.button
 									</div>
 								)}
 								<RichText
-                                    text={blok.expression}
-                                    pType='body'
-                                    class:list={frontpage && 'line-clamp-5'}
-                                />
+									text={blok.expression}
+									pType='body'
+									class:list={frontpage && 'line-clamp-5'}
+								/>
 
 								{
 									/* Read Button */
