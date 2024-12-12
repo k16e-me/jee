@@ -95,10 +95,10 @@ export default defineConfig({
     devToolbar: {
         enabled: false
     },
-    experimental: {
-        responsiveImages: true,
-        contentIntellisense: false
-    },
+    // experimental: {
+    //     responsiveImages: true,
+    //     contentIntellisense: false
+    // },
     vite: {
         build: {
             rollupOptions: {
