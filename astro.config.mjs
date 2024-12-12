@@ -90,27 +90,17 @@ export default defineConfig({
         })
     ],
     build: {
-        format: 'directory'
+        format: 'preserve'
     },
     devToolbar: {
         enabled: false
     },
-    // experimental: {
-    //     responsiveImages: true,
-    //     contentIntellisense: false
-    // },
     vite: {
         build: {
             rollupOptions: {
                 external: ['/pagefind/pagefind.js']
             }
         },
-        // server: {
-        //     fs: {
-        //         strict: false,
-        //         allow: ['.']  // Allow serving files from root
-        //     }
-        // },
         optimizeDeps: {
             exclude: ['pagefind']
         }
