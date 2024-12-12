@@ -90,7 +90,7 @@ export default defineConfig({
         })
     ],
     build: {
-        format: 'preserve'
+        format: 'directory'
     },
     devToolbar: {
         enabled: false
