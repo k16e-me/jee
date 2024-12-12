@@ -63,7 +63,7 @@ export async function getStaticPaths() {
 const { slug } = Astro.params
 const { page, content, seo } = await _getPageData(slug)
 
-_setAllStores()
+await _setAllStores()
 ---
 
 <Base

@@ -11,7 +11,7 @@ import { _setAllStores } from '@scripts/set-stores'
 const slug = Astro.url.pathname.slice(1)
 const { page, content, seo } = await _getPageData(slug)
 
-_setAllStores()
+await _setAllStores()
 ---
 
 <Base
