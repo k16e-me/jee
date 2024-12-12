@@ -10,6 +10,7 @@ import _empty from '@scripts/empty'
 import Image from '@atoms/Image.astro'
 import ButtonJumpTo from '@atoms/ButtonJumpTo.astro'
 import RichText from '@atoms/RichText.astro'
+import ButtonLink from '@atoms/ButtonLink.astro'
 
 const {
 	blok,
@@ -27,6 +28,8 @@ const {
 } = Astro.props
 const copy = altCopy ? altCopy : blok?.copy
 const links = blok?.jump_links ?? null
+const frontpage = blok?.is_frontpage
+const button = blok?.button
 ---
 
 <Section
@@ -46,7 +49,7 @@ const links = blok?.jump_links ?? null
 					_xPadding('both-lg-l'),
 				]}>
 				<div
-					class='py-6 ml:py-10 lg:pt-2 lg:pb-12 ml:pr-6 lg:pr-12 flex flex-col gap-2 sm:gap-3'>
+					class='py-8 ml:py-10 lg:pt-4 lg:pb-12 ml:pr-6 lg:pr-12 flex flex-col gap-2.5 sm:gap-4'>
 					{
 						showBreadcrumbs && (
 							<Breadcrumb
@@ -64,32 +67,37 @@ const links = blok?.jump_links ?? null
 							/>
 						)
 					}
+
+					<!-- Headline -->
 					<Text
 						tag='h2'
 						text={altTitle ? altTitle : blok.headline}
 						color='title'
-						size='3'
+						size={frontpage ? '2' : '3'}
 						weight='extra'
 						tighten
 					/>
+
+					<!-- Copy (Subtitle) -->
 					{
 						!_empty(copy) && copy.length > 1 && (
 							<Text
 								tag='p'
 								text={copy}
 								color='body'
-								size='copy'
-								family='display'
-								class='max-w-screen-sm pr-6 mt-1.5 sm:mt-2.5 lg:mt-2'
+								size={frontpage ? '5' : 'copy'}
+								class='max-w-screen-sm pr-6 mt-1.5 sm:mt-2.5'
 							/>
 						)
 					}
+
+					<!-- Custom use/Slot -->
 					{
 						slotIn ? (
 							<slot />
 						) : (
 							<>
-								{links && (
+								{!_empty(links) && (
 									<div class='flex flex-col gap-1 py-4'>
 										{links.map((i) => (
 											<ButtonJumpTo
@@ -100,12 +108,30 @@ const links = blok?.jump_links ?? null
 										))}
 									</div>
 								)}
-								<RichText text={blok.expression} pType='body' />
+								<RichText
+                                    text={blok.expression}
+                                    pType='body'
+                                    class:list={frontpage && 'line-clamp-5'}
+                                />
+
+								{
+									/* Read Button */
+									frontpage && !_empty(button) && (
+										<div class='mt-4'>
+											<ButtonLink
+												link={button[0].link}
+												label={button[0].label}
+											/>
+										</div>
+									)
+								}
 							</>
 						)
 					}
 				</div>
 			</div>
+
+			<!-- Image -->
 			<div
 				class='[grid-area:1/1/2/5] ml:[grid-area:1/5/2/13] order-1 ml:order-2 h-[25rem] ml:h-[32.5rem] lg:h-[39rem] rounded-t-[1.5rem] ml:rounded-[2rem] ml:!rounded-br-[14rem] lg:rounded-[3.5rem] lg:!rounded-br-[18.5rem] ml:-mt-[1.875rem] lg:-mt-[2.8125rem] z-[1] relative overflow-clip'>
 				<Image
@@ -117,5 +143,5 @@ const links = blok?.jump_links ?? null
 			</div>
 		</Grid>
 	</Wrapper>
-	<BrandCutFull placement='expression' />
+	<BrandCutFull placement={frontpage ? 'poster' : 'expression'} />
 </Section>

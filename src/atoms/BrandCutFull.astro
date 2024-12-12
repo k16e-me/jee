@@ -12,6 +12,8 @@ const { placement = 'default', class: classes, ...props } = Astro.props
 			'inset-0 scale-105',
 		placement === 'expression' &&
 			'top-[85%] sm:top-[60%] md:top-[40%] ml:top-[22.5%] lg:top-[27.5%] scale-[1.35] ml:scale-110 lg:scale-105',
+		placement === 'poster' &&
+			'top-[65%] sm:top-[30%] md:top-[10%] md:scale-100 ml:top-[5%] ml:scale-y-100 ml:scale-x-105 lg:top-[10%] xl:top-[5%] xl:-left-4 xl:scale-x-100',
 		classes,
 	]}
 	{...props}>

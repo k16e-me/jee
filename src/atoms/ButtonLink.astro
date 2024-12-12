@@ -4,18 +4,18 @@ import Text from '@atoms/Text.astro'
 import _slug from '@scripts/slug'
 
 const {
-		link,
-		tag = 'a',
-		label,
-		theme = 'dark',
-		icon,
-		iconRight,
-		iconLeft,
-        external,
-		class: classes,
-		...props
-	} = Astro.props,
-	Tag = tag
+    link,
+    tag = 'a',
+    label,
+    theme = 'dark',
+    icon,
+    iconRight,
+    iconLeft,
+    external,
+    class: classes,
+    ...props
+} = Astro.props
+const Tag = tag
 ---
 
 <Tag
