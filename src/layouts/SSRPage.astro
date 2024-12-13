@@ -1,0 +1,19 @@
+---
+import { useStoryblokApi } from '@storyblok/astro'
+import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro'
+import Base from '@layouts/Base.astro'
+import { _getPageData } from '@scripts/storyblok'
+import { _setAllStores } from '@scripts/set-stores'
+
+const slug = Astro.url.pathname.slice(1)
+const { page, content, seo } = await _getPageData(slug)
+
+await _setAllStores()
+---
+
+<Base
+	pageTitle={seo.title}
+	pageDescription={seo.description}
+	pageThumbnail={seo.thumbnail.filename}>
+	<StoryblokComponent blok={content} />
+</Base>
