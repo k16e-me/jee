@@ -4,16 +4,14 @@ import { loadEnv } from 'vite'
 import storyblok from '@storyblok/astro'
 import tailwind from '@astrojs/tailwind'
 import pagefind from 'astro-pagefind'
-import node from '@astrojs/node'
 
 const env = loadEnv('', process.cwd(), 'STORYBLOK_TOKEN')
 
 export default defineConfig({
     site: 'https://jee-v2.k16e.co',
-    // adapter: netlify({
-    //     imageCDN: false,
-    // }),
-    adapter: node({ mode: 'standalone', }),
+    adapter: netlify({
+        imageCDN: false,
+    }),
     image: {
         domains: ['a.storyblok.com']
     },
