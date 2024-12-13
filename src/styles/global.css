@@ -41,6 +41,7 @@
         --color-text-emphasis-hover: var(--color-red-500);
 
         --color-emphasis: var(--color-main);
+        --color-emphasis-inverted: var(--color-main-inverted);
         --color-backdrop: var(--color-dark);
         --color-accent: var(--color-secondary);
 
