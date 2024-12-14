@@ -3,7 +3,7 @@ import Image from '@atoms/Image.astro'
 import Number from '@atoms/Number.astro'
 import HeadingSection from '@blocks/HeadingSection.astro'
 import Grid from '@layouts/Grid.astro'
-import { _gridGap } from '@scripts/snips'
+import { _gridGap, _spaceY, _blockGap } from '@scripts/snips'
 import RichText from '@atoms/RichText.astro'
 import ButtonMore from '@atoms/ButtonMore.astro'
 
@@ -12,7 +12,10 @@ const { block } = Astro.props
 
 <Grid class:list={['col-span-full', _gridGap('y')]}>
 	<div
-		class='col-span-full lg:[grid-area:1/1/2/8] px-4 md:px-0 space-y-6 sm:space-y-8 md:space-y-10 lg:space-y-16'>
+		class:list={[
+			'col-span-full lg:[grid-area:1/1/2/8] px-4 md:px-0',
+			_blockGap('y'),
+		]}>
 		<HeadingSection
 			level='h3'
 			text={block.heading}

@@ -10,8 +10,9 @@ const
     edgePaddingXlUpR = 'xl:pr-16',
     edgePaddingXlUpL = 'xl:pl-16',
     edgePaddingLgL = 'px-4 md:px-8 lg:pl-16 lg:pr-0',
-    headerAndBlockSpacing = 'space-y-4 md:space-y-6 lg:space-y-7',
+    headerAndBlockSpacing = 'space-y-4 md:space-y-6 lg:space-y-8',
     gapY = 'gap-y-8 md:gap-y-10 ml:gap-y-14 lg:gap-y-20',
+    gapYDouble = 'gap-y-16 md:gap-y-20 ml:gap-y-28 lg:gap-y-40',
     spaceY = 'space-y-8 md:space-y-10 ml:space-y-14 lg:space-y-20',
 
     _body = () => document.body,
@@ -35,7 +36,7 @@ const
         if (edges === 'right') return ['pr-4', 'md:pr-8', 'lg:pr-16']
         if (edges === 'left') return ['pl-4', 'md:pl-8', 'lg:pl-16']
         if (edges === 'left-md-down') return ['pl-4', 'md:pl-8', 'lg:pl-0']
-        if (edges === 'both-mdup') return ['md:px-8', 'lg:px-16']
+        if (edges === 'both-md-up') return ['md:px-8', 'lg:px-16']
         if (edges === 'both-md-up-lg-l') return ['md:px-8', 'lg:pl-16', 'lg:pr-0']
         if (edges === 'left-md-up') return ['md:pl-8', 'lg:pl-16']
         if (edges === 'both-md-down-l') return ['px-4', 'md:px-8', 'lg:!pr-0', 'lg:pl-16']
@@ -54,6 +55,7 @@ const
     },
     _gridGap = (direction = 'y') => {
         if (direction === 'y') return [...gapY.split(' ')]
+        if (direction === 'y-double') return [...gapYDouble.split(' ')]
         if (direction === 'x') return ['gap-x-3', 'md:gap-x-6', 'lg:gap-x-8']
     },
     _spaceY = () => {

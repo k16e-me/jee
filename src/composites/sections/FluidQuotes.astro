@@ -12,26 +12,26 @@ import Icon from '@atoms/Icon.astro'
 import ButtonFab from '@atoms/ButtonFab.astro'
 import SwiperQuotes from '@blocks/SwiperQuotes.astro'
 
-const { blok, class: classes, ...props } = Astro.props,
-	quotes = blok.quotes
+const { blok, class: classes, ...props } = Astro.props
+const quotes = blok.quotes
 ---
 
 <Section component={blok.component} title={blok.heading} class=''>
 	<Wrapper margins={false}>
 		<Grid>
 			<div
-				class='col-span-full md:[grid-area:1/1/2/5] lg:[grid-area:1/1/2/7] 2xl:pl-18'>
+				class='col-span-full ml:[grid-area:1/1/2/5] lg:[grid-area:1/1/2/7] 2xl:pl-18'>
 				<Image
 					filename={blok.image.filename}
 					alt={blok.image.alt}
 					top
 					class:list={[
-						'h-[25rem] sm:h-[32rem] md:h-[37.5rem] lg:h-[40rem] rounded-bl-2xl md:rounded-bl-[32px] rounded-br-[128px] md:rounded-br-[224px] lg:rounded-br-[320px] rounded-tr-[1.5rem] rounded-tl-[1.5rem] md:rounded-tr-[64px] lg:rounded-tr-[72px] md:rounded-tl-4xl 2xl:rounded-tl-[72px]',
+						'h-[24rem] sm:h-[32rem] md:h-[36rem] lg:h-[40rem] rounded-bl-[1.5rem] md:rounded-bl-[2rem] rounded-br-[8rem] md:rounded-br-[14rem] lg:rounded-br-[20rem] rounded-tr-[1.5rem] rounded-tl-[1.5rem] md:rounded-tr-[4rem] lg:rounded-tr-[4.5rem] md:rounded-tl-4xl 2xl:rounded-tl-[4.5rem]',
 					]}
 				/>
 			</div>
 			<div
-				class='col-span-full md:[grid-area:1/5/2/9] lg:[grid-area:1/7/2/13] r-hide-overflow'>
+				class='col-span-full ml:[grid-area:1/5/2/9] lg:[grid-area:1/7/2/13] r-hide-overflow'>
 				<div
 					class:list={[
 						_sectionPadding('top'),

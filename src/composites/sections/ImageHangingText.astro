@@ -19,14 +19,8 @@ const { blok, class: classes, ...props } = Astro.props
 	component={blok.component}
 	overlap={blok.overlap}
 	id={blok.is_hashed ? _slugify(blok.heading) : _slugify(blok.component)}>
-	<Wrapper margins={false}>
-		<Grid
-			class:list={[
-				'gap-y-5 md:gap-y-12 lg:gap-y-14',
-				blok.is_alternate
-					? 'lg:pl-8 xl:pl-18 2xl:pr-18'
-					: 'lg:pr-8 xl:pr-18 2xl:pl-18',
-			]}>
+	<Wrapper marginsMd>
+		<Grid class:list={['gap-y-5 md:gap-y-12 lg:gap-y-14']}>
 			<div
 				class:list={[
 					'[grid-area:1/1/2/5]',
@@ -38,16 +32,13 @@ const { blok, class: classes, ...props } = Astro.props
 					filename={blok.image.filename}
 					alt={blok.image.title}
 					class:list={[
-						'h-[25rem] sm:h-[31rem] md:h-[37.5rem] lg:h-[41rem] rounded-t-[1.5rem] 2xl:rounded-[4rem]',
-						blok.is_alternate
-							? 'md:rounded-tr-none md:rounded-tl-[3.5rem] md:rounded-bl-[3.5rem] lg:rounded-tl-[4rem] lg:rounded-bl-[4rem]'
-							: 'md:rounded-tl-none md:rounded-tr-[3.5rem] md:rounded-br-[3.5rem] lg:rounded-tr-[4rem] lg:rounded-br-[4rem]',
+						'h-[23rem] sm:h-[30rem] md:h-[35rem] lg:h-[41rem] rounded-t-[1.5rem] md:rounded-[2rem] lg:rounded-[3rem]'
 					]}
 				/>
 			</div>
 			<div
 				class:list={[
-					'[grid-area:1/1/2/5] pt-[18rem] md:pt-[16rem] lg:pt-[14rem] px-4 lg:px-0 z-10',
+					'[grid-area:1/1/2/5] pt-[18rem] md:pt-[16rem] px-4 lg:px-0 z-10',
 					blok.is_alternate
 						? 'md:[grid-area:1/1/2/6] lg:[grid-area:1/1/2/7]'
 						: 'md:[grid-area:1/4/2/9] lg:[grid-area:1/7/2/13]',
@@ -55,7 +46,7 @@ const { blok, class: classes, ...props } = Astro.props
 				<div
 					class='bg-[var(--color-bg-default-elevated)] rounded-2xl md:rounded-[32px] p-4 md:p-8 lg:p-12 flex flex-col gap-y-4 lg:gap-y-6'>
 					<HeadingSection text={blok.heading} level='h2' size='5' />
-					<RichText text={blok.text} pType='copy' color='title' />
+					<RichText text={blok.text} pType='body' color='title' />
 					{
 						!_empty(blok.action) && (
 							<ButtonLink
