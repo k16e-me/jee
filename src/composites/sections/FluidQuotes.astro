@@ -17,8 +17,8 @@ const quotes = blok.quotes
 ---
 
 <Section component={blok.component} title={blok.heading} class=''>
-	<Wrapper margins={false}>
-		<Grid>
+	<Wrapper marginsMd>
+		<Grid class:list={[_gridGap('y')]}>
 			<div
 				class='col-span-full ml:[grid-area:1/1/2/5] lg:[grid-area:1/1/2/7] 2xl:pl-18'>
 				<Image
@@ -26,7 +26,7 @@ const quotes = blok.quotes
 					alt={blok.image.alt}
 					top
 					class:list={[
-						'h-[24rem] sm:h-[32rem] md:h-[36rem] lg:h-[40rem] rounded-bl-[1.5rem] md:rounded-bl-[2rem] rounded-br-[8rem] md:rounded-br-[14rem] lg:rounded-br-[20rem] rounded-tr-[1.5rem] rounded-tl-[1.5rem] md:rounded-tr-[4rem] lg:rounded-tr-[4.5rem] md:rounded-tl-4xl 2xl:rounded-tl-[4.5rem]',
+						'h-[24rem] sm:h-[32rem] lg:h-[36rem] rounded-bl-[1.5rem] md:rounded-bl-[2rem] rounded-br-[8rem] md:rounded-br-[14rem] lg:rounded-br-[20rem] rounded-tr-[1.5rem] rounded-tl-[1.5rem] md:rounded-tr-[4rem] lg:rounded-tr-[4.5rem] md:rounded-tl-4xl 2xl:rounded-tl-[4.5rem]',
 					]}
 				/>
 			</div>
