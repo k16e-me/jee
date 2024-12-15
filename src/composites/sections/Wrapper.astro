@@ -9,8 +9,8 @@ import _slugify from '@scripts/slugify'
 import SectionSelect from '@blocks/SectionSelect.astro'
 import SectionSpy from '@blocks/SectionSpy.astro'
 
-const { blok } = Astro.props,
-	headings = blok.sections.map((section) => section.heading)
+const { blok } = Astro.props
+const headings = blok.sections.map((section) => section.heading)
 ---
 
 <Section
