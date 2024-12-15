@@ -130,12 +130,12 @@ const button = blok?.button
 
 			<!-- Image -->
 			<div
-				class='[grid-area:1/1/2/5] ml:[grid-area:1/5/2/13] order-1 ml:order-2 h-[25rem] ml:h-[38rem] lg:h-[40rem] rounded-t-[1.5rem] ml:rounded-[2rem] ml:!rounded-br-[14rem] lg:rounded-[3rem] lg:!rounded-br-[18.5rem] ml:-mt-[1.875rem] lg:-mt-[2.8125rem] z-[1] relative overflow-clip'>
+				class='[grid-area:1/1/2/5] ml:[grid-area:1/5/2/13] order-1 ml:order-2 h-[25rem] ml:h-[38rem] lg:h-[40rem] ml:-mt-[1.875rem] lg:-mt-[2.8125rem] z-[1] relative overflow-clip ml:pr-4'>
 				<Image
 					filename={altImage ?? blok.image.filename}
 					alt={altImageAlt ?? blok.image.alt}
 					filter
-					class='h-full'
+					class='h-full rounded-t-[2rem] ml:rounded-[2rem] ml:!rounded-br-[14rem] lg:rounded-[3rem] lg:!rounded-br-[18.5rem]'
 				/>
 			</div>
 		</Grid>

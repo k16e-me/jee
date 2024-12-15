@@ -31,13 +31,13 @@ const { blok, class: classes, ...props } = Astro.props,
 						class:list={[
 							'relative overflow-clip',
 							x === 0 &&
-								'[grid-area:1/1/2/3] md:[grid-area:1/1/3/5] h-[30rem] md:h-[40rem] rounded-t-2xl md:rounded-2xl lg:rounded-[1.5rem]',
+								'[grid-area:1/1/2/3] md:[grid-area:1/1/3/5] h-[30rem] md:h-[40rem] rounded-t-2xl md:rounded-2xl lg:rounded-t-[2rem]',
 							x === 1 &&
-								'[grid-area:2/1/3/3] md:[grid-area:1/5/2/9] h-[20rem] md:rounded-2xl lg:rounded-[1.5rem]',
+								'[grid-area:2/1/3/3] md:[grid-area:1/5/2/9] h-[20rem] md:rounded-2xl lg:rounded-t-[2rem]',
 							x === 2 &&
-								'[grid-area:3/1/4/2] md:[grid-area:2/5/3/7] h-[14rem] md:h-[18.5rem] lg:h-[18rem] rounded-bl-2xl md:rounded-2xl lg:rounded-[1.5rem]',
+								'[grid-area:3/1/4/2] md:[grid-area:2/5/3/7] h-[14rem] md:h-[18.5rem] lg:h-[18rem] rounded-bl-2xl md:rounded-2xl lg:rounded-t-[2rem]',
 							x === 3 &&
-								'[grid-area:3/2/4/3] md:[grid-area:2/7/3/9] h-[14rem] md:h-[18.5rem] lg:h-[18rem] rounded-br-2xl md:rounded-2xl lg:rounded-[1.5rem]',
+								'[grid-area:3/2/4/3] md:[grid-area:2/7/3/9] h-[14rem] md:h-[18.5rem] lg:h-[18rem] rounded-br-2xl md:rounded-2xl lg:rounded-t-[2rem]',
 						]}>
 						<Image
 							filename={i.file.filename}
