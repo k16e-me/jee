@@ -13,7 +13,7 @@ const { item, class: classes, ...props } = Astro.props
 	{...props}>
 	<div class='relative overflow-clip grid grid-cols-1'>
 		<div
-			class='rounded-tl-[2rem] rounded-tr-[3.5rem] rounded-bl-[2rem] rounded-br-[9rem] relative overflow-clip [grid-area:1/1/2/2] h-72'>
+			class='rounded-tl-[2rem] rounded-tr-[3.5rem] rounded-bl-[1.5rem] rounded-br-[9rem] relative overflow-clip [grid-area:1/1/2/2] h-72'>
 			<Image
 				filename={item.content.image.filename}
 				alt={item.content.image.alt}
@@ -26,7 +26,7 @@ const { item, class: classes, ...props } = Astro.props
 		<div
 			class='[grid-area:1/1/2/2] mt-[12.5rem] ml-4 mr-4 sm:ml-5 sm:mr-7 lg:mr-8 z-10'>
 			<div
-				class='bg-[var(--color-bg-default)] rounded-t-[2rem] min-h-44 lg:min-h-52 p-4 sm:p-5 space-y-1.5'>
+				class='bg-[var(--color-bg-default)] rounded-t-[1.5rem] min-h-44 lg:min-h-52 p-4 sm:p-5 space-y-1.5'>
 				<div>
 					<Text
 						tag='h3'
