@@ -13,7 +13,7 @@ const { child, links, class: classes, ...props } = Astro.props
 <ul
 	class:list={[
 		classes,
-		'invisible opacity-0 translate-y-4 scale-90 group-hover/li:visible group-hover/li:opacity-100 group-hover/li:translate-y-0 group-hover/li:scale-100 duration-300 group-hover/li:duration-300 ease-in-out group-hover/li:transition absolute left-1/2 z-50 w-screen max-w-max -translate-x-1/2 py-6 px-7 overflow-hidden rounded-t-[1.5rem] bg-white shadow ring-1 ring-[var(--color-bg-default-elevated)]',
+		'invisible opacity-0 translate-y-4 scale-90 group-hover/li:visible group-hover/li:opacity-100 group-hover/li:translate-y-0 group-hover/li:scale-100 duration-300 group-hover/li:duration-300 ease-in-out group-hover/li:transition absolute left-1/2 z-50 w-screen max-w-max -translate-x-1/2 py-6 px-7 overflow-hidden rounded-[1.5rem] bg-white shadow ring-1 ring-[var(--color-bg-default-elevated)]',
 	]}
 	{...props}>
 	{child === 'expertise' && <NavDropdownExpertise links={links} />}
