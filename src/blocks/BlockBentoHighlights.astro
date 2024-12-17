@@ -10,7 +10,7 @@ import ButtonMore from '@atoms/ButtonMore.astro'
 const { block } = Astro.props
 ---
 
-<Grid class:list={['col-span-full', _gridGap('y')]}>
+<Grid class:list={['col-span-full items-center', _gridGap('y')]}>
 	<div
 		class:list={[
 			'col-span-full lg:[grid-area:1/1/2/8] px-4 md:px-0',
@@ -46,7 +46,8 @@ const { block } = Astro.props
 		<Image
 			filename={block.illustration.filename}
 			alt={block.illustration.alt}
-			class='h-[23rem] md:h-[30rem] lg:h-[27rem] rounded-[1.5rem]'
+            contain
+			class='h-[23rem] md:h-[30rem] lg:h-[27rem] rounded-[2rem]'
 		/>
 	</div>
 </Grid>
