@@ -12,6 +12,7 @@ import ButtonFab from '@atoms/ButtonFab.astro'
 import { MAXITEMS } from '@scripts/constants'
 import Pagination from '@blocks/Pagination.astro'
 import { _getVisibleItems } from '@scripts/get-visible-items'
+import FiltersEvents from '@blocks/FiltersEvents.astro'
 
 const { blok } = Astro.props
 const sorted = _events.get()
@@ -64,6 +65,7 @@ const { filteredItems, visibleItems } = _getVisibleItems(
 							type='button'
 						/>
 					</div>
+                    <FiltersEvents />
 				</form>
 			</div>
 			<div
