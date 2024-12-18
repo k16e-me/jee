@@ -49,11 +49,11 @@ const { filteredItems, visibleItems } = _getVisibleItems(
 		<Grid split='sidebar' class=''>
 			<div
 				class:list={[
-					'self-start sticky -top-px z-20 bg-[var(--color-bg-default)] xl:bg-transparent xl:pt-8 flex flex-col group [&.is-pinned]:shadow xl:!shadow-none',
+					'self-start sticky -top-px z-20 bg-[var(--color-bg-default)] xl:bg-transparent xl:pt-8 flex flex-col group [&.is-pinned]:shadow xl:!shadow-none max-h-[calc(100vh-1.5rem)] overflow-y-clip',
 					_xPadding('both-lg-down'),
 				]}
 				data-pin-top>
-				<form class='space-y-1.5'>
+				<form class='space-y-1.5 h-full overflow-auto'>
 					<div
 						class='flex items-center justify-between pt-3 group-[&.is-pinned]:pb-3 xl:!pb-0 gap-3'>
 						<InputText
