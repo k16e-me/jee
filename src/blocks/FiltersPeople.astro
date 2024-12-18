@@ -15,6 +15,7 @@ const {
 	class: classes,
 	...props
 } = Astro.props
+const roles = ['Managing Partners', 'Partners', 'Managing Associates', 'Business Support']
 ---
 
 <div class:list={['pt-6', classes]} {...props}>
@@ -55,15 +56,17 @@ const {
 						<InputRadio
 							label='All People'
 							id={'all-people'}
-							name={'designations'}
+							name={'role'}
 							checked
 						/>
+                        
+                        <!-- Roles -->
 						{
-							designations.map((i) => (
+							roles.map((i) => (
 								<InputRadio
-									label={i + 's'}
+									label={i}
 									id={_slugify(i)}
-									name={'designations'}
+									name={'role'}
 								/>
 							))
 						}
