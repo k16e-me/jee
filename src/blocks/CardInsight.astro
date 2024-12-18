@@ -7,6 +7,7 @@ import Meta from '@atoms/Meta.astro'
 import Author from '@blocks/Author.astro'
 import FormattedDate from '@atoms/FormattedDate.astro'
 import _slugify from '@scripts/slugify'
+import _empty from '@scripts/empty'
 
 const {
 	piece,
@@ -15,6 +16,12 @@ const {
 	class: classes,
 	...props
 } = Astro.props
+const image = piece.featured_image
+	? piece.featured_image.filename
+	: piece.content.image.filename
+const altText = piece.featured_image
+	? piece.featured_image.alt
+	: piece.content.image.alt
 ---
 
 <a
@@ -35,8 +42,8 @@ const {
 				'w-full h-[23rem] sm:h-[24.5rem] md:h-full md:min-w-[26rem] md:max-w-[26rem] rounded-tl-[2rem] rounded-bl-[1.5rem] rounded-tr-[2rem] md:rounded-tr-[4rem] rounded-br-[10rem]',
 		]}>
 		<Image
-			filename={piece.content.image.filename}
-			alt={piece.content.image.alt}
+			filename={image}
+			alt={altText}
 			filter
 			class:list={[
 				'transition-transform duration-200 group-hover:scale-110',
