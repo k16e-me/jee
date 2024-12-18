@@ -87,16 +87,20 @@ const personInsights = _insights.value
 						/>
 					)
 				}
-				<SectionMinicards
-					blok={blok.practices[0]}
-					list={blok.practices[0].collection}
-					xPadding={false}
-					overlap
-					class:list={[
-						_xPadding('both-md-down-lg-r'),
-						'lg:max-w-[48rem]',
-					]}
-				/>
+				{
+					blok.practices && !_empty(blok.practices) && (
+						<SectionMinicards
+							blok={blok.practices[0]}
+							list={blok.practices[0].collection}
+							xPadding={false}
+							overlap
+							class:list={[
+								_xPadding('both-md-down-lg-r'),
+								'lg:max-w-[48rem]',
+							]}
+						/>
+					)
+				}
 				{
 					blok.registers.map((i) => (
 						<Register
