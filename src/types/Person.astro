@@ -25,11 +25,11 @@ const relatedPeople = _people.value
 	.filter((i) => i.name !== personName)
 	.slice(0, 7)
 const headings = [
-	blok.bio[0].heading[0].heading,
-	blok.sectors[0].heading[0].heading,
-	blok.practices[0].heading[0].heading,
-	...blok.registers.map((i) => i.title),
-]
+	blok.bio?.[0]?.heading?.[0]?.heading,
+	blok.sectors?.[0]?.heading?.[0]?.heading,
+	blok.practices?.[0]?.heading?.[0]?.heading,
+	...(blok.registers?.map((i) => i.title) || []),
+].filter(Boolean)
 const personInsights = _insights.value
 	.filter((i) => i.content.author.some((j) => j.slug === personSlug))
 	.slice(0, 7)
@@ -73,16 +73,20 @@ const personInsights = _insights.value
 						'lg:max-w-[48rem]',
 					]}
 				/>
-				<SectionMinicards
-					blok={blok.sectors[0]}
-					list={blok.sectors[0].collection}
-					xPadding={false}
-					overlap
-					class:list={[
-						_xPadding('both-md-down-lg-r'),
-						'lg:max-w-[48rem]',
-					]}
-				/>
+				{
+					blok.sectors && !_empty(blok.sectors) && (
+						<SectionMinicards
+							blok={blok.sectors[0]}
+							list={blok.sectors[0].collection}
+							xPadding={false}
+							overlap
+							class:list={[
+								_xPadding('both-md-down-lg-r'),
+								'lg:max-w-[48rem]',
+							]}
+						/>
+					)
+				}
 				<SectionMinicards
 					blok={blok.practices[0]}
 					list={blok.practices[0].collection}
@@ -131,7 +135,7 @@ const personInsights = _insights.value
 							altInsights={personInsights}
 							isFromCollection
 							altCollection={personInsights}
-                            defaultCase={false}
+							defaultCase={false}
 						/>
 					)
 				}
