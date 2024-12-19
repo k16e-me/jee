@@ -1,9 +1,8 @@
 import { useStoryblokApi } from '@storyblok/astro'
 
-const
-    api = useStoryblokApi(),
-    currentYear = new Date().getFullYear(),
-    lastYear = currentYear - 1
+const api = useStoryblokApi()
+const currentYear = new Date().getFullYear()
+const lastYear = currentYear - 1
 
 export const getSettings = async () => {
     return await api.get('cdn/stories/settings', {
