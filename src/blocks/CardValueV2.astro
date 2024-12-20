@@ -1,0 +1,37 @@
+---
+import Image from '@atoms/Image.astro'
+import Text from '@atoms/Text.astro'
+
+const { title, description, image, class: classes, ...props } = Astro.props
+---
+
+<div
+	class:list={[
+		'h-[26.5rem] w-[21rem] sm:w-[19.5rem] p-4 sm:p-6 bg-parchment-100 rounded-[1.5rem] flex flex-col gap-4 justify-between items-center [&>*]:text-center group',
+		classes,
+	]}
+	{...props}>
+	<div class='flex flex-col gap-3'>
+		<Text
+			tag={'h4'}
+			text={title}
+			color='title'
+			size={'s4-upper'}
+			weight='bold'
+		/>
+		<Text
+			tag={'p'}
+			text={description}
+			color='caption'
+			size={'blurb'}
+			class='transition duration-300 ease-out opacity-0 scale-90 translate-y-4 group-hover:opacity-100 group-hover:scale-100 group-hover:translate-y-0'
+		/>
+	</div>
+	<Image
+		filename={image.filename}
+		alt={image.alt}
+		filter
+		contain
+		class:list={['!size-[16.5rem] shrink-0']}
+	/>
+</div>

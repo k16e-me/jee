@@ -26,7 +26,7 @@ export default function _swiperAll() {
         loop: true,
         grabCursor: true,
         autoplay: {
-            delay: 7000,
+            delay: 20000,
             disableOnInteraction: false,
             pauseOnMouseEnter: true
         },
