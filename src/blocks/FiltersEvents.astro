@@ -1,90 +1,93 @@
 ---
-import Icon from '@atoms/Icon.astro'
-import InputRadio from '@atoms/InputRadio.astro'
-import _slugify from '@scripts/slugify'
-import HeadingSection from '@blocks/HeadingSection.astro'
-import Text from '@atoms/Text.astro'
+import Icon from "@atoms/Icon.astro";
+import InputRadio from "@atoms/InputRadio.astro";
+import _slugify from "@scripts/slugify";
+import HeadingSection from "@blocks/HeadingSection.astro";
+import Text from "@atoms/Text.astro";
 
-const { class: classes, ...props } = Astro.props
-const timing = ['All', 'Upcoming', 'Past']
-const type = ['Live', 'Virtual', 'Hybrid']
+const { class: classes, selectedItems, ...props } = Astro.props;
+const timing = ["Upcoming", "Past"];
+const type = ["Live", "Virtual", "Hybrid"];
+const { type: typeFromParams, timing: timingFromParams } = selectedItems;
 ---
 
-<div class:list={['pt-6', classes]} {...props}>
-	<HeadingSection
-		text={'Filters'}
-		level='h2'
-		size='6'
-		weight='semi'
-		padding='small'
-		hasResetButton
-	/>
-	<ul>
-		<li class='accordion group border-b border-[var(--color-border-muted)]'>
-			<div
-				class='accordion__button r-transition flex items-center justify-between h-14 cursor-pointer'
-				aria-expanded='false'>
-				<Text tag='p' text='Timing' color='body' weight='semi' />
-				<Icon
-					name='caret-down'
-					aria-hidden='true'
-					class='accordion__icon block w-5 text-[var(--color-text-caption)] opacity-70 group-hover/button:opacity-100 shrink-0 transition-all group-[.is-active]:opacity-100'
-				/>
-			</div>
-			<div
-				class='accordion__content overflow-hidden max-h-0 transition-all ease-in-out'>
-				<fieldset
-					class='max-w-full pt-1 px-4 pb-4 transition-[height] duration-300'>
-					<legend
-						set:text='Sort JEE Event by Timing'
-						class='sr-only'
-					/>
-					<div class='space-y-3'>
-						{
-							timing.map((i) => (
-								<InputRadio
-									label={i}
-									id={_slugify(i)}
-									name={'timing'}
-								/>
-							))
-						}
-					</div>
-				</fieldset>
-			</div>
-		</li>
-		<li class='accordion group border-b border-[var(--color-border-muted)]'>
-			<div
-				class='accordion__button r-transition flex items-center justify-between h-14 cursor-pointer'
-				aria-expanded='false'>
-				<Text tag='p' text='Type' color='body' weight='semi' />
-				<Icon
-					name='caret-down'
-					aria-hidden='true'
-					class='accordion__icon block w-5 text-[var(--color-text-caption)] opacity-70 group-hover/button:opacity-100 shrink-0 transition-all group-[.is-active]:opacity-100'
-				/>
-			</div>
-			<div
-				class='accordion__content overflow-hidden max-h-0 transition-all ease-in-out'>
-				<fieldset
-					class='max-w-full pt-1 px-4 pb-4 transition-[height] duration-300'>
-					<legend
-						set:text='Sort JEE Event by Type'
-						class='sr-only'
-					/>
-					<div class='space-y-3'>
-						{
-							type.map((i) => (
-								<InputRadio
-									label={i}
-									id={_slugify(i)}
-									name={'type'}
-								/>
-							))
-						}
-					</div>
-				</fieldset>
-			</div>
-		</li>
-	</ul>
+<div class:list={["pt-6", classes]} {...props}>
+  <HeadingSection
+    text={"Filters"}
+    level="h2"
+    size="6"
+    weight="semi"
+    padding="small"
+    hasResetButton
+  />
+  <ul>
+    <li class="accordion group border-b border-[var(--color-border-muted)]">
+      <div
+        class="accordion__button r-transition flex items-center justify-between h-14 cursor-pointer"
+        aria-expanded="false"
+      >
+        <Text tag="p" text="Timing" color="body" weight="semi" />
+        <Icon
+          name="caret-down"
+          aria-hidden="true"
+          class="accordion__icon block w-5 text-[var(--color-text-caption)] opacity-70 group-hover/button:opacity-100 shrink-0 transition-all group-[.is-active]:opacity-100"
+        />
+      </div>
+      <div
+        class="accordion__content overflow-hidden max-h-0 transition-all ease-in-out"
+      >
+        <fieldset
+          class="max-w-full pt-1 px-4 pb-4 transition-[height] duration-300"
+        >
+          <legend set:text="Sort JEE Event by Timing" class="sr-only" />
+          <div class="space-y-3">
+            {
+              timing.map((i) => (
+                <InputRadio
+                  label={i}
+                  id={_slugify(i)}
+                  name={"timing"}
+                  checked={timingFromParams === _slugify(i)}
+                />
+              ))
+            }
+          </div>
+        </fieldset>
+      </div>
+    </li>
+    <li class="accordion group border-b border-[var(--color-border-muted)]">
+      <div
+        class="accordion__button r-transition flex items-center justify-between h-14 cursor-pointer"
+        aria-expanded="false"
+      >
+        <Text tag="p" text="Type" color="body" weight="semi" />
+        <Icon
+          name="caret-down"
+          aria-hidden="true"
+          class="accordion__icon block w-5 text-[var(--color-text-caption)] opacity-70 group-hover/button:opacity-100 shrink-0 transition-all group-[.is-active]:opacity-100"
+        />
+      </div>
+      <div
+        class="accordion__content overflow-hidden max-h-0 transition-all ease-in-out"
+      >
+        <fieldset
+          class="max-w-full pt-1 px-4 pb-4 transition-[height] duration-300"
+        >
+          <legend set:text="Sort JEE Event by Type" class="sr-only" />
+          <div class="space-y-3">
+            {
+              type.map((i) => (
+                <InputRadio
+                  label={i}
+                  id={_slugify(i)}
+                  name={"type"}
+                  checked={typeFromParams === _slugify(i)}
+                />
+              ))
+            }
+          </div>
+        </fieldset>
+      </div>
+    </li>
+  </ul>
 </div>
