@@ -12,8 +12,8 @@ import _slugify from '@scripts/slugify'
 const { blok, class: classes, ...props } = Astro.props
 const values = blok.values
 const { pathname } = Astro.url
-const isAbout = pathname === '/about'
-const isCareers = pathname === '/careers'
+const isAbout = pathname === '/about' || pathname === '/about/'
+const isCareers = pathname === '/careers' || pathname === '/careers/'
 ---
 
 <Section
