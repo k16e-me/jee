@@ -7,7 +7,7 @@ const { title, description, image, class: classes, ...props } = Astro.props
 
 <div
 	class:list={[
-		'h-[26.5rem] w-[21rem] sm:w-[19.5rem] p-4 sm:p-5 bg-parchment-100 rounded-[1.5rem] flex flex-col gap-4 justify-between items-center [&>*]:text-center group',
+		'h-[26.5rem] w-[21rem] sm:w-[19.5rem] p-5 bg-parchment-100 rounded-[1.5rem] flex flex-col gap-4 justify-between items-center [&>*]:text-center group',
 		classes,
 	]}
 	{...props}>
@@ -24,7 +24,7 @@ const { title, description, image, class: classes, ...props } = Astro.props
 			text={description}
 			color='caption'
 			size={'blurb'}
-			class='transition duration-300 ease-out opacity-0 scale-90 translate-y-4 group-hover:opacity-100 group-hover:scale-100 group-hover:translate-y-0 h-0'
+			class='transition duration-300 ease-out lg:opacity-0 lg:scale-90 lg:translate-y-4 group-hover:opacity-100 group-hover:scale-100 group-hover:translate-y-0 lg:h-0'
 		/>
 	</div>
 	<Image
