@@ -11,14 +11,14 @@
     },
     "dependencies": {
         "@astrojs/netlify": "^6.0.1",
-        "@astrojs/tailwind": "^5.1.3",
+        "@astrojs/tailwind": "^5.1.4",
         "@botpoison/browser": "^0.1.30",
         "@nanostores/persistent": "^0.10.2",
         "@storyblok/astro": "^5.1.0",
         "@storyblok/richtext": "^3.0.2",
         "@swup/head-plugin": "^2.3.1",
         "@swup/progress-plugin": "^3.2.0",
-        "astro": "^5.0.9",
+        "astro": "^5.1.1",
         "astro-embed": "^0.9.0",
         "astro-pagefind": "^1.7.0",
         "astro-seo": "^0.8.4",
@@ -26,7 +26,7 @@
         "swiper": "^11.1.15",
         "swup": "^4.8.1",
         "tailwindcss": "^3.4.17",
-        "vite": "^6.0.4"
+        "vite": "^6.0.5"
     },
     "devDependencies": {
         "@tailwindcss/forms": "^0.5.9",
