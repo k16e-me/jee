@@ -5,11 +5,15 @@ import Grid from '@layouts/Grid.astro'
 import HeadingSection from '@blocks/HeadingSection.astro'
 import { _odd, _xPadding } from '@scripts/snips'
 import CardValue from '@blocks/CardValue.astro'
+import CardValueV2 from '@blocks/CardValueV2.astro'
 import { _odd, _spaceY } from '@scripts/snips'
 import _slugify from '@scripts/slugify'
 
-const { blok, class: classes, ...props } = Astro.props,
-	values = blok.values
+const { blok, class: classes, ...props } = Astro.props
+const values = blok.values
+const { pathname } = Astro.url
+const isAbout = pathname === '/about' || pathname === '/about/'
+const isCareers = pathname === '/careers' || pathname === '/careers/'
 ---
 
 <Section
@@ -41,17 +45,33 @@ const { blok, class: classes, ...props } = Astro.props,
 					<div class:list={['swiper swiper-all']}>
 						<ul class='swiper-wrapper'>
 							{
-								values.map(({ title, description }, idx) => (
-									<li class='swiper-slide !w-auto'>
-										<CardValue
-											title={title}
-											description={description}
-											facing={
-												_odd(idx + 1) ? 'west' : 'east'
-											}
-										/>
-									</li>
-								))
+								values.map(
+									(
+										{ title, description, image = null },
+										x,
+									) => (
+										<li class='swiper-slide !w-auto'>
+											{isCareers ? (
+												<CardValue
+													title={title}
+													description={description}
+													image={image}
+													facing={
+														_odd(x + 1)
+															? 'west'
+															: 'east'
+													}
+												/>
+											) : isAbout ? (
+												<CardValueV2
+													title={title}
+													description={description}
+													image={image}
+												/>
+											) : null}
+										</li>
+									),
+								)
 							}
 						</ul>
 					</div>
