@@ -2,20 +2,20 @@
 import { _fontSize } from '@scripts/font-size'
 
 const {
-		tag = 'span',
-		text,
-		size = 'body',
-		family = 'sans',
-		uppercase,
-		weight = 'regular',
-        italic,
-		tighten,
-		loosen,
-		color,
-		class: classes,
-		...props
-	} = Astro.props,
-	Tag = tag
+	tag = 'span',
+	text,
+	size = 'body',
+	family = 'sans',
+	uppercase,
+	weight = 'regular',
+	italic,
+	tighten,
+	loosen,
+	color,
+	class: classes,
+	...props
+} = Astro.props
+const Tag = tag
 ---
 
 <Tag
@@ -62,7 +62,7 @@ const {
 		uppercase && 'uppercase',
 		tighten && '-tracking-[0.0225em]',
 		loosen && 'tracking-[0.085em]',
-        italic && 'italic',
+		italic && 'italic',
 
 		// Classes Passed In
 		classes,

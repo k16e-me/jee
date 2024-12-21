@@ -17,6 +17,7 @@ const {
 	class: classes,
 	...props
 } = Astro.props
+const { pathname } = Astro.url
 ---
 
 <div
@@ -60,7 +61,13 @@ const {
 	{isFromCollection && <ButtonMore label={label} link={link} />}
 	{
 		hasResetButton && (
-			<Text tag='button' text='Reset' color='caption' data-reset-form />
+			<Text
+				tag='a'
+				href={pathname}
+				text='Reset'
+				color='caption'
+				data-reset-form
+			/>
 		)
 	}
 </div>
