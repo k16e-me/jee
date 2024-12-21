@@ -49,66 +49,74 @@ const { searchResultsItems, visibleItems } = _getVisibleItems(
 ---
 
 <Section
-	component={blok.component}
-	title={blok.title}
-	overlap
-	class='r-hide-overflow overflow-y-clip z-20 bg-[var(--color-bg-default)] rounded-t-[1.5rem] md:rounded-t-[3.5rem] lg:rounded-t-[4.5rem]'>
-	<Wrapper margins={false}>
-		<Grid split='sidebar' class=''>
-			<div
-				class:list={[
-					'self-start sticky -top-px z-20 bg-[var(--color-bg-default)] xl:bg-transparent xl:pt-8 flex flex-col group [&.is-pinned]:shadow xl:!shadow-none xl:max-h-[calc(100vh-1.5rem)] overflow-y-clip',
-					_xPadding('both-lg-down'),
-				]}
-				data-pin-top>
-				<form class='space-y-1.5 h-full overflow-auto'>
-					<div
-						class='flex items-center justify-between py-3 xl:!pb-0 gap-3'>
-						<InputText
-							label='Search'
-							value={search}
-							id='text'
-							name='s'
-							class='w-full'
-							isSearch
-						/>
-						<ButtonFab
-							icon='funnel'
-							label='Toggle Page Sorting & Filtering'
-							class='xl:sr-only flex-shrink-0'
-							type='button'
-						/>
-					</div>
-					<FiltersPeople
-						designations={designations}
-						locations={offices}
-						sectors={sectors}
-						practices={practices}
-						class='hidden xl:flex xl:flex-col'
-					/>
-				</form>
-			</div>
-			<div
-				class:list={[
-					'flex items-center justify-center xl:justify-start flex-wrap gap-6 lg:gap-8 relative z-10 pt-4 lg:pt-8',
-					_xPadding('both-lg-down-l'),
-				]}>
-				{
-					visibleItems.length > 0 ? (
-						visibleItems.map((i, x) => (
-							<CardPerson person={i} tag='h3' size='default' />
-						))
-					) : (
-						<p class='text-2xl text-center'>No results found</p>
-					)
-				}
-				<Pagination
-					total={filteredItems.length}
-					size={maxItems}
-					current={current}
-				/>
-			</div>
-		</Grid>
-	</Wrapper>
+  component={blok.component}
+  title={blok.title}
+  overlap
+  class="r-hide-overflow overflow-y-clip z-20 bg-[var(--color-bg-default)] rounded-t-[1.5rem] md:rounded-t-[3.5rem] lg:rounded-t-[4.5rem]"
+>
+  <Wrapper margins={false}>
+    <Grid split="sidebar" class="">
+      <div
+        class:list={[
+          "self-start sticky -top-px z-20 bg-[var(--color-bg-default)] xl:bg-transparent xl:pt-8 flex flex-col group [&.is-pinned]:shadow xl:!shadow-none xl:max-h-[calc(100vh-1.5rem)] overflow-y-clip",
+          _xPadding("both-lg-down"),
+        ]}
+        data-pin-top
+      >
+        <form class="space-y-1.5 h-full overflow-auto searchfilter">
+          <div class="flex items-center justify-between py-3 xl:!pb-0 gap-3">
+            <InputText
+              label="Search"
+              value={search}
+              id="text"
+              name="s"
+              class="w-full local-search"
+              isSearch
+            />
+            <ButtonFab
+              icon="funnel"
+              label="Toggle Page Sorting & Filtering"
+              class="xl:sr-only flex-shrink-0"
+              type="button"
+            />
+          </div>
+          <FiltersPeople
+            designations={designations}
+            locations={offices}
+            sectors={sectors}
+            practices={practices}
+            selectedItems={allCategories}
+            class="hidden xl:flex xl:flex-col"
+          />
+          <button
+            type="submit"
+            class="hidden p-2 bg-[var(--color-main)] text-white rounded-md"
+            >View Results</button
+          >
+        </form>
+      </div>
+      <div
+        class:list={[
+          "flex items-center justify-center xl:justify-start flex-wrap gap-6 lg:gap-8 relative z-10 pt-4 lg:pt-8",
+          _xPadding("both-lg-down-l"),
+        ]}
+      >
+        {
+          visibleItems.length > 0 ? (
+            visibleItems.map((i, x) => (
+              <CardPerson person={i} tag="h3" size="default" />
+            ))
+          ) : (
+            <p class="text-2xl text-center">No results found</p>
+          )
+        }
+        <Pagination
+          total={searchResultsItems.length}
+          size={maxItems}
+          current={current}
+        />
+      </div>
+    </Grid>
+  </Wrapper>
 </Section>
 <script src="@scripts/submitBtn.js"></script>
