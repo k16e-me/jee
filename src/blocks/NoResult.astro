@@ -1,0 +1,18 @@
+---
+import Text from '@atoms/Text.astro'
+
+const { content, class: classes, ...props } = Astro.props
+const textInside =
+	content ||
+	`Sorry, we may not have any item matching your search or filter value. Kindly use the "Reset" button and try again.`
+---
+
+<div
+	class='size-full min-h-[24.5rem] rounded-[1.5rem] p-4 xl:p-8 flex flex-col bg-parchment-100'>
+	<Text
+		text={textInside}
+		size={'copy'}
+		color='caption'
+		class='max-w-screen-sm'
+	/>
+</div>

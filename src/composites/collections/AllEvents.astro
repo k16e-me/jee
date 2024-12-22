@@ -13,6 +13,8 @@ import { MAXITEMS } from '@scripts/constants'
 import Pagination from '@blocks/Pagination.astro'
 import { _getVisibleItems } from '@scripts/get-visible-items'
 import FiltersEvents from '@blocks/FiltersEvents.astro'
+import Text from '@atoms/Text.astro'
+import NoResult from '@blocks/NoResult.astro'
 
 const { blok } = Astro.props
 const sorted = _events.get()
@@ -88,7 +90,7 @@ const { searchResultsItems, visibleItems } = _getVisibleItems(
 					visibleItems.length > 0 ? (
 						visibleItems.map((i, x) => <CardEvent entry={i} />)
 					) : (
-						<p class='text-2xl text-center'>No results found</p>
+						<NoResult />
 					)
 				}
 				<Pagination

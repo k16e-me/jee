@@ -13,6 +13,7 @@ import FiltersInsights from '@blocks/FiltersInsights.astro'
 import { MAXITEMS } from '@scripts/constants'
 import Pagination from '@blocks/Pagination.astro'
 import { _getVisibleItems } from '@scripts/get-visible-items'
+import NoResult from '@blocks/NoResult.astro'
 
 const { blok } = Astro.props
 const sorted = _insights.get()
@@ -103,7 +104,7 @@ const { searchResultsItems, visibleItems } = _getVisibleItems(
 							<CardInsight piece={i} landscape profile={false} />
 						))
 					) : (
-						<p class='text-2xl text-center'>No results found</p>
+						<NoResult />
 					)
 				}
 				<Pagination
