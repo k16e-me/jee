@@ -2,15 +2,15 @@
 import { _xPadding } from '@scripts/snips'
 
 const {
-		tag = 'div',
-		margins = true,
-		negateMargin = false,
-		inset,
-		marginsMd,
-		class: classes,
-		...props
-	} = Astro.props,
-	Tag = tag
+    tag,
+    margins = true,
+    negateMargin = false,
+    inset,
+    marginsMd,
+    class: classes,
+    ...props
+} = Astro.props
+const Tag = tag || 'div'
 ---
 
 <Tag
