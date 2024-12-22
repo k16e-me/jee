@@ -61,7 +61,7 @@ const isCentered = blok?.centered || centered
 							? breadcrumbLabel
 							: 'JEE Home'}
 						page={altTitle ? altTitle : blok.title}
-                        class:list={isCentered && 'justify-center'}
+						class:list={isCentered && 'justify-center'}
 					/>
 					<Text
 						tag='h2'
@@ -70,6 +70,7 @@ const isCentered = blok?.centered || centered
 						size='3'
 						weight='extra'
 						tighten
+						class='line-clamp-3'
 					/>
 					{
 						!_empty(copy) && copy.length > 1 && (

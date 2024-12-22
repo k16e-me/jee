@@ -28,7 +28,7 @@ const {
 	class='r-hide-overflow min-h-[19.5rem] xs:min-h-[17rem] sm:min-h-[16rem] md:min-h-[19rem] lg:min-h-[20rem]'>
 	<Wrapper inset>
 		<Grid>
-			<div class='col-span-full md:col-span-6 lg:col-span-8'>
+			<div class='col-span-full md:col-span-6 lg:col-span-8 xl:col-span-9 xs:pr-4 lg:pr-26'>
 				<div class='flex flex-col gap-2 sm:gap-3'>
 					<Breadcrumb
 						page={blok.title}
@@ -43,10 +43,10 @@ const {
 						family='display'
 						weight='extra'
 						tighten
-						class='pb-[0.375rem]'
+						class='mb-[0.375rem] line-clamp-4 lg:line-clamp-3'
 					/>
 					<div
-						class='flex items-center mt-1.5 sm:mt-2.5 lg:mt-2 space-x-4'>
+						class='flex items-center mt-2 sm:mt-3 space-x-4'>
 						<FormattedDate
 							dateString={blok.published_date}
 							size='copy'

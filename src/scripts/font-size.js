@@ -1,6 +1,6 @@
 const
     s2 = 'text-3xl md:text-[3.675rem] md:leading-[3.925rem] lg:text-[4.15rem] lg:leading-[4.275rem]',
-    s3 = 'text-[1.775rem] leading-[2rem] md:text-[2.275rem] md:leading-[2.5rem] lg:text-[3.015rem] lg:leading-[3.375rem]',
+    s3 = 'text-[1.775rem] leading-[2rem] md:text-[2.275rem] md:leading-[2.5rem] lg:text-[3.015rem] lg:leading-[3.475rem]',
     s4 = 'text-[1.55625rem] leading-[1.75rem] md:text-[1.795rem] md:leading-[1.875rem] lg:text-[1.9rem] lg:leading-[2.05rem]',
     s5 = 'text-[1.3125rem] leading-[1.45rem] md:text-[1.4625rem] md:leading-[1.75rem] lg:text-[1.5275rem] lg:leading-[1.7375rem]',
     s6 = 'text-[1.0875rem] leading-[1.3725rem]',
