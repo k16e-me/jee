@@ -22,6 +22,7 @@ import _drawer from './drawer'
 import _search from './search'
 import _modalVideo from './modal-video'
 import _viewResults from './view-results'
+import { _resetFilters } from './reset-filters'
 
 const swup = new Swup({
     animationSelector: '[class*="swup-"]',
@@ -54,6 +55,7 @@ function init() {
     if (_q('[data-pin-top]')) _isPinned()
     if (_q('[data-spy]')) _scrollspy()
     if (_q('[data-search-filter]')) _viewResults()
+    if (_q('[data-reset-form]')) _resetFilters()
     _moreOrLess()
     _newsletterSubmit()
     _prefilters()
