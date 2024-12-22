@@ -60,7 +60,9 @@ const { searchResultsItems, visibleItems } = _getVisibleItems(
 				_xPadding('both-lg-down'),
 			]}
 			data-pin-top>
-			<form class='space-y-1.5 h-full overflow-auto' data-search-filter>
+			<form
+				class='space-y-1.5 min-h-0 relative overflow-auto overscroll-contain'
+				data-search-filter>
 				<div
 					class='flex items-center justify-between py-3 xl:!pb-0 gap-3'>
 					<InputText

@@ -15,12 +15,12 @@ import Regions from '@blocks/Regions.astro'
 import SearchGlobal from '@blocks/SearchGlobal.astro'
 import ModalVideo from '@blocks/ModalVideo.astro'
 
-const { pageTitle, pageDescription, pageThumbnail } = Astro.props,
-	site = _settings.value
+const { pageTitle, pageDescription, pageThumbnail } = Astro.props
+const site = _settings.value
 
-let fixHeader = true,
-	currPath = Astro.url.pathname,
-	unfixHeader = ['about', 'people', 'insights', 'events']
+let fixHeader = true
+let currPath = Astro.url.pathname
+let unfixHeader = ['about', 'people', 'insights', 'events']
 
 if (currPath == '/')
 	currPath = currPath.replace(/^\//, 'home').replace(/\.html$/, '')
