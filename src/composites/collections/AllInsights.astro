@@ -61,7 +61,9 @@ const { searchResultsItems, visibleItems } = _getVisibleItems(
 					_xPadding('both-md-down-l'),
 				]}
 				data-pin-top>
-				<form class='space-y-1.5 h-full overflow-auto searchfilter'>
+				<form
+					class='space-y-1.5 h-full overflow-auto'
+					data-search-filter>
 					<div
 						class='flex items-center justify-between py-3 xl:!pb-0 gap-3'>
 						<InputText
@@ -118,4 +120,3 @@ const { searchResultsItems, visibleItems } = _getVisibleItems(
 		</Grid>
 	</Wrapper>
 </Section>
-<script src='@scripts/submitBtn.js'></script>

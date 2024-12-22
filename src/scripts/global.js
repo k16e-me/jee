@@ -21,6 +21,7 @@ import { _q, _ql } from './snips'
 import _drawer from './drawer'
 import _search from './search'
 import _modalVideo from './modal-video'
+import _viewResults from './view-results'
 
 const swup = new Swup({
     animationSelector: '[class*="swup-"]',
@@ -52,6 +53,7 @@ function init() {
     if (_q('[data-modal-video-play]')) _modalVideo()
     if (_q('[data-pin-top]')) _isPinned()
     if (_q('[data-spy]')) _scrollspy()
+    if (_q('[data-search-filter]')) _viewResults()
     _moreOrLess()
     _newsletterSubmit()
     _prefilters()

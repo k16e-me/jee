@@ -1,109 +1,107 @@
 ---
-import Section from "@layouts/Section.astro";
-import Wrapper from "@layouts/Wrapper.astro";
-import Grid from "@layouts/Grid.astro";
-import { _xPadding, _sectionPadding } from "@scripts/snips";
-import { _fontSize } from "@scripts/font-size";
-import _slugify from "@scripts/slugify";
-import CardEvent from "@blocks/CardEvent.astro";
-import { _events } from "@scripts/store";
-import InputText from "@atoms/InputText.astro";
-import ButtonFab from "@atoms/ButtonFab.astro";
-import { MAXITEMS } from "@scripts/constants";
-import Pagination from "@blocks/Pagination.astro";
-import { _getVisibleItems } from "@scripts/get-visible-items";
-import FiltersEvents from "@blocks/FiltersEvents.astro";
+import Section from '@layouts/Section.astro'
+import Wrapper from '@layouts/Wrapper.astro'
+import Grid from '@layouts/Grid.astro'
+import { _xPadding, _sectionPadding } from '@scripts/snips'
+import { _fontSize } from '@scripts/font-size'
+import _slugify from '@scripts/slugify'
+import CardEvent from '@blocks/CardEvent.astro'
+import { _events } from '@scripts/store'
+import InputText from '@atoms/InputText.astro'
+import ButtonFab from '@atoms/ButtonFab.astro'
+import { MAXITEMS } from '@scripts/constants'
+import Pagination from '@blocks/Pagination.astro'
+import { _getVisibleItems } from '@scripts/get-visible-items'
+import FiltersEvents from '@blocks/FiltersEvents.astro'
 
-const { blok } = Astro.props;
-const sorted = _events.get();
-const maxItems = MAXITEMS;
+const { blok } = Astro.props
+const sorted = _events.get()
+const maxItems = MAXITEMS
 
-const page = Astro.url.searchParams.get("page") || "1";
-const search = Astro.url.searchParams.get("s");
-const current = parseInt(page, 10);
+const page = Astro.url.searchParams.get('page') || '1'
+const search = Astro.url.searchParams.get('s')
+const current = parseInt(page, 10)
 const allCategories = {
-  page: "Events",
-  timing: Astro.url.searchParams.get("timing") || "",
-  type: Astro.url.searchParams.get("type") || "",
-};
+	page: 'Events',
+	timing: Astro.url.searchParams.get('timing') || '',
+	type: Astro.url.searchParams.get('type') || '',
+}
 const { searchResultsItems, visibleItems } = _getVisibleItems(
-  sorted,
-  search,
-  current,
-  maxItems,
-  allCategories
-);
+	sorted,
+	search,
+	current,
+	maxItems,
+	allCategories,
+)
 ---
 
 <Section
-  component={blok.component}
-  title={blok.title}
-  overlap
-  class="r-hide-overflow overflow-y-clip z-20"
->
-  <Wrapper
-    margins={false}
-    class:list={[
-      "overflow-clip bg-[var(--color-bg-default)] lg:bg-transparent rounded-t-[1.5rem] md:rounded-t-[3.5rem] lg:rounded-t-none",
-    ]}
-  >
-    <Grid class="overflow-clip">
-      <div
-        class:list={[
-          "col-span-full lg:[grid-area:1/1/2/4] self-start sticky bg-[var(--color-bg-default)] z-10 -top-px [&.is-pinned]:shadow lg:!shadow-none place-content-center lg:pt-8 lg:max-h-[calc(100vh-1.5rem)] overflow-y-clip",
-          _xPadding("both-md-down-l"),
-        ]}
-        data-pin-top
-      >
-        <form class="space-y-1.5 h-full overflow-auto searchfilter">
-          <div class="flex items-center justify-between py-3 lg:!pb-0 gap-3">
-            <InputText
-              isSearch
-              label="Search"
-              value={search}
-              id="text"
-              name="s"
-              placeholder="Find a JEE Event"
-              class="w-full local-search"
-            />
-            <ButtonFab
-              icon="funnel"
-              label="Toggle Page Sorting & Filtering"
-              class="lg:sr-only flex-shrink-0"
-              type="button"
-            />
-          </div>
-          <FiltersEvents
-            class="hidden xl:flex xl:flex-col"
-            selectedItems={allCategories}
-          />
-          <button
-            type="submit"
-            class="hidden p-2 bg-[var(--color-main)] text-white rounded-md"
-            >View Results</button
-          >
-        </form>
-      </div>
-      <div
-        class:list={[
-          "col-span-full lg:[grid-area:1/4/2/13] grid grid-cols-1 gap-y-6 md:gap-y-8",
-          _xPadding("both-md-down-lg-r"),
-        ]}
-      >
-        {
-          visibleItems.length > 0 ? (
-            visibleItems.map((i, x) => <CardEvent entry={i} />)
-          ) : (
-            <p class="text-2xl text-center">No results found</p>
-          )
-        }
-        <Pagination
-          total={searchResultsItems.length}
-          size={maxItems}
-          current={current}
-        />
-      </div>
-    </Grid>
-  </Wrapper>
+	component={blok.component}
+	title={blok.title}
+	overlap
+	class='r-hide-overflow overflow-y-clip z-20'>
+	<Wrapper
+		margins={false}
+		class:list={[
+			'overflow-clip bg-[var(--color-bg-default)] lg:bg-transparent rounded-t-[1.5rem] md:rounded-t-[3.5rem] lg:rounded-t-none',
+		]}>
+		<Grid class='overflow-clip'>
+			<div
+				class:list={[
+					'col-span-full lg:[grid-area:1/1/2/4] self-start sticky bg-[var(--color-bg-default)] z-10 -top-px [&.is-pinned]:shadow lg:!shadow-none place-content-center lg:pt-8 lg:max-h-[calc(100vh-1.5rem)] overflow-y-clip',
+					_xPadding('both-md-down-l'),
+				]}
+				data-pin-top>
+				<form
+					class='space-y-1.5 h-full overflow-auto'
+					data-search-filter>
+					<div
+						class='flex items-center justify-between py-3 lg:!pb-0 gap-3'>
+						<InputText
+							isSearch
+							label='Search'
+							value={search}
+							id='text'
+							name='s'
+							placeholder='Find a JEE Event'
+							class='w-full local-search'
+						/>
+						<ButtonFab
+							icon='funnel'
+							label='Toggle Page Sorting & Filtering'
+							class='lg:sr-only flex-shrink-0'
+							type='button'
+						/>
+					</div>
+					<FiltersEvents
+						class='hidden xl:flex xl:flex-col'
+						selectedItems={allCategories}
+					/>
+					<button
+						type='submit'
+						class='hidden p-2 bg-[var(--color-main)] text-white rounded-md'
+						>View Results</button
+					>
+				</form>
+			</div>
+			<div
+				class:list={[
+					'col-span-full lg:[grid-area:1/4/2/13] grid grid-cols-1 gap-y-6 md:gap-y-8',
+					_xPadding('both-md-down-lg-r'),
+				]}>
+				{
+					visibleItems.length > 0 ? (
+						visibleItems.map((i, x) => <CardEvent entry={i} />)
+					) : (
+						<p class='text-2xl text-center'>No results found</p>
+					)
+				}
+				<Pagination
+					total={searchResultsItems.length}
+					size={maxItems}
+					current={current}
+				/>
+			</div>
+		</Grid>
+	</Wrapper>
 </Section>
-<script src="@scripts/submitBtn.js"></script>

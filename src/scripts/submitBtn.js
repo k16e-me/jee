@@ -17,4 +17,3 @@ if (submitBtn) {
     { once: true },
   );
 }
-
