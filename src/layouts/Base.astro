@@ -11,9 +11,10 @@ import _startsWith from '@scripts/starts-with'
 import Drapery from '@blocks/Drapery.astro'
 import NavMobile from '@blocks/NavMobile.astro'
 import Drawer from '@blocks/Drawer.astro'
-import Regions from '@blocks/Regions.astro'
+import DrawerRegions from '@blocks/DrawerRegions.astro'
 import SearchGlobal from '@blocks/SearchGlobal.astro'
 import ModalVideo from '@blocks/ModalVideo.astro'
+import DrawerFiltersPeople from '@blocks/DrawerFiltersPeople.astro'
 
 const { pageTitle, pageDescription, pageThumbnail } = Astro.props
 const site = _settings.value
@@ -68,8 +69,9 @@ _startsWith(currPath, unfixHeader) ? (fixHeader = false) : (fixHeader = true)
 		</Modal>
 		<ModalVideo data-modal-video />
 		<Drawer data-drawer>
-			<Regions data-drawer-display='regions' />
+			<DrawerRegions data-drawer-display='regions' />
 			<SearchGlobal data-drawer-display='search' />
+			<!-- <DrawerFiltersPeople data-drawer-display='filters-people' /> -->
 		</Drawer>
 		<Shim data-shim />
 		<script src='@scripts/global.js'></script>
