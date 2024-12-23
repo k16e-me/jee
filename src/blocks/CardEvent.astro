@@ -11,6 +11,7 @@ import _slugify from '@scripts/slugify'
 import ListBullet from '@blocks/ListBullet.astro'
 import _formatDate from '@scripts/format-date'
 import ButtonMore from '@atoms/ButtonMore.astro'
+import Chip from '@atoms/Chip.astro'
 
 const { entry, class: classes, ...props } = Astro.props
 const image = entry.featured_image
@@ -24,19 +25,18 @@ const altText = entry.featured_image
 <a
 	href={_slug(entry.full_slug)}
 	class:list={[
-		'r-hide-overflow overflow-y-clip group flex flex-col md:flex-row h-full md:min-h-[25rem] bg-[var(--color-bg-default-elevated)] rounded-3xl p-2',
+		'r-hide-overflow overflow-y-clip group flex flex-col md:flex-row h-full md:h-[30rem] bg-parchment-100 rounded-3xl p-2',
 		classes,
 	]}
 	{...props}>
 	<div
-		class='order-2 md:order-1 px-2 sm:px-4 py-5 sm:py-7 md:px-8 md:py-10 w-full min-h-[14rem] gap-y-4'>
-		<div class='flex flex-col gap-4 md:gap-6 pr-4'>
+		class='order-2 md:order-1 px-2 sm:px-4 py-6 sm:py-7 md:px-8 md:py-10 w-full min-h-[14rem] gap-y-4'>
+		<div class='flex flex-col gap-5 md:gap-8 pr-4'>
 			<Text
 				tag='h3'
 				text={entry.content.title}
 				color='title'
 				size='5'
-				family='display'
 				weight='extra'
 			/>
 			<div class='flex flex-col gap-1.5 md:gap-2 lg:pr-12'>
@@ -49,9 +49,10 @@ const altText = entry.featured_image
 			</div>
 			<ButtonMore tag='span' label={entry.content.index_link_label} />
 		</div>
+        <Chip text={entry.content.type} class='absolute bottom-5 right-5 md:right-auto md:left-8 md:bottom-8'/>
 	</div>
 	<div
-		class='w-full h-[26.5rem] min-h-[26.5rem] md:h-full md:min-w-[26.5rem] md:max-w-[26.5rem] rounded-tl-[2rem] rounded-br-[1.5rem] rounded-tr-[2rem] rounded-bl-[10rem] order-1 md:order-2 overflow-clip'>
+		class='w-full h-[30rem] md:h-full md:min-w-[27rem] md:max-w-[26.5rem] rounded-tl-[2rem] rounded-br-[1.5rem] rounded-tr-[2rem] rounded-bl-[10rem] order-1 md:order-2 overflow-clip'>
 		<Image
 			filename={image}
 			alt={altText}
