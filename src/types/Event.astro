@@ -1,5 +1,6 @@
 ---
 import ButtonLink from '@atoms/ButtonLink.astro'
+import Chip from '@atoms/Chip.astro'
 import Image from '@atoms/Image.astro'
 import RichText from '@atoms/RichText.astro'
 import Text from '@atoms/Text.astro'
@@ -21,6 +22,8 @@ import { YouTube } from 'astro-embed'
 
 const { blok } = Astro.props
 const headings = []
+const type = `/events?s=&type=${blok.type.toLowerCase()}`
+console.log(blok.type.toLowerCase())
 
 !_empty(blok.video_id) && headings.push('Watch')
 headings.push(blok.description_label)
@@ -35,7 +38,10 @@ headings.push(blok.rsvp_label)
 	breadcrumbLabel='JEE Events'
 	altTitle={blok.title}
 	altCopy='.'
-/>
+    more={true}>
+    <Chip tag="a" href={type} text={blok.type}/>
+</HeaderBasic>
+
 <Section
 	component={blok.component}
 	title={'Event Details'}

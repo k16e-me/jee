@@ -21,6 +21,7 @@ const {
 	breadcrumbLabel,
 	altTitle,
 	altCopy,
+	more,
 	class: classes,
 	...props
 } = Astro.props
@@ -81,6 +82,13 @@ const isCentered = blok?.centered || centered
 								size='copy'
 								class='mt-1'
 							/>
+						)
+					}
+					{
+						more && (
+							<div class='flex items-center mt-3 sm:mt-4 space-x-4'>
+								<slot />
+							</div>
 						)
 					}
 				</div>

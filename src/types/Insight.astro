@@ -16,10 +16,10 @@ import _slugify from '@scripts/slugify'
 import Newsletter from '@blocks/Newsletter.astro'
 import SectionLatest from '@composites/sections/SectionLatest.astro'
 
-const { blok } = Astro.props,
-	authors = blok.author.slice(0, 3),
-	expertise = blok.expertise.slice(0, 3),
-	suggested = blok.suggested
+const { blok } = Astro.props
+const authors = blok.author.slice(0, 3)
+const expertise = blok.expertise.slice(0, 3)
+const suggested = blok.suggested
 ---
 
 <HeaderInsight
