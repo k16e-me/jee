@@ -19,8 +19,8 @@ import { _spaceY, _sectionPadding, _xPadding } from '@scripts/snips'
 import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro'
 import { YouTube } from 'astro-embed'
 
-const { blok } = Astro.props,
-	headings = []
+const { blok } = Astro.props
+const headings = []
 
 !_empty(blok.video_id) && headings.push('Watch')
 headings.push(blok.description_label)
