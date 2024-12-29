@@ -10,17 +10,19 @@ import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro'
 import SectionMinicards from '@composites/sections/SectionMinicards.astro'
 import RegisterItem from '@blocks/RegisterItem.astro'
 import Register from '@blocks/Register.astro'
-import { _insights, _people } from '@scripts/store'
+import { _insights } from '@scripts/store'
 import _empty from '@scripts/empty'
 import CarouselPeople from '@composites/sections/CarouselPeople.astro'
 import SectionLatest from '@composites/sections/SectionLatest.astro'
+import _getPeople from '@scripts/all-people'
 
 const { blok } = Astro.props
 const { slug } = Astro.params
+const people = await _getPeople()
 const personName = blok.name
 const personSlug = slug.split('/')[1]
 const bylineRank = blok.byline[0].content.rank
-const relatedPeople = _people.value
+const relatedPeople = people
 	.filter((i) => i.content.byline[0].content.rank === bylineRank)
 	.filter((i) => i.name !== personName)
 	.slice(0, 7)

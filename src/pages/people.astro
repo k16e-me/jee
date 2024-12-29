@@ -9,11 +9,8 @@ export const pagefind = false
 
 import SSRPage from '@layouts/SSRPage.astro'
 import _getPeople from '@scripts/all-people'
-import { _addPeople } from '@scripts/store'
 
 const people = await _getPeople()
-
-_addPeople(people)
 ---
 
 <SSRPage />
