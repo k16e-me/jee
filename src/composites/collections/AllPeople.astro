@@ -3,7 +3,6 @@ import Section from '@layouts/Section.astro'
 import Grid from '@layouts/Grid.astro'
 import { _sectionPadding, _xPadding } from '@scripts/snips'
 import {
-	_people,
 	_designations,
 	_offices,
 	_sectors,
@@ -18,9 +17,10 @@ import Pagination from '@blocks/Pagination.astro'
 import { _getVisibleItems } from '@scripts/get-visible-items'
 import ButtonFlat from '@atoms/ButtonFlat.astro'
 import NoResult from '@blocks/NoResult.astro'
+import _getPeople from '@scripts/all-people'
 
 const { blok } = Astro.props
-const sorted = _people.get()
+const people = await _getPeople()
 const designations = _designations.value
 	.sort((a, b) => parseInt(a.content.rank - b.content.rank))
 	.map((a) => a.content.title)
@@ -40,7 +40,7 @@ const allCategories = {
 	offices: Astro.url.searchParams.getAll('offices[]'),
 }
 const { searchResultsItems, visibleItems } = _getVisibleItems(
-	sorted,
+	people,
 	search,
 	current,
 	maxItems,
@@ -88,14 +88,14 @@ const allPeopleFilters = {
 						data-display='filters-people'
 					/> -->
 				</div>
-                <FiltersPeople
-                    designations={designations}
-                    locations={offices}
-                    sectors={sectors}
-                    practices={practices}
-                    selectedItems={allCategories}
-                    class='hidden ml:flex ml:flex-col'
-                />
+				<FiltersPeople
+					designations={designations}
+					locations={offices}
+					sectors={sectors}
+					practices={practices}
+					selectedItems={allCategories}
+					class='hidden ml:flex ml:flex-col'
+				/>
 			</form>
 		</div>
 		<div
