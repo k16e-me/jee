@@ -52,36 +52,6 @@ export const getOpenings = async () => {
         resolve_links: 'url',
     })
 }
-export const getPeople = async () => {
-    return await api.getAll('cdn/stories', {
-        starts_with: 'people/',
-        version: 'published',
-        is_startpage: false,
-        resolve_links: 'url',
-        sort_by: 'content.name:asc',
-        resolve_relations: ['person.byline', 'person_links.location', 'collection.collection', 'person.sectors', 'person.practices'],
-    })
-}
-export const getInsights = async () => {
-    return await api.getAll('cdn/stories', {
-        starts_with: 'insights/',
-        version: 'published',
-        is_startpage: false,
-        sort_by: 'content.published_date:desc',
-        resolve_links: 'url',
-        resolve_relations: ['insight.category', 'insight.author', 'insight.expertise'],
-    })
-}
-export const getEvents = async () => {
-    return await api.getAll('cdn/stories', {
-        starts_with: 'events/',
-        version: 'published',
-        is_startpage: false,
-        sort_by: 'content.start_date:desc',
-        resolve_links: 'url',
-        resolve_relations: ['session.host', 'panelist.person'],
-    })
-}
 export const getSectors = async () => {
     return await api.get('cdn/stories', {
         starts_with: 'sectors/',
@@ -137,5 +107,5 @@ export const getRegions = async () => {
 }
 
 export const _getAllAPIs = () => {
-    return [getSettings, getAwards, getDesignations, getCategories, getOffices, getOpenings, getPeople, getInsights, getEvents, getSectors, getPractices, getAfricaExpertise, getAfricaIp, getNewsletter, getRegions]
+    return [getSettings, getAwards, getDesignations, getCategories, getOffices, getOpenings, getSectors, getPractices, getAfricaExpertise, getAfricaIp, getNewsletter, getRegions]
 }

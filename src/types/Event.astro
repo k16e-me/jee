@@ -23,7 +23,6 @@ import { YouTube } from 'astro-embed'
 const { blok } = Astro.props
 const headings = []
 const type = `/events?s=&type=${blok.type.toLowerCase()}`
-console.log(blok.type.toLowerCase())
 
 !_empty(blok.video_id) && headings.push('Watch')
 headings.push(blok.description_label)

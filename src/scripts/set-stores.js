@@ -1,9 +1,6 @@
 import {
     _addSettings,
     _addAwards,
-    _addPeople,
-    _addInsights,
-    _addEvents,
     _addDesignations,
     _addOffices,
     _addOpenings,
@@ -28,9 +25,6 @@ const _setAllStores = async () => {
         categories,
         offices,
         openings,
-        people,
-        insights,
-        events,
         sectors,
         practices,
         africaExpertise,
@@ -39,9 +33,6 @@ const _setAllStores = async () => {
         regions,
     ] = results
     _addAwards(awards.data.stories)
-    _addPeople(people)
-    _addInsights(insights)
-    _addEvents(events)
     _addDesignations(designations.data.stories)
     _addOffices(offices.data.stories)
     _addOpenings(openings.data.stories)
@@ -55,4 +46,4 @@ const _setAllStores = async () => {
     _addSettings(settings.data.story.content)
 }
 
-export { _setAllStores };
+export { _setAllStores }

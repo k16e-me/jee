@@ -8,6 +8,12 @@ export const prerender = false
 export const pagefind = false
 
 import SSRPage from '@layouts/SSRPage.astro'
+import _getEvents from '@scripts/all-events'
+import { _addEvents } from '@scripts/store'
+
+const events = await _getEvents()
+
+_addEvents(events)
 ---
 
 <SSRPage />

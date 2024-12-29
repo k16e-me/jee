@@ -8,6 +8,12 @@ export const prerender = false
 export const pagefind = false
 
 import SSRPage from '@layouts/SSRPage.astro'
+import _getInsights from '@scripts/all-insights'
+import { _addInsights } from '@scripts/store'
+
+const insights = await _getInsights()
+
+_addInsights(insights)
 ---
 
 <SSRPage />
