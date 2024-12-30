@@ -39,7 +39,7 @@ const altText = piece.featured_image
 			'relative overflow-clip flex',
 			profile && 'rounded-bl-[1.5rem] rounded-br-[8rem]',
 			landscape &&
-				'w-full h-[23rem] sm:h-[24.5rem] md:h-full md:min-w-[26rem] md:max-w-[26rem] rounded-tl-[2rem] rounded-bl-[1.5rem] rounded-tr-[2rem] md:rounded-tr-[4rem] rounded-br-[10rem]',
+				'w-full h-[30rem] md:h-full md:min-w-[26rem] md:max-w-[26rem] rounded-tl-[2rem] rounded-bl-[1.5rem] rounded-tr-[2rem] md:rounded-tr-[4rem] rounded-br-[10rem]',
 		]}>
 		<Image
 			filename={image}
@@ -76,8 +76,7 @@ const altText = piece.featured_image
 				tag=`${profile ? 'h4' : 'h3'}`
 				text={piece.content.title}
 				color='title'
-				size=`${ profile ? '6' : '5'}`
-				family='display'
+				size=`${ profile ? '6' : '4'}`
 				weight=`${profile ? 'semi' : 'extra'}`
 				class=`${profile ? 'line-clamp-3' : ''}`
 			/>
@@ -87,7 +86,6 @@ const altText = piece.featured_image
 				source={piece}
 				size=`${ profile ? 'body' : '6'}`
 				weight=`${ profile ? 'semi' : 'medium'}`
-				family='display'
 				color='body'
 				class='mt-auto'
 			/>

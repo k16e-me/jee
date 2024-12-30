@@ -25,7 +25,7 @@ const altText = entry.featured_image
 <a
 	href={_slug(entry.full_slug)}
 	class:list={[
-		'r-hide-overflow overflow-y-clip group flex flex-col md:flex-row h-full md:h-[30rem] bg-parchment-100 rounded-3xl p-2',
+		'r-hide-overflow overflow-y-clip group flex flex-col md:flex-row h-full md:h-[32rem] bg-parchment-100 rounded-3xl p-2',
 		classes,
 	]}
 	{...props}>
@@ -36,8 +36,9 @@ const altText = entry.featured_image
 				tag='h3'
 				text={entry.content.title}
 				color='title'
-				size='5'
+				size='4'
 				weight='extra'
+                class='line-clamp-4'
 			/>
 			<div class='flex flex-col gap-1.5 md:gap-2 lg:pr-12'>
 				<ListBullet icon='map-pin' text={entry.content.venue} />
@@ -52,7 +53,7 @@ const altText = entry.featured_image
         <Chip text={entry.content.type} class='absolute bottom-5 right-5 md:right-auto md:left-10 md:bottom-10'/>
 	</div>
 	<div
-		class='w-full h-[30rem] md:h-full md:min-w-[27rem] md:max-w-[26.5rem] rounded-tl-[2rem] rounded-br-[1.5rem] rounded-tr-[2rem] rounded-bl-[10rem] order-1 md:order-2 overflow-clip'>
+		class='w-full h-[32rem] md:h-full md:min-w-[28rem] md:max-w-[28rem] rounded-tl-[2rem] rounded-br-[1.5rem] rounded-tr-[2rem] rounded-bl-[10rem] order-1 md:order-2 overflow-clip'>
 		<Image
 			filename={image}
 			alt={altText}
