@@ -27,7 +27,7 @@ export async function getStaticPaths() {
 			!link.slug.startsWith('openings') &&
 			!ssrRoutes.includes(link.slug),
 	)
-
+    
 	return links
 		.filter((link) => !link.is_folder)
 		.map((link) => {

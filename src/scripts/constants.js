@@ -1,4 +1,4 @@
-export const MAXITEMS = 24
+export const MAXITEMS = 18
 export const RELATIONS = [
     'block_bento_plaques.plaques',
     'image_hanging_insight.insight',
