@@ -7,7 +7,7 @@ import { _setAllStores } from '@scripts/set-stores'
 
 export async function getStaticPaths() {
 	const storyblokApi = useStoryblokApi()
-	const ssrRoutes = ['people/', 'insights/', 'events/']
+	const ssrRoutes = ['people', 'insights', 'events']
 
 	let links = await storyblokApi.getAll('cdn/links', {
 		version: 'published'
