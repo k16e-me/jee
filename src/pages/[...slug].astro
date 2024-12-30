@@ -25,7 +25,7 @@ export async function getStaticPaths() {
 			!link.slug.startsWith('offices') &&
 			!link.slug.startsWith('regions') &&
 			!link.slug.startsWith('openings') &&
-			!ssrRoutes.includes(link.full_slug),
+			!ssrRoutes.includes(link.slug),
 	)
 
 	return links
