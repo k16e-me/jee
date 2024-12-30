@@ -14,13 +14,14 @@ import { MAXITEMS } from '@scripts/constants'
 import Pagination from '@blocks/Pagination.astro'
 import { _getVisibleItems } from '@scripts/get-visible-items'
 import NoResult from '@blocks/NoResult.astro'
+import _getInsights from '@scripts/all-insights'
 
 const { blok } = Astro.props
-const sorted = _insights.get()
+const insights = await _getInsights()
 const categories = _categories.value.map((i) => i.content.title)
 const sectors = _sectors.value.map((i) => i.content.title)
 const practices = _practices.value.map((i) => i.content.title)
-const authors = sorted
+const authors = insights
 	.map((i) => i.content.author)
 	.flat()
 	.map((i) => i.name)
@@ -37,7 +38,7 @@ const allCategories = {
 	people: Astro.url.searchParams.getAll('people[]') || [],
 }
 const { searchResultsItems, visibleItems } = _getVisibleItems(
-	sorted,
+	insights,
 	search,
 	current,
 	maxItems,
