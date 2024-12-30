@@ -10,10 +10,7 @@ export async function getStaticPaths() {
 	const ssrRoutes = [
 		'people',
 		'insights',
-		'events',
-		'people/',
-		'insights/',
-		'events/',
+		'events'
 	]
 
 	let links = await storyblokApi.getAll('cdn/links', {
@@ -32,7 +29,7 @@ export async function getStaticPaths() {
 			!link.slug.startsWith('offices') &&
 			!link.slug.startsWith('regions') &&
 			!link.slug.startsWith('openings') &&
-			!ssrRoutes.includes(link.slug),
+			!ssrRoutes.includes(link.slug)
 	)
 
 	return links
