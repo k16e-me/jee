@@ -4,13 +4,6 @@ import TitleHidden from '@blocks/TitleHidden.astro'
 import ButtonFab from '@atoms/ButtonFab.astro'
 import { _paginateLink, _truncatesPagination } from '@scripts/pagination'
 
-type Props = {
-	total: number
-	size: number
-	current: number
-	ariaLabel?: string
-}
-
 const { ariaLabel = 'Pagination', ...attrs } = Astro.props
 const { total, size, current } = Astro.props,
 	numberOfPages = Math.ceil(total / size)
