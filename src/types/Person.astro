@@ -10,15 +10,16 @@ import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro'
 import SectionMinicards from '@composites/sections/SectionMinicards.astro'
 import RegisterItem from '@blocks/RegisterItem.astro'
 import Register from '@blocks/Register.astro'
-import { _insights } from '@scripts/store'
 import _empty from '@scripts/empty'
 import CarouselPeople from '@composites/sections/CarouselPeople.astro'
 import SectionLatest from '@composites/sections/SectionLatest.astro'
 import _getPeople from '@scripts/all-people'
+import _getInsights from '@scripts/all-insights'
 
 const { blok } = Astro.props
 const { slug } = Astro.params
 const people = await _getPeople()
+const insights = await _getInsights()
 const personName = blok.name
 const personSlug = slug.split('/')[1]
 const bylineRank = blok.byline[0].content.rank
@@ -32,7 +33,7 @@ const headings = [
 	blok.practices?.[0]?.heading?.[0]?.heading,
 	...(blok.registers?.map((i) => i.title) || []),
 ].filter(Boolean)
-const personInsights = _insights.value
+const personInsights = insights
 	.filter((i) => i.content.author.some((j) => j.slug === personSlug))
 	.slice(0, 7)
 
