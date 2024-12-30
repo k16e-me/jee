@@ -15,11 +15,11 @@ import { _getVisibleItems } from '@scripts/get-visible-items'
 import FiltersEvents from '@blocks/FiltersEvents.astro'
 import Text from '@atoms/Text.astro'
 import NoResult from '@blocks/NoResult.astro'
+import _getEvents from '@scripts/all-events'
 
 const { blok } = Astro.props
-const sorted = _events.get()
+const events = await _getEvents()
 const maxItems = MAXITEMS
-
 const page = Astro.url.searchParams.get('page') || '1'
 const search = Astro.url.searchParams.get('s')
 const current = parseInt(page, 10)
@@ -29,7 +29,7 @@ const allCategories = {
 	type: Astro.url.searchParams.get('type') || '',
 }
 const { searchResultsItems, visibleItems } = _getVisibleItems(
-	sorted,
+	events,
 	search,
 	current,
 	maxItems,
