@@ -1,6 +1,7 @@
 export function _paginateLink(baseURL, current) {
     const url = new URL(baseURL)
     url.searchParams.set('page', current)
+    console.log(url.toString())
 
     return url.toString()
 }
