@@ -4,7 +4,7 @@ import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro'
 import Base from '@layouts/Base.astro'
 import { _getPageData } from '@scripts/storyblok'
 
-const slug = Astro.url.pathname.slice(1)
+const slug = Astro.url.pathname
 const { page, content, seo } = await _getPageData(slug)
 ---
 
