@@ -7,11 +7,7 @@ import { _setAllStores } from '@scripts/set-stores'
 
 export async function getStaticPaths() {
 	const storyblokApi = useStoryblokApi()
-	const ssrRoutes = [
-		'people',
-		'insights',
-		'events'
-	]
+	const ssrRoutes = ['people', 'insights', 'events']
 
 	let links = await storyblokApi.getAll('cdn/links', {
 		version: 'published',
@@ -29,7 +25,7 @@ export async function getStaticPaths() {
 			!link.slug.startsWith('offices') &&
 			!link.slug.startsWith('regions') &&
 			!link.slug.startsWith('openings') &&
-			!ssrRoutes.includes(link.slug)
+			!ssrRoutes.includes(link.slug),
 	)
 
 	return links
