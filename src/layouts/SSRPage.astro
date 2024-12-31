@@ -2,11 +2,10 @@
 import { useStoryblokApi } from '@storyblok/astro'
 import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro'
 import Base from '@layouts/Base.astro'
-import { _getPageData } from '@scripts/storyblok'
+import { _getPageData } from '@scripts/get-page-data'
 
 const slug = Astro.url.pathname
 const { page, content, seo } = await _getPageData(slug)
-console.log(page)
 ---
 
 <Base

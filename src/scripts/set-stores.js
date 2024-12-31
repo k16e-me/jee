@@ -8,14 +8,13 @@ import {
     _addPractices,
     _addAfricaExpertise,
     _addAfricaIp,
-    _africaIp,
     _addCategories,
     _addNewsletter,
     _addRegions,
 } from '@scripts/store'
 import { _getAllAPIs } from '@scripts/api'
 
-const _setAllStores = async () => {
+const _setStores = async () => {
     const apis = _getAllAPIs()
     const results = await Promise.all(apis.map((fn) => fn()))
     const [
@@ -46,4 +45,4 @@ const _setAllStores = async () => {
     _addSettings(settings.data.story.content)
 }
 
-export { _setAllStores }
+export { _setStores }

@@ -2,8 +2,8 @@
 import { useStoryblokApi } from '@storyblok/astro'
 import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro'
 import Base from '@layouts/Base.astro'
-import { _getPageData } from '@scripts/storyblok'
-import { _setAllStores } from '@scripts/set-stores'
+import { _getPageData } from '@scripts/get-page-data'
+import { _setStores } from '@scripts/set-stores'
 
 export async function getStaticPaths() {
 	const storyblokApi = useStoryblokApi()
@@ -12,8 +12,25 @@ export async function getStaticPaths() {
 	let links = await storyblokApi.getAll('cdn/links', {
 		version: 'published',
 	})
-	links = Object.values(links).filter(
-		(link) =>
+	links = Object.values(links).filter((link) => {
+		// Exact match for SSR routes
+		if (ssrRoutes.includes(link.slug)) {
+			return false
+		}
+
+		// Check if it's a direct child of an SSR route
+		const isDirectChild = ssrRoutes.some(
+			(route) =>
+				link.slug.startsWith(route + '/') &&
+				!link.slug.slice(route.length + 1).includes('/'),
+		)
+
+		if (isDirectChild) {
+			return false
+		}
+
+		// Your existing conditions
+		return (
 			!(link.slug === 'settings') &&
 			!(link.slug === 'legal') &&
 			!link.slug.startsWith('global') &&
@@ -24,9 +41,11 @@ export async function getStaticPaths() {
 			!link.slug.startsWith('successes') &&
 			!link.slug.startsWith('offices') &&
 			!link.slug.startsWith('regions') &&
-			!link.slug.startsWith('openings') &&
-			!ssrRoutes.includes(link.slug),
-	)
+			!link.slug.startsWith('openings')
+		)
+	})
+
+	console.log(links.map((link) => link.slug)) // Log all remaining slugs
 
 	return links
 		.filter((link) => !link.is_folder)
@@ -41,7 +60,7 @@ export async function getStaticPaths() {
 const { slug } = Astro.params
 const { page, content, seo } = await _getPageData(slug)
 
-await _setAllStores()
+await _setStores()
 ---
 
 <Base
