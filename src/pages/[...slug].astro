@@ -15,14 +15,6 @@ export async function getStaticPaths() {
 	links = Object.values(links).filter((link) => {
 		if (ssrRoutes.includes(link.slug)) return false
 
-		const isDirectChild = ssrRoutes.some(
-			(route) =>
-				link.slug.startsWith(route + '/') &&
-				!link.slug.slice(route.length + 1).includes('/'),
-		)
-
-		if (isDirectChild) return false
-
 		return (
 			!(link.slug === 'settings') &&
 			!(link.slug === 'legal') &&
@@ -37,8 +29,6 @@ export async function getStaticPaths() {
 			!link.slug.startsWith('openings')
 		)
 	})
-
-	console.log(links.map((link) => link.slug)) // Log all remaining slugs
 
 	return links
 		.filter((link) => !link.is_folder)
