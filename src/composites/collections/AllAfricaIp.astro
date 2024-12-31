@@ -3,14 +3,14 @@ import Section from '@layouts/Section.astro'
 import Wrapper from '@layouts/Wrapper.astro'
 import Grid from '@layouts/Grid.astro'
 import { _sectionPadding, _xPadding, _gridGap, _spaceY } from '@scripts/snips'
-import { _africaIp } from '@scripts/store'
 import CardCountry from '@blocks/CardCountry.astro'
 import HeadingStretch from '@blocks/HeadingStretch.astro'
+import _getAfricaIp from '@scripts/all-africa-ip'
 
-const { blok } = Astro.props,
-	ip = _africaIp.value,
-	regionalGroups = ip.filter((i) => i.content.country === 'rg'),
-	other = ip.filter((i) => i.content.country !== 'rg')
+const { blok } = Astro.props
+const ip = await _getAfricaIp()
+const regionalGroups = ip.filter((i) => i.content.country === 'rg')
+const other = ip.filter((i) => i.content.country !== 'rg')
 ---
 
 <Section

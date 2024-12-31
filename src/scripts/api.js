@@ -80,16 +80,6 @@ export const getAfricaExpertise = async () => {
         sort_by: 'content.title:asc',
     })
 }
-export const getAfricaIp = async () => {
-    return await api.get('cdn/stories', {
-        starts_with: 'ip/',
-        version: 'published',
-        is_startpage: false,
-        resolve_links: 'url',
-        sort_by: 'content.title:asc',
-        per_page: 100,
-    })
-}
 export const getNewsletter = async () => {
     return await api.get('cdn/stories/global/newsletter', {
         version: 'published',
@@ -107,5 +97,5 @@ export const getRegions = async () => {
 }
 
 export const _getAllAPIs = () => {
-    return [getSettings, getAwards, getDesignations, getCategories, getOffices, getOpenings, getSectors, getPractices, getAfricaExpertise, getAfricaIp, getNewsletter, getRegions]
+    return [getSettings, getAwards, getDesignations, getCategories, getOffices, getOpenings, getSectors, getPractices, getAfricaExpertise, getNewsletter, getRegions]
 }

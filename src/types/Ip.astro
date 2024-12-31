@@ -10,11 +10,11 @@ import Wrapper from '@layouts/Wrapper.astro'
 import _empty from '@scripts/empty'
 import _slugify from '@scripts/slugify'
 import { _gridGap } from '@scripts/snips'
-import { _africaIp } from '@scripts/store'
+import _getAfricaIp from '@scripts/all-africa-ip'
 
 const { blok } = Astro.props
 const region = blok.region
-const ip = _africaIp.value
+const ip = await _getAfricaIp()
 const related = ip.filter((i) => i.content.region === region)
 ---
 

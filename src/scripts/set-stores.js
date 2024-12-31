@@ -7,7 +7,6 @@ import {
     _addSectors,
     _addPractices,
     _addAfricaExpertise,
-    _addAfricaIp,
     _addCategories,
     _addNewsletter,
     _addRegions,
@@ -27,7 +26,6 @@ const _setStores = async () => {
         sectors,
         practices,
         africaExpertise,
-        africaIp,
         newsletter,
         regions,
     ] = results
@@ -38,7 +36,6 @@ const _setStores = async () => {
     _addSectors(sectors.data.stories)
     _addPractices(practices.data.stories)
     _addAfricaExpertise(africaExpertise.data.stories)
-    _addAfricaIp(africaIp.data.stories)
     _addCategories(categories.data.stories)
     _addNewsletter(newsletter.data.story.content)
     _addRegions(regions.data.stories)
