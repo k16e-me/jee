@@ -68,17 +68,7 @@ export const getNewsletter = async () => {
         version: 'published',
     })
 }
-export const getRegions = async () => {
-    return await api.get('cdn/stories', {
-        starts_with: 'regions/',
-        version: 'published',
-        is_startpage: false,
-        sort_by: 'content.position:asc',
-        resolve_links: 'url',
-        resolve_relations: ['region.offices', 'region.contacts'],
-    })
-}
 
 export const _getAllAPIs = () => {
-    return [getSettings, getDesignations, getCategories, getOffices, getSectors, getPractices, getAfricaExpertise, getNewsletter, getRegions]
+    return [getSettings, getDesignations, getCategories, getOffices, getSectors, getPractices, getAfricaExpertise, getNewsletter]
 }

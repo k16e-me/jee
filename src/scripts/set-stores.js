@@ -6,8 +6,7 @@ import {
     _addPractices,
     _addAfricaExpertise,
     _addCategories,
-    _addNewsletter,
-    _addRegions,
+    _addNewsletter
 } from '@scripts/store'
 import { _getAllAPIs } from '@scripts/api'
 
@@ -23,7 +22,6 @@ const _setStores = async () => {
         practices,
         africaExpertise,
         newsletter,
-        regions,
     ] = results
     _addDesignations(designations.data.stories)
     _addOffices(offices.data.stories)
@@ -32,7 +30,6 @@ const _setStores = async () => {
     _addAfricaExpertise(africaExpertise.data.stories)
     _addCategories(categories.data.stories)
     _addNewsletter(newsletter.data.story.content)
-    _addRegions(regions.data.stories)
     _addSettings(settings.data.story.content)
 }
 
