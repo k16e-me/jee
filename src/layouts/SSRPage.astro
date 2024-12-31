@@ -6,6 +6,7 @@ import { _getPageData } from '@scripts/storyblok'
 
 const slug = Astro.url.pathname
 const { page, content, seo } = await _getPageData(slug)
+console.log(page)
 ---
 
 <Base
