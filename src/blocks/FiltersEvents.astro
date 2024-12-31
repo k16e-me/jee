@@ -4,7 +4,6 @@ import InputRadio from '@atoms/InputRadio.astro'
 import _slugify from '@scripts/slugify'
 import HeadingSection from '@blocks/HeadingSection.astro'
 import Text from '@atoms/Text.astro'
-import ButtonMore from '@atoms/ButtonMore.astro'
 
 const { class: classes, selectedItems, ...props } = Astro.props
 const timing = ['Upcoming', 'Past']
@@ -88,10 +87,4 @@ const { type: typeFromParams, timing: timingFromParams } = selectedItems
 			</div>
 		</li>
 	</ul>
-	<ButtonMore
-		tag='button'
-		type='submit'
-		label='View Results'
-		class='hidden mt-5'
-	/>
 </div>

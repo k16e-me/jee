@@ -16,6 +16,7 @@ import FiltersEvents from '@blocks/FiltersEvents.astro'
 import Text from '@atoms/Text.astro'
 import NoResult from '@blocks/NoResult.astro'
 import _getEvents from '@scripts/all-events'
+import ButtonMore from '@atoms/ButtonMore.astro'
 
 const { blok } = Astro.props
 const events = await _getEvents()
@@ -56,6 +57,12 @@ const { searchResultsItems, visibleItems } = _getVisibleItems(
 				<form
 					class='space-y-1.5 min-h-0 relative overflow-auto'
 					data-search-filter>
+					<ButtonMore
+						tag='button'
+						type='submit'
+						label='View Results'
+						class='hidden ml-auto mb-4'
+					/>
 					<div
 						class='flex items-center justify-between py-3 ml:!pb-0 gap-3'>
 						<InputText

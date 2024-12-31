@@ -16,7 +16,7 @@ const Tag = tag || 'a'
 
 <Tag
 	{...link ? { href: _slug(link) } : {}}
-	class:list={['group relative inline-block text-center w-min transition duration-200', classes]}
+	class:list={['group relative block text-center w-min transition duration-200', classes]}
 	{...props}>
 	<Text
 		text={label}
