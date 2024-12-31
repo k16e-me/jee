@@ -3,7 +3,6 @@ import {
     _addAwards,
     _addDesignations,
     _addOffices,
-    _addOpenings,
     _addSectors,
     _addPractices,
     _addAfricaExpertise,
@@ -22,7 +21,6 @@ const _setStores = async () => {
         designations,
         categories,
         offices,
-        openings,
         sectors,
         practices,
         africaExpertise,
@@ -32,7 +30,6 @@ const _setStores = async () => {
     _addAwards(awards.data.stories)
     _addDesignations(designations.data.stories)
     _addOffices(offices.data.stories)
-    _addOpenings(openings.data.stories)
     _addSectors(sectors.data.stories)
     _addPractices(practices.data.stories)
     _addAfricaExpertise(africaExpertise.data.stories)

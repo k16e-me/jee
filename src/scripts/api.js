@@ -44,14 +44,6 @@ export const getOffices = async () => {
         resolve_relations: ['office.contacts'],
     })
 }
-export const getOpenings = async () => {
-    return await api.get('cdn/stories', {
-        starts_with: 'openings/',
-        version: 'published',
-        is_startpage: false,
-        resolve_links: 'url',
-    })
-}
 export const getSectors = async () => {
     return await api.get('cdn/stories', {
         starts_with: 'sectors/',
@@ -97,5 +89,5 @@ export const getRegions = async () => {
 }
 
 export const _getAllAPIs = () => {
-    return [getSettings, getAwards, getDesignations, getCategories, getOffices, getOpenings, getSectors, getPractices, getAfricaExpertise, getNewsletter, getRegions]
+    return [getSettings, getAwards, getDesignations, getCategories, getOffices, getSectors, getPractices, getAfricaExpertise, getNewsletter, getRegions]
 }
