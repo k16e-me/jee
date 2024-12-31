@@ -11,15 +11,6 @@ export const getSettings = async () => {
         resolve_relations: ['settings.awards', 'settings.links', 'settings.socials'],
     })
 }
-export const getAwards = async () => {
-    return await api.get('cdn/stories', {
-        starts_with: 'awards/',
-        version: 'published',
-        by_slugs: [`awards/${currentYear}/*`, `awards/${lastYear}/*`],
-        level: 3,
-        is_startpage: false,
-    })
-}
 export const getDesignations = async () => {
     return await api.get('cdn/stories', {
         starts_with: 'designations/',
@@ -89,5 +80,5 @@ export const getRegions = async () => {
 }
 
 export const _getAllAPIs = () => {
-    return [getSettings, getAwards, getDesignations, getCategories, getOffices, getSectors, getPractices, getAfricaExpertise, getNewsletter, getRegions]
+    return [getSettings, getDesignations, getCategories, getOffices, getSectors, getPractices, getAfricaExpertise, getNewsletter, getRegions]
 }

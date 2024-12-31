@@ -1,6 +1,5 @@
 import {
     _addSettings,
-    _addAwards,
     _addDesignations,
     _addOffices,
     _addSectors,
@@ -17,7 +16,6 @@ const _setStores = async () => {
     const results = await Promise.all(apis.map((fn) => fn()))
     const [
         settings,
-        awards,
         designations,
         categories,
         offices,
@@ -27,7 +25,6 @@ const _setStores = async () => {
         newsletter,
         regions,
     ] = results
-    _addAwards(awards.data.stories)
     _addDesignations(designations.data.stories)
     _addOffices(offices.data.stories)
     _addSectors(sectors.data.stories)
