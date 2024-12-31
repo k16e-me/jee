@@ -96,7 +96,7 @@ export default defineConfig({
     build: {
         format: 'preserve'
     },
-    trailingSlash: 'never',
+    // trailingSlash: 'never',
     devToolbar: {
         enabled: false
     },

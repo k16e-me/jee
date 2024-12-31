@@ -13,23 +13,16 @@ export async function getStaticPaths() {
 		version: 'published',
 	})
 	links = Object.values(links).filter((link) => {
-		// Exact match for SSR routes
-		if (ssrRoutes.includes(link.slug)) {
-			return false
-		}
+		if (ssrRoutes.includes(link.slug)) return false
 
-		// Check if it's a direct child of an SSR route
 		const isDirectChild = ssrRoutes.some(
 			(route) =>
 				link.slug.startsWith(route + '/') &&
 				!link.slug.slice(route.length + 1).includes('/'),
 		)
 
-		if (isDirectChild) {
-			return false
-		}
+		if (isDirectChild) return false
 
-		// Your existing conditions
 		return (
 			!(link.slug === 'settings') &&
 			!(link.slug === 'legal') &&
