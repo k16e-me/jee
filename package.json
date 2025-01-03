@@ -18,15 +18,15 @@
         "@storyblok/richtext": "^3.0.2",
         "@swup/head-plugin": "^2.3.1",
         "@swup/progress-plugin": "^3.2.0",
-        "astro": "^5.1.1",
+        "astro": "^5.1.2",
         "astro-embed": "^0.9.0",
         "astro-pagefind": "^1.7.0",
         "astro-seo": "^0.8.4",
         "nanostores": "^0.11.3",
-        "swiper": "^11.1.15",
+        "swiper": "^11.2.0",
         "swup": "^4.8.1",
         "tailwindcss": "^3.4.17",
-        "vite": "^6.0.6"
+        "vite": "^6.0.7"
     },
     "devDependencies": {
         "@tailwindcss/forms": "^0.5.9",
