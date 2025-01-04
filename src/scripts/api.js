@@ -11,16 +11,7 @@ export const getSettings = async () => {
         resolve_relations: ['settings.awards', 'settings.links', 'settings.socials'],
     })
 }
-export const getAfricaExpertise = async () => {
-    return await api.get('cdn/stories', {
-        starts_with: 'africa-expertise/',
-        version: 'published',
-        is_startpage: false,
-        resolve_links: 'url',
-        sort_by: 'content.title:asc',
-    })
-}
 
 export const _getAllAPIs = () => {
-    return [getSettings, getAfricaExpertise]
+    return [getSettings]
 }

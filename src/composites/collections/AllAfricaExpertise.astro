@@ -3,10 +3,12 @@ import Section from '@layouts/Section.astro'
 import Wrapper from '@layouts/Wrapper.astro'
 import Grid from '@layouts/Grid.astro'
 import { _sectionPadding, _xPadding } from '@scripts/snips'
-import { _africaExpertise } from '@scripts/store'
 import CardExpertise from '@blocks/CardExpertise.astro'
+import _getAfricaExpertise from '@scripts/collections/get-africa-expertise'
 
 const { blok } = Astro.props
+const africaExpertiseData = await _getAfricaExpertise()
+const africaExpertise = africaExpertiseData.data.stories
 ---
 
 <Section
@@ -16,6 +18,6 @@ const { blok } = Astro.props
 	class='r-hide-overflow overflow-y-clip z-20'>
 	<Wrapper
 		class='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-y-6 md:gap-x-6 lg:gap-x-8 md:gap-y-8 lg:gap-10'>
-		{_africaExpertise.value.map((i, x) => <CardExpertise item={i} />)}
+		{africaExpertise.map((i, x) => <CardExpertise item={i} />)}
 	</Wrapper>
 </Section>
