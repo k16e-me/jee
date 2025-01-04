@@ -1,11 +1,9 @@
 import {
     _addSettings,
-    _addDesignations,
     _addOffices,
     _addSectors,
     _addPractices,
-    _addAfricaExpertise,
-    _addCategories
+    _addAfricaExpertise
 } from '@scripts/store'
 import { _getAllAPIs } from '@scripts/api'
 
@@ -14,19 +12,15 @@ const _setStores = async () => {
     const results = await Promise.all(apis.map((fn) => fn()))
     const [
         settings,
-        designations,
-        categories,
         offices,
         sectors,
         practices,
         africaExpertise,
     ] = results
-    _addDesignations(designations.data.stories)
     _addOffices(offices.data.stories)
     _addSectors(sectors.data.stories)
     _addPractices(practices.data.stories)
     _addAfricaExpertise(africaExpertise.data.stories)
-    _addCategories(categories.data.stories)
     _addSettings(settings.data.story.content)
 }
 

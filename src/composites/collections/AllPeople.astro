@@ -2,7 +2,7 @@
 import Section from '@layouts/Section.astro'
 import Grid from '@layouts/Grid.astro'
 import { _sectionPadding, _xPadding } from '@scripts/snips'
-import { _designations, _offices, _sectors, _practices } from '@scripts/store'
+import { _offices, _sectors, _practices } from '@scripts/store'
 import CardPerson from '@blocks/CardPerson.astro'
 import ButtonFab from '@atoms/ButtonFab.astro'
 import InputText from '@atoms/InputText.astro'
@@ -14,10 +14,12 @@ import ButtonFlat from '@atoms/ButtonFlat.astro'
 import NoResult from '@blocks/NoResult.astro'
 import _getPeople from '@scripts/all-people'
 import ButtonMore from '@atoms/ButtonMore.astro'
+import _getDesignations from '@scripts/collections/get-designations'
 
 const { blok } = Astro.props
 const people = await _getPeople()
-const designations = _designations.value
+const designationsData = await _getDesignations()
+const designations = designationsData.data.stories
 	.sort((a, b) => parseInt(a.content.rank - b.content.rank))
 	.map((a) => a.content.title)
 	.slice(0, 4)

@@ -11,20 +11,6 @@ export const getSettings = async () => {
         resolve_relations: ['settings.awards', 'settings.links', 'settings.socials'],
     })
 }
-export const getDesignations = async () => {
-    return await api.get('cdn/stories', {
-        starts_with: 'designations/',
-        version: 'published',
-        is_startpage: false,
-    })
-}
-export const getCategories = async () => {
-    return await api.get('cdn/stories', {
-        starts_with: 'category/',
-        version: 'published',
-        is_startpage: false,
-    })
-}
 export const getOffices = async () => {
     return await api.get('cdn/stories', {
         starts_with: 'offices/',
@@ -65,5 +51,5 @@ export const getAfricaExpertise = async () => {
 }
 
 export const _getAllAPIs = () => {
-    return [getSettings, getDesignations, getCategories, getOffices, getSectors, getPractices, getAfricaExpertise]
+    return [getSettings, getOffices, getSectors, getPractices, getAfricaExpertise]
 }
