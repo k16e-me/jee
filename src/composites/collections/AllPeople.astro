@@ -2,7 +2,7 @@
 import Section from '@layouts/Section.astro'
 import Grid from '@layouts/Grid.astro'
 import { _sectionPadding, _xPadding } from '@scripts/snips'
-import { _offices, _sectors, _practices } from '@scripts/store'
+import { _practices } from '@scripts/store'
 import CardPerson from '@blocks/CardPerson.astro'
 import ButtonFab from '@atoms/ButtonFab.astro'
 import InputText from '@atoms/InputText.astro'
@@ -15,6 +15,8 @@ import NoResult from '@blocks/NoResult.astro'
 import _getPeople from '@scripts/all-people'
 import ButtonMore from '@atoms/ButtonMore.astro'
 import _getDesignations from '@scripts/collections/get-designations'
+import _getOffices from '@scripts/collections/get-offices'
+import _getSectors from '@scripts/collections/get-sectors'
 
 const { blok } = Astro.props
 const people = await _getPeople()
@@ -23,8 +25,10 @@ const designations = designationsData.data.stories
 	.sort((a, b) => parseInt(a.content.rank - b.content.rank))
 	.map((a) => a.content.title)
 	.slice(0, 4)
-const offices = _offices.value.map((o) => o.content.tag)
-const sectors = _sectors.value.map((o) => o.content.title)
+const officesData = await _getOffices()
+const sectorsData = await _getSectors()
+const offices = officesData.data.stories.map((o) => o.content.tag)
+const sectors = sectorsData.data.stories.map((o) => o.content.title)
 const practices = _practices.value.map((o) => o.content.title)
 const maxItems = MAXITEMS
 const page = Astro.url.searchParams.get('page') || '1'

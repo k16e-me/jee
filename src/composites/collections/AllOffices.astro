@@ -5,15 +5,14 @@ import Grid from '@layouts/Grid.astro'
 import { _gridGap, _sectionPadding, _spaceY, _xPadding } from '@scripts/snips'
 import _slugify from '@scripts/slugify'
 import HeadingSection from '@blocks/HeadingSection.astro'
-import { _offices } from '@scripts/store'
 import ListStat from '@blocks/ListStat.astro'
 import _empty from '@scripts/empty'
 import CardContactPerson from '@blocks/CardContactPerson.astro'
+import _getOffices from '@scripts/collections/get-offices'
 
-const { blok } = Astro.props,
-	offices = _offices.value
-
-    // console.log(offices[0].content.contacts[0].content.byline[0])
+const { blok } = Astro.props
+const officesData = await _getOffices()
+const offices = officesData.data.stories
 ---
 
 <Section
@@ -41,7 +40,9 @@ const { blok } = Astro.props,
 										link={j.full_slug}
 										image={j.content.headshot}
 										name={j.content.name}
-										designation={j.content.byline[0]?.content?.title}
+										designation={
+											j.content.byline[0]?.content?.title
+										}
 										email={j.content.links[0].email[0]}
 										phone={j.content.links[0].phone[0]}
 									/>
