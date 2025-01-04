@@ -1,0 +1,71 @@
+{
+	"version": 3,
+	"routes": [
+		{
+			"src": "/404/",
+			"headers": {
+				"Location": "/404"
+			},
+			"status": 308
+		},
+		{
+			"src": "/events/",
+			"headers": {
+				"Location": "/events"
+			},
+			"status": 308
+		},
+		{
+			"src": "/insights/",
+			"headers": {
+				"Location": "/insights"
+			},
+			"status": 308
+		},
+		{
+			"src": "/people/",
+			"headers": {
+				"Location": "/people"
+			},
+			"status": 308
+		},
+		{
+			"src": "/(?:\\/(.*?))?/",
+			"headers": {
+				"Location": "/$1"
+			},
+			"status": 308
+		},
+		{
+			"src": "^/_astro/(.*)$",
+			"headers": {
+				"cache-control": "public, max-age=31536000, immutable"
+			},
+			"continue": true
+		},
+		{
+			"handle": "filesystem"
+		},
+		{
+			"src": "^\\/_image$",
+			"dest": "_render"
+		},
+		{
+			"src": "^\\/events$",
+			"dest": "_render"
+		},
+		{
+			"src": "^\\/insights$",
+			"dest": "_render"
+		},
+		{
+			"src": "^\\/people$",
+			"dest": "_render"
+		},
+		{
+			"src": "/.*",
+			"dest": "/404.html",
+			"status": 404
+		}
+	]
+}

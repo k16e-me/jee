@@ -15,6 +15,7 @@ import DrawerRegions from '@blocks/DrawerRegions.astro'
 import SearchGlobal from '@blocks/SearchGlobal.astro'
 import ModalVideo from '@blocks/ModalVideo.astro'
 import DrawerFiltersPeople from '@blocks/DrawerFiltersPeople.astro'
+import _getSettings from '@scripts/settings'
 
 const { pageTitle, pageDescription, pageThumbnail, settings } = Astro.props
 const site = settings || _settings.value
@@ -46,8 +47,8 @@ _startsWith(currPath, unfixHeader) ? (fixHeader = false) : (fixHeader = true)
 		class='max-w-screen-3xl mx-auto flex flex-col min-h-screen overflow-x-hidden'>
 		<TitleHidden tag='h1' title={pageTitle} id='title-hidden' />
 		<Header
-			nav={site.nav}
-			tools={site.tools}
+			nav={site.content.nav}
+			tools={site.content.tools}
 			class:list={[fixHeader && 'fixed inset-x-0 top-0']}
 			id='header'
 		/>
@@ -60,7 +61,7 @@ _startsWith(currPath, unfixHeader) ? (fixHeader = false) : (fixHeader = true)
 			id='swup'>
 			<slot />
 		</main>
-		<Footer site={site} id='footer' />
+		<Footer site={site.content} id='footer' />
 		<Drapery data-drapery id='drapery'>
 			<NavMobile />
 		</Drapery>
