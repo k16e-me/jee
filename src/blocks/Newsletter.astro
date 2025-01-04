@@ -8,16 +8,21 @@ import HeadingSection from '@blocks/HeadingSection.astro'
 import HeadingStretch from '@blocks/HeadingStretch.astro'
 import _slugify from '@scripts/slugify'
 import { _newsletter, _categories } from '@scripts/store'
+import { useStoryblokApi } from '@storyblok/astro'
 
+const api = useStoryblokApi()
 const {
-		formId,
-		formAction,
-		modal,
-		headingType = 'stretch',
-		class: classes,
-		...props
-	} = Astro.props
-const newsletter = _newsletter.value ? _newsletter.value.global[0] : (await api.get('cdn/stories/global/newsletter', { version: 'published' })).data.story.content.global[0]
+	formId,
+	formAction,
+	modal,
+	headingType = 'stretch',
+	class: classes,
+	...props
+} = Astro.props
+const newsletter = _newsletter.value
+	? _newsletter.value.global[0]
+	: (await api.get('cdn/stories/global/newsletter', { version: 'published' }))
+			.data.story.content.global[0]
 const title = newsletter.title
 const id = formId ?? newsletter.component
 const success = newsletter.success_message
