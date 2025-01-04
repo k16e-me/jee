@@ -7,8 +7,8 @@
     publish = "dist"
 
 [build.environment]
-    NODE_VERSION = "18"
-    NPM_VERSION = "7"
+    NODE_VERSION = "20"
+    NPM_VERSION = "9"
     NETLIFY_IMAGE_CDN_DOMAINS="a.storyblok.com"
 
 [images]
