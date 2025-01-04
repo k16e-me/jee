@@ -94,7 +94,7 @@ export default defineConfig({
         })
     ],
     build: {
-        format: 'directory'
+        format: 'preserve'
     },
     trailingSlash: 'never',
     devToolbar: {
