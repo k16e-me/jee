@@ -4,7 +4,6 @@ import { loadEnv } from 'vite'
 import storyblok from '@storyblok/astro'
 import tailwind from '@astrojs/tailwind'
 import pagefind from 'astro-pagefind'
-import vercelAdapter from '@astrojs/vercel'
 
 const env = loadEnv('', process.cwd(), 'STORYBLOK_TOKEN')
 
@@ -17,7 +16,6 @@ export default defineConfig({
         imageCDN: false,
         cacheOnDemandPages: true,
     }),
-    // adapter: vercelAdapter(),
     image: {
         domains: ['a.storyblok.com']
     },
