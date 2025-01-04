@@ -13,11 +13,11 @@ export default defineConfig({
     prefetch: {
         prefetchAll: true
     },
-    adapter: netlify({
-        imageCDN: false,
-        cacheOnDemandPages: true,
-    }),
-    // adapter: vercelAdapter(),
+    // adapter: netlify({
+    //     imageCDN: false,
+    //     cacheOnDemandPages: true,
+    // }),
+    adapter: vercelAdapter(),
     image: {
         domains: ['a.storyblok.com']
     },
