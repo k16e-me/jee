@@ -16,6 +16,6 @@ export async function _getPageData(slug) {
     const page = data.story
     const content = page.content
     const seo = content.seo[0]
-console.log(page)
+
     return { page, content, seo }
 }
