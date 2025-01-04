@@ -7,11 +7,19 @@ import { _setStores } from '@scripts/set-stores'
 
 export async function getStaticPaths() {
 	const storyblokApi = useStoryblokApi()
-	const ssrRoutes = ['people', 'insights', 'events']
+	const ssrRoutes = [
+		'people',
+		'insights',
+		'events',
+		'people/',
+		'insights/',
+		'events/',
+	]
 
 	let links = await storyblokApi.getAll('cdn/links', {
 		version: 'published',
 	})
+	console.log(Object.values(links).map((link) => link.slug))
 	links = Object.values(links).filter((link) => {
 		if (ssrRoutes.includes(link.slug)) return false
 
