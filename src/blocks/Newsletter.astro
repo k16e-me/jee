@@ -16,14 +16,14 @@ const {
 		headingType = 'stretch',
 		class: classes,
 		...props
-	} = Astro.props,
-	newsletter = _newsletter.value.global[0],
-	title = newsletter.title,
-	id = formId ?? newsletter.component,
-	success = newsletter.success_message,
-	error = newsletter.error_message,
-	source = newsletter.message_source,
-	topics = _categories.value
+	} = Astro.props
+const newsletter = _newsletter.value ? _newsletter.value.global[0] : (await api.get('cdn/stories/global/newsletter', { version: 'published' })).data.story.content.global[0]
+const title = newsletter.title
+const id = formId ?? newsletter.component
+const success = newsletter.success_message
+const error = newsletter.error_message
+const source = newsletter.message_source
+const topics = _categories.value
 ---
 
 <div class:list={['space-y-6', classes]} data-newsletter {...props}>

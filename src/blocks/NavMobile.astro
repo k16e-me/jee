@@ -12,8 +12,9 @@ import _slug from '@scripts/slug'
 import _slugify from '@scripts/slugify'
 import _unslash from '@scripts/unslash'
 
-const { nav, class: classes, ...props } = Astro.props
-const hub = _settings.value.tools[2]
+const { settings, class: classes, ...props } = Astro.props
+const nav = settings.nav
+const hub = settings.tools[2]
 ---
 
 <Wrapper tag='nav' margins={false} class='py-4 sm:py-8 overflow-auto'>
