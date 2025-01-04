@@ -38,7 +38,7 @@ export default function _search() {
         results = await Promise.all(
             res.results.slice(0, maxResults).map((r) => r.data()),
         )
-        total = res.unfilteredResultCount
+        total = await results.length
 
         updateUI()
     }

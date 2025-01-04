@@ -85,6 +85,16 @@ const isCentered = blok?.centered || centered
 						)
 					}
 					{
+						blok?.read_more && (
+							<div class='flex items-center mt-4 sm:mt-6'>
+								<ButtonLink
+									link={blok.read_more[0].link}
+									label={blok.read_more[0].label}
+								/>
+							</div>
+						)
+					}
+					{
 						more && (
 							<div class='flex items-center mt-3 sm:mt-4 space-x-4'>
 								<slot />
