@@ -14,7 +14,7 @@ const [{ page, content, seo }, settings] = await Promise.all([
 ---
 
 <Base
-    settings={settings.data.story}
+    settings={settings.data.story.content}
 	pageTitle={seo.title}
 	pageDescription={seo.description}
 	pageThumbnail={seo.thumbnail.filename}>

@@ -47,8 +47,8 @@ _startsWith(currPath, unfixHeader) ? (fixHeader = false) : (fixHeader = true)
 		class='max-w-screen-3xl mx-auto flex flex-col min-h-screen overflow-x-hidden'>
 		<TitleHidden tag='h1' title={pageTitle} id='title-hidden' />
 		<Header
-			nav={site.content.nav}
-			tools={site.content.tools}
+			nav={site.nav}
+			tools={site.tools}
 			class:list={[fixHeader && 'fixed inset-x-0 top-0']}
 			id='header'
 		/>
@@ -61,9 +61,9 @@ _startsWith(currPath, unfixHeader) ? (fixHeader = false) : (fixHeader = true)
 			id='swup'>
 			<slot />
 		</main>
-		<Footer site={site.content} id='footer' />
+		<Footer site={site} id='footer' />
 		<Drapery data-drapery id='drapery'>
-			<NavMobile />
+			<NavMobile nav={site.nav}/>
 		</Drapery>
 		<Modal data-modal>
 			<ModalNewsletter data-modal-display='newsletter' />
