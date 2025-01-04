@@ -1,5 +1,5 @@
 import { _q, _ql } from '@scripts/snips'
-import { _unsetShim } from '@scripts/store'
+import { _unsetShim } from '@scripts/store/store'
 
 export default function _search() {
     const

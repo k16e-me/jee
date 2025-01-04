@@ -1,4 +1,4 @@
-import { _shim, _setShim, _unsetShim } from '@scripts/store'
+import { _shim, _setShim, _unsetShim } from '@scripts/store/store'
 import { _q, _ql } from '@scripts/snips'
 import _trapFocus from '@scripts/trap-focus'
 import _esc from '@scripts/esc'

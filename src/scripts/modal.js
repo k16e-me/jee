@@ -1,4 +1,4 @@
-import { _shim, _setShim, _unsetShim } from './store'
+import { _shim, _setShim, _unsetShim } from './store/store'
 import { _q, _ql } from './snips'
 
 export default function _modal() {

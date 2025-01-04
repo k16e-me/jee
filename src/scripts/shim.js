@@ -1,6 +1,6 @@
 import {
     _shim, _setShim, _unsetShim
-} from './store'
+} from './store/store'
 import { _q, _ql } from './snips'
 
 export default function _shimFx() {
