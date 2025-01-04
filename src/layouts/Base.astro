@@ -16,8 +16,8 @@ import SearchGlobal from '@blocks/SearchGlobal.astro'
 import ModalVideo from '@blocks/ModalVideo.astro'
 import DrawerFiltersPeople from '@blocks/DrawerFiltersPeople.astro'
 
-const { pageTitle, pageDescription, pageThumbnail } = Astro.props
-const site = _settings.value
+const { pageTitle, pageDescription, pageThumbnail, settings } = Astro.props
+const site = settings || _settings.value
 
 let fixHeader = true
 let currPath = Astro.url.pathname
