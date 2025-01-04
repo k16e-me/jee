@@ -6,7 +6,7 @@ import { _getPageData } from '@scripts/get-page-data'
 
 const slug = Astro.url.pathname
 const { page, content, seo } = await _getPageData(slug)
-throw new Error(slug)
+throw new Error(page)
 
 ---
 
