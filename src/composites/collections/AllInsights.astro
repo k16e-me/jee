@@ -6,7 +6,7 @@ import { _xPadding, _sectionPadding } from '@scripts/snips'
 import { _fontSize } from '@scripts/font-size'
 import _slugify from '@scripts/slugify'
 import CardInsight from '@blocks/CardInsight.astro'
-import { _categories, _sectors, _practices } from '@scripts/store'
+import { _sectors, _practices } from '@scripts/store'
 import InputText from '@atoms/InputText.astro'
 import ButtonFab from '@atoms/ButtonFab.astro'
 import FiltersInsights from '@blocks/FiltersInsights.astro'
@@ -16,10 +16,12 @@ import { _getVisibleItems } from '@scripts/get-visible-items'
 import NoResult from '@blocks/NoResult.astro'
 import _getInsights from '@scripts/all-insights'
 import ButtonMore from '@atoms/ButtonMore.astro'
+import _getCategories from '@scripts/collections/get-categories'
 
 const { blok } = Astro.props
 const insights = await _getInsights()
-const categories = _categories.value.map((i) => i.content.title)
+const categoriesData = await _getCategories()
+const categories = categoriesData.data.stories.map((i) => i.content.title)
 const sectors = _sectors.value.map((i) => i.content.title)
 const practices = _practices.value.map((i) => i.content.title)
 const authors = insights

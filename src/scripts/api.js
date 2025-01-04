@@ -63,12 +63,7 @@ export const getAfricaExpertise = async () => {
         sort_by: 'content.title:asc',
     })
 }
-export const getNewsletter = async () => {
-    return await api.get('cdn/stories/global/newsletter', {
-        version: 'published',
-    })
-}
 
 export const _getAllAPIs = () => {
-    return [getSettings, getDesignations, getCategories, getOffices, getSectors, getPractices, getAfricaExpertise, getNewsletter]
+    return [getSettings, getDesignations, getCategories, getOffices, getSectors, getPractices, getAfricaExpertise]
 }

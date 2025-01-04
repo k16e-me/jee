@@ -8,8 +8,8 @@ import HeadingSection from '@blocks/HeadingSection.astro'
 import HeadingStretch from '@blocks/HeadingStretch.astro'
 import _getNewsletter from '@scripts/collections/get-newsletter'
 import _slugify from '@scripts/slugify'
-import { _newsletter, _categories } from '@scripts/store'
 import { useStoryblokApi } from '@storyblok/astro'
+import _getCategories from '@scripts/collections/get-categories'
 
 const api = useStoryblokApi()
 const {
@@ -21,13 +21,14 @@ const {
 	...props
 } = Astro.props
 const newsletterData = await _getNewsletter()
+const categories = await _getCategories()
 const newsletter = newsletterData.data.story.content.global[0]
 const title = newsletter.title
 const id = formId ?? newsletter.component
 const success = newsletter.success_message
 const error = newsletter.error_message
 const source = newsletter.message_source
-const topics = _categories.value
+const topics = categories.data.stories
 ---
 
 <div class:list={['space-y-6', classes]} data-newsletter {...props}>
