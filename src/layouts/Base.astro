@@ -3,7 +3,6 @@ import Head from '@layouts/Head.astro'
 import Header from '@layouts/Header.astro'
 import Footer from '@layouts/Footer.astro'
 import TitleHidden from '@blocks/TitleHidden.astro'
-import { _settings } from '@scripts/store'
 import Shim from '@blocks/Shim.astro'
 import Modal from '@blocks/Modal.astro'
 import ModalNewsletter from '@blocks/ModalNewsletter.astro'
@@ -15,10 +14,11 @@ import DrawerRegions from '@blocks/DrawerRegions.astro'
 import SearchGlobal from '@blocks/SearchGlobal.astro'
 import ModalVideo from '@blocks/ModalVideo.astro'
 import DrawerFiltersPeople from '@blocks/DrawerFiltersPeople.astro'
-import _getSettings from '@scripts/settings'
+import _getSettings from '@scripts/collections/get-settings'
 
-const { pageTitle, pageDescription, pageThumbnail, settings } = Astro.props
-const site = settings || _settings.value
+const { pageTitle, pageDescription, pageThumbnail } = Astro.props
+const settingsData = await _getSettings()
+const site = settingsData.data.story.content
 
 let fixHeader = true
 let currPath = Astro.url.pathname
@@ -63,7 +63,7 @@ _startsWith(currPath, unfixHeader) ? (fixHeader = false) : (fixHeader = true)
 		</main>
 		<Footer site={site} id='footer' />
 		<Drapery data-drapery id='drapery'>
-			<NavMobile settings={site}/>
+			<NavMobile settings={site} />
 		</Drapery>
 		<Modal data-modal>
 			<ModalNewsletter data-modal-display='newsletter' />

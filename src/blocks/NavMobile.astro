@@ -2,7 +2,6 @@
 import Grid from '@layouts/Grid.astro'
 import Wrapper from '@layouts/Wrapper.astro'
 import TitleHidden from './TitleHidden.astro'
-import { _settings } from '@scripts/store'
 import NavItemMobile from '@atoms/NavItemMobile.astro'
 import Text from '@atoms/Text.astro'
 import Icon from '@atoms/Icon.astro'
@@ -11,10 +10,13 @@ import _empty from '@scripts/empty'
 import _slug from '@scripts/slug'
 import _slugify from '@scripts/slugify'
 import _unslash from '@scripts/unslash'
+import _getSettings from '@scripts/collections/get-settings'
 
-const { settings, class: classes, ...props } = Astro.props
-const nav = settings.nav
-const hub = settings.tools[2]
+const { class: classes, ...props } = Astro.props
+const settingsData = await _getSettings()
+const site = settingsData.data.story.content
+const nav = site.nav
+const hub = site.tools[2]
 ---
 
 <Wrapper tag='nav' margins={false} class='py-4 sm:py-8 overflow-auto'>

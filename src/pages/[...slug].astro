@@ -3,7 +3,6 @@ import { useStoryblokApi } from '@storyblok/astro'
 import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro'
 import Base from '@layouts/Base.astro'
 import { _getPageData } from '@scripts/get-page-data'
-import { _setStores } from '@scripts/set-stores'
 
 export async function getStaticPaths() {
 	const storyblokApi = useStoryblokApi()
@@ -49,8 +48,6 @@ export async function getStaticPaths() {
 
 const { slug } = Astro.params
 const { page, content, seo } = await _getPageData(slug)
-
-await _setStores()
 ---
 
 <Base

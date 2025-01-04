@@ -2,11 +2,12 @@
 import Icon from '@atoms/Icon.astro'
 import TitleHidden from '@blocks/TitleHidden.astro'
 import Head from '@layouts/Head.astro'
-import { _settings } from '@scripts/store'
 import Wrapper from './Wrapper.astro'
+import _getSettings from '@scripts/collections/get-settings'
 
-const { pageTitle, pageDescription, pageThumbnail } = Astro.props,
-	site = _settings.value
+const { pageTitle, pageDescription, pageThumbnail } = Astro.props
+const settingsData = await _getSettings()
+const site = settingsData.data.story.content
 ---
 
 <!doctype html>
