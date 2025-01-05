@@ -2,26 +2,26 @@
 import { _sectionPadding } from '@scripts/snips'
 
 const {
-		component = null,
-		title,
-		poster,
-		header,
-		image,
-		section = true,
-		overlap,
-		id,
-		spy = false,
-		tag = 'section',
-		class: classes,
-		...props
-	} = Astro.props,
-	Tag = tag
+	component = null,
+	title,
+	poster,
+	header,
+	image,
+	section = true,
+	overlap,
+	id,
+	spy = false,
+	tag,
+	class: classes,
+	...props
+} = Astro.props
+const Tag = tag || 'section'
 ---
 
 <Tag
 	class:list={[
 		'relative',
-        section && `_section _section-${component}`,
+		section && `_section _section-${component}`,
 		poster && 'pt-10 lg:pt-14',
 		header && 'pt-[1.75rem] lg:pt-[3.25rem]',
 		image && 'pt-[0.5rem] ml:pt-[2rem] lg:pt-[3.25rem]',

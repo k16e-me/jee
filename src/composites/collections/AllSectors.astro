@@ -4,7 +4,7 @@ import Wrapper from '@layouts/Wrapper.astro'
 import Grid from '@layouts/Grid.astro'
 import { _sectionPadding, _xPadding } from '@scripts/snips'
 import CardExpertise from '@blocks/CardExpertise.astro'
-import _getSectors from '@scripts/collections/get-sectors'
+import { _getSectors } from '@scripts/collections/get-sectors'
 
 const { blok } = Astro.props
 const sectorsData = await _getSectors()

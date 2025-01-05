@@ -3,10 +3,10 @@ import HeaderExpertise from '@composites/headers/HeaderExpertise.astro'
 import Grid from '@layouts/Grid.astro'
 import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro'
 
-const { blok } = Astro.props,
-	url = Astro.url,
-	pathname = url.pathname,
-	parent = pathname.split('/')[1]
+const { blok } = Astro.props
+const url = Astro.url
+const pathname = url.pathname
+const parent = pathname.split('/')[1]
 ---
 
 <HeaderExpertise

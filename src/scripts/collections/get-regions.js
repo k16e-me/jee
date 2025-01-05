@@ -2,7 +2,7 @@ import { useStoryblokApi } from '@storyblok/astro'
 
 const api = useStoryblokApi()
 
-export default async function _getRegions() {
+export async function _getRegions() {
     return await api.getAll('cdn/stories', {
         starts_with: 'regions/',
         version: 'published',

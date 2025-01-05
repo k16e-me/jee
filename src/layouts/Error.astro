@@ -3,7 +3,7 @@ import Icon from '@atoms/Icon.astro'
 import TitleHidden from '@blocks/TitleHidden.astro'
 import Head from '@layouts/Head.astro'
 import Wrapper from './Wrapper.astro'
-import _getSettings from '@scripts/collections/get-settings'
+import { _getSettings } from '@scripts/collections/get-settings'
 
 const { pageTitle, pageDescription, pageThumbnail } = Astro.props
 const settingsData = await _getSettings()

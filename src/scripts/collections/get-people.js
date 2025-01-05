@@ -2,7 +2,7 @@ import { useStoryblokApi } from '@storyblok/astro'
 
 const api = useStoryblokApi()
 
-export default async function _getPeople() {
+export async function _getPeople() {
     return await api.getAll('cdn/stories', {
         starts_with: 'people/',
         version: 'published',

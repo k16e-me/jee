@@ -11,12 +11,12 @@ import Pagination from '@blocks/Pagination.astro'
 import { _getVisibleItems } from '@scripts/get-visible-items'
 import ButtonFlat from '@atoms/ButtonFlat.astro'
 import NoResult from '@blocks/NoResult.astro'
-import _getPeople from '@scripts/collections/get-people'
+import { _getPeople  }from '@scripts/collections/get-people'
 import ButtonMore from '@atoms/ButtonMore.astro'
-import _getDesignations from '@scripts/collections/get-designations'
-import _getOffices from '@scripts/collections/get-offices'
-import _getSectors from '@scripts/collections/get-sectors'
-import _getPractices from '@scripts/collections/get-practices'
+import { _getDesignations } from '@scripts/collections/get-designations'
+import { _getOffices } from '@scripts/collections/get-offices'
+import { _getSectors } from '@scripts/collections/get-sectors'
+import { _getPractices } from '@scripts/collections/get-practices'
 
 const { blok } = Astro.props
 const people = await _getPeople()

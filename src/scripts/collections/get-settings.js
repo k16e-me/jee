@@ -2,7 +2,7 @@ import { useStoryblokApi } from '@storyblok/astro'
 
 const api = useStoryblokApi()
 
-export default async function _getSettings() {
+export async function _getSettings() {
     return await api.get('cdn/stories/settings', {
         version: 'published',
         resolve_links: 'url',

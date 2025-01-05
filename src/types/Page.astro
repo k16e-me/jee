@@ -1,9 +1,9 @@
 ---
 import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro'
 
-const { blok } = Astro.props,
-	{ pathname } = Astro.url,
-	pathArr = pathname.split('/')
+const { blok } = Astro.props
+const { pathname } = Astro.url
+const pathArr = pathname.split('/')
 ---
 {
 	blok.body.map((blok) => {

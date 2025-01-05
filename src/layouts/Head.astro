@@ -4,8 +4,8 @@ import 'swiper/css'
 import 'swiper/css/pagination'
 import '@styles/global.css'
 
-const { title, image, description = '' } = Astro.props,
-	canonicalURL = new URL(Astro.url.pathname, Astro.site)
+const { title, image, description = '' } = Astro.props
+const canonicalURL = new URL(Astro.url.pathname, Astro.site)
 ---
 
 <head>

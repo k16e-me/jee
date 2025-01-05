@@ -10,7 +10,7 @@ import _empty from '@scripts/empty'
 import _slug from '@scripts/slug'
 import _slugify from '@scripts/slugify'
 import _unslash from '@scripts/unslash'
-import _getSettings from '@scripts/collections/get-settings'
+import { _getSettings } from '@scripts/collections/get-settings'
 
 const { class: classes, ...props } = Astro.props
 const settingsData = await _getSettings()

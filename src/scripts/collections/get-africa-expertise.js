@@ -2,7 +2,7 @@ import { useStoryblokApi } from '@storyblok/astro'
 
 const api = useStoryblokApi()
 
-export default async function _getAfricaExpertise() {
+export async function _getAfricaExpertise() {
     return await api.get('cdn/stories', {
         starts_with: 'africa-expertise/',
         version: 'published',

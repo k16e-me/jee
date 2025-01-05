@@ -2,7 +2,7 @@ import { useStoryblokApi } from '@storyblok/astro'
 
 const api = useStoryblokApi()
 
-export default async function _getAfricaIp() {
+export async function _getAfricaIp() {
     return await api.getAll('cdn/stories', {
         starts_with: 'ip/',
         version: 'published',

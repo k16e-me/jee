@@ -14,7 +14,7 @@ import DrawerRegions from '@blocks/DrawerRegions.astro'
 import SearchGlobal from '@blocks/SearchGlobal.astro'
 import ModalVideo from '@blocks/ModalVideo.astro'
 import DrawerFiltersPeople from '@blocks/DrawerFiltersPeople.astro'
-import _getSettings from '@scripts/collections/get-settings'
+import { _getSettings } from '@scripts/collections/get-settings'
 
 const { pageTitle, pageDescription, pageThumbnail } = Astro.props
 const settingsData = await _getSettings()

@@ -6,10 +6,10 @@ import InputText from '@atoms/InputText.astro'
 import Text from '@atoms/Text.astro'
 import HeadingSection from '@blocks/HeadingSection.astro'
 import HeadingStretch from '@blocks/HeadingStretch.astro'
-import _getNewsletter from '@scripts/collections/get-newsletter'
+import { _getNewsletter } from '@scripts/collections/get-newsletter'
 import _slugify from '@scripts/slugify'
 import { useStoryblokApi } from '@storyblok/astro'
-import _getCategories from '@scripts/collections/get-categories'
+import { _getCategories } from '@scripts/collections/get-categories'
 
 const api = useStoryblokApi()
 const {

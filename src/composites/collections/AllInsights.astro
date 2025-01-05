@@ -13,11 +13,11 @@ import { MAXITEMS } from '@scripts/constants'
 import Pagination from '@blocks/Pagination.astro'
 import { _getVisibleItems } from '@scripts/get-visible-items'
 import NoResult from '@blocks/NoResult.astro'
-import _getInsights from '@scripts/collections/get-insights'
+import { _getInsights } from '@scripts/collections/get-insights'
 import ButtonMore from '@atoms/ButtonMore.astro'
-import _getCategories from '@scripts/collections/get-categories'
-import _getSectors from '@scripts/collections/get-sectors'
-import _getPractices from '@scripts/collections/get-practices'
+import { _getCategories } from '@scripts/collections/get-categories'
+import { _getSectors } from '@scripts/collections/get-sectors'
+import { _getPractices } from '@scripts/collections/get-practices'
 
 const { blok } = Astro.props
 const insights = await _getInsights()
