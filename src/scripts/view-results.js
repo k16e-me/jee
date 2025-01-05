@@ -22,5 +22,4 @@ export default function _viewResults() {
             { once: true }
         )
     }
-
 }
