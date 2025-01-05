@@ -8,6 +8,7 @@ const slug = Astro.url.pathname
 const { data } = await storyblokApi.get(`cdn/stories/${slug}`, {
 	version: 'published',
 	resolve_links: 'url',
+	resolve_relations: ['person.byline', 'person_links.location'],
 })
 const page = data.story
 const content = page.content
