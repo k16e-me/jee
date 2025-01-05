@@ -2,19 +2,19 @@
 import { useStoryblokApi } from '@storyblok/astro'
 import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro'
 import Base from '@layouts/Base.astro'
-import { _getPageData } from '@scripts/collections/get-page-data'
-import _getSettings from '@scripts/collections/get-settings'
 
+const storyblokApi = useStoryblokApi()
 const slug = Astro.url.pathname
-// const { page, content, seo } = await _getPageData(slug)
-const [{ page, content, seo }, settings] = await Promise.all([
-	_getPageData(slug),
-	_getSettings(),
-])
+const { data } = await storyblokApi.get(`cdn/stories/${slug}`, {
+	version: 'published',
+	resolve_links: 'url',
+})
+const page = data.story
+const content = page.content
+const seo = content.seo[0]
 ---
 
 <Base
-    settings={settings.data.story.content}
 	pageTitle={seo.title}
 	pageDescription={seo.description}
 	pageThumbnail={seo.thumbnail.filename}>
