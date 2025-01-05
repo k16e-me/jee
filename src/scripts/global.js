@@ -1,7 +1,7 @@
 import Swup from 'swup'
 import SwupProgressPlugin from '@swup/progress-plugin'
 import SwupHeadPlugin from '@swup/head-plugin'
-import _active from './active'
+import { _activeAnchor } from './utils/active-anchor'
 import _accordion from './accordion'
 import _swiperAwards from './swiper-awards'
 import _swiperQuotes from './swiper-quotes'
@@ -46,7 +46,7 @@ swup.hooks.on('page:view', () => init())
 swup.hooks.on('link:click', () => _unsetShim())
 
 function init() {
-    _active()
+    _activeAnchor()
     _accordion()
     _swiperAwards()
     _swiperQuotes()

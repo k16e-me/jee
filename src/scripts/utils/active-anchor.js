@@ -3,14 +3,13 @@ import _slugify from '@scripts/slugify'
 import _siblings from '@scripts/siblings'
 import { _empty } from '@scripts/utils/empty'
 
-export default function _active() {
+export function _activeAnchor() {
     if (!_q('[data-anchor]')) return
 
-    const
-        navA = _ql('[data-anchor]'),
-        currLoc = _slugify(location.pathname),
-        parent = location.pathname.split('/')[1],
-        activeA = navA.filter(a => (a.dataset.anchor === currLoc || parent.startsWith(a.dataset.anchor)))
+    const navA = _ql('[data-anchor]')
+    const currLoc = _slugify(location.pathname)
+    const parent = location.pathname.split('/')[1]
+    const activeA = navA.filter(a => (a.dataset.anchor === currLoc || parent.startsWith(a.dataset.anchor)))
 
     if (!_empty(activeA)) {
         navA.map(a => a.classList.remove('active'))
