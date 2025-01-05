@@ -4,28 +4,25 @@ import { _ql, _q } from './snips'
 export default function _accordion() {
     if (!_q('.accordion')) return
 
-    const
-        menus = _ql('.accordion')
+    const menus = _ql('.accordion')
 
-    menus.forEach(menu => {
-        const
-            trigger = _q('.accordion__button', menu),
-            icon = _q('.accordion__icon', menu),
-            content = _q('.accordion__content', menu)
+    menus.forEach(i => {
+        const trigger = _q('.accordion__button', i)
+        const icon = _q('.accordion__icon', i)
+        const content = _q('.accordion__content', i)
 
         trigger.addEventListener('click', e => {
-            if (!menu.classList.contains('is-active')) {
-                expand(menu, trigger, content, icon)
-                let actives = _siblings(menu).filter(el => el.classList.contains('is-active'))
-                actives.forEach(el => {
-                    const
-                        trigger = _q('.accordion__button', el),
-                        icon = _q('.accordion__icon', el),
-                        content = _q('.accordion__content', el)
-                    collapse(el, trigger, content, icon)
+            if (!i.classList.contains('is-active')) {
+                expand(i, trigger, content, icon)
+                let actives = _siblings(i).filter(j => j.classList.contains('is-active'))
+                actives.forEach(k => {
+                    const trigger = _q('.accordion__button', k)
+                    const icon = _q('.accordion__icon', k)
+                    const content = _q('.accordion__content', k)
+                    collapse(k, trigger, content, icon)
                 })
             } else {
-                collapse(menu, trigger, content, icon)
+                collapse(i, trigger, content, icon)
             }
 
             e.preventDefault()
