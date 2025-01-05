@@ -15,7 +15,7 @@ import _slugify from '@scripts/slugify'
 import HeadingStretch from '@blocks/HeadingStretch.astro'
 import RichText from '@atoms/RichText.astro'
 import ButtonLinkExternal from '@atoms/ButtonLinkExternal.astro'
-import _empty from '@scripts/empty'
+import { _empty } from '@scripts/utils/empty'
 
 const { blok, class: classes, ...props } = Astro.props
 const jobs = blok?.jobs

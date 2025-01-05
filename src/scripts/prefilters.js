@@ -1,4 +1,4 @@
-import _empty from '@scripts/empty'
+import { _empty } from '@scripts/utils/empty'
 import { _ql, _q } from '@scripts/snips'
 
 export default function _prefilters() {

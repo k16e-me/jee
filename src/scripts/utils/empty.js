@@ -1,4 +1,4 @@
-export default function _empty(v) {
+export function _empty(v) {
     if (v.length === 0) return true
     return (
         v === undefined ||

@@ -1,4 +1,4 @@
-import _encode from './encode'
+import { _encode } from './utils/encode'
 import { _q, _ql } from './snips'
 import Botpoison from '@botpoison/browser'
 

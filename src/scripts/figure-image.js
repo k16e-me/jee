@@ -1,4 +1,4 @@
-import _empty from './empty'
+import { _empty } from './utils/empty'
 import { _ql, _q } from './snips'
 
 export default function _figureImg() {

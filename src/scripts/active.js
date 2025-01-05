@@ -1,7 +1,7 @@
 import { _ql, _q } from '@scripts/snips'
 import _slugify from '@scripts/slugify'
 import _siblings from '@scripts/siblings'
-import _empty from '@scripts/empty'
+import { _empty } from '@scripts/utils/empty'
 
 export default function _active() {
     if (!_q('[data-anchor]')) return
