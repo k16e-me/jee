@@ -1,5 +1,5 @@
 import { useStoryblokApi } from '@storyblok/astro'
-import { RELATIONS } from '@scripts/constants'
+import { RELATIONS } from '@scripts/utils/constants'
 
 export async function _getPageData(slug) {
     const storyblokApi = useStoryblokApi()

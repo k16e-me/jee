@@ -1,7 +1,7 @@
-import _siblings from './siblings'
-import { _ql, _q } from './snips'
+import _siblings from '../siblings'
+import { _ql, _q } from '../snips'
 
-export default function _accordion() {
+export function _accordion() {
     if (!_q('.accordion')) return
 
     const menus = _ql('.accordion')

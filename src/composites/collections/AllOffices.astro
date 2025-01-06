@@ -8,7 +8,7 @@ import HeadingSection from '@blocks/HeadingSection.astro'
 import ListStat from '@blocks/ListStat.astro'
 import { _empty } from '@scripts/utils/empty'
 import CardContactPerson from '@blocks/CardContactPerson.astro'
-import { _getOffices } from '@scripts/collections/get-offices'
+import { _getOffices } from '@scripts/data/get-offices'
 
 const { blok } = Astro.props
 const officesData = await _getOffices()

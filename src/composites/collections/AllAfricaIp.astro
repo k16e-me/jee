@@ -5,7 +5,7 @@ import Grid from '@layouts/Grid.astro'
 import { _sectionPadding, _xPadding, _gridGap, _spaceY } from '@scripts/snips'
 import CardCountry from '@blocks/CardCountry.astro'
 import HeadingStretch from '@blocks/HeadingStretch.astro'
-import { _getAfricaIp } from '@scripts/collections/get-africa-ip'
+import { _getAfricaIp } from '@scripts/data/get-africa-ip'
 
 const { blok } = Astro.props
 const ip = await _getAfricaIp()

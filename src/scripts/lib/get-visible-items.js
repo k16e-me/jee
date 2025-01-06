@@ -1,4 +1,4 @@
-import _slugify from './slugify'
+import _slugify from '../slugify'
 
 export function _getVisibleItems(totalItems, search, current, maxItems, allCategories) {
     const stemWord = (word) => {
@@ -22,66 +22,45 @@ export function _getVisibleItems(totalItems, search, current, maxItems, allCateg
     function filter(totalItems) {
         if (allCategories.page === 'People') {
             const { designation, practices, sectors, offices } = allCategories
+
             return totalItems.filter((item) => {
-                // Designation (radio) filter
-                if (designation && item.content.byline[0].slug !== designation) {
-                    return false;
-                }
+                if (designation && item.content.byline[0].slug !== designation) return false
+                if (practices.length > 0 && !practices.some(practice => item.content.practices[0].collection.some(p => practices.includes(p.slug)))) return false
+                if (sectors.length > 0 && !sectors.some(sector => item.content.sectors[0] && item.content.sectors[0].collection.some(p => sectors.includes(p.slug)))) return false
+                if (offices.length > 0 && !offices.some(office => offices.includes(_slugify(item.content.links[0].location.content.tag)))) return false
 
-                // Practices (checkbox) filter
-                if (practices.length > 0 && !practices.some(practice => item.content.practices[0].collection.some(p => practices.includes(p.slug)))) {
-                    return false;
-                }
-
-                // Sectors (checkbox) filter
-                if (sectors.length > 0 && !sectors.some(sector => item.content.sectors[0] && item.content.sectors[0].collection.some(p => sectors.includes(p.slug)))) {
-                    return false;
-                }
-
-                // Offices (checkbox) filter
-                if (offices.length > 0 && !offices.some(office => offices.includes(_slugify(item.content.links[0].location.content.tag)))) {
-                    return false;
-                }
-
-                return true;
-            });
-        }
-        if (allCategories.page === 'Events') {
-            const { timing, type } = allCategories;
-            const date = new Date
-            return totalItems.filter((item) => {
-                if (timing === 'upcoming' && new Date(item.content.start_date.replace(' ', 'T')) <= new Date()) {
-                    return false;
-                } else if (timing === 'past' && new Date(item.content.start_date.replace(' ', 'T')) > new Date()) {
-                    return false;
-                }
-                if (type && item.content.type !== type) {
-                    return false;
-                }
-                return true;
+                return true
             })
         }
+
+        if (allCategories.page === 'Events') {
+            const { timing, type } = allCategories
+            const date = new Date
+            return totalItems.filter((item) => {
+                if (timing === 'upcoming' && new Date(item.content.start_date.replace(' ', 'T')) <= new Date()) return false
+                else if (timing === 'past' && new Date(item.content.start_date.replace(' ', 'T')) > new Date()) return false
+                if (type && item.content.type !== type) return false
+
+                return true
+            })
+        }
+
         if (allCategories.page === 'Insights') {
             const { categories, expertise, people } = allCategories
-            // Practices (checkbox) filter
             return totalItems.filter((item, index) => {
-                if (categories.length > 0 && !categories.includes(_slugify(item.content.category.name))) {
-                    return false;
-                }
-                if (expertise.length > 0 && !expertise.some(_ => item.content.expertise.some(p => expertise.includes(p.slug)))) {
-                    return false;
-                }
-                if (people.length > 0 && !people.some(_ => item.content.author.some(p => people.includes(p.slug)))) {
-                    return false;
-                }
+                if (categories.length > 0 && !categories.includes(_slugify(item.content.category.name))) return false
+                if (expertise.length > 0 && !expertise.some(_ => item.content.expertise.some(p => expertise.includes(p.slug)))) return false
+                if (people.length > 0 && !people.some(_ => item.content.author.some(p => people.includes(p.slug)))) return false
+
                 return true
             })
 
         }
+
         return totalItems
     }
-    const filteredItems = filter(totalItems)
 
+    const filteredItems = filter(totalItems)
     const searchResultsItems = filteredItems.filter((item) =>
         !search ||
         search.trim().length === 0 ||

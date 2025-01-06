@@ -3,7 +3,7 @@ import { _q, _ql } from '@scripts/snips'
 import _trapFocus from '@scripts/trap-focus'
 import { _esc } from '@scripts/utils/esc'
 
-export default function _drawer() {
+export function _drawer() {
     if (!_q('[data-drawer-trigger]')) return
 
     const

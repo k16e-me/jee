@@ -1,12 +1,11 @@
-import { _empty } from './utils/empty'
-import { _ql, _q } from './snips'
+import { _empty } from '../utils/empty'
+import { _ql, _q } from '../snips'
 
-export default function _figureImg() {
+export function _figureImg() {
     if (!_q('p > img')) return
     _ql('p > img').forEach(i => {
-        const
-            figure = document.createElement('figure'),
-            p = i.parentNode
+        const figure = document.createElement('figure')
+        const p = i.parentNode
 
         figure.setAttribute('class', 'mx-[calc(-50vw+50%)] lg:ml-0 lg:mr-[calc(-50vw+75%)]')
         figure.innerHTML = `

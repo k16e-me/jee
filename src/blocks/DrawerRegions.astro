@@ -1,7 +1,7 @@
 ---
 import HeadingSection from '@blocks/HeadingSection.astro'
 import CardRegion from '@blocks/CardRegion.astro'
-import { _getRegions } from '@scripts/collections/get-regions'
+import { _getRegions } from '@scripts/data/get-regions'
 
 const { class: classes, ...props } = Astro.props
 const regions = await _getRegions()
