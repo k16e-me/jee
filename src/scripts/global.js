@@ -23,6 +23,7 @@ import _search from './search'
 import _modalVideo from './modal-video'
 import _viewResults from './view-results'
 import { _resetFilters } from './reset-filters'
+import { _inView } from './lib/in-view'
 
 const swup = new Swup({
     animationSelector: '[class*="swup-"]',
@@ -67,6 +68,7 @@ function init() {
     _mobileMenu()
     _unsetShim()
     _search()
+    // _inView()
 }
 
 function once() {

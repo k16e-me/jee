@@ -142,20 +142,3 @@ const button = blok?.button
 	</Wrapper>
 	<BrandCutFull placement={frontpage ? 'poster' : 'expression'} />
 </Section>
-
-<script>
-	import { animate, inView } from 'motion'
-
-	inView('section', ({ target }) => {
-		animate(
-			target,
-			{ opacity: 1, y: [32, 0] },
-			{
-				duration: 0.3,
-				easing: [0.17, 0.55, 0.55, 1],
-			},
-		)
-
-		return () => animate(target, { opacity: 0, y: -32 })
-	})
-</script>
