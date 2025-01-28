@@ -22,6 +22,7 @@ const image = piece.featured_image
 const altText = piece.featured_image
 	? piece.featured_image.alt
 	: piece.content.image.alt
+const pieceHasAuthor = !_empty(piece.content.author)
 ---
 
 <a
@@ -82,13 +83,17 @@ const altText = piece.featured_image
 			/>
 		</div>
 		<div class:list={[landscape && 'flex flex-col gap-1.5']}>
-			<Author
-				source={piece}
-				size=`${ profile ? 'body' : '6'}`
-				weight=`${ profile ? 'semi' : 'medium'}`
-				color='body'
-				class='mt-auto'
-			/>
+			{
+				pieceHasAuthor && (
+					<Author
+						source={piece}
+						size={profile ? 'body' : '6'}
+						weight={profile ? 'semi' : 'medium'}
+						color='body'
+						class='mt-auto'
+					/>
+				)
+			}
 			{
 				landscape && (
 					<FormattedDate
