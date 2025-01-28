@@ -15,9 +15,10 @@ import InputCheck from '@atoms/InputCheck.astro'
 import _slugify from '@scripts/slugify'
 import Newsletter from '@blocks/Newsletter.astro'
 import SectionLatest from '@composites/sections/SectionLatest.astro'
+import { _empty } from '@scripts/utils/empty'
 
 const { blok } = Astro.props
-const authors = blok.author.slice(0, 3)
+const authors = blok.author?.slice(0, 3) || null
 const expertise = blok.expertise.slice(0, 3)
 const suggested = blok.suggested
 ---
@@ -33,21 +34,23 @@ const suggested = blok.suggested
 			class='col-span-full lg:[grid-area:1/1/2/4] self-start lg:sticky z-10 lg:-top-px lg:pt-8 order-2 lg:order-1 lg:h-screen lg:pb-4 lg:overflow-auto'
 			data-pin-top>
 			<div class='flex flex-col gap-8 lg:gap-12'>
-				<div class='flex flex-col gap-4'>
-					<HeadingStretch tag='h3' text='Authors' />
-					{
-						authors.map((i) => (
-							<CardCapsule
-								entry={i}
-								link={i.full_slug}
-								subtitle={`JEE People`}
-								top
-								fill={false}
-								adjustWidth={false}
-							/>
-						))
-					}
-				</div>
+				{
+					!_empty(authors) && (
+						<div class='flex flex-col gap-4'>
+							<HeadingStretch tag='h3' text='Authors' />
+							{authors.map((i) => (
+								<CardCapsule
+									entry={i}
+									link={i.full_slug}
+									subtitle={`JEE People`}
+									top
+									fill={false}
+									adjustWidth={false}
+								/>
+							))}
+						</div>
+					)
+				}
 				<div class='flex flex-col gap-4'>
 					<HeadingStretch tag='h3' text='Expertise' />
 					{
