@@ -61,7 +61,10 @@ const {
 						? 'lg:[grid-area:1/1/2/8]'
 						: 'lg:[grid-area:1/6/2/13]',
 				]}>
-				<div class:list={['flex flex-col justify-between h-full gap-2 sm:gap-3']}>
+				<div
+					class:list={[
+						'flex flex-col justify-between h-full gap-2 sm:gap-3',
+					]}>
 					<div
 						class:list={[
 							flipped && _xPadding('both-xlup-l'),
@@ -109,11 +112,17 @@ const {
 						/>
 						<ul class:list={['flex gap-4 overflow-auto']}>
 							{
-								heads.persons.map(i => (
-									<li class='!w-auto shrink-0'>
-										<CardPerson person={i} size='mini' />
-									</li>
-								))
+								heads.persons.map(
+									(i) =>
+										i.person?.name && (
+											<li class='!w-auto shrink-0'>
+												<CardPerson
+													person={i}
+													size='mini'
+												/>
+											</li>
+										),
+								)
 							}
 						</ul>
 					</div>
