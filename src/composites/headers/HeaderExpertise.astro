@@ -22,6 +22,7 @@ const {
 	class: classes,
 	...props
 } = Astro.props
+console.log(heads.persons)
 ---
 
 <Section
@@ -114,7 +115,7 @@ const {
 							{
 								heads.persons.map(
 									(i) =>
-										i.person?.name && (
+										i?.name && (
 											<li class='!w-auto shrink-0'>
 												<CardPerson
 													person={i}
