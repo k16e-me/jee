@@ -37,8 +37,8 @@ headings.push(blok.rsvp_label)
 	breadcrumbLabel='JEE Events'
 	altTitle={blok.title}
 	altCopy='.'
-    more={true}>
-    <Chip tag="a" href={type} text={blok.type}/>
+	more={true}>
+	<Chip tag='a' href={type} text={blok.type} />
 </HeaderBasic>
 
 <Section
@@ -152,14 +152,17 @@ headings.push(blok.rsvp_label)
 						<ul
 							class='flex flex-wrap gap-3 sm:gap-4 justify-center sm:justify-start'>
 							{
-								blok.panelists.map((i) => (
-									<li class='!w-auto shrink-0'>
-										<CardPerson
-											person={i.person}
-											size='adaptive'
-										/>
-									</li>
-								))
+								blok.panelists.map(
+									(i) =>
+										i.person?.name && (
+											<li class='!w-auto shrink-0'>
+												<CardPerson
+													person={i.person}
+													size='adaptive'
+												/>
+											</li>
+										),
+								)
 							}
 						</ul>
 					</div>
