@@ -18,7 +18,7 @@ import SectionLatest from '@composites/sections/SectionLatest.astro'
 import { _empty } from '@scripts/utils/empty'
 
 const { blok } = Astro.props
-const authors = blok.author?.slice(0, 3) || null
+const authors = blok.author?.content && blok.author?.slice(0, 3) || []
 const expertise = blok.expertise.slice(0, 3)
 const suggested = blok.suggested
 ---

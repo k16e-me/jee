@@ -6,21 +6,21 @@ import _slug from '@scripts/slug'
 import { _capitalize } from '@scripts/snips'
 
 const {
-		link,
-		entry,
-		tag = 'a',
-		subtitle,
-		subtitleColor = 'caption',
-		adjustWidth = true,
-		bleed,
-		fill = true,
-		height = 'default',
-		top,
-		contain,
-		class: classes,
-		...props
-	} = Astro.props,
-	Tag = tag
+    link,
+    entry,
+    tag,
+    subtitle,
+    subtitleColor = 'caption',
+    adjustWidth = true,
+    bleed,
+    fill = true,
+    height = 'default',
+    top,
+    contain,
+    class: classes,
+    ...props
+} = Astro.props
+const Tag = tag || 'a'
 ---
 
 <Tag
