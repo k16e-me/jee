@@ -8,7 +8,7 @@ import pagefind from 'astro-pagefind'
 const env = loadEnv('', process.cwd(), 'STORYBLOK_TOKEN')
 
 export default defineConfig({
-    site: 'https://jee-v2.k16e.co',
+    site: 'https://jee.k16e.com',
     prefetch: {
         prefetchAll: true
     },

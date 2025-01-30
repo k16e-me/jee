@@ -11,5 +11,11 @@
     NPM_VERSION = "9"
     NETLIFY_IMAGE_CDN_DOMAINS="a.storyblok.com"
 
+[[redirects]]
+    from = "https://jee-v2.k16e.co/.*"
+    to = "https://jee.k16e.com/:splat"
+    status = 301
+    force = true
+
 [images]
-    remote_images = ["https://a.storyblok.com/.*", "https://jee-v2.k16e.co/.*"]
+    remote_images = ["https://a.storyblok.com/.*", "https://jee.k16e.com/.*"]
