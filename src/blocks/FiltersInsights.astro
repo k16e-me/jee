@@ -128,16 +128,20 @@ const {
 					/>
 					<div class='space-y-3'>
 						{
-							people.map((i) => (
-								<InputCheck
-									label={i}
-									id={_slugify(i)}
-									name='people'
-									checked={peopleFromParams.includes(
-										_slugify(i),
-									)}
-								/>
-							))
+							people
+								.filter(
+									(person) => person && person.trim() !== '',
+								)
+								.map((person) => (
+									<InputCheck
+										label={person}
+										id={_slugify(person)}
+										name='people'
+										checked={peopleFromParams.includes(
+											_slugify(person),
+										)}
+									/>
+								))
 						}
 					</div>
 				</fieldset>
