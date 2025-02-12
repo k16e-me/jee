@@ -11,7 +11,7 @@ const { nav, tools, class: classes, ...props } = Astro.props
 
 <Wrapper
 	tag='header'
-	class:list={['h-[var(--spacing-1)] md:h-[var(--spacing-2)] lg:h-[var(--spacing-3)] bg-[var(--color-bg-default)] flex items-center z-50', classes]}
+	class:list={['h-(--r-spacing-1) md:h-(--r-spacing-2) lg:h-(--r-spacing-3) bg-(--color-bg-default) flex items-center z-50', classes]}
     data-header
 	{...props}>
 	<Grid tag='nav' class="w-full">

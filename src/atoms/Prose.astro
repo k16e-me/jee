@@ -8,14 +8,9 @@ const { class: classes, ...props } = Astro.props
 		`
             prose !max-w-none
             prose-li:list-image-[url(/graphics/marker.svg)]
+            [&>li]:!my-0
         `,
 		classes,
 	]}>
 	<slot />
 </div>
-
-<style is:global>
-	li > p {
-		@apply !my-0;
-	}
-</style>

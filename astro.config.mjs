@@ -1,9 +1,9 @@
 import { defineConfig } from 'astro/config'
 import netlify from '@astrojs/netlify'
 import { loadEnv } from 'vite'
-import storyblok from '@storyblok/astro'
-import tailwind from '@astrojs/tailwind'
+import { storyblok } from '@storyblok/astro'
 import pagefind from 'astro-pagefind'
+import tailwindcss from '@tailwindcss/vite'
 
 const env = loadEnv('', process.cwd(), 'STORYBLOK_TOKEN')
 
@@ -21,9 +21,6 @@ export default defineConfig({
     },
     integrations: [
         pagefind(),
-        tailwind({
-            nesting: true
-        }),
         storyblok({
             accessToken: env.STORYBLOK_TOKEN,
             livePreview: false,
@@ -108,6 +105,7 @@ export default defineConfig({
         },
         optimizeDeps: {
             exclude: ['pagefind']
-        }
+        },
+        plugins: [tailwindcss()]
     }
 })
