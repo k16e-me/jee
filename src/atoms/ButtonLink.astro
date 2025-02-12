@@ -21,8 +21,8 @@ const Tag = tag
 <Tag
 	{...link ? { href: _slug(link) } : {}}
 	class:list={[
-		'text-[var(--color-lightest)] h-[2.75rem] lg:h-[3.0625rem] flex flex-col justify-center min-w-28 max-w-fit rounded-full px-5 group relative [&.disabled]:cursor-not-allowed',
-		theme === 'dark' && 'bg-[var(--color-surface-dark)]',
+		'text-(--color-lightest) h-[2.75rem] lg:h-[3.0625rem] flex flex-col justify-center min-w-28 max-w-fit rounded-full px-5 group relative [&.disabled]:cursor-not-allowed',
+		theme === 'dark' && 'bg-(--color-surface-dark)',
 		classes,
 	]}
     {...external ? {target: '_blank'} : {}}
@@ -44,11 +44,11 @@ const Tag = tag
 		class='to-swap absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0'>
 		<Icon
 			name='spinner'
-			class='spinner text-[var(--color-text-title-inverted)] animate-spin size-5'
+			class='spinner text-(--color-text-title-inverted) animate-spin size-5'
 		/>
 	</div>
 	<Icon
 		name='highlight'
-		class='fix-svg-stroke w-6 lg:w-7 text-[var(--color-main-inverted)] opacity-0 translate-y-1.5 group-hover:opacity-100 group-hover:-translate-y-1.5 group-[.disabled]:opacity-0 absolute bottom-0'
+		class='fix-svg-stroke w-6 lg:w-7 text-(--color-main-inverted) opacity-0 translate-y-1.5 group-hover:opacity-100 group-hover:-translate-y-1.5 group-[.disabled]:opacity-0 absolute bottom-0'
 	/>
 </Tag>

@@ -25,51 +25,61 @@
     --breakpoint-3xl: 1920px;
 }
 
-@layer base {
-    :root {
-        /* Fixed Colors */
-        --color-main: #E80000;
-        --color-main-inverted: #FF4747;
-        --color-secondary: #FDC287;
-        --color-secondary-inverted: #FED6AA;
-        --color-dark: #211B1B;
-        --color-muted: #D1D1D1;
-        --color-muted-dark: #382E2E;
-        --color-lightest: #FFFDF3;
-        --color-lightest-elevated: #F2ECD3;
-        --color-accent: #FDC287;
-        --color-gray-200: #D1D1D1;
-        --color-gray-300: #B0B0B0;
-        --color-gray-400: #888888;
-        --color-red-500: #FF2626;
-        --color-brown-100: #E4E0DD;
-        --color-brown-900: #2D2525;
+@theme {
+    --color-parchment-50: #f9f7ed;
+    --color-parchment-100: #f2ecd3;
+    --color-parchment-200: #e5d6a3;
+    --color-parchment-300: #d5ba6f;
+    --color-parchment-400: #c8a047;
+    --color-parchment-500: #b98c39;
+    --color-parchment-600: #9f6f2f;
+    --color-parchment-700: #7f5329;
+    --color-parchment-800: #6b4428;
+    --color-parchment-900: #5c3a27;
+    --color-parchment-950: #351e13;
+    
+    /* Fixed Colors */
+    --color-main: #E80000;
+    --color-main-inverted: #FF4747;
+    --color-secondary: #FDC287;
+    --color-secondary-inverted: #FED6AA;
+    --color-dark: #211B1B;
+    --color-muted: #D1D1D1;
+    --color-muted-dark: #382E2E;
+    --color-lightest: #FFFDF3;
+    --color-lightest-elevated: #F2ECD3;
+    --color-accent: #FDC287;
+    --color-gray-200: #D1D1D1;
+    --color-gray-300: #B0B0B0;
+    --color-gray-400: #888888;
+    --color-red-500: #FF2626;
+    --color-brown-100: #E4E0DD;
+    --color-brown-900: #2D2525;
 
-        /* Variable Colors Light/Dark */
-        --color-surface-dark: var(--color-dark);
+    /* Variable Colors Light/Dark */
+    --color-surface-dark: var(--color-dark);
 
-        --color-bg-default: var(--color-lightest);
-        --color-bg-default-elevated: var(--color-lightest-elevated);
-        --color-bg-neutral-gray: #F4F3F2;
-        --color-elevation-1-inverted: var(--color-brown-900);
+    --color-bg-default: var(--color-lightest);
+    --color-bg-default-elevated: var(--color-lightest-elevated);
+    --color-bg-neutral-gray: #F4F3F2;
+    --color-elevation-1-inverted: var(--color-brown-900);
 
-        --color-text-title: #211B1B;
-        --color-text-title-inverted: var(--color-lightest);
-        --color-text-body: #333333;
-        --color-text-caption: #454545;
-        --color-text-muted: var(--color-gray-400);
-        --color-text-emphasis: var(--color-main);
-        --color-text-emphasis-hover: var(--color-red-500);
+    --color-text-title: #211B1B;
+    --color-text-title-inverted: var(--color-lightest);
+    --color-text-body: #333333;
+    --color-text-caption: #454545;
+    --color-text-muted: var(--color-gray-400);
+    --color-text-emphasis: var(--color-main);
+    --color-text-emphasis-hover: var(--color-red-500);
 
-        --color-emphasis: var(--color-main);
-        --color-emphasis-inverted: var(--color-main-inverted);
-        --color-backdrop: var(--color-dark);
-        --color-accent: var(--color-secondary);
+    --color-emphasis: var(--color-main);
+    --color-emphasis-inverted: var(--color-main-inverted);
+    --color-backdrop: var(--color-dark);
+    --color-accent: var(--color-secondary);
 
-        --color-border-muted: var(--color-gray-200);
-        --color-border-accent: var(--color-accent);
-        --color-border-subtle: var(--color-gray-300);
-    }
+    --color-border-muted: var(--color-gray-200);
+    --color-border-accent: var(--color-accent);
+    --color-border-subtle: var(--color-gray-300);
 }
 
 html {
@@ -88,6 +98,7 @@ main:focus {
     outline: none;
 }
 button {
+    @apply cursor-pointer;
     text-align: inherit;
 }
 a, button, .r-transition { @apply transition duration-[250ms] ease-out; }
