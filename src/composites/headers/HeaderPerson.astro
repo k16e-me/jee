@@ -28,7 +28,7 @@ const { person, class: classes, ...props } = Astro.props
 			<div
 				class='col-span-full md:[grid-area:1/1/2/5] lg:[grid-area:1/1/2/6]'>
 				<div
-					class='h-[30rem] xs:h-[34rem] sm:h-[36rem] lg:h-[37.5rem] overflow-clip bg-[var(--color-bg-default-elevated)] rounded-3xl'>
+					class='h-[30rem] xs:h-[34rem] sm:h-[36rem] lg:h-[37.5rem] overflow-clip bg-(--color-bg-default-elevated) rounded-3xl'>
 					<Image
 						filename={person.headshot.filename}
 						alt={person.headshot.alt}

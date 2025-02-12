@@ -14,7 +14,7 @@ const { blok, class: classes, ...props } = Astro.props
 
 <Section
 	component={blok.component}
-	class='relative [transform:translateZ(0)] overflow-x-clip min-h-[23rem] xs:min-h-[21rem] md:min-h-[23.5rem] lg:min-h-[25.5rem] bg-[var(--color-bg-default)]'>
+	class='relative [transform:translateZ(0)] overflow-x-clip min-h-[23rem] xs:min-h-[21rem] md:min-h-[23.5rem] lg:min-h-[25.5rem] bg-(--color-bg-default)'>
 	<Wrapper>
 		<Grid class:list={[_gridGap('y'), '']}>
 			<div

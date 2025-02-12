@@ -7,7 +7,7 @@ const { tag = 'li', entry, class: classes, ...props } = Astro.props,
 ---
 
 <Tag
-	class='group bg-[var(--color-bg-default-elevated)] rounded-xl overflow-clip'>
+	class='group bg-(--color-bg-default-elevated) rounded-xl overflow-clip'>
 	<a
 		href={`/${entry.full_slug}`}
 		class='size-full flex flex-col justify-center items-center gap-3 px-4 py-6'>
@@ -21,7 +21,7 @@ const { tag = 'li', entry, class: classes, ...props } = Astro.props,
 			color='title'
 			weight='medium'
 			size='blurb'
-			class='group-hover:text-[var(--color-emphasis)] text-center r-transition'
+			class='group-hover:text-(--color-emphasis) text-center r-transition'
 		/>
 	</a>
 </Tag>

@@ -99,7 +99,7 @@ const suggested = blok.suggested
 				</div>
 				<RichText text={blok.post} post />
 				<div
-					class='mx-[calc(-50vw+50%)] md:mx-[calc(-50vw+75%)] lg:ml-0 lg:mr-[calc(-50vw+75%)] bg-[var(--color-bg-default-elevated)] px-4 py-4 border-t border-[var(--color-border-muted)]'>
+					class='mx-[calc(-50vw+50%)] md:mx-[calc(-50vw+75%)] lg:ml-0 lg:mr-[calc(-50vw+75%)] bg-(--color-bg-default-elevated) px-4 py-4 border-t border-(--color-border-muted)'>
 					<Text
 						tag='p'
 						text={blok.disclaimer}
@@ -116,7 +116,7 @@ const suggested = blok.suggested
 	class:list={[_sectionPadding('bottom'), 'relative z-30']}>
 	<Grid class:list={[_gridGap('y')]}>
 		<div
-			class='col-span-full ml:[grid-area:1/1/2/5] lg:[grid-area:1/1/2/6] bg-[var(--color-bg-default-elevated)] ml:rounded-r-[2rem]'>
+			class='col-span-full ml:[grid-area:1/1/2/5] lg:[grid-area:1/1/2/6] bg-(--color-bg-default-elevated) ml:rounded-r-[2rem]'>
 			<div
 				class:list={[
 					_xPadding('left'),

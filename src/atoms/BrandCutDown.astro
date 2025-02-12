@@ -20,7 +20,7 @@ const { top, specialCase, flipped, class: classes, ...props } = Astro.props
 	<Icon
 		name='cutout-down'
 		class:list={[
-			'w-[40rem] md:w-[45rem] lg:w-[56rem] scale-110 sm:scale-[1.4] h-auto text-[var(--color-main)]',
+			'w-[40rem] md:w-[45rem] lg:w-[56rem] scale-110 sm:scale-[1.4] h-auto text-(--color-main)',
 			top && 'md:scale-100',
 			specialCase && 'sm:scale-x-[1.5] sm:scale-y-[1.045] lg:scale-100',
 			flipped && 'ml:![transform:rotateY(180deg)]',

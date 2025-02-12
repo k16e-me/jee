@@ -41,7 +41,7 @@ const doc = blok.document[0]
 				href={doc.file.filename}
 				aria-label={doc.file.title}
 				target='_blank'
-				class='flex flex-col gap-0 w-64 max-h-min rounded-2xl border-2 border-[var(--color-accent)] hover:border-[var(--color-emphasis)] overflow-clip group'>
+				class='flex flex-col gap-0 w-64 max-h-min rounded-2xl border-2 border-[var(--color-accent)] hover:border-(--color-emphasis) overflow-clip group'>
 				<Image
 					filename={doc.cover.filename}
 					alt={doc.cover.alt}
@@ -51,14 +51,14 @@ const doc = blok.document[0]
 				<div class='flex gap-2 items-center justify-center p-3'>
 					<Icon
 						name='pdf'
-						class='size-6 shrink-0 text-[var(--color-emphasis)] group-hover:scale-105 r-transition'
+						class='size-6 shrink-0 text-(--color-emphasis) group-hover:scale-105 r-transition'
 					/>
 					<Text
 						text={doc.cta_text}
 						color='body'
 						size='blurb'
 						weight='medium'
-						class='group-hover:text-[var(--color-emphasis)] r-transition'
+						class='group-hover:text-(--color-emphasis) r-transition'
 					/>
 				</div>
 			</a>

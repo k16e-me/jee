@@ -12,7 +12,7 @@ const { links, class: classes, ...props } = Astro.props
 					href={item.url.url}
 					target='_blank'
 					rel='noopener noreferrer'
-                    class="text-[var(--color-muted)] opacity-70 group-hover:text-[var(--color-main)] group-hover:opacity-100">
+                    class="text-[var(--color-muted)] opacity-70 group-hover:text-(--color-main) group-hover:opacity-100">
 					<Icon name={item.name} class='h-6' />
 					<span class='sr-only' set:text={item.name} />
 				</a>

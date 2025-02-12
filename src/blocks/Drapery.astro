@@ -7,7 +7,7 @@ const { class: classes, ...props } = Astro.props
 
 <div
 	class:list={[
-		'fixed inset-0 w-screen h-screen bg-[var(--color-surface-dark)] z-[200] transition-all duration-300 ease-in-out -translate-y-full scale-95 opacity-0 invisible overflow-hidden',
+		'fixed inset-0 w-screen h-screen bg-(--color-surface-dark) z-[200] transition-all duration-300 ease-in-out -translate-y-full scale-95 opacity-0 invisible overflow-hidden',
 		classes,
 	]}
 	aria-labelledby='modal-title'
@@ -16,7 +16,7 @@ const { class: classes, ...props } = Astro.props
 	{...props}>
 	<Wrapper class='relative'>
 		<div
-			class='h-[var(--r-spacing-1)] md:h-[var(--r-spacing-2)] w-full lg:h-[var(--r-spacing-3)] flex items-center justify-end translate-x-1 sm:translate-x-2 lg:translate-x-0'>
+			class='h-(--r-spacing-1) md:h-(--r-spacing-2) w-full lg:h-(--r-spacing-3) flex items-center justify-end translate-x-1 sm:translate-x-2 lg:translate-x-0'>
 			<div class='h-full w-11 flex items-center justify-center relative'>
 				<ButtonFab
 					style='neutral'

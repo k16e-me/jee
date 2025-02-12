@@ -46,12 +46,12 @@ const { searchResultsItems, visibleItems } = _getVisibleItems(
 	<Wrapper
 		margins={false}
 		class:list={[
-			'overflow-clip bg-[var(--color-bg-default)] ml:bg-transparent rounded-t-[1.5rem] md:rounded-t-[3.5rem] ml:rounded-t-none',
+			'overflow-clip bg-(--color-bg-default) ml:bg-transparent rounded-t-[1.5rem] md:rounded-t-[3.5rem] ml:rounded-t-none',
 		]}>
 		<Grid class='overflow-clip self-start'>
 			<div
 				class:list={[
-					'col-span-full ml:[grid-area:1/1/2/3] lg:[grid-area:1/1/2/4] sticky bg-[var(--color-bg-default)] z-10 -top-px [&.is-pinned]:shadow ml:!shadow-none ml:pt-8 ml:max-h-[calc(100vh-1.5rem)] overflow-y-clip flex flex-col px-4 md:px-8 ml:pr-0 lg:pl-16',
+					'col-span-full ml:[grid-area:1/1/2/3] lg:[grid-area:1/1/2/4] sticky bg-(--color-bg-default) z-10 -top-px [&.is-pinned]:shadow ml:!shadow-none ml:pt-8 ml:max-h-[calc(100vh-1.5rem)] overflow-y-clip flex flex-col px-4 md:px-8 ml:pr-0 lg:pl-16',
 				]}
 				data-pin-top>
 				<form

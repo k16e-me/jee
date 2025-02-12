@@ -37,7 +37,7 @@
     --color-parchment-800: #6b4428;
     --color-parchment-900: #5c3a27;
     --color-parchment-950: #351e13;
-    
+
     /* Fixed Colors */
     --color-main: #E80000;
     --color-main-inverted: #FF4747;
@@ -92,7 +92,7 @@ html.is-animating .swup-in {
     @apply opacity-0 scale-[.99] translate-y-10 ease-in;
 }
 .swup-progress-bar {
-    @apply h-0.5 bg-[var(--color-main)];
+    @apply h-0.5 bg-(--color-main);
 }
 main:focus {
     outline: none;
@@ -102,7 +102,7 @@ button {
     text-align: inherit;
 }
 a, button, .r-transition { @apply transition duration-[250ms] ease-out; }
-.r-focus { @apply focus:ring-2 focus:ring-inset focus:ring-[var(--color-emphasis)] outline-none; }
+.r-focus { @apply focus:ring-2 focus:ring-inset focus:ring-(--color-emphasis) outline-none; }
 
 svg, button span {
     @apply flex-shrink-0 pointer-events-none fill-current;

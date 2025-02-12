@@ -31,14 +31,14 @@ const Tag = tag || 'a'
 		height === 'tall' && 'h-24',
 		adjustWidth ? 'sm:w-[calc(50%-1rem)]' : 'max-w-[23rem]',
 		bleed && 'max-w-none',
-		fill && 'bg-[var(--color-bg-default-elevated)] p-1',
-		link && 'hover:bg-[var(--color-bg-default-elevated)]',
+		fill && 'bg-(--color-bg-default-elevated) p-1',
+		link && 'hover:bg-(--color-bg-default-elevated)',
 		classes,
 	]}
 	{...props}>
 	<div
 		class:list={[
-			'rounded-tl-lg rounded-bl-lg rounded-tr-2xl rounded-br-[3rem] overflow-clip h-full shrink-0 bg-[var(--color-bg-default-elevated)]',
+			'rounded-tl-lg rounded-bl-lg rounded-tr-2xl rounded-br-[3rem] overflow-clip h-full shrink-0 bg-(--color-bg-default-elevated)',
 			height === 'default' && 'w-20',
 			height === 'tall' && 'w-24',
 		]}>
@@ -87,7 +87,7 @@ const Tag = tag || 'a'
 			<div class='fixed bottom-0 right-0 translate-y-4 opacity-0 transition duration-200 group-hover:translate-y-0 group-hover:opacity-100'>
 				<Icon
 					name='cutout-up'
-					class='w-[10rem] text-[var(--color-emphasis)] absolute -right-[4.5rem] -bottom-[2.8rem]'
+					class='w-[10rem] text-(--color-emphasis) absolute -right-[4.5rem] -bottom-[2.8rem]'
 				/>
 				<Icon
 					name='arrow-right'
