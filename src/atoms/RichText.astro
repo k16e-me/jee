@@ -29,11 +29,11 @@ const html = render(text)
 		weight === 'semi' && 'font-semibold',
 		weight === 'bold' && 'font-bold',
 		weight === 'extra' && 'font-extrabold',
-		color === 'caption' && 'text-[var(--color-text-caption)]',
-		color === 'body' && 'text-[var(--color-text-body)]',
-		color === 'title' && 'text-[var(--color-text-title)]',
+		color === 'caption' && 'text-(--color-text-caption)',
+		color === 'body' && 'text-(--color-text-body)',
+		color === 'title' && 'text-(--color-text-title)',
 		post &&
-			'prose-blockquote:border-l-0 prose-blockquote:border-y-2 prose-blockquote:py-2 prose-blockquote:my-8 ml:prose-blockquote:my-10 lg:prose-blockquote:my-12 prose-blockquote:border-[var(--color-border-muted)] prose-blockquote:text-center [&>blockquote>p:first-of-type]:text-2xl prose-h3:text-2xl prose-h4:text-xl [&>*]:empty:hidden',
+			'prose-blockquote:border-l-0 prose-blockquote:border-y-2 prose-blockquote:py-2 prose-blockquote:my-8 ml:prose-blockquote:my-10 lg:prose-blockquote:my-12 prose-blockquote:border-(--color-border-muted) prose-blockquote:text-center [&>blockquote>p:first-of-type]:text-2xl prose-h3:text-2xl prose-h4:text-xl [&>*]:empty:hidden',
 		classes,
 	]}
 	{...props}>

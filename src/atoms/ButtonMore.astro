@@ -24,17 +24,17 @@ const Tag = tag || 'a'
 		class={[
 			'flex items-center justify-center whitespace-nowrap',
 			theme === 'default' &&
-				'text-[var(--color-text-title)] group-hover:text-[var(--color-text-emphasis)]',
+				'text-(--color-text-title) group-hover:text-(--color-text-emphasis)',
 			theme === 'on-dark' &&
-				'text-[var(--color-lightest)] group-hover:text-[var(--color-main-inverted)]',
+				'text-(--color-lightest) group-hover:text-(--color-main-inverted)',
 		]}
 	/>
 	<Icon
 		name='underslash'
 		class:list={[
 			'fix-svg-stroke w-full h-3 -translate-y-[1px] group-hover:-translate-y-[3px]',
-			theme === 'default' && 'text-[var(--color-main)]',
-			theme === 'on-dark' && 'text-[var(--color-main-inverted)]',
+			theme === 'default' && 'text-(--color-main)',
+			theme === 'on-dark' && 'text-(--color-main-inverted)',
 		]}
 	/>
 </Tag>

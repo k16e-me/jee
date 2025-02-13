@@ -20,16 +20,16 @@ const Tag = tag
 		'flex items-center justify-center group rounded-full',
 		classes,
 		style === 'default' &&
-			'bg-[var(--color-bg-default-elevated)] text-[var(--color-text-emphasis)]',
-		style === 'blank' && 'bg-transparent text-[var(--color-text-body)]',
+			'bg-(--color-bg-default-elevated) text-(--color-text-emphasis)',
+		style === 'blank' && 'bg-transparent text-(--color-text-body)',
 		style === 'blank-brand' &&
-			'bg-transparent text-[var(--color-text-emphasis)]',
+			'bg-transparent text-(--color-text-emphasis)',
 		style === 'neutral' && 'bg-transparent text-white',
 		style === 'neutral-dark' &&
-			'bg-transparent text-[var(--color-text-caption)]',
-		style === 'brand' && 'bg-[var(--color-emphasis)] text-white',
+			'bg-transparent text-(--color-text-caption)',
+		style === 'brand' && 'bg-(--color-emphasis) text-white',
 		style === 'brand-inverted' &&
-			'bg-[var(--color-main-inverted)] text-white',
+			'bg-(--color-main-inverted) text-white',
 		size === 'large' && 'w-12 h-12',
 		size === 'default' && 'w-11 h-11',
 		size === 'mini' && 'w-10 h-10',

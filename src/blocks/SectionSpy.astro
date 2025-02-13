@@ -7,7 +7,7 @@ const { headings, breakAt = 'xl', class: classes, ...props } = Astro.props
 
 <ul
 	class:list={[
-		'flex items-center justify-between border-b border-[var(--color-border-muted)]',
+		'flex items-center justify-between border-b border-(--color-border-muted)',
 		breakAt === 'md' &&
 			'md:flex-col md:items-end md:border-b-0 md:border-r [&>*]:md:text-right',
 		breakAt === 'lg' &&
@@ -34,7 +34,7 @@ const { headings, breakAt = 'xl', class: classes, ...props } = Astro.props
 					href={`#${_slugify(h)}`}
 					set:text={h}
 					class:list={[
-						'flex text-right font-semibold font-display p-4 xl:px-6 [&.is-in-view]:border-b-[3px] [&.is-in-view]:border-[var(--color-emphasis)] group-hover:text-[var(--color-emphasis)] [&.is-in-view]:text-[var(--color-emphasis)]',
+						'flex text-right font-semibold font-display p-4 xl:px-6 [&.is-in-view]:border-b-[3px] [&.is-in-view]:border-(--color-emphasis) group-hover:text-(--color-emphasis) [&.is-in-view]:text-(--color-emphasis)',
 						breakAt === 'md' &&
 							'md:pl-0 md:!border-b-0 [&.is-in-view]:md:border-r-[3px]',
 						breakAt === 'lg' &&

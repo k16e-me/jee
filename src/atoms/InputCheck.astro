@@ -14,7 +14,7 @@ const {
 ---
 
 <p
-  class:list={["flex items-center m-0 cursor-pointer w-full", classes]}
+  class:list={["flex items-center cursor-pointer w-full", classes]}
   {...props}
 >
   <input
@@ -23,7 +23,7 @@ const {
     name={`${name}` + "[]"}
     id={id}
     class:list={[
-      "h-4 w-4 border-[var(--color-border-subtle)] text-[var(--color-emphasis)] focus:ring-[var(--color-emphasis)]",
+      "h-4 w-4 border-(--color-border-subtle) text-(--color-emphasis) focus:ring-(--color-emphasis)",
       _fontSize("blurb"),
     ]}
     checked={checked}
@@ -32,7 +32,7 @@ const {
     set:text={label}
     for={id}
     class:list={[
-      "pl-3 block font-medium font-display text-[var(--color-text-body)] w-full",
+      "pl-3 block font-medium font-display text-(--color-text-body) w-full",
       _fontSize("blurb"),
     ]}
   />

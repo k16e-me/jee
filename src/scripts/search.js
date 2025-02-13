@@ -58,16 +58,16 @@ export default function _search() {
         displayedResults.forEach((r) => {
             const li = document.createElement('li')
             li.innerHTML = `
-                <a href="${r.url.replace('.html', '')}" class="flex items-center w-full rounded-xl group r-hide-overflow overflow-y-clip h-[6.15rem] max-w-none hover:bg-[var(--color-bg-default-elevated)]" data-search-result>
-                    <div class="rounded-tl-lg rounded-bl-lg rounded-tr-2xl rounded-br-[3rem] overflow-clip h-full shrink-0 bg-[var(--color-bg-default-elevated)] w-[6.05rem]">
+                <a href="${r.url.replace('.html', '')}" class="flex items-center w-full rounded-xl group r-hide-overflow overflow-y-clip h-[6.15rem] max-w-none hover:bg-(--color-bg-default-elevated)" data-search-result>
+                    <div class="rounded-tl-lg rounded-bl-lg rounded-tr-2xl rounded-br-[3rem] overflow-clip h-full shrink-0 bg-(--color-bg-default-elevated) w-[6.05rem]">
                         <img src="${r.meta.image}" alt="" draggable="false" class="w-full max-w-full saturate-[.8] sepia-[7%] grayscale-[5%] object-cover object-top size-full group-hover:scale-105 transition-transform duration-200" width="320" height="217"/>
                     </div>
                     <div class="px-4 flex flex-col gap-2 h-full justify-around py-2">
                         <span class="text-[1.015rem] leading-[1.325rem] md:text-[1.0625rem] font-sans font-semibold text-[var(--color-text-title)] line-clamp-2">${r.meta.title}</span>
-                        <span class="text-[0.8975rem] leading-[1.0975rem] font-sans font-medium text-[var(--color-text-caption)] line-clamp-1 max-w-32 capitalize">${r.excerpt}</span>
+                        <span class="text-[0.8975rem] leading-[1.0975rem] font-sans font-medium text-(--color-text-caption) line-clamp-1 max-w-32 capitalize">${r.excerpt}</span>
                     </div>
                     <div class="fixed bottom-0 right-0 translate-y-4 opacity-0 transition duration-200 group-hover:translate-y-0 group-hover:opacity-100">
-                        <svg viewBox="0 0 960 560" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-[10rem] text-[var(--color-emphasis)] absolute -right-[4.5rem] -bottom-[2.8rem]">
+                        <svg viewBox="0 0 960 560" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-[10rem] text-(--color-emphasis) absolute -right-[4.5rem] -bottom-[2.8rem]">
                             <path
                                 fill-rule="evenodd"
                                 clip-rule="evenodd"

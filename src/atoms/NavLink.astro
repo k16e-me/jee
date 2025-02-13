@@ -6,7 +6,7 @@ const { link, children = false, child, class: classes, ...props } = Astro.props
 
 <div
 	class:list={[
-		'text-[var(--color-text-caption)] group-hover/li:text-[var(--color-text-emphasis)] group-[&.active]/anchor:text-[var(--color-text-emphasis)] has-[.active]:text-[var(--color-text-emphasis)] flex items-center gap-[0.125rem] text-base 2xl:text-lg 3xl:text-xl transition duration-200 ease-out',
+		'text-(--color-text-caption) group-hover/li:text-(--color-text-emphasis) group-[&.active]/anchor:text-(--color-text-emphasis) has-[.active]:text-(--color-text-emphasis) flex items-center gap-[0.125rem] text-base 2xl:text-lg 3xl:text-xl transition duration-200 ease-out',
 		classes,
 	]}
 	{...props}>

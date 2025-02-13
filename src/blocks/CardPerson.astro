@@ -15,7 +15,7 @@ person.content?.link ? (internal = false) : (internal = true)
 <a
 	href={internal ? `/${person.full_slug}` : person.content.link.cached_url}
 	class:list={[
-		'grid grid-cols-1 items-end bg-[var(--color-bg-default-elevated)] group relative overflow-clip',
+		'grid grid-cols-1 items-end bg-(--color-bg-default-elevated) group relative overflow-clip',
 		size === 'default' &&
 			'rounded-[1.25rem] md:rounded-t-[1.5rem] w-[18.5rem] h-[24.5rem]',
 		size === 'mini' && 'rounded-2xl w-[14.5rem] h-[19.5rem]',
@@ -43,10 +43,10 @@ person.content?.link ? (internal = false) : (internal = true)
 		<Icon
 			name='cutout-down'
 			class:list={[
-				'h-[18rem] transition-transform duration-200 scale-105 group-hover:scale-110 absolute top-[75%] inset-x-0 z-0',
+				'h-[18rem] transition-transform duration-200 scale-105 group-hover:scale-110 absolute top-[75%] inset-x-0',
 				internal
-					? 'text-[var(--color-backdrop)]'
-					: 'text-[var(--color-backdrop)]',
+					? 'text-(--color-backdrop)'
+					: 'text-(--color-backdrop)',
 			]}
 		/>
 		<div

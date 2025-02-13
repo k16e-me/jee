@@ -6,7 +6,7 @@ const { link, class: classes, ...props } = Astro.props
 
 <button
 	class:list={[
-		'text-[var(--color-text-caption)] hover:text-[var(--color-text-emphasis)] h-10 flex items-center group',
+		'text-(--color-text-caption) hover:text-(--color-text-emphasis) h-10 flex items-center group',
 		classes,
 	]}
 	{...props}>
@@ -16,6 +16,6 @@ const { link, class: classes, ...props } = Astro.props
 	/>
 	<Icon
 		name='chevron-right'
-		class='w-4 text-[var(--color-text-emphasis)] group-hover:translate-x-0.5 block'
+		class='w-4 text-(--color-text-emphasis) group-hover:translate-x-0.5 block'
 	/>
 </button>

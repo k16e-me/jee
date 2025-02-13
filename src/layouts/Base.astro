@@ -35,7 +35,7 @@ _startsWith(currPath, unfixHeader) ? (fixHeader = false) : (fixHeader = true)
 <html
 	lang='en'
 	class:list={[
-		`scroll-smooth bg-[var(--color-bg-default)]
+		`scroll-smooth bg-(--color-bg-default)
         scrollbar-thin scrollbar-track-[#F2ECD3] scrollbar-thumb-[#FF2626]`,
 	]}>
 	<Head
@@ -56,7 +56,7 @@ _startsWith(currPath, unfixHeader) ? (fixHeader = false) : (fixHeader = true)
 			class:list={[
 				'mb-auto swup-in',
 				fixHeader &&
-					'pt-[var(--spacing-1)] md:pt-[var(--spacing-2)] lg:pt-[var(--spacing-3)]',
+					'pt-[var(--r-spacing-1)] md:pt-[var(--r-spacing-2)] lg:pt-[var(--r-spacing-3)]',
 			]}
 			id='swup'>
 			<slot />
