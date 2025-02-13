@@ -35,7 +35,7 @@ person.content?.link ? (internal = false) : (internal = true)
 				size === 'default' && 'h-[24rem]',
 				size === 'mini' && 'h-[18rem]',
 				size === 'adaptive' && 'h-[24rem] md:h-[18rem]',
-				'transition-transform duration-[250ms] group-hover:scale-105',
+				'transition-transform duration-200 group-hover:scale-105',
 			]}
 		/>
 	</div>
@@ -43,7 +43,7 @@ person.content?.link ? (internal = false) : (internal = true)
 		<Icon
 			name='cutout-down'
 			class:list={[
-				'h-[18rem] transition-transform duration-[250ms] scale-105 group-hover:scale-110 absolute top-[75%] inset-x-0 z-0',
+				'h-[18rem] transition-transform duration-200 scale-105 group-hover:scale-110 absolute top-[75%] inset-x-0',
 				internal
 					? 'text-(--color-backdrop)'
 					: 'text-(--color-backdrop)',
