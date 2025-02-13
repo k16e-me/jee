@@ -37,7 +37,7 @@ const truncatedPagination = _truncatesPagination(numberOfPages, current)
 				<li>
 					<ul class='flex items-center gap-1.5 sm:gap-3'>
 						{truncatedPagination.map((number, index) => (
-							<li class='page [&>a[aria-current="page"]]:bg-(--color-emphasis) [&>a]:rounded-full [&>a[aria-current="page"]]:text-white [&>a:not([aria-current="page"])]:hover:bg-(--color-bg-default-elevated)'>
+							<li class='page [&>a[aria-current=page]]:bg-(--color-emphasis) [&>a]:rounded-full [&>a[aria-current=page]]:text-white [&>a:not([aria-current=page])]:hover:bg-(--color-bg-default-elevated)'>
 								{typeof number === 'object' ? (
 									<p>{number.text}</p>
 								) : (

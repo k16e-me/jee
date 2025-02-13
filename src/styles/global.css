@@ -113,9 +113,6 @@ svg.spinner path { @apply opacity-75 }
 br[key], * > br {
     display: none;
 }
-span, svg {
-    transition: inherit;
-}
 
 
 /* For Webkit-based browsers (Chrome, Safari and Opera) */
