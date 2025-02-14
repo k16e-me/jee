@@ -10,13 +10,14 @@ import ButtonMore from '@atoms/ButtonMore.astro'
 const {
 	links,
 	designations,
-	locations,
+	// locations,
 	sectors,
 	practices,
 	selectedItems,
 	class: classes,
 	...props
 } = Astro.props
+const locations = ['Victoria Island, Lagos', 'Abuja, Nigeria']
 const roles = [
 	'Managing Partner',
 	'Partner',
@@ -152,6 +153,8 @@ const {
 					class='accordion__icon block w-5 text-(--color-text-caption) opacity-70 group-hover/button:opacity-100 shrink-0 transition-all group-[.is-active]:opacity-100'
 				/>
 			</div>
+
+			<!-- Locations (client pref VI & Abj) -->
 			<div
 				class='accordion__content overflow-hidden max-h-0 transition-all ease-in-out'>
 				<fieldset

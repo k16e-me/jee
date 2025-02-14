@@ -13,7 +13,6 @@ import Drawer from '@blocks/Drawer.astro'
 import DrawerRegions from '@blocks/DrawerRegions.astro'
 import SearchGlobal from '@blocks/SearchGlobal.astro'
 import ModalVideo from '@blocks/ModalVideo.astro'
-import DrawerFiltersPeople from '@blocks/DrawerFiltersPeople.astro'
 import { _getSettings } from '@scripts/data/get-settings'
 
 const { pageTitle, pageDescription, pageThumbnail } = Astro.props
@@ -72,7 +71,6 @@ _startsWith(currPath, unfixHeader) ? (fixHeader = false) : (fixHeader = true)
 		<Drawer data-drawer>
 			<DrawerRegions data-drawer-display='regions' />
 			<SearchGlobal data-drawer-display='search' />
-			<DrawerFiltersPeople data-drawer-display='filters-people' />
 		</Drawer>
 		<Shim data-shim />
 		<script src='@scripts/global.js'></script>

@@ -4,7 +4,7 @@ export default function _viewResults() {
     if (!_q('[data-search-filter]')) return
 
     const form = _q('[data-search-filter]')
-    const button = _q('[data-view-results]')
+    const button = _q('[data-view-results]', form)
     const search = _q('.local-search input')
 
     if (button) {
