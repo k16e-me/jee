@@ -2,15 +2,15 @@
 import Icon from '@atoms/Icon.astro'
 
 const {
-    tag = 'button',
-    label,
-    icon,
-    style = 'default',
-    size = 'default',
-    flipIcon,
-    bounceIcon,
-    class: classes,
-    ...props
+	tag = 'button',
+	label,
+	icon,
+	style = 'default',
+	size = 'default',
+	flipIcon,
+	bounceIcon,
+	class: classes,
+	...props
 } = Astro.props
 const Tag = tag
 ---
@@ -28,8 +28,7 @@ const Tag = tag
 		style === 'neutral-dark' &&
 			'bg-transparent text-(--color-text-caption)',
 		style === 'brand' && 'bg-(--color-emphasis) text-white',
-		style === 'brand-inverted' &&
-			'bg-(--color-main-inverted) text-white',
+		style === 'brand-inverted' && 'bg-(--color-main-inverted) text-white',
 		size === 'large' && 'w-12 h-12',
 		size === 'default' && 'w-11 h-11',
 		size === 'mini' && 'w-10 h-10',
@@ -39,7 +38,7 @@ const Tag = tag
 	<Icon
 		name={icon}
 		class:list={[
-			'text-inherit group-hover:scale-[1.15] group-hover/link:scale-[1.15] block',
+			'text-inherit group-hover:scale-[1.15] group-hover/link:scale-[1.15] block transition duration-200',
 			flipIcon && 'rotate-90',
 			bounceIcon &&
 				'group-hover:animate-bounce [animation-fill-mode:both] duration-300',
