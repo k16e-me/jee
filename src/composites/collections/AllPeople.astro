@@ -66,17 +66,17 @@ const allPeopleFilters = {
 	<Grid split='sidebar' class='items-start'>
 		<div
 			class:list={[
-				'self-start sticky -top-px z-20 bg-(--color-bg-default) ml:bg-transparent ml:pt-8 flex flex-col group [&.is-pinned]:shadow ml:!shadow-none ml:max-h-[calc(100vh-1.5rem)] overflow-y-clip px-4 md:px-8 ml:pr-0 lg:pl-16',
+				'self-start ml:sticky ml:-top-px z-20 bg-(--color-bg-default) ml:bg-transparent ml:pt-8 flex flex-col group ml:[&.is-pinned]:shadow ml:!shadow-none ml:max-h-[calc(100vh-1.5rem)] overflow-y-clip px-4 md:px-8 ml:pr-0 lg:pl-16',
 			]}
 			data-pin-top>
 			<form
-				class='space-y-1.5 min-h-0 relative overflow-auto'
+				class='space-y-1.5 min-h-0 relative ml:overflow-auto'
 				data-search-filter>
 				<ButtonMore
 					tag='button'
 					type='submit'
 					label='View Results'
-					class='hidden ml-auto mb-4'
+					class='hidden ml:mb-4 pt-4 ml:pt-0 pb-1 ml:pb-0'
                     data-view-results
 				/>
 				<div
@@ -96,13 +96,13 @@ const allPeopleFilters = {
 					sectors={sectors}
 					practices={practices}
 					selectedItems={allCategories}
-					class='hidden ml:flex ml:flex-col'
+					class='flex flex-col'
 				/>
 			</form>
 		</div>
 		<div
 			class:list={[
-				'flex items-center justify-center ml:justify-start flex-wrap gap-6 lg:gap-8 relative z-10 pt-4 ml:pt-8 px-4 md:px-8 ml:pl-0 ml:pr-8',
+				'flex items-center justify-center ml:justify-start flex-wrap gap-6 relative z-10 pt-4 ml:pt-8 px-4 md:px-8 ml:pl-0 ml:pr-8',
 			]}>
 			{
 				visibleItems.length > 0 ? (

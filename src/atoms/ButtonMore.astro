@@ -17,7 +17,7 @@ const Tag = tag || 'a'
 <Tag
 	{...link ? { href: _slug(link) } : {}}
 	class:list={[
-		'group relative block text-center w-min transition duration-200',
+		'group/more relative block text-center w-min transition duration-200',
 		classes,
 	]}
 	{...props}>
@@ -25,17 +25,17 @@ const Tag = tag || 'a'
 		text={label}
 		weight='medium'
 		class={[
-			'flex items-center justify-center whitespace-nowrap transition duration-200',
+			'inline-flex items-center justify-center whitespace-nowrap transition duration-200',
 			theme === 'default' &&
-				'text-(--color-text-title) group-hover:text-(--color-text-emphasis)',
+				'text-(--color-text-title) group-hover/more:text-(--color-text-emphasis)',
 			theme === 'on-dark' &&
-				'text-(--color-lightest) group-hover:text-(--color-main-inverted)',
+				'text-(--color-lightest) group-hover/more:text-(--color-main-inverted)',
 		]}
 	/>
 	<Icon
 		name='underslash'
 		class:list={[
-			'fix-svg-stroke w-full h-3 -translate-y-[1px] group-hover:-translate-y-[3px] transition duration-200',
+			'fix-svg-stroke w-full h-3 -translate-y-[1px] group-hover/more:-translate-y-[3px] transition duration-200',
 			theme === 'default' && 'text-(--color-main)',
 			theme === 'on-dark' && 'text-(--color-main-inverted)',
 		]}
